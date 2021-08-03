@@ -607,4 +607,3 @@ Hence, $$\begin{aligned}
     &= \Pr( A - (2n - A) = 2m)  =   \Pr( 2A - 2n  = 2m) =   \Pr( A   = m + n)\\
     &= {2n \choose n+m} p^{n+m} q^{2n-(n+m)}, \quad   -n \le m \le n \\
     &= {2n \choose n+m} p^{n+m} q^{n-m}, \quad   -n \le m \le n.\end{aligned}$$
-

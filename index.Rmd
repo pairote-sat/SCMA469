@@ -4,6 +4,58 @@ author: "Pairote Satiracoo"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+tutorial::go_interactive()
+```
 # Down the rabbit-hole
 
+## DataCamp Light
+
+By default, `tutorial` will convert all R chunks.
+
+```{r}
+a <- 2
+b <- 3
+
+a + b
+```
+
+
+```{r ex="create_a", type="pre-exercise-code"}
+b <- 5
+```
+
+```{r ex="create_a", type="sample-code"}
+# Create a variable a, equal to 5
+
+
+# Print out a
+
+```
+
+```{r ex="create_a", type="solution"}
+# Create a variable a, equal to 5
+a <- 5
+
+# Print out a
+a
+```
+
+```{r ex="create_a", type="sct"}
+test_object("a")
+test_output_contains("a", incorrect_msg = "Make sure to print `a`.")
+success_msg("Great!")
+```
+
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars, echo=TRUE}
+summary(cars)
+```
