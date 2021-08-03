@@ -1,5 +1,5 @@
 # Introduction to Stochastic Processes {#intro}
-
+ 
 The course will cover the probabilistic framework for stochastic models
 of real-world applications with emphasis on actuarial work. We will
 illustrate some practical actuarial problems for which we will develop

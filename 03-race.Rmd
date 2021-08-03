@@ -1,5 +1,5 @@
 # Discrete-time Markov chains
-
+ 
 Recall the simple random walk model of the price of the stock. Suppose
 the stock price for the first four days are
 $$(X_0, X_1, X_2, X_3) = (100, 99, 98, 99).$$ Based on this past
