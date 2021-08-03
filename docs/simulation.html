@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Simulation | SCMA469 Actuarial Statistics</title>
+  <meta name="description" content="Chapter 8 Simulation | SCMA469 Actuarial Statistics" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Simulation | SCMA469 Actuarial Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Simulation | SCMA469 Actuarial Statistics" />
+  
+  
+  
+
+<meta name="author" content="Pairote Satiracoo" />
+
+
+<meta name="date" content="2021-08-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="the-chapman-kolmogorov-equations.html"/>
+<link rel="next" href="classification-of-states.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SCMA469</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Down the rabbit-hole</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to Stochastic Processes</a></li>
+<li class="chapter" data-level="3" data-path="examples-of-real-world-processes.html"><a href="examples-of-real-world-processes.html"><i class="fa fa-check"></i><b>3</b> Examples of real world processes</a></li>
+<li class="chapter" data-level="4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html"><i class="fa fa-check"></i><b>4</b> Review of probability theory</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#random-variables"><i class="fa fa-check"></i><b>4.1</b> Random variables</a></li>
+<li class="chapter" data-level="4.2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#probability-distribution"><i class="fa fa-check"></i><b>4.2</b> Probability distribution</a></li>
+<li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#examples-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i>Examples of discrete and continuous random variables</a></li>
+<li class="chapter" data-level="4.3" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-probability"><i class="fa fa-check"></i><b>4.3</b> Conditional probability</a></li>
+<li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#law-of-total-probability"><i class="fa fa-check"></i>Law of total probability</a></li>
+<li class="chapter" data-level="4.4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>4.4</b> Conditional distribution and conditional expectation</a></li>
+<li class="chapter" data-level="4.5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.5</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem-1"><i class="fa fa-check"></i>Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="stochastic-processes.html"><a href="stochastic-processes.html"><i class="fa fa-check"></i><b>5</b> Stochastic processes</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="stochastic-processes.html"><a href="stochastic-processes.html#classification-of-stochastic-processes"><i class="fa fa-check"></i><b>5.1</b> Classification of stochastic processes</a></li>
+<li class="chapter" data-level="5.2" data-path="stochastic-processes.html"><a href="stochastic-processes.html#random-walk-an-introductory-example"><i class="fa fa-check"></i><b>5.2</b> Random walk: an introductory example</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html"><i class="fa fa-check"></i><b>6</b> Discrete-time Markov chains</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#one-step-transition-probabilities"><i class="fa fa-check"></i><b>6.1</b> One-step transition probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html"><i class="fa fa-check"></i><b>7</b> The Chapman-Kolmogorov equations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#the-chapman-kolmogorov-equations-and-n-step-transition-probabilities"><i class="fa fa-check"></i><b>7.1</b> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
+<li class="chapter" data-level="7.2" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#distribution-of-x_n"><i class="fa fa-check"></i><b>7.2</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
+<li class="chapter" data-level="7.3" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#joint-distribution"><i class="fa fa-check"></i><b>7.3</b> Joint Distribution</a></li>
+<li class="chapter" data-level="7.4" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#random-walk-with-absorbing-and-reflecting-barriers"><i class="fa fa-check"></i><b>7.4</b> Random walk with absorbing and reflecting barrier(s)</a></li>
+<li class="chapter" data-level="7.5" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#an-example-of-nonhomogeneous-markov-chain"><i class="fa fa-check"></i><b>7.5</b> An example of nonhomogeneous Markov chain</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>8</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="simulation.html"><a href="simulation.html#monte-carlo-methods"><i class="fa fa-check"></i><b>8.1</b> Monte Carlo Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="classification-of-states.html"><a href="classification-of-states.html"><i class="fa fa-check"></i><b>9</b> Classification of states</a></li>
+<li class="chapter" data-level="10" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html"><i class="fa fa-check"></i><b>10</b> Absorption probabilities and expected time to absorption</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html#first-step-analysis"><i class="fa fa-check"></i><b>10.1</b> First step analysis</a></li>
+<li class="chapter" data-level="10.2" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html#the-expected-time-to-absorption"><i class="fa fa-check"></i><b>10.2</b> The expected time to absorption</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html"><i class="fa fa-check"></i><b>11</b> The long-term distribution of a Markov chain</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#stationary-and-limiting-distributions-for-a-single-closed-class"><i class="fa fa-check"></i><b>11.1</b> Stationary and limiting distributions for a single closed class</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#stationary-distributions"><i class="fa fa-check"></i>Stationary distributions</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#proportion-of-time-in-each-state"><i class="fa fa-check"></i>Proportion of Time in Each State</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#the-method-of-finding-the-stationary-distribution"><i class="fa fa-check"></i>The method of finding the stationary distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain"><i class="fa fa-check"></i><b>11.2</b> Sufficient conditions for the long-run behaviour of a Markov chain</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#limiting-distributions"><i class="fa fa-check"></i>Limiting distributions</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#main-result"><i class="fa fa-check"></i>Main result</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#applications-of-markov-chains-to-ncd-systems"><i class="fa fa-check"></i>Applications of Markov chains to NCD systems</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SCMA469 Actuarial Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simulation" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Simulation</h1>
+<p>Simulation is a powerful tool for studying Markov chains. For many
+Markov chains in real-world applications, state spaces are large and
+matrix methods may not be practical.</p>
+<p>A Markov chain can be simulated from an initial distribution and
+transition matrix. To simulate a Markov sequence <span class="math inline">\(X_0,X_1, \ldots,\)</span>
+simulate each random variable sequentially conditional on the outcome of
+the previous variable. That is, first simulate <span class="math inline">\(X_0\)</span> according to the
+initial distribution. If <span class="math inline">\(X_0 = i\)</span>, then simulate <span class="math inline">\(X_1\)</span> from the <span class="math inline">\(i-th\)</span>
+row of the transition matrix. If <span class="math inline">\(X_1 = j\)</span>, then simulate <span class="math inline">\(X_2\)</span> from the
+<span class="math inline">\(j-th\)</span> row of the transition matrix, and so on.</p>
+<pre><code>[frame=single, escapeinside={(*}{*)}, caption={Algorithm for Simulating a Markov Chain}]
+
+Input: (i) initial distribution  (*$\boldsymbol{\mu}$*), (ii) transition matrix (*$P$*), (iii) number of steps (*$n$*).
+Output: (*$X_0, X_1, \ldots , X_n$*)
+Algorithm:
+    Generate (*$X_0$*) according to (*$\boldsymbol{\mu}$*)
+    FOR (*$i = 1, \ldots ,n$*)
+        Assume that (*$X_{i-1} = j$*)
+        Set (*$\boldsymbol p = j-$*)th row of (*$P$*) 
+        Generate (*$X_i$*) according to (*$\boldsymbol p$*)
+    END FOR</code></pre>
+<div id="monte-carlo-methods" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Monte Carlo Methods</h2>
+<p>Monte Carlo methods are simulation-based algorithms that rely on
+generating a large set of samples from a statistical model to obtain the
+behaviour of the model and estimate the quantities of interest. For a
+large sample set of a random variable representing a quantity of
+interest, the law of large numbers allows to approximate the expectation
+by the average value from the samples.</p>
+<p>Consider repeated independent trials of a random experiment. We will
+need to generate a large number of samples <span class="math inline">\(X_1, X_2, \ldots\)</span> from the
+model. A Monte Carlo method for estimating the expectation
+<span class="math inline">\(\mathrm{E}( X )\)</span> is a numerical method based on the approximation
+<span class="math display">\[\mathrm{E}(X) \approx \frac{1}{N}\sum_{i=1}^N X_i,\]</span> where
+<span class="math inline">\(X_1, X_2, \ldots\)</span> are i.i.d. with the same distribution as <span class="math inline">\(X\)</span>.</p>
+<p>While computing expectations and computing probabilities at first look
+like different problems, the latter can be reduced to the former: if <span class="math inline">\(X\)</span>
+is a random variable, we have
+<span class="math display">\[\Pr(X \in A) = \mathrm{E}(\mathbbm{1}_A(X)).\]</span></p>
+<p>Using this equality, we can estimate <span class="math inline">\(\Pr(X \in A)\)</span> by
+<span class="math display">\[\Pr(X \in A) = \mathrm{E}(\mathbbm{1}_A(X)) = \frac{1}{N}\sum_{i=1}^N \mathbbm{1}_A(X_i).\]</span></p>
+<p>Recall that the indicator function of the set <span class="math inline">\(A\)</span> is the defined as
+<span class="math display">\[\mathbbm{1}_A(x) =
+\begin{cases*}
+     1          &amp; if $x \in A $ \\
+      0        &amp; otherwise.
+\end{cases*}\]</span></p>
+<p>The following user-defined function in Excel can be used to simulate
+random numbers from a discrete distribution.</p>
+<pre><code>[frame=single, escapeinside={(*}{*)}, caption={A user-defined function in Excel to simulate random numbers from a discrete distribution. 
+}]
+Public Function Discrete(value As Variant, prob As Variant)
+
+Dim i As Integer
+Dim cumProb As Single
+Dim uniform As Single
+Randomize
+&#39;Randomize Statement
+&#39;Initializes the random-number generator.
+
+Application.Volatile
+
+&#39; This example marks the user-defined function Discrete as volatile.
+&#39; The function will be recalculated when any cell in any workbook
+&#39; in the application window changes value worksheet.
+
+uniform = Rnd
+cumProb = prob(1)
+i = 1
+Do Until cumProb &gt; uniform
+    i = i + 1
+    cumProb = cumProb + prob(i)
+Loop
+Discrete = value(i)
+
+End Function</code></pre>
+<div class="example">
+<p><span id="exm:unlabeled-div-22" class="example"><strong>Example 8.1  </strong></span><strong>Example 14</strong>. <em>(R or Excel) A gambler starts with and plays a game
+where the chance of winning each round is 60%. The gambler either wins
+or loses on each round. The game stops when the gambler either gains or
+goes bust.</em></p>
+<ol style="list-style-type: decimal">
+<li><p><em>Develop an Excel worksheet or create an R code to simulate 50 steps
+of the finite Markov chain of the random walk <span class="math inline">\(X_n\)</span> given in
+Example <a href="#simpleRW" reference-type="ref" reference="simpleRW">Example 12</a>. Repeat the simulation 10 times. How many of
+your simulations end at 0.</em></p></li>
+<li><p><em>Use the results from the simulations to estimate the mean and
+variance of <span class="math inline">\(X_{5}\)</span>.</em></p></li>
+<li><p><em>Use the results from the simulations to estimate the probability
+that the gambler is eventually ruined.</em></p></li>
+</ol>
+</div>
+<div class="example">
+<p><span id="exm:exampleStationary2" class="example"><strong>Example 8.2  </strong></span><strong>Example 15</strong>. <em>(R or Excel) A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on
+states <span class="math inline">\(\{1,2\}\)</span> has the following transition matrix
+<span class="math display">\[P = \begin{bmatrix}
+    1-a &amp; a   \\
+    b &amp; 1-b   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix},\]</span> where <span class="math inline">\(0 &lt; a,b &lt; 1.\)</span></em></p>
+<ol style="list-style-type: decimal">
+<li><p><em>Use either Excel or R to estimate the long-term distribution of the
+Markov chain. (Hint: consider the <span class="math inline">\(n\)</span>-step transition matrix for
+several increasing values of <span class="math inline">\(n\)</span>). Comments on the results
+obtained.</em></p>
+<p><em>Later we will see that in many cases, a Markov chain exhibits a
+long-term limiting behaviour. The chain settles down to an
+equilibrium distribution, which is independent of its initial
+state.</em></p></li>
+<li><p><em>Use simulations to estimate the long-term probability that a Markov
+chain hits each of the states. (Hint: simulate the Markov chain 1000
+steps and calculate the proportion of visits to each state)</em></p></li>
+</ol>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-chapman-kolmogorov-equations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="classification-of-states.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/pairote-sat/SCMA469/edit/master/03-race.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/pairote-sat/SCMA469/blob/master/03-race.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
