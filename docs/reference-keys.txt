@@ -46,7 +46,7 @@ thm:unlabeled-div-33
 exm:unlabeled-div-34
 exm:unlabeled-div-35
 exm:unlabeled-div-36
-down-the-rabbit-hole
+datacamp-light
 r-markdown
 intro
 examples-of-real-world-processes
