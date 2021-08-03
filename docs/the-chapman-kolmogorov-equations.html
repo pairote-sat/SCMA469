@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 The Chapman-Kolmogorov equations | SCMA469 Actuarial Statistics</title>
-  <meta name="description" content="Chapter 8 The Chapman-Kolmogorov equations | SCMA469 Actuarial Statistics" />
+  <title>Chapter 7 The Chapman-Kolmogorov equations | SCMA469 Actuarial Statistics</title>
+  <meta name="description" content="Chapter 7 The Chapman-Kolmogorov equations | SCMA469 Actuarial Statistics" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 The Chapman-Kolmogorov equations | SCMA469 Actuarial Statistics" />
+  <meta property="og:title" content="Chapter 7 The Chapman-Kolmogorov equations | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 The Chapman-Kolmogorov equations | SCMA469 Actuarial Statistics" />
+  <meta name="twitter:title" content="Chapter 7 The Chapman-Kolmogorov equations | SCMA469 Actuarial Statistics" />
   
   
   
@@ -55,70 +55,6 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 </head>
@@ -133,57 +69,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> DataCamp Light</a></li>
-<li class="chapter" data-level="2" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>2</b> R Markdown</a></li>
-<li class="chapter" data-level="3" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>3</b> Introduction to Stochastic Processes</a></li>
-<li class="chapter" data-level="4" data-path="examples-of-real-world-processes.html"><a href="examples-of-real-world-processes.html"><i class="fa fa-check"></i><b>4</b> Examples of real world processes</a></li>
-<li class="chapter" data-level="5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html"><i class="fa fa-check"></i><b>5</b> Review of probability theory</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> DataCamp Light</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#random-variables"><i class="fa fa-check"></i><b>5.1</b> Random variables</a></li>
-<li class="chapter" data-level="5.2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#probability-distribution"><i class="fa fa-check"></i><b>5.2</b> Probability distribution</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#r-markdown"><i class="fa fa-check"></i><b>1.1</b> R Markdown</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#including-plots"><i class="fa fa-check"></i><b>1.2</b> Including Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to Stochastic Processes</a></li>
+<li class="chapter" data-level="3" data-path="examples-of-real-world-processes.html"><a href="examples-of-real-world-processes.html"><i class="fa fa-check"></i><b>3</b> Examples of real world processes</a></li>
+<li class="chapter" data-level="4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html"><i class="fa fa-check"></i><b>4</b> Review of probability theory</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#random-variables"><i class="fa fa-check"></i><b>4.1</b> Random variables</a></li>
+<li class="chapter" data-level="4.2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#probability-distribution"><i class="fa fa-check"></i><b>4.2</b> Probability distribution</a></li>
 <li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#examples-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i>Examples of discrete and continuous random variables</a></li>
-<li class="chapter" data-level="5.3" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-probability"><i class="fa fa-check"></i><b>5.3</b> Conditional probability</a></li>
+<li class="chapter" data-level="4.3" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-probability"><i class="fa fa-check"></i><b>4.3</b> Conditional probability</a></li>
 <li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#law-of-total-probability"><i class="fa fa-check"></i>Law of total probability</a></li>
-<li class="chapter" data-level="5.4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>5.4</b> Conditional distribution and conditional expectation</a></li>
-<li class="chapter" data-level="5.5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem"><i class="fa fa-check"></i><b>5.5</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="4.4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>4.4</b> Conditional distribution and conditional expectation</a></li>
+<li class="chapter" data-level="4.5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.5</b> Central Limit Theorem</a></li>
 <li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem-1"><i class="fa fa-check"></i>Central Limit Theorem</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="stochastic-processes.html"><a href="stochastic-processes.html"><i class="fa fa-check"></i><b>6</b> Stochastic processes</a>
+<li class="chapter" data-level="5" data-path="stochastic-processes.html"><a href="stochastic-processes.html"><i class="fa fa-check"></i><b>5</b> Stochastic processes</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="stochastic-processes.html"><a href="stochastic-processes.html#classification-of-stochastic-processes"><i class="fa fa-check"></i><b>6.1</b> Classification of stochastic processes</a></li>
-<li class="chapter" data-level="6.2" data-path="stochastic-processes.html"><a href="stochastic-processes.html#random-walk-an-introductory-example"><i class="fa fa-check"></i><b>6.2</b> Random walk: an introductory example</a></li>
+<li class="chapter" data-level="5.1" data-path="stochastic-processes.html"><a href="stochastic-processes.html#classification-of-stochastic-processes"><i class="fa fa-check"></i><b>5.1</b> Classification of stochastic processes</a></li>
+<li class="chapter" data-level="5.2" data-path="stochastic-processes.html"><a href="stochastic-processes.html#random-walk-an-introductory-example"><i class="fa fa-check"></i><b>5.2</b> Random walk: an introductory example</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html"><i class="fa fa-check"></i><b>7</b> Discrete-time Markov chains</a>
+<li class="chapter" data-level="6" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html"><i class="fa fa-check"></i><b>6</b> Discrete-time Markov chains</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#one-step-transition-probabilities"><i class="fa fa-check"></i><b>7.1</b> One-step transition probabilities</a></li>
+<li class="chapter" data-level="6.1" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#one-step-transition-probabilities"><i class="fa fa-check"></i><b>6.1</b> One-step transition probabilities</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html"><i class="fa fa-check"></i><b>8</b> The Chapman-Kolmogorov equations</a>
+<li class="chapter" data-level="7" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html"><i class="fa fa-check"></i><b>7</b> The Chapman-Kolmogorov equations</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#the-chapman-kolmogorov-equations-and-n-step-transition-probabilities"><i class="fa fa-check"></i><b>8.1</b> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
-<li class="chapter" data-level="8.2" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#distribution-of-x_n"><i class="fa fa-check"></i><b>8.2</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
-<li class="chapter" data-level="8.3" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#joint-distribution"><i class="fa fa-check"></i><b>8.3</b> Joint Distribution</a></li>
-<li class="chapter" data-level="8.4" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#random-walk-with-absorbing-and-reflecting-barriers"><i class="fa fa-check"></i><b>8.4</b> Random walk with absorbing and reflecting barrier(s)</a></li>
-<li class="chapter" data-level="8.5" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#an-example-of-nonhomogeneous-markov-chain"><i class="fa fa-check"></i><b>8.5</b> An example of nonhomogeneous Markov chain</a></li>
+<li class="chapter" data-level="7.1" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#the-chapman-kolmogorov-equations-and-n-step-transition-probabilities"><i class="fa fa-check"></i><b>7.1</b> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
+<li class="chapter" data-level="7.2" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#distribution-of-x_n"><i class="fa fa-check"></i><b>7.2</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
+<li class="chapter" data-level="7.3" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#joint-distribution"><i class="fa fa-check"></i><b>7.3</b> Joint Distribution</a></li>
+<li class="chapter" data-level="7.4" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#random-walk-with-absorbing-and-reflecting-barriers"><i class="fa fa-check"></i><b>7.4</b> Random walk with absorbing and reflecting barrier(s)</a></li>
+<li class="chapter" data-level="7.5" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#an-example-of-nonhomogeneous-markov-chain"><i class="fa fa-check"></i><b>7.5</b> An example of nonhomogeneous Markov chain</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>9</b> Simulation</a>
+<li class="chapter" data-level="8" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>8</b> Simulation</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="simulation.html"><a href="simulation.html#monte-carlo-methods"><i class="fa fa-check"></i><b>9.1</b> Monte Carlo Methods</a></li>
+<li class="chapter" data-level="8.1" data-path="simulation.html"><a href="simulation.html#monte-carlo-methods"><i class="fa fa-check"></i><b>8.1</b> Monte Carlo Methods</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="classification-of-states.html"><a href="classification-of-states.html"><i class="fa fa-check"></i><b>10</b> Classification of states</a></li>
-<li class="chapter" data-level="11" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html"><i class="fa fa-check"></i><b>11</b> Absorption probabilities and expected time to absorption</a>
+<li class="chapter" data-level="9" data-path="classification-of-states.html"><a href="classification-of-states.html"><i class="fa fa-check"></i><b>9</b> Classification of states</a></li>
+<li class="chapter" data-level="10" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html"><i class="fa fa-check"></i><b>10</b> Absorption probabilities and expected time to absorption</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html#first-step-analysis"><i class="fa fa-check"></i><b>11.1</b> First step analysis</a></li>
-<li class="chapter" data-level="11.2" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html#the-expected-time-to-absorption"><i class="fa fa-check"></i><b>11.2</b> The expected time to absorption</a></li>
+<li class="chapter" data-level="10.1" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html#first-step-analysis"><i class="fa fa-check"></i><b>10.1</b> First step analysis</a></li>
+<li class="chapter" data-level="10.2" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html#the-expected-time-to-absorption"><i class="fa fa-check"></i><b>10.2</b> The expected time to absorption</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html"><i class="fa fa-check"></i><b>12</b> The long-term distribution of a Markov chain</a>
+<li class="chapter" data-level="11" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html"><i class="fa fa-check"></i><b>11</b> The long-term distribution of a Markov chain</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#stationary-and-limiting-distributions-for-a-single-closed-class"><i class="fa fa-check"></i><b>12.1</b> Stationary and limiting distributions for a single closed class</a>
+<li class="chapter" data-level="11.1" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#stationary-and-limiting-distributions-for-a-single-closed-class"><i class="fa fa-check"></i><b>11.1</b> Stationary and limiting distributions for a single closed class</a>
 <ul>
 <li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#stationary-distributions"><i class="fa fa-check"></i>Stationary distributions</a></li>
 <li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#proportion-of-time-in-each-state"><i class="fa fa-check"></i>Proportion of Time in Each State</a></li>
 <li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#the-method-of-finding-the-stationary-distribution"><i class="fa fa-check"></i>The method of finding the stationary distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain"><i class="fa fa-check"></i><b>12.2</b> Sufficient conditions for the long-run behaviour of a Markov chain</a></li>
+<li class="chapter" data-level="11.2" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain"><i class="fa fa-check"></i><b>11.2</b> Sufficient conditions for the long-run behaviour of a Markov chain</a></li>
 <li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#limiting-distributions"><i class="fa fa-check"></i>Limiting distributions</a></li>
 <li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#main-result"><i class="fa fa-check"></i>Main result</a>
 <ul>
@@ -207,10 +146,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-chapman-kolmogorov-equations" class="section level1" number="8">
-<h1><span class="header-section-number">Chapter 8</span> The Chapman-Kolmogorov equations</h1>
-<div id="the-chapman-kolmogorov-equations-and-n-step-transition-probabilities" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</h2>
+<div id="the-chapman-kolmogorov-equations" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> The Chapman-Kolmogorov equations</h1>
+<div id="the-chapman-kolmogorov-equations-and-n-step-transition-probabilities" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</h2>
 <p>The <span class="math inline">\(n\)</span>-step transition probability denoted by <span class="math inline">\(p^{(n)}_{ij}\)</span> is the
 probability that the process goes from state <span class="math inline">\(i\)</span> to state <span class="math inline">\(j\)</span> in <span class="math inline">\(n\)</span>
 transitions, i.e. <span class="math display">\[p^{(n)}_{ij} = \Pr(X_{m+n} = j | X_m = i ).\]</span> Note
@@ -236,7 +175,7 @@ can be expressed in terms of matrix multiplication as
 <span class="math display">\[P^n  = P^l P^{n-l}.\]</span> The <span class="math inline">\(n\)</span>-<strong>step transition probabilities</strong>
 <span class="math inline">\(p^{(n)}_{ij}\)</span> are the <span class="math inline">\(ij\)</span> elements of <span class="math inline">\(P^n\)</span>.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-17" class="example"><strong>Example 8.1  </strong></span><strong>Example 7</strong>. <em>For the NCD system given in
+<p><span id="exm:unlabeled-div-17" class="example"><strong>Example 7.1  </strong></span><strong>Example 7</strong>. <em>For the NCD system given in
 Example <a href="#NCD" reference-type="ref" reference="NCD">Example 2</a>, suppose
 that <span class="math inline">\(p = 3/4\)</span>, the probability of a claim-free year and the initial
 discount level of a policyholder is 1 (with 20% discount).</em></p>
@@ -273,15 +212,15 @@ indices used) .</p></li>
 &amp;= 51/32 = 1.59375.\end{aligned}\]</span></p></li>
 </ol>
 </div>
-<div id="distribution-of-x_n" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Distribution of <span class="math inline">\(X_n\)</span></h2>
+<div id="distribution-of-x_n" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Distribution of <span class="math inline">\(X_n\)</span></h2>
 <p>Let <span class="math inline">\(\boldsymbol{\mu}^{(n)}\)</span> be the vector of probability mass function
 of <span class="math inline">\(X_n\)</span>, i.e. <span class="math display">\[\boldsymbol{\mu}^{(n)} = (\mu_1, \mu_2, \ldots ),\]</span>
 where <span class="math inline">\(\mu_i = \Pr(X_n = i)\)</span>. It follows that
 <span class="math display">\[\boldsymbol{\mu}^{(n+1)} = \boldsymbol{\mu}^{(n)} P\]</span> and, in general,
 <span class="math display">\[\boldsymbol{\mu}^{(n+m)} = \boldsymbol{\mu}^{(n)} P^m.\]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-18" class="example"><strong>Example 8.2  </strong></span><strong>Example 8</strong>.</p>
+<p><span id="exm:unlabeled-div-18" class="example"><strong>Example 7.2  </strong></span><strong>Example 8</strong>.</p>
 <ol style="list-style-type: decimal">
 <li><p><em>Show that
 <span class="math display">\[Pr(X_1 = i) = \sum_{k \in S} \mu_k p_{ki} = ( \boldsymbol{\mu} P)_i,\]</span>
@@ -299,7 +238,7 @@ initial random variable <span class="math inline">\(X_0\)</span> with <span clas
     &amp;= ( \boldsymbol{\mu} P)_i.\end{aligned}\]</span></li>
 </ol>
 <div class="example">
-<p><span id="exm:weather" class="example"><strong>Example 8.3  </strong></span><strong>Example 9</strong>. <em>The simple weather pattern can be classified into three
+<p><span id="exm:weather" class="example"><strong>Example 7.3  </strong></span><strong>Example 9</strong>. <em>The simple weather pattern can be classified into three
 types including rainy (<span class="math inline">\(R\)</span>), cloudy (<span class="math inline">\(C\)</span>) and sunny (<span class="math inline">\(S\)</span>). The weather
 is observed daily. The following information is provided.</em></p>
 <ul>
@@ -335,8 +274,8 @@ given by <span class="math display">\[P = \begin{bmatrix}
 desired probability of sunny is
 <span class="math display">\[\Pr(X_2 = S) =( \boldsymbol{\mu} \cdot P^2 )_S  = (\boldsymbol{\mu} \cdot P^2 )_3 = 0.13.\]</span></p>
 </div>
-<div id="joint-distribution" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Joint Distribution</h2>
+<div id="joint-distribution" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Joint Distribution</h2>
 <p>Let <span class="math inline">\(X_0, X_1, \ldots\)</span> be a Markov chain with transition matrix <span class="math inline">\(P\)</span> and
 initial distribution <span class="math inline">\(\boldsymbol{\mu}.\)</span> For all
 <span class="math inline">\(0 \le n_1 \le n_2 &lt; \cdots &lt; n_{k-1} &lt; n_k\)</span> and states
@@ -346,7 +285,7 @@ initial distribution <span class="math inline">\(\boldsymbol{\mu}.\)</span> For 
 From the above result, the joint probability is obtained from just the
 initial distribution <span class="math inline">\(\boldsymbol{\mu}\)</span> and the transition matrix <span class="math inline">\(P\)</span>.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-19" class="example"><strong>Example 8.4  </strong></span><strong>Example 10</strong>. <em>In Example <a href="#weather" reference-type="ref" reference="weather">Example 9</a>, on Sunday, the chances of rain, cloudy and sunny
+<p><span id="exm:unlabeled-div-19" class="example"><strong>Example 7.4  </strong></span><strong>Example 10</strong>. <em>In Example <a href="#weather" reference-type="ref" reference="weather">Example 9</a>, on Sunday, the chances of rain, cloudy and sunny
 have the same probabilities. Find the probability that it will be sunny
 on the following Wednesday and Friday, and cloudy on Saturday.</em></p>
 </div>
@@ -362,10 +301,10 @@ on the following Wednesday and Friday, and cloudy on Saturday.</em></p>
 &amp;= (\boldsymbol{\mu}  \cdot P^3)_3 \cdot P^{2}_{33} \cdot P_{32}  \\
 &amp;= 0.148 \cdot  0.22 \cdot 0.4 = 0.013024.\end{aligned}\]</span></p>
 </div>
-<div id="random-walk-with-absorbing-and-reflecting-barriers" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Random walk with absorbing and reflecting barrier(s)</h2>
+<div id="random-walk-with-absorbing-and-reflecting-barriers" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Random walk with absorbing and reflecting barrier(s)</h2>
 <div class="example">
-<p><span id="exm:unlabeled-div-20" class="example"><strong>Example 8.5  </strong></span><strong>Example 11</strong>. <em>A one-dimensional random walk <span class="math inline">\(\{X_n\}\)</span> is defined on a
+<p><span id="exm:unlabeled-div-20" class="example"><strong>Example 7.5  </strong></span><strong>Example 11</strong>. <em>A one-dimensional random walk <span class="math inline">\(\{X_n\}\)</span> is defined on a
 finite or infinite subset of integers in which the process in state <span class="math inline">\(i\)</span>
 can either stay in <span class="math inline">\(i\)</span> or move to its neighbouring states <span class="math inline">\(i -1\)</span> and
 <span class="math inline">\(i+1\)</span>. Suppose that given that <span class="math inline">\(X_n = i\)</span> at time <span class="math inline">\(n\)</span>,</em></p>
@@ -402,7 +341,7 @@ can either stay in <span class="math inline">\(i\)</span> or move to its neighbo
            \end{cases}\end{aligned}\]</span></p></li>
 </ol>
 <div class="example">
-<p><span id="exm:simpleRW" class="example"><strong>Example 8.6  </strong></span><strong>Example 12</strong>. <em>The random walk can be used to model the fortune of a
+<p><span id="exm:simpleRW" class="example"><strong>Example 7.6  </strong></span><strong>Example 12</strong>. <em>The random walk can be used to model the fortune of a
 gambler. The gambler bets per game and the probability of winning is <span class="math inline">\(p\)</span>
 and the probability of losing is <span class="math inline">\(q\)</span> where <span class="math inline">\(p + q = 1\)</span>. In addition, the
 gambler is ruined (or goes broke) if he reaches state 0, and also stops
@@ -441,13 +380,13 @@ for the chain. The process might be used to model the fortune of an
 individual when negative fortune is reset to zero.</p></li>
 </ol>
 </div>
-<div id="an-example-of-nonhomogeneous-markov-chain" class="section level2" number="8.5">
-<h2><span class="header-section-number">8.5</span> An example of nonhomogeneous Markov chain</h2>
+<div id="an-example-of-nonhomogeneous-markov-chain" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> An example of nonhomogeneous Markov chain</h2>
 <p>In this section, we give an example of a discrete-time nonhomogeneous
 Markov chain. Again, without stated otherwise, we shall assume that the
 discrete-time Markov chains are homogeneous.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-21" class="example"><strong>Example 8.7  </strong></span><strong>Example 13</strong>. <em>(Adapted from W.J.Stewart)
+<p><span id="exm:unlabeled-div-21" class="example"><strong>Example 7.7  </strong></span><strong>Example 13</strong>. <em>(Adapted from W.J.Stewart)
 <span id="exampleStationary2" label="exampleStationary2"><span class="math display">\[exampleStationary2\]</span></span>
 A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> consists of two states <span class="math inline">\(\{1,2\}\)</span>. At
 time step <span class="math inline">\(n\)</span>, the probability that the Markov chain remains in its

@@ -48,6 +48,7 @@ exm:unlabeled-div-35
 exm:unlabeled-div-36
 datacamp-light
 r-markdown
+including-plots
 intro
 examples-of-real-world-processes
 review-of-probability-theory
