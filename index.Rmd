@@ -1,6 +1,6 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAME HERE"
+title: "SCMA469 Actuarial Statistics"
+author: "Pairote Satiracoo"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
