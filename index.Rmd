@@ -8,13 +8,16 @@ output:
    bookdown::gitbook: default
 ---
 ```{r, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
 tutorial::go_interactive()
 ```
 
 # DataCamp Light
 
+
 <script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
+
+<!-- <script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></script> -->
+
 
 By default, `tutorial` will convert all R chunks.
 
@@ -78,4 +81,65 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 ```{r}
 norm <- rnorm(100, mean = 0, sd = 1)
+```
+
+
+# Tikz
+
+```{r, include=FALSE}
+tutorial::go_interactive(greedy = FALSE)
+```
+
+```{tikz, tikz-ex1, fig.cap = "Funky tikz", fig.ext = 'png', cache=TRUE}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Circle [id:dp7802655535593035] 
+\draw   (124.5,131.5) .. controls (124.5,109.68) and (142.18,92) .. (164,92) .. controls (185.82,92) and (203.5,109.68) .. (203.5,131.5) .. controls (203.5,153.32) and (185.82,171) .. (164,171) .. controls (142.18,171) and (124.5,153.32) .. (124.5,131.5) -- cycle ;
+%Shape: Circle [id:dp13979087939897683] 
+\draw   (364.5,131.5) .. controls (364.5,109.68) and (382.18,92) .. (404,92) .. controls (425.82,92) and (443.5,109.68) .. (443.5,131.5) .. controls (443.5,153.32) and (425.82,171) .. (404,171) .. controls (382.18,171) and (364.5,153.32) .. (364.5,131.5) -- cycle ;
+%Shape: Circle [id:dp053401350696195005] 
+\draw   (243.5,131.5) .. controls (243.5,109.68) and (261.18,92) .. (283,92) .. controls (304.82,92) and (322.5,109.68) .. (322.5,131.5) .. controls (322.5,153.32) and (304.82,171) .. (283,171) .. controls (261.18,171) and (243.5,153.32) .. (243.5,131.5) -- cycle ;
+%Curve Lines [id:da9993878974534449] 
+\draw    (161.5,82) .. controls (185.26,62.2) and (229.6,45.34) .. (277.06,79.94) ;
+\draw [shift={(278.5,81)}, rotate = 216.87] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da9702559602211298] 
+\draw    (167.64,183.76) .. controls (195.26,211.71) and (262.35,204.54) .. (279.5,182) ;
+\draw [shift={(166,182)}, rotate = 48.54] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da7551239125196998] 
+\draw    (278.5,81) .. controls (302.26,61.2) and (346.6,44.34) .. (394.06,78.94) ;
+\draw [shift={(395.5,80)}, rotate = 216.87] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da1661078861376919] 
+\draw    (284.47,183.53) .. controls (309.38,207.87) and (379.35,204.54) .. (396.5,182) ;
+\draw [shift={(283,182)}, rotate = 47.89] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da3745949307885861] 
+\draw    (115.71,115.38) .. controls (24.66,64.06) and (32.88,214.37) .. (119.5,152) ;
+\draw [shift={(118.5,117)}, rotate = 210.78] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Curve Lines [id:da7538868641870105] 
+\draw    (452,115) .. controls (558.96,39.38) and (552.57,221.17) .. (453.99,145.17) ;
+\draw [shift={(452.5,144)}, rotate = 398.31] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (156,126) node [anchor=north west][inner sep=0.75pt]   [align=left] {0};
+% Text Node
+\draw (276,125) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+% Text Node
+\draw (397,126) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+% Text Node
+\draw (213,33) node [anchor=north west][inner sep=0.75pt]    {$p$};
+% Text Node
+\draw (334,32) node [anchor=north west][inner sep=0.75pt]    {$p$};
+% Text Node
+\draw (536,116) node [anchor=north west][inner sep=0.75pt]    {$p$};
+% Text Node
+\draw (330,204) node [anchor=north west][inner sep=0.75pt]    {$1-p$};
+% Text Node
+\draw (5,124) node [anchor=north west][inner sep=0.75pt]    {$1-p$};
+% Text Node
+\draw (199,203) node [anchor=north west][inner sep=0.75pt]    {$1-p$};
+
+
+\end{tikzpicture}
 ```

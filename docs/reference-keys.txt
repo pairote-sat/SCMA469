@@ -1,3 +1,4 @@
+fig:tikz-ex1
 exm:unlabeled-div-1
 exm:unlabeled-div-2
 exm:unlabeled-div-3
@@ -49,6 +50,7 @@ exm:unlabeled-div-36
 datacamp-light
 r-markdown
 including-plots
+tikz
 intro
 examples-of-real-world-processes
 review-of-probability-theory
