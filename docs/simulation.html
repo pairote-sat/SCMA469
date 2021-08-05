@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 13 Applications | A Minimal Book Example</title>
+  <title>Chapter 8 Simulation | A Minimal Book Example</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 13 Applications | A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 8 Simulation | A Minimal Book Example" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 13 Applications | A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 8 Simulation | A Minimal Book Example" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="methods.html"/>
-<link rel="next" href="final-words.html"/>
+<link rel="prev" href="the-chapman-kolmogorov-equations.html"/>
+<link rel="next" href="classification-of-states.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -223,17 +223,123 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="applications" class="section level1" number="13">
-<h1><span class="header-section-number">Chapter 13</span> Applications</h1>
-<p>Some <em>significant</em> applications are demonstrated in this chapter.</p>
-<div id="datacamp-light" class="section level2" number="13.1">
-<h2><span class="header-section-number">13.1</span> DataCamp Light</h2>
-<script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
-<p>By default, <code>tutorial</code> will convert all R chunks.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhIDwtIDJcbmIgPC0gM1xuXG5hICsgYiJ9
-</div>
+<div id="simulation" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Simulation</h1>
+<p>Simulation is a powerful tool for studying Markov chains. For many
+Markov chains in real-world applications, state spaces are large and
+matrix methods may not be practical.</p>
+<p>A Markov chain can be simulated from an initial distribution and
+transition matrix. To simulate a Markov sequence <span class="math inline">\(X_0,X_1, \ldots,\)</span>
+simulate each random variable sequentially conditional on the outcome of
+the previous variable. That is, first simulate <span class="math inline">\(X_0\)</span> according to the
+initial distribution. If <span class="math inline">\(X_0 = i\)</span>, then simulate <span class="math inline">\(X_1\)</span> from the <span class="math inline">\(i-th\)</span>
+row of the transition matrix. If <span class="math inline">\(X_1 = j\)</span>, then simulate <span class="math inline">\(X_2\)</span> from the
+<span class="math inline">\(j-th\)</span> row of the transition matrix, and so on.</p>
+<pre><code>[frame=single, escapeinside={(*}{*)}, caption={Algorithm for Simulating a Markov Chain}]
 
+Input: (i) initial distribution  (*$\boldsymbol{\mu}$*), (ii) transition matrix (*$P$*), (iii) number of steps (*$n$*).
+Output: (*$X_0, X_1, \ldots , X_n$*)
+Algorithm:
+    Generate (*$X_0$*) according to (*$\boldsymbol{\mu}$*)
+    FOR (*$i = 1, \ldots ,n$*)
+        Assume that (*$X_{i-1} = j$*)
+        Set (*$\boldsymbol p = j-$*)th row of (*$P$*) 
+        Generate (*$X_i$*) according to (*$\boldsymbol p$*)
+    END FOR</code></pre>
+<div id="monte-carlo-methods" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Monte Carlo Methods</h2>
+<p>Monte Carlo methods are simulation-based algorithms that rely on
+generating a large set of samples from a statistical model to obtain the
+behaviour of the model and estimate the quantities of interest. For a
+large sample set of a random variable representing a quantity of
+interest, the law of large numbers allows to approximate the expectation
+by the average value from the samples.</p>
+<p>Consider repeated independent trials of a random experiment. We will
+need to generate a large number of samples <span class="math inline">\(X_1, X_2, \ldots\)</span> from the
+model. A Monte Carlo method for estimating the expectation
+<span class="math inline">\(\mathrm{E}( X )\)</span> is a numerical method based on the approximation
+<span class="math display">\[\mathrm{E}(X) \approx \frac{1}{N}\sum_{i=1}^N X_i,\]</span> where
+<span class="math inline">\(X_1, X_2, \ldots\)</span> are i.i.d. with the same distribution as <span class="math inline">\(X\)</span>.</p>
+<p>While computing expectations and computing probabilities at first look
+like different problems, the latter can be reduced to the former: if <span class="math inline">\(X\)</span>
+is a random variable, we have
+<span class="math display">\[\Pr(X \in A) = \mathrm{E}(\mathbbm{1}_A(X)).\]</span></p>
+<p>Using this equality, we can estimate <span class="math inline">\(\Pr(X \in A)\)</span> by
+<span class="math display">\[\Pr(X \in A) = \mathrm{E}(\mathbbm{1}_A(X)) = \frac{1}{N}\sum_{i=1}^N \mathbbm{1}_A(X_i).\]</span></p>
+<p>Recall that the indicator function of the set <span class="math inline">\(A\)</span> is the defined as
+<span class="math display">\[\mathbbm{1}_A(x) =
+\begin{cases*}
+     1          &amp; if $x \in A $ \\
+      0        &amp; otherwise.
+\end{cases*}\]</span></p>
+<p>The following user-defined function in Excel can be used to simulate
+random numbers from a discrete distribution.</p>
+<pre><code>[frame=single, escapeinside={(*}{*)}, caption={A user-defined function in Excel to simulate random numbers from a discrete distribution. 
+}]
+Public Function Discrete(value As Variant, prob As Variant)
+
+Dim i As Integer
+Dim cumProb As Single
+Dim uniform As Single
+Randomize
+&#39;Randomize Statement
+&#39;Initializes the random-number generator.
+
+Application.Volatile
+
+&#39; This example marks the user-defined function Discrete as volatile.
+&#39; The function will be recalculated when any cell in any workbook
+&#39; in the application window changes value worksheet.
+
+uniform = Rnd
+cumProb = prob(1)
+i = 1
+Do Until cumProb &gt; uniform
+    i = i + 1
+    cumProb = cumProb + prob(i)
+Loop
+Discrete = value(i)
+
+End Function</code></pre>
+<div class="example">
+<p><span id="exm:unlabeled-div-22" class="example"><strong>Example 8.1  </strong></span><strong>Example 14</strong>. <em>(R or Excel) A gambler starts with and plays a game
+where the chance of winning each round is 60%. The gambler either wins
+or loses on each round. The game stops when the gambler either gains or
+goes bust.</em></p>
+<ol style="list-style-type: decimal">
+<li><p><em>Develop an Excel worksheet or create an R code to simulate 50 steps
+of the finite Markov chain of the random walk <span class="math inline">\(X_n\)</span> given in
+Example <a href="#simpleRW" reference-type="ref" reference="simpleRW">Example 12</a>. Repeat the simulation 10 times. How many of
+your simulations end at 0.</em></p></li>
+<li><p><em>Use the results from the simulations to estimate the mean and
+variance of <span class="math inline">\(X_{5}\)</span>.</em></p></li>
+<li><p><em>Use the results from the simulations to estimate the probability
+that the gambler is eventually ruined.</em></p></li>
+</ol>
+</div>
+<div class="example">
+<p><span id="exm:exampleStationary2" class="example"><strong>Example 8.2  </strong></span><strong>Example 15</strong>. <em>(R or Excel) A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on
+states <span class="math inline">\(\{1,2\}\)</span> has the following transition matrix
+<span class="math display">\[P = \begin{bmatrix}
+    1-a &amp; a   \\
+    b &amp; 1-b   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix},\]</span> where <span class="math inline">\(0 &lt; a,b &lt; 1.\)</span></em></p>
+<ol style="list-style-type: decimal">
+<li><p><em>Use either Excel or R to estimate the long-term distribution of the
+Markov chain. (Hint: consider the <span class="math inline">\(n\)</span>-step transition matrix for
+several increasing values of <span class="math inline">\(n\)</span>). Comments on the results
+obtained.</em></p>
+<p><em>Later we will see that in many cases, a Markov chain exhibits a
+long-term limiting behaviour. The chain settles down to an
+equilibrium distribution, which is independent of its initial
+state.</em></p></li>
+<li><p><em>Use simulations to estimate the long-term probability that a Markov
+chain hits each of the states. (Hint: simulate the Markov chain 1000
+steps and calculate the proportion of visits to each state)</em></p></li>
+</ol>
+</div>
 </div>
 </div>
             </section>
@@ -241,8 +347,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhIDwtIDJcbmIgPC0gM1xuXG5hICsgYiJ9
           </div>
         </div>
       </div>
-<a href="methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-chapman-kolmogorov-equations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="classification-of-states.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -274,7 +380,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-application.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-literature.Rmd",
 "text": "Edit"
 },
 "history": {

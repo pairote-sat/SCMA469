@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Review of probability theory | A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Review of probability theory | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Review of probability theory | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie" />
+
+
+<meta name="date" content="2021-08-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="examples-of-real-world-processes.html"/>
+<link rel="next" href="stochastic-processes.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to Stochastic Processes</a></li>
+<li class="chapter" data-level="3" data-path="examples-of-real-world-processes.html"><a href="examples-of-real-world-processes.html"><i class="fa fa-check"></i><b>3</b> Examples of real world processes</a></li>
+<li class="chapter" data-level="4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html"><i class="fa fa-check"></i><b>4</b> Review of probability theory</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#random-variables"><i class="fa fa-check"></i><b>4.1</b> Random variables</a></li>
+<li class="chapter" data-level="4.2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#probability-distribution"><i class="fa fa-check"></i><b>4.2</b> Probability distribution</a></li>
+<li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#examples-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i>Examples of discrete and continuous random variables</a></li>
+<li class="chapter" data-level="4.3" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-probability"><i class="fa fa-check"></i><b>4.3</b> Conditional probability</a></li>
+<li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#law-of-total-probability"><i class="fa fa-check"></i>Law of total probability</a></li>
+<li class="chapter" data-level="4.4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>4.4</b> Conditional distribution and conditional expectation</a></li>
+<li class="chapter" data-level="4.5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.5</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem-1"><i class="fa fa-check"></i>Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="stochastic-processes.html"><a href="stochastic-processes.html"><i class="fa fa-check"></i><b>5</b> Stochastic processes</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="stochastic-processes.html"><a href="stochastic-processes.html#classification-of-stochastic-processes"><i class="fa fa-check"></i><b>5.1</b> Classification of stochastic processes</a></li>
+<li class="chapter" data-level="5.2" data-path="stochastic-processes.html"><a href="stochastic-processes.html#random-walk-an-introductory-example"><i class="fa fa-check"></i><b>5.2</b> Random walk: an introductory example</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html"><i class="fa fa-check"></i><b>6</b> Discrete-time Markov chains</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#one-step-transition-probabilities"><i class="fa fa-check"></i><b>6.1</b> One-step transition probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html"><i class="fa fa-check"></i><b>7</b> The Chapman-Kolmogorov equations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#the-chapman-kolmogorov-equations-and-n-step-transition-probabilities"><i class="fa fa-check"></i><b>7.1</b> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
+<li class="chapter" data-level="7.2" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#distribution-of-x_n"><i class="fa fa-check"></i><b>7.2</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
+<li class="chapter" data-level="7.3" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#joint-distribution"><i class="fa fa-check"></i><b>7.3</b> Joint Distribution</a></li>
+<li class="chapter" data-level="7.4" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#random-walk-with-absorbing-and-reflecting-barriers"><i class="fa fa-check"></i><b>7.4</b> Random walk with absorbing and reflecting barrier(s)</a></li>
+<li class="chapter" data-level="7.5" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#an-example-of-nonhomogeneous-markov-chain"><i class="fa fa-check"></i><b>7.5</b> An example of nonhomogeneous Markov chain</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>8</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="simulation.html"><a href="simulation.html#monte-carlo-methods"><i class="fa fa-check"></i><b>8.1</b> Monte Carlo Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="classification-of-states.html"><a href="classification-of-states.html"><i class="fa fa-check"></i><b>9</b> Classification of states</a></li>
+<li class="chapter" data-level="10" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html"><i class="fa fa-check"></i><b>10</b> Absorption probabilities and expected time to absorption</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html#first-step-analysis"><i class="fa fa-check"></i><b>10.1</b> First step analysis</a></li>
+<li class="chapter" data-level="10.2" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html#the-expected-time-to-absorption"><i class="fa fa-check"></i><b>10.2</b> The expected time to absorption</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html"><i class="fa fa-check"></i><b>11</b> The long-term distribution of a Markov chain</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#stationary-and-limiting-distributions-for-a-single-closed-class"><i class="fa fa-check"></i><b>11.1</b> Stationary and limiting distributions for a single closed class</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#stationary-distributions"><i class="fa fa-check"></i>Stationary distributions</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#proportion-of-time-in-each-state"><i class="fa fa-check"></i>Proportion of Time in Each State</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#the-method-of-finding-the-stationary-distribution"><i class="fa fa-check"></i>The method of finding the stationary distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain"><i class="fa fa-check"></i><b>11.2</b> Sufficient conditions for the long-run behaviour of a Markov chain</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#limiting-distributions"><i class="fa fa-check"></i>Limiting distributions</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#main-result"><i class="fa fa-check"></i>Main result</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#applications-of-markov-chains-to-ncd-systems"><i class="fa fa-check"></i>Applications of Markov chains to NCD systems</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>12</b> Methods</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="methods.html"><a href="methods.html#math-example"><i class="fa fa-check"></i><b>12.1</b> math example</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>13</b> Applications</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="applications.html"><a href="applications.html#datacamp-light"><i class="fa fa-check"></i><b>13.1</b> DataCamp Light</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>14</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="review-of-probability-theory" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Review of probability theory</h1>
+<div id="random-variables" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Random variables</h2>
+<p>The dynamics of a stochastic process are describes by random variables
+and probability distributions. This section provides a brief discussion
+of the properties of random variables.</p>
+<p>The probability theory is about random variables. Roughly speaking, a
+random variable can be regarded as an uncertain, numerical quantity
+(i.e. the value in <span class="math inline">\(\mathbb{R}\)</span>) whose possible values depend on the
+outcomes of a certain random phenomenon. The random variable is usually
+denoted by a capital letter <span class="math inline">\(X, Y, \ldots,\)</span> etc..</p>
+<p>More precisely, let <span class="math inline">\(S\)</span> be a sample space. A <strong>random variable</strong> <span class="math inline">\(X\)</span> is
+a real-valued function defined on the sample space <span class="math inline">\(S\)</span>,
+<span class="math display">\[X : S \rightarrow \mathbb{R}.\]</span> Hence, the random variable <span class="math inline">\(X\)</span> is a
+function that maps outcomes to real values.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-4" class="example"><strong>Example 4.1  </strong></span><strong>Example 4</strong>. <em>Two coins are tossed simultaneously and the outcomes are
+<span class="math inline">\(HH, HT, TH\)</span> and <span class="math inline">\(TT\)</span>. We can associate the outcomes of this experiment
+with the set <span class="math inline">\(A = \{1,2,3,4 \}\)</span>, where <span class="math inline">\(X(HH) = 1, X(HT) = 2, X(TH) = 3\)</span>
+and <span class="math inline">\(X(TT) = 4\)</span>. Assume each of the outcomes has an equal probability of
+1/4. Here, we can associate a function <span class="math inline">\(P\)</span> (known as a probability
+measure) defined on <span class="math inline">\(S = \{HH, HT, TH, TT \}\)</span> by
+<span class="math display">\[P(HH) = 1/4,  P(HT) = 1/4,  P(TH) = 1/4,  P(TT) = 1/4.\]</span></em></p>
+</div>
+<p>A probability measure <span class="math inline">\(P : \mathcal{A} \rightarrow [0,1]\)</span>, where
+<span class="math inline">\(\mathcal{A}\)</span> is a collection of subsets of <span class="math inline">\(S\)</span>, has the following
+properties</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(0 \le P(A), \quad A \subset S\)</span>.</p></li>
+<li><p><span class="math inline">\(P(S) = 1\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A_i \cap A_j = \emptyset\)</span> for <span class="math inline">\(i,j = 1,2, \ldots\)</span>, and
+<span class="math inline">\(i \neq j\)</span> where <span class="math inline">\(A_j \subset S\)</span>, then
+<span class="math display">\[P(\cup^\infty_{i=1} A_i)  = \sum^\infty_{i=1} P(A_i).\]</span></p></li>
+</ol>
+<p>Random variables can be discrete or continuous. If the range of a random
+variable is finite or countably infinite, then the random variable is a
+<strong>discrete random variable</strong>. Otherwise, if its range is an uncountable
+set, then it is a <strong>continuous random variable</strong>.</p>
+</div>
+<div id="probability-distribution" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Probability distribution</h2>
+<p>The probability distribution of a random variable <span class="math inline">\(X\)</span> is a function
+describing all possible values of <span class="math inline">\(X\)</span> and their corresponding
+probabilities or the likelihood of obtaining those values of <span class="math inline">\(X\)</span>.
+Functions that define the probability measure for a discrete or a
+continuous random variable are the <strong>probability mass function (pmf)</strong>
+and the <strong>probability density function (pdf)</strong>, respectively.</p>
+<p>Suppose <span class="math inline">\(X\)</span> is a discrete random variable. Then the function
+<span class="math display">\[f(x) = P(X = x)\]</span> that is defined for each <span class="math inline">\(x\)</span> in the range of <span class="math inline">\(X\)</span> is
+called the <strong>probability mass function</strong> (p.m.f) of a random variable
+<span class="math inline">\(X\)</span>.</p>
+<p>Suppose <span class="math inline">\(X\)</span> is a continuous random variable with c.d.f <span class="math inline">\(F\)</span> and there
+exists a nonnegative, integrable function <span class="math inline">\(f\)</span>,
+<span class="math inline">\(f: \mathbb{R} \rightarrow [0, \infty)\)</span> such that
+<span class="math display">\[F(x) = \int_{-\infty}^x f(y)\, dy\]</span> Then the function <span class="math inline">\(f\)</span> is called
+the <strong>probability density function</strong> (p.d.f) of a random variable <span class="math inline">\(X\)</span>.</p>
+</div>
+<div id="examples-of-discrete-and-continuous-random-variables" class="section level2 unnumbered">
+<h2>Examples of discrete and continuous random variables</h2>
+<p>The main quantities of interest in a portfolio of motor insurance are
+the number of claims arriving in a fixed time period and the sizes of
+those claims. Clearly, the number of claims can be describe by a
+discrete random variable, whose range is finite or countably infinite.
+On the other hand, the claim sizes can be describe by a continuous
+random variable defined over continuous sample spaces.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-5" class="example"><strong>Example 4.2  </strong></span><strong>Example 5</strong>. <em>Let <span class="math inline">\(N\)</span> denote the number of claims which arise up to a
+given time. The range of all possible values <span class="math inline">\(N\)</span> is
+<span class="math inline">\(\mathbf{N} \cup \{0\}\)</span>. Here <span class="math inline">\(N\)</span> is an example of discrete random
+variable. We could model the number of claims by the Poisson family of
+distributions. Recall that a random variable <span class="math inline">\(N\)</span> has a Poisson
+distribution with the parameter <span class="math inline">\(\lambda\)</span> if its probability
+distribution is given by
+<span class="math display">\[f(n) = e^{- \lambda} \frac{\lambda^n}{n !}, \quad \text{ for } n = 0,1,\ldots.\]</span></em></p>
+<p><em>Now suppose further that the number of claims <span class="math inline">\(N\)</span> which arise on a
+portfolio in a week has a <span class="math inline">\(\text{Poisson}(\lambda)\)</span> where <span class="math inline">\(\lambda = 5\)</span>.
+Calculate the following quantities:</em></p>
+<ol style="list-style-type: decimal">
+<li><p><em><span class="math inline">\(\Pr(N \ge 6)\)</span>.</em></p></li>
+<li><p><em><span class="math inline">\(\mathrm{E}[N]\)</span>.</em></p></li>
+</ol>
+</div>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\Pr(N \ge 6) = 1 - \Pr(N \le 5) = 1 - \sum_{n=0}^5 f(n) = 0.3840393.\)</span></p></li>
+<li><p>Clearly, <span class="math inline">\(\mathrm{E}[N] = \lambda = 5\)</span>.</p></li>
+</ol>
+<div class="example">
+<p><span id="exm:unlabeled-div-6" class="example"><strong>Example 4.3  </strong></span><strong>Example 6</strong>. <em>Let <span class="math inline">\(X\)</span> denote the claim sizes in a given time period.
+The range of all possible values <span class="math inline">\(X\)</span> is the set of all non-negative
+numbers. Here <span class="math inline">\(X\)</span> is an example of a continuous random variable.
+Suitable families of distributions which could be used to modelled claim
+sizes are "fat tails" distribution. They allow for possibilities of
+large claim sizes.</em></p>
+<p><em>Examples of fat-tailed distributions include</em></p>
+<ul>
+<li><p><em>the Pareto distribution,</em></p></li>
+<li><p><em>the Log-normal distribution,</em></p></li>
+<li><p><em>the Weibull distribution with shape parameter greater than 0 but
+less than 1, and</em></p></li>
+<li><p><em>the Burr distribution.</em></p></li>
+</ul>
+</div>
+<p>The course "SCMA 470 Risk Analysis and Credibility" provides more
+details about the loss distribution.</p>
+</div>
+<div id="conditional-probability" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Conditional probability</h2>
+<p>A stochastic process can be defined as a collection or sequence of
+random variables. The concept of <strong>conditional probability</strong> plays an
+important role to analyse dependency between random variables in the
+process. Roughly speaking, conditional probability is the probability of
+seeing some event knowing that some other event has actually occurred.</p>
+<p>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be two events (elements of <span class="math inline">\(\mathcal{A}\)</span>). The
+conditional probability of event <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> denoted by <span class="math inline">\(P(A | B)\)</span> is
+defined as <span class="math display">\[P(A|B) =  \frac{P(A \cap B)}{P(B)}.\]</span> Note that
+<span class="math inline">\(P(A \cap B)\)</span> is often called the joint probability of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, and
+<span class="math inline">\(P(A)\)</span> and <span class="math inline">\(P(B)\)</span> are often called the marginal probabilities of <span class="math inline">\(A\)</span> and
+<span class="math inline">\(B\)</span>, respectively.</p>
+<p>The events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if the occurrence of either one
+of the events does not affect the probability of occurrence of the
+other. More precisely, the events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if
+<span class="math display">\[P(A \cap B) = P(A)P(B),\]</span> or equivalently, <span class="math display">\[P(A|B) =  P(A).\]</span></p>
+</div>
+<div id="law-of-total-probability" class="section level2 unnumbered">
+<h2>Law of total probability</h2>
+<p>Suppose there are three events: <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span>. Events <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>
+are distinct from each other while event <span class="math inline">\(A\)</span> intersects with both
+events. We do not know the probability of event <span class="math inline">\(A\)</span>. However, partial
+information and dependencies between events can be used to calculate the
+probability of event <span class="math inline">\(A\)</span>, i.e. we know the probability of event A under
+condition B and the probability of event A under condition C.</p>
+<p>The total probability rule states that by using the two conditional
+probabilities, we can find the probability of event A, which is
+<span class="math display">\[P(A) = P(A \cap B) + P(A \cap C).\]</span> In general, suppose
+<span class="math inline">\(B_1, B_2, \ldots B_n\)</span> be a collection of events that partition the
+sample space. Then for any event <span class="math inline">\(A\)</span>,
+<span class="math display">\[P(A) = \sum_{i = 1}^n   P(A \cap B_i )  = \sum_{i = 1}^n   P(A | B_i ) P(B_i) .\]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-7" class="example"><strong>Example 4.4  </strong></span><strong>Example 7</strong>. <em>Suppose in a particular study area, the vaccination rate
+for the yearly flu virus is 70%. Suppose of those vaccinated, 10% of the
+residents still get the flu that year. Calculate the conditional
+probability of someone getting the flu in this area given that the
+person was vaccinated.</em></p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-8" class="example"><strong>Example 4.5  </strong></span><strong>Example 8</strong>. <em>You are an invester buying shares of a company. You have
+discovered that the company is planning to introduce a new project that
+is likely to affect the company’s stock price. You have determined the
+following probabilities:</em></p>
+<ul>
+<li><p><em>There is a 80% probability that the new project will be launched.</em></p></li>
+<li><p><em>If a company launches the project, there is a 85% probability that
+the company’s stock price will increase.</em></p></li>
+<li><p><em>If a company does not launch the project, there is a 30%
+probability that the company’s stock price will increase.</em></p></li>
+</ul>
+</div>
+<p>Calculate the probability that the company’s stock price will increase.</p>
+</div>
+<div id="conditional-distribution-and-conditional-expectation" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Conditional distribution and conditional expectation</h2>
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two discrete random variables with joint probability
+mass function <span class="math display">\[f(x,y) = P(X = x, Y = y).\]</span> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are
+continuous random variables, the joint probability density function
+<span class="math inline">\(f (x, y)\)</span> satisfies
+<span class="math display">\[P( X \le x, Y \le y) = \int_{-\infty}^x \int_{-\infty}^y f(u,v) \, du\, dv.\]</span></p>
+<p>When no information is given about the value of <span class="math inline">\(Y\)</span>, the marginal
+probability density function of <span class="math inline">\(X\)</span>, <span class="math inline">\(f_X(x)\)</span> is used to calculate the
+probabilities of events concerning <span class="math inline">\(X\)</span>. However, when the value of <span class="math inline">\(Y\)</span>
+is known, to find such probabilities, <span class="math inline">\(f_{X|Y} (x|y)\)</span>, the conditional
+probability density function of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y = y\)</span> is used and is
+defined as follows: <span class="math display">\[f_{X|Y} (x|y)  = \frac{f(x,y)}{f_Y(y)}\]</span> provided
+that <span class="math inline">\(f_Y (y) &gt; 0\)</span>. The conditional mass function of <span class="math inline">\(X\)</span> is defined in a
+similar manner. <span class="math display">\[P(X = x | Y = y) = \frac{P(X = x, Y = y)}{P(X = x)}.\]</span></p>
+<p>Note also that the conditional probability density function of <span class="math inline">\(X\)</span> given
+that <span class="math inline">\(Y = y\)</span> is itself a probability density function, i.e.
+<span class="math display">\[\int_{-\infty}^\infty f_{X|Y}(x|y)\, dx  =  1.\]</span></p>
+<p>Note that the conditional probability distribution function of <span class="math inline">\(X\)</span> given
+that <span class="math inline">\(Y = y\)</span>, the conditional expectation of <span class="math inline">\(X\)</span> given that <span class="math inline">\(Y = y\)</span> can
+be as follows:
+<span class="math display">\[F_{Y|X}(x|y) = P(X \le x | Y = y) = \int_ {-\infty}^x f_{X|Y}(t|y) \, dt\]</span>
+and
+<span class="math display">\[\mathrm{E}(X|Y = y) =  \int_{-\infty}^{\infty} x  f_{X|Y}(x|y) \, dx,\]</span>
+where <span class="math inline">\(f_Y(y) &gt; 0\)</span>.</p>
+<p>Note that if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then <span class="math inline">\(f_{X|Y}\)</span> coincides with
+<span class="math inline">\(f_X\)</span> because
+<span class="math display">\[f_{X|Y}(x|y) = \frac{f(x,y)}{f_Y(y)} =\frac{f_X(x)f_Y(y)}{f_Y(y)} = f_X(x).\]</span></p>
+</div>
+<div id="central-limit-theorem" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Central Limit Theorem</h2>
+<p>This section introduces the Central Limit Theorem, which is an important
+theorem in probability theory. It states that the mean of <span class="math inline">\(n\)</span>
+independent and identically distributed random variables has an
+approximate normal distribution given a sufficiently large <span class="math inline">\(n\)</span>. This
+applies to a collection of random variables from any distribution with a
+finite mean and variance. In summary we can use the Central Limit
+Theorem to extract probabilistic information about the sums of
+independent and identical random variables.</p>
+</div>
+<div id="central-limit-theorem-1" class="section level2 unnumbered">
+<h2>Central Limit Theorem</h2>
+<p>Let <span class="math inline">\(X_1, X_2, \ldots\)</span> be a sequence of i.i.d. random variables with a
+finite mean <span class="math inline">\(\mathrm{E}[X_i] = \mu\)</span> and finite variance
+<span class="math inline">\(\mathrm{Var}[X_i] = \sigma^2\)</span>. Let <span class="math inline">\(Z_n\)</span> be the normalised average of
+the first <span class="math inline">\(n\)</span> random variables <span class="math display">\[\begin{aligned}
+        Z_n &amp;= \frac{\sum_{i=1}^n X_i/n  - \mu}{\sigma/\sqrt{n}} \\
+               &amp;= \frac{X_1 + X_2 + \ldots + X_n  - n\mu}{\sigma \sqrt{n}}.
+    \end{aligned}\]</span> Then <span class="math inline">\(Z_n\)</span> converges in distribution to a standard
+normal distribution.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="examples-of-real-world-processes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="stochastic-processes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

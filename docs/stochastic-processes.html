@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 13 Applications | A Minimal Book Example</title>
+  <title>Chapter 5 Stochastic processes | A Minimal Book Example</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 13 Applications | A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 5 Stochastic processes | A Minimal Book Example" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 13 Applications | A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 5 Stochastic processes | A Minimal Book Example" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="methods.html"/>
-<link rel="next" href="final-words.html"/>
+<link rel="prev" href="review-of-probability-theory.html"/>
+<link rel="next" href="discrete-time-markov-chains.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -223,16 +223,183 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="applications" class="section level1" number="13">
-<h1><span class="header-section-number">Chapter 13</span> Applications</h1>
-<p>Some <em>significant</em> applications are demonstrated in this chapter.</p>
-<div id="datacamp-light" class="section level2" number="13.1">
-<h2><span class="header-section-number">13.1</span> DataCamp Light</h2>
-<script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
-<p>By default, <code>tutorial</code> will convert all R chunks.</p>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhIDwtIDJcbmIgPC0gM1xuXG5hICsgYiJ9
+<div id="stochastic-processes" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Stochastic processes</h1>
+<p>Evolution of a random process is at least partially random, and each run
+the process leads to potentially a different outcome. It is of great
+interest to understand or model the behaviour of a random process by
+describing how different states, represented by random variables <span class="math inline">\(X\)</span>’s,
+evolve in the system over time. Just as probability theory is considered
+as the study of mathematical models of random phenomena, the theory of
+stochastic processes plays an important role in the study of
+time-dependent random phenomena. Stochastic processes can be used to
+represent many different random phenomena from different fields such as
+science, engineering, finance, and economics.</p>
+<p>A <strong>stochastic process</strong> is a collection of random variables
+<span class="math inline">\(\{ X_t : t \in T\}\)</span> defined on a common sample space, where</p>
+<ul>
+<li><p><span class="math inline">\(t\)</span> is a parameter running over some index set <span class="math inline">\(T\)</span>, called the
+<strong>time domain</strong>.</p></li>
+<li><p>The common sample space of the random variables (the range of
+possible values for <span class="math inline">\(X_t\)</span>) denoted by <span class="math inline">\(S\)</span> is called the <strong>state
+space</strong> of the process.</p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>The set of random variables may be dependent or need not be
+identically distributed.</p></li>
+<li><p>Techniques used to study stochastic processes depend on whether the
+state space or the index set (the time domain) are discrete or
+continuous.</p></li>
+</ol>
+<div id="classification-of-stochastic-processes" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Classification of stochastic processes</h2>
+<p>Stochastic processes can be classified on the basis of the nature of
+their state space and index set.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Discrete state space with discrete time changes</strong> : No claims
+discount (NCD) policy: A car owner purchases a motor insurance
+policy for which the premium charged depends on the claim record.
+Let <span class="math inline">\(X_t\)</span> denote the discount status of a policyholder with three
+levels of discount, i.e. <span class="math inline">\(S = \{0,1,2\}\)</span> corresponding to three
+discount levels of 0%, 20% and 40% and the time set is
+<span class="math inline">\(T = \{0,1,2,\ldots\}\)</span>. Both time and state space are discrete.</p></li>
+<li><p><strong>Discrete state space with continuous time changes</strong> : In a health
+insurance system, an insurance company may classify policyholders as
+Healthy, Sick or Dead, i.e. <span class="math inline">\(S = \{H, S, D\}\)</span>. The time domain can
+be taken as continuous, <span class="math inline">\(T = [0,\infty)\)</span>.</p></li>
+<li><p><strong>Continuous state space with continuous time changes</strong> : Let <span class="math inline">\(S_t\)</span>
+be the total amount claimed by time <span class="math inline">\(t \in T\)</span> where <span class="math inline">\(T = [0,\infty)\)</span>
+and the state space is <span class="math inline">\(\mathbb{R}\)</span>. Both time and state space are
+continuous. Some continuous time stochastic process taking value in
+a continuous state space will be studied in Risk Analysis and
+Credibility course.</p></li>
+<li><p><strong>Continuous state space with discrete time changes</strong> : The outcomes
+of the above claim process <span class="math inline">\(S_t\)</span> could be recorded continuously,
+however, we may choose to model the values only at discrete time,
+for e.g. the total claim amounts at the end of each day. This may
+due to the limitation of the measurement process (for e.g. expensive
+to measure). Hence, the time domain is discrete but the state space
+is continuous.</p></li>
+</ol>
+<p>In case that claim amounts are recorded to the nearest baht or in
+satang, i.e. discrete state space, we could also approximate or model
+the process by using a discrete state space, rather than continuous.</p>
 </div>
+<div id="random-walk-an-introductory-example" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Random walk: an introductory example</h2>
+<p>One of the simplest examples of a stochastic process is a simple random
+walk. Consider a simple model of the price of a stock measured in
+satang. For each trading day <span class="math inline">\(n = 0,1,2, \ldots\)</span>, the stock price
+increases by 1 satang with probability <span class="math inline">\(p\)</span> or decreases by 1 satang with
+probability <span class="math inline">\(q = 1-p\)</span>. Let <span class="math inline">\(X_n\)</span> denote the stock price at day <span class="math inline">\(n\)</span> and
+<span class="math inline">\(X_0 = 100\)</span>, i.e. <span class="math inline">\(X_0 =\)</span>. This simple model is called a simple random
+walk.</p>
+<p>In the simple random walk process, time is discrete (as observed at the
+end of each day) and the state space is discrete. The stochastic model
+has an infinite number of outcomes known as <strong>stochastic realisations or
+sample paths</strong>. A <strong>sample path</strong> is then just the sequence of a
+particular set of experiments. Graphs of some stochastic realisations of
+the simple random walk with <span class="math inline">\(p = 0.5\)</span> and <span class="math inline">\(a = 100\)</span> are shown in Figure
+<a href="stochastic-processes.html#fig:SamplePaths" reference-type="ref" reference="fig:SamplePaths">1</a>.</p>
+<div class="figure">
+<embed src="SamplePaths.pdf" id="fig:SamplePaths" style="width:4in" />
+<p class="caption">Some stochastic realisations of the simple random
+walk</p>
+</div>
+<p>A complete description of the simple random walk, observed as a
+collection of <span class="math inline">\(n\)</span> random variables at time points
+<span class="math inline">\(t_1, t_2, \ldots, t_n\)</span> can be specified by the joint distribution of
+<span class="math inline">\(X_{t_1}, X_{t_2}, \ldots, X_{t_n}\)</span>, i.e.
+<span class="math display">\[F(x_1, x_2, \ldots, x_n) = \Pr(X_{t_1} \le x_1, X_{t_2} \le x_2, \ldots, X_{t_n} \le x_n).\]</span>
+However, the <strong>multidimensional distribution function cannot be easily
+written in a closed form</strong> unless the random variables have a
+multivariate normal distribution. In practice, it is more convenient to
+deal with some stochastic processes via some simple <strong>intermediary
+processes</strong> or under some addition assumptions.</p>
+<p>In general, a simple random walk <span class="math inline">\(X_n\)</span> is a discrete-time stochastic
+process defined by</p>
+<ul>
+<li><p><span class="math inline">\(X_0 = a\)</span> and</p></li>
+<li><p>for <span class="math inline">\(n \ge1\)</span>,
+<span class="math display">\[X_n = a + \sum_{i=1}^n  Z_i, \text{ where } Z_i = \begin{cases}
+    1, &amp; \text{ with probability } p  \\
+    -1, &amp; \text{ with probability } q =  1- p.  
+ \end{cases}\]</span></p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>When <span class="math inline">\(p = 1/2\)</span>, the value of the process increases or decreases
+randomly by 1 unit with equal probability. In this case, the process
+is known as a <strong>symmetric</strong> random walk.</p></li>
+<li><p>The (intermediary) process <span class="math inline">\(\{ Z_i : i \in \mathbb{N}\}\)</span> is a
+sequence of independent identically distributed (i.i.d.) random
+variables. The process <span class="math inline">\(X_t\)</span> themselves are neither independent nor
+identically distributed. This process <span class="math inline">\(Z_i\)</span> is also known as <strong>white
+noise process</strong>.</p></li>
+</ol>
+<div class="example">
+<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 5.1  </strong></span><strong>Example 9</strong>. <em>Explain why the simple random process <span class="math inline">\(X_n\)</span> is neither
+independent nor identically distributed.</em></p>
+</div>
+<p>Suppose that <span class="math inline">\(X_0 = 100\)</span>. Firstly, we will show that <span class="math inline">\(X_n\)</span> is not
+independent. From definition, the process <span class="math inline">\(X_n\)</span> can be written as
+<span class="math display">\[X_n = X_{n-1} + Z_n.\]</span> That is, the value of <span class="math inline">\(X_n\)</span> is the previous
+value plus a random change of 1 or <span class="math inline">\(-1\)</span>. Therefore, the value of the
+process depends on the previous value and they are not independent. For
+e.g.,
+<span class="math display">\[\Pr(X_2 = 102) &gt; 0 \quad \text{ but } \quad  \Pr(X_2 = 102 | X_1 = 99) = 0.\]</span></p>
+<p>The process <span class="math inline">\(X_n\)</span> cannot be identically distributed. For e.g. <span class="math inline">\(X_1\)</span> can
+take the values of 99 and 101, while <span class="math inline">\(X_2\)</span> can take three different
+values of 98, 100 and 102.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 5.2  </strong></span><strong>Example 10</strong>. <em>Let <span class="math display">\[\begin{aligned}
+    \mu &amp;= \mathrm{E}[Z_i] \\
+    \sigma^2 &amp;= \mathrm{Var}[Z_i] \end{aligned}\]</span> Calculate the
+expectation (<span class="math inline">\(\mu\)</span>) and variance (<span class="math inline">\(\sigma^2\)</span>) of the random variable
+<span class="math inline">\(Z_i\)</span>.</em></p>
+</div>
+<p><span class="math display">\[\begin{aligned}
+    \mu &amp;= \mathrm{E}[Z_i] = 1\cdot p + (-1) \cdot q = p - q.\\\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}
+    \sigma^2 &amp;= \mathrm{Var}[Z_i] \\
+            &amp;=\mathrm{E}[Z_i^2] - (\mathrm{E}[Z_i] )^2 \\
+            &amp;= 1 - (p-q)^2  = (p+q)^2 - (p-q)^2\\
+            &amp;= 4pq. \end{aligned}\]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-11" class="example"><strong>Example 5.3  </strong></span><strong>Example 11</strong>. <em>Calculate the expectation and variance of the process
+<span class="math inline">\(X_n\)</span> at time <span class="math inline">\(n\)</span>.</em></p>
+</div>
+<p><span class="math display">\[\begin{aligned}
+     \mathrm{E}[X_n] &amp;=  \mathrm{E}[a + \sum_{i=1}^n Z_i] = a + n\mu.\end{aligned}\]</span>
+<span class="math display">\[\begin{aligned}
+    \mathrm{Var}[X_n]&amp;= \mathrm{Var}[a + \sum_{i=1}^n Z_i]  = n \sigma^2.\end{aligned}\]</span>
+It should be noted that the variance of <span class="math inline">\(X_n\)</span> increases with time.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-12" class="example"><strong>Example 5.4  </strong></span><strong>Example 12</strong>. <em>For the random process, calculate
+<span class="math display">\[\Pr(X_2 = 98, X_5 = 99 | X_0 = 100).\]</span></em></p>
+</div>
+<p>The process <span class="math inline">\(X_n\)</span> must decrease on the first two days, which happens
+with probability <span class="math inline">\((1-p)^2\)</span>. Independently, it must then increases on
+another two days and decrease on one day (not necessarily in that
+order), giving three different possibilities. Each of these has
+probability <span class="math inline">\(p^2(1-p)\)</span>. So
+<span class="math display">\[\Pr(X_2 = 98, X_5 = 99 | X_0 = 100) = (1-p)^2 \cdot 3 p^2(1-p) = 3p^2(1-p)^3.\]</span></p>
+<p>In what follows, we will see that exact calculations are possible for
+the simple random walk process. Note also that it is sufficient to
+understand the behaviour of the random walk when it starts at <span class="math inline">\(X_0 = 0\)</span>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-13" class="example"><strong>Example 5.5  </strong></span><strong>Example 13</strong>. <em>For the random process with <span class="math inline">\(X_0 = 0\)</span>, <span class="math inline">\(X_{2n}\)</span> is
+always even and <span class="math inline">\(X_{2n+1}\)</span> is always odd. Based on the binomial
+distribution, show that <span class="math display">\[\begin{aligned}
+    \Pr(X_{2n} = 2m) &amp;= {2n \choose n+m} p^{n+m} q^{n-m}, \quad   -n \le m \le n \\
+    \Pr(X_{2n+1} = 2m+1) &amp;= {2n + 1 \choose n+m+1} p^{n+m+1} q^{n-m}, \quad   -n-1 \le m \le n.\end{aligned}\]</span></em></p>
+</div>
+<p>Let <span class="math inline">\(A\)</span> denote the number of <span class="math inline">\(+1\)</span> and <span class="math inline">\(B\)</span> denote the number of <span class="math inline">\(-1\)</span>.
+Then <span class="math inline">\(A + B = 2n\)</span> and <span class="math inline">\(X_{2n} = A - B\)</span> (i.e. the position at time <span class="math inline">\(2n\)</span>).
+Hence, <span class="math display">\[\begin{aligned}
+    \Pr(X_{2n} = 2m) &amp;= \Pr( A - B = 2m) \\
+    &amp;= \Pr( A - (2n - A) = 2m)  =   \Pr( 2A - 2n  = 2m) =   \Pr( A   = m + n)\\
+    &amp;= {2n \choose n+m} p^{n+m} q^{2n-(n+m)}, \quad   -n \le m \le n \\
+    &amp;= {2n \choose n+m} p^{n+m} q^{n-m}, \quad   -n \le m \le n.\end{aligned}\]</span></p>
 
 </div>
 </div>
@@ -241,8 +408,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhIDwtIDJcbmIgPC0gM1xuXG5hICsgYiJ9
           </div>
         </div>
       </div>
-<a href="methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="review-of-probability-theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="discrete-time-markov-chains.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -274,7 +441,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-application.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
 "text": "Edit"
 },
 "history": {
