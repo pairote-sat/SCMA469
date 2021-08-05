@@ -1,8 +1,5 @@
-book_filename: "bookdownproj"
-output_dir: docs
-delete_merged_file: true
-edit: https://github.com/pairote-sat/SCMA469/edit/master/%s
-view: https://github.com/pairote-sat/SCMA469/blob/master/%s
+book_filename: "bookdown-demo"
 language:
   ui:
     chapter_name: "Chapter "
+delete_merged_file: true

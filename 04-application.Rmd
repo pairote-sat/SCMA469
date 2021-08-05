@@ -1,0 +1,21 @@
+# Applications
+
+Some _significant_ applications are demonstrated in this chapter.
+
+```{r, include=FALSE}
+tutorial::go_interactive()
+```
+
+## DataCamp Light
+
+
+<script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
+
+By default, `tutorial` will convert all R chunks.
+
+```{r}
+a <- 2
+b <- 3
+
+a + b
+```
