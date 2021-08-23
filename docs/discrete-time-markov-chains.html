@@ -733,12 +733,13 @@ is a random variable, we have
 <span class="math display">\[\Pr(X \in A) = \mathrm{E}(1_A(X)).\]</span></p>
 <p>Using this equality, we can estimate <span class="math inline">\(\Pr(X \in A)\)</span> by
 <span class="math display">\[\Pr(X \in A) = \mathrm{E}(1_A(X)) = \frac{1}{N}\sum_{i=1}^N 1_A(X_i).\]</span></p>
-<p>Recall that the indicator function of the set <span class="math inline">\(A\)</span> is the defined as
-<span class="math display">\[1_A(x) =
+<p>Recall that the indicator function of the set <span class="math inline">\(A\)</span> is the defined as</p>
+<p><span class="math display">\[1_A(x) =
 \begin{cases*}
      1          &amp; if $x \in A $ \\
       0        &amp; otherwise.
-\end{cases*}\]</span></p>
+\end{cases*}
+\]</span></p>
 <p>The following user-defined function in Excel can be used to simulate
 random numbers from a discrete distribution.</p>
 <pre><code>[frame=single, escapeinside={(*}{*)}, caption={A user-defined function in Excel to simulate random numbers from a discrete distribution. 
