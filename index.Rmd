@@ -1,9 +1,11 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "SCMA469 Actuarial Statistics"
+author: "Pairote Satiracoo"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+output:
+  bookdown::gitbook:
+    highlight: tango
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
@@ -12,11 +14,11 @@ github-repo: rstudio/bookdown-demo
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
 
-# Prerequisites
+<!-- # Prerequisites -->
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+<!-- This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$. -->
 
-The **bookdown** package can be installed from CRAN or Github:
+<!-- The **bookdown** package can be installed from CRAN or Github: -->
 
 ```{r eval=FALSE}
 install.packages("bookdown")
@@ -24,13 +26,180 @@ install.packages("bookdown")
 # devtools::install_github("rstudio/bookdown")
 ```
 
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
+<!-- Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`. -->
 
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
+<!-- To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>. -->
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+<!-- ```{r include=FALSE} -->
+<!-- # automatically create a bib database for R packages -->
+<!-- knitr::write_bib(c( -->
+<!--   .packages(), 'bookdown', 'knitr', 'rmarkdown' -->
+<!-- ), 'packages.bib') -->
+<!-- ``` -->
+
+
+
+# Introduction to Stochastic Processes {#intro}
+
+The course will cover the probabilistic framework for stochastic models
+of real-world applications with emphasis on actuarial work. We will
+illustrate some practical actuarial problems for which we will develop
+mathematical models, tools and techniques for analysing and quantifying
+the uncertainty of the problems.
+
+Here are some of the examples which will be covered later in the course.
+
+## Examples of real world processes
+
+::: {.example}
+*(**No claims discount systems (NCD)**) A well-known
+model widely used by auto insurance companies is the **no claims
+discount system**, in which an insured receives a discount for a claim
+free year, while the insured is penalised by an additional premium when
+one or more accidents occur.*
+
+*An example of the NCD system in UK may be structured as follows:*
+
+    *Level*     *7*      *6*     *5*     *4*     *3*     *2*     *1*
+  ----------- -------- ------- ------- ------- ------- ------- -------
+   *Premium*   *100%*   *75%*   *65%*   *55%*   *45%*   *40%*   *33%*
+
+*The rules for moving between these levels are as follows:*
+
+-   *For a claim-free year, a policyholder moves down 1 level.*
+
+-   *Levels 4-7:*
+
+    -   *For every one claim, the policyholder moves up 1 level or
+        remains at level 7.*
+
+    -   *For every two or more claims, move to, or remains at, level 7.*
+
+-   *Levels 2-3:*
+
+    -   *For every one claim, move up 2 levels.*
+
+    -   *For every two claims, move up 4 levels.*
+
+    -   *For every three or more claims, move to level 7.*
+
+-   *Level 1:*
+
+    -   *For every one claim, move to level 4.*
+
+    -   *For every two claims, move to level 6.*
+
+    -   *For every three or more claims, move to level 7.*
+
+*The no claims discount system is a form of experience rating consisting
+of a finite number of levels (or classes), each with its own premium.
+The 7 levels are experience-rated as described above.*
+
+*For the NCD model, questions of interest may include:*
+
+1.  *For 10,000 policyholders at level 7, estimate the *expected
+    numbers* at each discount level at a given time, or once stability
+    has been achieved.
+
+2.  *What is the *probability* that a policyholder who is at a specific
+    discount level (i.e. one of the levels 1-6) has no discount after 2
+    years?
+
+3.  *What is the *distribution* of being in one of the levels at time 5
+    years?
+
+4.  *Suppose a large number of people having the same claim
+    probabilities take out policies at the same time. What is the
+    proportion would you expect to be in each discount level in the long
+    run?*
+
+*What would be a suitable model to study the NCD system? As opposed to a
+**deterministic model** for which its outcomes are fixed, the outcomes
+of the NCD model are uncertain. It turns out that the NCD system can be
+studied within the framework of Markov chains, which are examples of
+stochastic processes. The use of matrix algebra provides a powerful tool
+to understand and analyse the processes.*
+
+*The evolution of the states or levels can be described the random
+variables $X_0, X_1,X_2, \ldots$ and probability distributions, where
+$X_n$ is the level of the policyholder at time $n$. In this example, the
+set of all states called the state space is discrete, which consists of
+seven levels, and the time variable is also discrete. This is an example
+of a **discrete time, discrete state space stochastic process**.*
+:::
+
+::: {.example}
+*(**Poisson processes**) Consider the number of claims
+that occur up to time $t$ (denoted by $N_t$) from a portfolio of health
+insurance policies (or other types of insurance products). Suppose that
+the average rate of occurrence of claims per time unit (e.g. day or week
+) is given by $\lambda$.*
+
+*Here are some questions of interest:*
+
+1.  *On average, 20 claims arrive every day, what is the probability
+    that more than 100 claims arrive within a week?*
+
+2.  *What is the expected time until the next claim?*
+
+In this example, the state space consists of all whole numbers
+$\{0, 1, 2, \ldots\}$, while the time variable is continuous. The
+process is a **continuous-time stochastic process with discrete state
+space**. The model used to model the insurance claims is an example of
+**Poisson processes**. The Poisson process is one of the most
+widely-used counting processes. Even thought we know that claims occur
+at a certain rate, but completely at random. Moreover, the timing
+between claims seem to be completely random.
+
+Later, we will see that there are several ways to describe this
+process. One can focus on the number of claims that occur up to time $t$
+or the times between those claims when they occur. Many important
+properties of Poisson processes will be discussed.
+:::
+
+::: {.example}
+*(**Markov processes**) Suppose that we observe a total
+of $n$ independent lives all aged between $x$ and $x + 1$. For life $i$,
+we define the following terms:*
+
+-   *$x+ a_i$ is the age at which observation
+    begins,$\quad 0 \le a_i < 1$.*
+
+-   *$x+ b_i$ is the age at which observation ends, if life does not
+    die, $\quad 0 \le b_i < 1$.*
+
+-   *$x+ t_i$ is the age at which observation stops, by death or
+    censoring.*
+
+-   *$d_i = 1$, if life $i$ dies, otherwise $d_i = 0$, if life $i$
+    censored.*
+
+*For example, consider the following mortality data on eight lives all
+aged between $70$ and $71$.*
+
+   *Life*   *$a_i$*   *$b_i$*   *$d_i$*   *$t_i$*
+  -------- --------- --------- --------- ---------
+    *1*       *0*       *1*       *1*     *0.25*
+    *2*       *0*       *1*       *1*     *0.75*
+    *3*       *0*       *1*       *0*       *1*
+    *4*      *0.1*     *0.6*      *1*      *0.5*
+    *5*      *0.2*     *0.7*      *1*      *0.6*
+    *6*      *0.2*     *0.4*      *0*      *0.4*
+    *7*      *0.5*      *1*       *1*     *0.75*
+    *8*      *0.5*    *0.75*      *0*     *0.75*
+
+*How would one use this dataset to estimate the probability that a life
+aged 70 dies before age $70 + t$ or survives to at least age $70 + t$,
+for $t \in [0,1)$?*
+
+*In this example, we can represent the process by $\{X_t\}_{t \ge 0}$
+with two possible states (alive or dead). This model is also an example
+of a **continuous-time stochastic process with discrete state space**.*
+
+*Here, we illustrate three actuarial applications which can be modelled
+by some **stochastic processes**. We should also emphasis that the
+outcome of one of the above processes is not fixed or uncertain. The
+course will provide important tools and techniques to analyse the
+problems with the goal of quantifying the uncertainty in the system.*
+:::
+

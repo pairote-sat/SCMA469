@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 The long-term distribution of a Markov chain | SCMA469 Actuarial Statistics</title>
+  <title>Chapter 14 The long-term distribution of a Markov chain | SCMA469 Actuarial Statistics</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 The long-term distribution of a Markov chain | SCMA469 Actuarial Statistics" />
+  <meta property="og:title" content="Chapter 14 The long-term distribution of a Markov chain | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 The long-term distribution of a Markov chain | SCMA469 Actuarial Statistics" />
+  <meta name="twitter:title" content="Chapter 14 The long-term distribution of a Markov chain | SCMA469 Actuarial Statistics" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="absorption-probabilities-and-expected-time-to-absorption.html"/>
-<link rel="next" href="applications.html"/>
+<link rel="prev" href="absorption-probabilities-and-expected-time-to-absorption-1.html"/>
+<link rel="next" href="methods.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -137,36 +137,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">SCMA469 Actuarial Statistics</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Stochastic Processes</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html"><i class="fa fa-check"></i><b>2</b> # Discrete-time Markov chains</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#examples-of-real-world-processes"><i class="fa fa-check"></i><b>1.1</b> Examples of real world processes</a></li>
+<li class="chapter" data-level="2.1" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#one-step-transition-probabilities"><i class="fa fa-check"></i><b>2.1</b> One-step transition probabilities</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html"><i class="fa fa-check"></i><b>2</b> Review of probability theory</a>
+<li class="chapter" data-level="3" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html"><i class="fa fa-check"></i><b>3</b> The Chapman-Kolmogorov equations</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#random-variables"><i class="fa fa-check"></i><b>2.1</b> Random variables</a></li>
-<li class="chapter" data-level="2.2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#probability-distribution"><i class="fa fa-check"></i><b>2.2</b> Probability distribution</a></li>
-<li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#examples-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i>Examples of discrete and continuous random variables</a></li>
-<li class="chapter" data-level="2.3" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-probability"><i class="fa fa-check"></i><b>2.3</b> Conditional probability</a></li>
-<li class="chapter" data-level="2.4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#law-of-total-probability"><i class="fa fa-check"></i><b>2.4</b> Law of total probability</a></li>
-<li class="chapter" data-level="2.5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>2.5</b> Conditional distribution and conditional expectation</a></li>
-<li class="chapter" data-level="2.6" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem"><i class="fa fa-check"></i><b>2.6</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="3.1" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#the-chapman-kolmogorov-equations-and-n-step-transition-probabilities"><i class="fa fa-check"></i><b>3.1</b> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
+<li class="chapter" data-level="3.2" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#distribution-of-x_n"><i class="fa fa-check"></i><b>3.2</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
+<li class="chapter" data-level="3.3" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#joint-distribution"><i class="fa fa-check"></i><b>3.3</b> Joint Distribution</a></li>
+<li class="chapter" data-level="3.4" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#random-walk-with-absorbing-and-reflecting-barriers"><i class="fa fa-check"></i><b>3.4</b> Random walk with absorbing and reflecting barrier(s)</a></li>
+<li class="chapter" data-level="3.5" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#an-example-of-nonhomogeneous-markov-chain"><i class="fa fa-check"></i><b>3.5</b> An example of nonhomogeneous Markov chain</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="stochastic-processes.html"><a href="stochastic-processes.html"><i class="fa fa-check"></i><b>3</b> Stochastic processes</a>
+<li class="chapter" data-level="4" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>4</b> Simulation</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="stochastic-processes.html"><a href="stochastic-processes.html#classification-of-stochastic-processes"><i class="fa fa-check"></i><b>3.1</b> Classification of stochastic processes</a></li>
-<li class="chapter" data-level="3.2" data-path="stochastic-processes.html"><a href="stochastic-processes.html#random-walk-an-introductory-example"><i class="fa fa-check"></i><b>3.2</b> Random walk: an introductory example</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html"><i class="fa fa-check"></i><b>4</b> Discrete-time Markov chains</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#one-step-transition-probabilities"><i class="fa fa-check"></i><b>4.1</b> One-step transition probabilities</a></li>
-<li class="chapter" data-level="4.2" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-chapman-kolmogorov-equations"><i class="fa fa-check"></i><b>4.2</b> The Chapman-Kolmogorov equations</a></li>
-<li class="chapter" data-level="4.3" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-chapman-kolmogorov-equations-and-n-step-transition-probabilities"><i class="fa fa-check"></i><b>4.3</b> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
-<li class="chapter" data-level="4.4" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#distribution-of-x_n"><i class="fa fa-check"></i><b>4.4</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
-<li class="chapter" data-level="4.5" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#joint-distribution"><i class="fa fa-check"></i><b>4.5</b> Joint Distribution</a></li>
-<li class="chapter" data-level="4.6" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#random-walk-with-absorbing-and-reflecting-barriers"><i class="fa fa-check"></i><b>4.6</b> Random walk with absorbing and reflecting barrier(s)</a></li>
-<li class="chapter" data-level="4.7" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#an-example-of-nonhomogeneous-markov-chain"><i class="fa fa-check"></i><b>4.7</b> An example of nonhomogeneous Markov chain</a></li>
-<li class="chapter" data-level="4.8" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#simulation"><i class="fa fa-check"></i><b>4.8</b> Simulation</a></li>
-<li class="chapter" data-level="4.9" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#monte-carlo-methods"><i class="fa fa-check"></i><b>4.9</b> Monte Carlo Methods</a></li>
+<li class="chapter" data-level="4.1" data-path="simulation.html"><a href="simulation.html#monte-carlo-methods"><i class="fa fa-check"></i><b>4.1</b> Monte Carlo Methods</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="classification-of-states.html"><a href="classification-of-states.html"><i class="fa fa-check"></i><b>5</b> Classification of states</a></li>
 <li class="chapter" data-level="6" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html"><i class="fa fa-check"></i><b>6</b> Absorption probabilities and expected time to absorption</a>
@@ -189,11 +175,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#applications-of-markov-chains-to-ncd-systems"><i class="fa fa-check"></i>Applications of Markov chains to NCD systems</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>8</b> Applications</a>
+<li class="chapter" data-level="8" data-path="discrete-time-markov-chains-1.html"><a href="discrete-time-markov-chains-1.html"><i class="fa fa-check"></i><b>8</b> Discrete-time Markov chains</a></li>
+<li class="chapter" data-level="9" data-path="discrete-time-markov-chains-2.html"><a href="discrete-time-markov-chains-2.html"><i class="fa fa-check"></i><b>9</b> Discrete-time Markov chains</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="applications.html"><a href="applications.html#datacamp-light"><i class="fa fa-check"></i><b>8.1</b> DataCamp Light</a></li>
+<li class="chapter" data-level="9.1" data-path="discrete-time-markov-chains-2.html"><a href="discrete-time-markov-chains-2.html#one-step-transition-probabilities-1"><i class="fa fa-check"></i><b>9.1</b> One-step transition probabilities</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>9</b> Final Words</a></li>
+<li class="chapter" data-level="10" data-path="the-chapman-kolmogorov-equations-1.html"><a href="the-chapman-kolmogorov-equations-1.html"><i class="fa fa-check"></i><b>10</b> The Chapman-Kolmogorov equations</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="the-chapman-kolmogorov-equations-1.html"><a href="the-chapman-kolmogorov-equations-1.html#the-chapman-kolmogorov-equations-and-n-step-transition-probabilities-1"><i class="fa fa-check"></i><b>10.1</b> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
+<li class="chapter" data-level="10.2" data-path="the-chapman-kolmogorov-equations-1.html"><a href="the-chapman-kolmogorov-equations-1.html#distribution-of-x_n-1"><i class="fa fa-check"></i><b>10.2</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
+<li class="chapter" data-level="10.3" data-path="the-chapman-kolmogorov-equations-1.html"><a href="the-chapman-kolmogorov-equations-1.html#joint-distribution-1"><i class="fa fa-check"></i><b>10.3</b> Joint Distribution</a></li>
+<li class="chapter" data-level="10.4" data-path="the-chapman-kolmogorov-equations-1.html"><a href="the-chapman-kolmogorov-equations-1.html#random-walk-with-absorbing-and-reflecting-barriers-1"><i class="fa fa-check"></i><b>10.4</b> Random walk with absorbing and reflecting barrier(s)</a></li>
+<li class="chapter" data-level="10.5" data-path="the-chapman-kolmogorov-equations-1.html"><a href="the-chapman-kolmogorov-equations-1.html#an-example-of-nonhomogeneous-markov-chain-1"><i class="fa fa-check"></i><b>10.5</b> An example of nonhomogeneous Markov chain</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="simulation-1.html"><a href="simulation-1.html"><i class="fa fa-check"></i><b>11</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="simulation-1.html"><a href="simulation-1.html#monte-carlo-methods-1"><i class="fa fa-check"></i><b>11.1</b> Monte Carlo Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="classification-of-states-1.html"><a href="classification-of-states-1.html"><i class="fa fa-check"></i><b>12</b> Classification of states</a></li>
+<li class="chapter" data-level="13" data-path="absorption-probabilities-and-expected-time-to-absorption-1.html"><a href="absorption-probabilities-and-expected-time-to-absorption-1.html"><i class="fa fa-check"></i><b>13</b> Absorption probabilities and expected time to absorption</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="absorption-probabilities-and-expected-time-to-absorption-1.html"><a href="absorption-probabilities-and-expected-time-to-absorption-1.html#first-step-analysis-1"><i class="fa fa-check"></i><b>13.1</b> First step analysis</a></li>
+<li class="chapter" data-level="13.2" data-path="absorption-probabilities-and-expected-time-to-absorption-1.html"><a href="absorption-probabilities-and-expected-time-to-absorption-1.html#the-expected-time-to-absorption-1"><i class="fa fa-check"></i><b>13.2</b> The expected time to absorption</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="the-long-term-distribution-of-a-markov-chain-1.html"><a href="the-long-term-distribution-of-a-markov-chain-1.html"><i class="fa fa-check"></i><b>14</b> The long-term distribution of a Markov chain</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="the-long-term-distribution-of-a-markov-chain-1.html"><a href="the-long-term-distribution-of-a-markov-chain-1.html#stationary-and-limiting-distributions-for-a-single-closed-class-1"><i class="fa fa-check"></i><b>14.1</b> Stationary and limiting distributions for a single closed class</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#stationary-distributions"><i class="fa fa-check"></i>Stationary distributions</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#proportion-of-time-in-each-state"><i class="fa fa-check"></i>Proportion of Time in Each State</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#the-method-of-finding-the-stationary-distribution"><i class="fa fa-check"></i>The method of finding the stationary distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="the-long-term-distribution-of-a-markov-chain-1.html"><a href="the-long-term-distribution-of-a-markov-chain-1.html#sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain-1"><i class="fa fa-check"></i><b>14.2</b> Sufficient conditions for the long-run behaviour of a Markov chain</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#limiting-distributions"><i class="fa fa-check"></i>Limiting distributions</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#main-result"><i class="fa fa-check"></i>Main result</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#applications-of-markov-chains-to-ncd-systems"><i class="fa fa-check"></i>Applications of Markov chains to NCD systems</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>15</b> Methods</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="methods.html"><a href="methods.html#math-example"><i class="fa fa-check"></i><b>15.1</b> math example</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>16</b> Applications</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="applications.html"><a href="applications.html#datacamp-light"><i class="fa fa-check"></i><b>16.1</b> DataCamp Light</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>17</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -215,8 +243,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-long-term-distribution-of-a-markov-chain" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> The long-term distribution of a Markov chain</h1>
+<div id="the-long-term-distribution-of-a-markov-chain-1" class="section level1" number="14">
+<h1><span class="header-section-number">Chapter 14</span> The long-term distribution of a Markov chain</h1>
 <p>In this section, we present another important property concerning
 limiting behaviour of <span class="math inline">\(P^n\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span> and hence the
 long-term distribution of a Markov chain satisfying some certain
@@ -224,8 +252,8 @@ conditions. In particular, some Markov chains will converge to an
 equilibrium (limiting) distribution, which is independent of its initial
 state.</p>
 <p>We also assume that the Markov chain with <strong>a single closed class</strong> <span class="math inline">\(S\)</span>.</p>
-<div id="stationary-and-limiting-distributions-for-a-single-closed-class" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Stationary and limiting distributions for a single closed class</h2>
+<div id="stationary-and-limiting-distributions-for-a-single-closed-class-1" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> Stationary and limiting distributions for a single closed class</h2>
 <div id="stationary-distributions" class="section level3 unnumbered">
 <h3>Stationary distributions</h3>
 <p>Throughout this section, we consider a Markov chain whose transition
@@ -303,7 +331,7 @@ the Markov chain visits <span class="math inline">\(j\)</span> in the first <spa
 <span class="math inline">\(\sum_{k =0}^{n-1} I_k\)</span> and the expected long-term proportion of time
 that the chain visits state <span class="math inline">\(j\)</span> given that its initial state is <span class="math inline">\(i\)</span> is
 <span class="math display">\[\begin{aligned}
-    \lim_{n \rightarrow \infty} \mathrm{E}\left(\frac{1}{n}  \sum_{k =0}^{n-1} I_k \, |\, X_0 = i \right) &amp;= 
+    \lim_{n \rightarrow \infty} \mathrm{E}\left(\frac{1}{n}  \sum_{k =0}^{n-1} I_k \, |\, X_0 = i \right) &amp;=
     \lim_{n \rightarrow \infty}  \frac{1}{n}  \sum_{k =0}^{n-1} \mathrm{E}( I_k \, |\, X_0 = i ) \\
     &amp;= \lim_{n \rightarrow \infty}  \frac{1}{n}  \sum_{k =0}^{n-1} \Pr(X_k = j | X_0 = i)\\
     &amp;= \lim_{n \rightarrow \infty}  \frac{1}{n}  \sum_{k =0}^{n-1} p^{(k)}_{ij}\\
@@ -315,7 +343,7 @@ sequence of partial averages also converges to that limit, i.e.
 This result is known as Cesaro’s lemma.</p>
 <div class="example">
 <p><span id="exm:weatherExample2" class="example"><strong>Example 7.2  </strong></span><strong>Example 23</strong>. <em>Recall from
-ExampleÂ <a href="#weather" reference-type="ref" reference="weather">ExampleÂ 9</a>,
+Example <a href="#weather" reference-type="ref" reference="weather">Example 9</a>,
 the simple weather pattern can be classified into three types including
 rainy (<span class="math inline">\(R\)</span>), cloudy (<span class="math inline">\(C\)</span>) and sunny (<span class="math inline">\(S\)</span>). The weather is observed daily
 and can be modelled by the Markov transition matrix
@@ -338,8 +366,8 @@ equations <span class="math inline">\(\boldsymbol{\pi} P =\boldsymbol{\pi}\)</sp
 equations can be discarded), together with the condition
 <span class="math inline">\(\sum_{j \in S} \pi_j = 1\)</span>.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-25" class="example"><strong>Example 7.3  </strong></span><strong>Example 24</strong>. <em>For the NCD process in Example
-<a href="#NCD" reference-type="ref" reference="NCD">ExampleÂ 2</a>, the Markov
+<p><span id="exm:unlabeled-div-35" class="example"><strong>Example 14.1  </strong></span><strong>Example 24</strong>. <em>For the NCD process in Example
+<a href="#NCD" reference-type="ref" reference="NCD">Example 2</a>, the Markov
 chain has the following transition probability matrix
 <span class="math display">\[P = \begin{bmatrix}
     1- p &amp; p &amp; 0    \\
@@ -378,17 +406,17 @@ conditions"</strong>.</li>
 </ol>
 </div>
 </div>
-<div id="sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Sufficient conditions for the long-run behaviour of a Markov chain</h2>
+<div id="sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain-1" class="section level2" number="14.2">
+<h2><span class="header-section-number">14.2</span> Sufficient conditions for the long-run behaviour of a Markov chain</h2>
 <p>In what follows, we will establish a set of sufficient conditions for
 the long-run behaviour of a Markov chain. Two important results are
 stated without proof.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-26" class="theorem"><strong>Theorem 7.1  </strong></span><strong>Theorem 1</strong>. <em>A Markov chain with a finite state space has at least
+<p><span id="thm:unlabeled-div-36" class="theorem"><strong>Theorem 14.1  </strong></span><strong>Theorem 1</strong>. <em>A Markov chain with a finite state space has at least
 one stationary probability distribution.</em></p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-27" class="theorem"><strong>Theorem 7.2  </strong></span><strong>Theorem 2</strong>. <em>An irreducible Markov chain with a finite state space
+<p><span id="thm:unlabeled-div-37" class="theorem"><strong>Theorem 14.2  </strong></span><strong>Theorem 2</strong>. <em>An irreducible Markov chain with a finite state space
 has a unique stationary probability distribution.</em></p>
 </div>
 <div class="example">
@@ -426,8 +454,8 @@ divisor is 1, the state has period 1 and is said to be <strong>aperiodic</strong
 <p>A Markov chain in which each state has period 1 is called <strong>aperiodic</strong>.
 Most Markov chains in applications are aperiodic.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-28" class="example"><strong>Example 7.5  </strong></span><strong>Example 26</strong>. <em>Is the NCD system in
-ExampleÂ <a href="#NCD" reference-type="ref" reference="NCD">ExampleÂ 2</a>
+<p><span id="exm:unlabeled-div-38" class="example"><strong>Example 14.2  </strong></span><strong>Example 26</strong>. <em>Is the NCD system in
+Example <a href="#NCD" reference-type="ref" reference="NCD">Example 2</a>
 aperiodic?</em></p>
 </div>
 <p>The entire state space of the NCD system is a single class, and is
@@ -448,9 +476,9 @@ there exists some <span class="math inline">\(n &gt;0\)</span> such that
 is also called <strong>regular</strong>.</p></li>
 </ol>
 <div class="example">
-<p><span id="exm:unlabeled-div-29" class="example"><strong>Example 7.6  </strong></span><strong>Example 27</strong>. <em>In the random walk model on a finite state space
+<p><span id="exm:unlabeled-div-39" class="example"><strong>Example 14.3  </strong></span><strong>Example 27</strong>. <em>In the random walk model on a finite state space
 <span class="math inline">\(S = \{0,1,\ldots, N\}\)</span> with absorbing boundaries in
-ExampleÂ <a href="#simpleRW" reference-type="ref" reference="simpleRW">ExampleÂ 12</a>, determine the period of each state.</em></p>
+Example <a href="#simpleRW" reference-type="ref" reference="simpleRW">Example 12</a>, determine the period of each state.</em></p>
 </div>
 <p>The transition diagram and the transition matrix of the simple random
 walk with absorbing boundaries (states) are given as follows:</p>
@@ -464,16 +492,16 @@ states <span class="math inline">\(0\)</span> and <span class="math inline">\(N\
 states is possible in any number of steps (or the system can remain in
 this state in any length of time).</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-30" class="example"><strong>Example 7.7  </strong></span><strong>Example 28</strong>. <em>In the random walk model on an infinite state space
+<p><span id="exm:unlabeled-div-40" class="example"><strong>Example 14.4  </strong></span><strong>Example 28</strong>. <em>In the random walk model on an infinite state space
 <span class="math inline">\(S = \{\ldots,-2,-1,0,1,2, \ldots \}\)</span> in
-ExampleÂ <a href="#rwInfiniteS" reference-type="ref" reference="rwInfiniteS">ExampleÂ 25</a>, determine the period of each state.</em></p>
+Example <a href="#rwInfiniteS" reference-type="ref" reference="rwInfiniteS">Example 25</a>, determine the period of each state.</em></p>
 </div>
 <p>The entire state space is a single class. Note also that
 <span class="math inline">\(p^{(2n)}_{ii} &gt; 0\)</span> and <span class="math inline">\(p^{(2n+1)}_{ii} = 0\)</span> for <span class="math inline">\(n = 1,2,\ldots\)</span>.
 Therefore each state in the random walk on an infinite set <span class="math inline">\(S\)</span> is
 periodic with period 2.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-31" class="example"><strong>Example 7.8  </strong></span><strong>Example 29</strong>. <em>Suppose the states of the system are <span class="math inline">\(\{1,2,3,4 \}\)</span> and
+<p><span id="exm:unlabeled-div-41" class="example"><strong>Example 14.5  </strong></span><strong>Example 29</strong>. <em>Suppose the states of the system are <span class="math inline">\(\{1,2,3,4 \}\)</span> and
 the transition matrix is <span class="math display">\[P = \begin{bmatrix}
     0 &amp; 1/2 &amp; 0 &amp; 1/2    \\
     1/4 &amp; 0 &amp; 3/4 &amp; 0   \\
@@ -525,14 +553,14 @@ period 2. The process does not conform to stationary in the long
 run.</p></li>
 </ol>
 <div class="example">
-<p><span id="exm:unlabeled-div-32" class="example"><strong>Example 7.10  </strong></span><strong>Example 31</strong>. <em>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states <span class="math inline">\(\{1,2\}\)</span>
+<p><span id="exm:unlabeled-div-42" class="example"><strong>Example 14.6  </strong></span><strong>Example 31</strong>. <em>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states <span class="math inline">\(\{1,2\}\)</span>
 has the following transition matrix <span class="math display">\[P = \begin{bmatrix}
     1/3 &amp; 2/3   \\
     2/3 &amp; 1/3   \\
     %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
     %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
 \end{bmatrix},\]</span> Answer the same questions as given in the Example
-<a href="#exampleLongTerm" reference-type="ref" reference="exampleLongTerm">ExampleÂ 30</a></em></p>
+<a href="#exampleLongTerm" reference-type="ref" reference="exampleLongTerm">Example 30</a></em></p>
 </div>
 <ol style="list-style-type: decimal">
 <li><p>The process is finite and irreducible, so a unique stationary
@@ -547,10 +575,10 @@ distribution exists. To find the stationary distribution
 <span class="math display">\[\pi_{1} +  \pi_{2}  = 1.\]</span> Solving the system of linear equations
 gives <span class="math inline">\(\boldsymbol{\pi} = (1/2, 1/2).\)</span></p></li>
 <li><p>The chain is aperiodic. Therefore, according to the results from
-ExampleÂ <a href="#exampleStationary" reference-type="ref" reference="exampleStationary">ExampleÂ 22</a>, if follows that
+Example <a href="#exampleStationary" reference-type="ref" reference="exampleStationary">Example 22</a>, if follows that
 <span class="math display">\[\lim_{n \rightarrow \infty} p_{i1}^{(n)} = 1/2 &gt; 0 , \text{ and }  \lim_{n \rightarrow \infty} p_{i2}^{(n)} = 1/2,\]</span>
 which is independent of <span class="math inline">\(i\)</span>. This is contrast to the process given
-in ExampleÂ <a href="#exampleLongTerm" reference-type="ref" reference="exampleLongTerm">ExampleÂ 30</a>, i.e. the process in this example
+in Example <a href="#exampleLongTerm" reference-type="ref" reference="exampleLongTerm">Example 30</a>, i.e. the process in this example
 reaches the stationary probability distribution in the long run.</p></li>
 </ol>
 </div>
@@ -558,7 +586,7 @@ reaches the stationary probability distribution in the long run.</p></li>
 <h2>Main result</h2>
 <p>The main result in this section can be stated as follows:</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-33" class="theorem"><strong>Theorem 7.3  </strong></span><strong>Theorem 3</strong>. <em>Let <span class="math inline">\(P\)</span> be the transition probability matrix of a
+<p><span id="thm:unlabeled-div-43" class="theorem"><strong>Theorem 14.3  </strong></span><strong>Theorem 3</strong>. <em>Let <span class="math inline">\(P\)</span> be the transition probability matrix of a
 homogeneous discrete-time Markov chain <span class="math inline">\(\{X_n \}_{n \ge 0}\)</span>. If the
 Markov chain is</em></p>
 <ul>
@@ -577,8 +605,8 @@ stationary probability distribution of the Markov chain, i.e. it also
 satisfies <span class="math inline">\(\boldsymbol{\pi} P =\boldsymbol{\pi}\)</span>.</em></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-34" class="example"><strong>Example 7.11  </strong></span><strong>Example 32</strong>. <em>Recall the Markov chain as given in
-ExampleÂ <a href="#exampleStationary" reference-type="ref" reference="exampleStationary">ExampleÂ 22</a>. The Markov chain is finite, irreducible
+<p><span id="exm:unlabeled-div-44" class="example"><strong>Example 14.7  </strong></span><strong>Example 32</strong>. <em>Recall the Markov chain as given in
+Example <a href="#exampleStationary" reference-type="ref" reference="exampleStationary">Example 22</a>. The Markov chain is finite, irreducible
 and aperiodic. We have also shown that
 <span class="math display">\[\boldsymbol{\pi} = \left( \frac{b}{a+b},  \frac{a}{a+b} \right)\]</span> is
 the limiting distribution, i.e.
@@ -592,7 +620,7 @@ stationary distribution of the Markov chain, which can be verified by
 <span class="math inline">\(0 &lt; a,b &lt; 1.\)</span></em></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-35" class="example"><strong>Example 7.12  </strong></span><strong>Example 33</strong>. <em>The above result can be applied to the NCD system
+<p><span id="exm:unlabeled-div-45" class="example"><strong>Example 14.8  </strong></span><strong>Example 33</strong>. <em>The above result can be applied to the NCD system
 because it is finite, irreducible and aperiodic. Indeed, there is the
 unique limiting probability distribution
 <span class="math display">\[\boldsymbol{\pi} = \left(\frac{(p-1)^2}{p^2 - p +1}, \frac{p - p^2}{p^2 - p +1}, \frac{p^2}{p^2 - p +1}\right),\]</span>
@@ -646,7 +674,7 @@ P^{32} &amp;= \begin{bmatrix}
 <div id="applications-of-markov-chains-to-ncd-systems" class="section level3 unnumbered">
 <h3>Applications of Markov chains to NCD systems</h3>
 <div class="example">
-<p><span id="exm:unlabeled-div-36" class="example"><strong>Example 7.13  </strong></span><strong>Example 34</strong>. <em>A no-claims discount system for motor insurance has
+<p><span id="exm:unlabeled-div-46" class="example"><strong>Example 14.9  </strong></span><strong>Example 34</strong>. <em>A no-claims discount system for motor insurance has
 three levels of discount:</em></p>
 <table>
 <thead>
@@ -707,8 +735,8 @@ good driving?</em></p></li>
           </div>
         </div>
       </div>
-<a href="absorption-probabilities-and-expected-time-to-absorption.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="absorption-probabilities-and-expected-time-to-absorption-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -740,7 +768,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-dtmc.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-literature.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -748,7 +776,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/pairote-sat/SCMA469/blob/master/03-dtmc.Rmd",
+"link": "https://github.com/pairote-sat/SCMA469/blob/master/02-literature.Rmd",
 "text": null
 },
 "download": ["bookdownproj.pdf", "bookdownproj.epub"],

@@ -1,5 +1,3 @@
-fig:nice-fig
-tab:nice-tab
 exm:unlabeled-div-1
 exm:unlabeled-div-2
 exm:unlabeled-div-3
@@ -8,6 +6,7 @@ exm:unlabeled-div-5
 exm:unlabeled-div-6
 exm:unlabeled-div-7
 exm:unlabeled-div-8
+fig:SamplePaths
 exm:unlabeled-div-9
 exm:unlabeled-div-10
 exm:unlabeled-div-11
@@ -20,7 +19,6 @@ exm:unlabeled-div-15
 exm:MKProperty1
 exm:unlabeled-div-16
 exm:unlabeled-div-17
-exm:unlabeled-div-18
 exm:weather
 exm:unlabeled-div-19
 exm:unlabeled-div-20
@@ -48,13 +46,13 @@ thm:unlabeled-div-33
 exm:unlabeled-div-34
 exm:unlabeled-div-35
 exm:unlabeled-div-36
-prerequisites
 intro
 examples-of-real-world-processes
 review-of-probability-theory
 random-variables
 probability-distribution
 conditional-probability
+law-of-total-probability
 conditional-distribution-and-conditional-expectation
 central-limit-theorem
 stochastic-processes
@@ -62,7 +60,6 @@ classification-of-stochastic-processes
 random-walk-an-introductory-example
 discrete-time-markov-chains
 one-step-transition-probabilities
-the-chapman-kolmogorov-equations
 the-chapman-kolmogorov-equations-and-n-step-transition-probabilities
 distribution-of-x_n
 joint-distribution
@@ -77,8 +74,8 @@ the-expected-time-to-absorption
 the-long-term-distribution-of-a-markov-chain
 stationary-and-limiting-distributions-for-a-single-closed-class
 sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain
-methods
-math-example
+limiting-distributions
+main-result
 applications
 datacamp-light
 final-words

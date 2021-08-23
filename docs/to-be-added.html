@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Stochastic processes | SCMA469 Actuarial Statistics</title>
+  <title>Chapter 9 To be added | SCMA469 Actuarial Statistics</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Stochastic processes | SCMA469 Actuarial Statistics" />
+  <meta property="og:title" content="Chapter 9 To be added | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Stochastic processes | SCMA469 Actuarial Statistics" />
+  <meta name="twitter:title" content="Chapter 9 To be added | SCMA469 Actuarial Statistics" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="review-of-probability-theory.html"/>
-<link rel="next" href="discrete-time-markov-chains.html"/>
+<link rel="prev" href="the-long-term-distribution-of-a-markov-chain.html"/>
+<link rel="next" href="new-chapter.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -85,38 +85,39 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  background-color: #f8f8f8; }
+  {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -139,55 +140,65 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Stochastic Processes</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#examples-of-real-world-processes"><i class="fa fa-check"></i><b>1.1</b> Examples of real world processes</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#review-of-probability-theory"><i class="fa fa-check"></i><b>1.2</b> Review of probability theory</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#random-variables"><i class="fa fa-check"></i><b>1.3</b> Random variables</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#probability-distribution"><i class="fa fa-check"></i><b>1.4</b> Probability distribution</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#examples-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i>Examples of discrete and continuous random variables</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#conditional-probability"><i class="fa fa-check"></i><b>1.5</b> Conditional probability</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#law-of-total-probability"><i class="fa fa-check"></i>Law of total probability</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>1.6</b> Conditional distribution and conditional expectation</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#central-limit-theorem"><i class="fa fa-check"></i><b>1.7</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#central-limit-theorem-1"><i class="fa fa-check"></i>Central Limit Theorem</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html"><i class="fa fa-check"></i><b>2</b> Review of probability theory</a>
+<li class="chapter" data-level="2" data-path="stochastic-processes.html"><a href="stochastic-processes.html"><i class="fa fa-check"></i><b>2</b> Stochastic processes</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#random-variables"><i class="fa fa-check"></i><b>2.1</b> Random variables</a></li>
-<li class="chapter" data-level="2.2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#probability-distribution"><i class="fa fa-check"></i><b>2.2</b> Probability distribution</a></li>
-<li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#examples-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i>Examples of discrete and continuous random variables</a></li>
-<li class="chapter" data-level="2.3" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-probability"><i class="fa fa-check"></i><b>2.3</b> Conditional probability</a></li>
-<li class="chapter" data-level="2.4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#law-of-total-probability"><i class="fa fa-check"></i><b>2.4</b> Law of total probability</a></li>
-<li class="chapter" data-level="2.5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>2.5</b> Conditional distribution and conditional expectation</a></li>
-<li class="chapter" data-level="2.6" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem"><i class="fa fa-check"></i><b>2.6</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="2.1" data-path="stochastic-processes.html"><a href="stochastic-processes.html#classification-of-stochastic-processes"><i class="fa fa-check"></i><b>2.1</b> Classification of stochastic processes</a></li>
+<li class="chapter" data-level="2.2" data-path="stochastic-processes.html"><a href="stochastic-processes.html#random-walk-an-introductory-example"><i class="fa fa-check"></i><b>2.2</b> Random walk: an introductory example</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="stochastic-processes.html"><a href="stochastic-processes.html"><i class="fa fa-check"></i><b>3</b> Stochastic processes</a>
+<li class="chapter" data-level="3" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html"><i class="fa fa-check"></i><b>3</b> # Discrete-time Markov chains</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="stochastic-processes.html"><a href="stochastic-processes.html#classification-of-stochastic-processes"><i class="fa fa-check"></i><b>3.1</b> Classification of stochastic processes</a></li>
-<li class="chapter" data-level="3.2" data-path="stochastic-processes.html"><a href="stochastic-processes.html#random-walk-an-introductory-example"><i class="fa fa-check"></i><b>3.2</b> Random walk: an introductory example</a></li>
+<li class="chapter" data-level="3.1" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#one-step-transition-probabilities"><i class="fa fa-check"></i><b>3.1</b> One-step transition probabilities</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html"><i class="fa fa-check"></i><b>4</b> Discrete-time Markov chains</a>
+<li class="chapter" data-level="4" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html"><i class="fa fa-check"></i><b>4</b> The Chapman-Kolmogorov equations</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#one-step-transition-probabilities"><i class="fa fa-check"></i><b>4.1</b> One-step transition probabilities</a></li>
-<li class="chapter" data-level="4.2" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-chapman-kolmogorov-equations-and-n-step-transition-probabilities"><i class="fa fa-check"></i><b>4.2</b> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
-<li class="chapter" data-level="4.3" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#distribution-of-x_n"><i class="fa fa-check"></i><b>4.3</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
-<li class="chapter" data-level="4.4" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#joint-distribution"><i class="fa fa-check"></i><b>4.4</b> Joint Distribution</a></li>
-<li class="chapter" data-level="4.5" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#random-walk-with-absorbing-and-reflecting-barriers"><i class="fa fa-check"></i><b>4.5</b> Random walk with absorbing and reflecting barrier(s)</a></li>
-<li class="chapter" data-level="4.6" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#an-example-of-nonhomogeneous-markov-chain"><i class="fa fa-check"></i><b>4.6</b> An example of nonhomogeneous Markov chain</a></li>
-<li class="chapter" data-level="4.7" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#simulation"><i class="fa fa-check"></i><b>4.7</b> Simulation</a></li>
-<li class="chapter" data-level="4.8" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#monte-carlo-methods"><i class="fa fa-check"></i><b>4.8</b> Monte Carlo Methods</a></li>
-<li class="chapter" data-level="4.9" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#classification-of-states"><i class="fa fa-check"></i><b>4.9</b> Classification of states</a></li>
-<li class="chapter" data-level="4.10" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#absorption-probabilities-and-expected-time-to-absorption"><i class="fa fa-check"></i><b>4.10</b> Absorption probabilities and expected time to absorption</a></li>
-<li class="chapter" data-level="4.11" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#first-step-analysis"><i class="fa fa-check"></i><b>4.11</b> First step analysis</a></li>
-<li class="chapter" data-level="4.12" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-expected-time-to-absorption"><i class="fa fa-check"></i><b>4.12</b> The expected time to absorption</a></li>
-<li class="chapter" data-level="4.13" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-long-term-distribution-of-a-markov-chain"><i class="fa fa-check"></i><b>4.13</b> The long-term distribution of a Markov chain</a></li>
-<li class="chapter" data-level="4.14" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#stationary-and-limiting-distributions-for-a-single-closed-class"><i class="fa fa-check"></i><b>4.14</b> Stationary and limiting distributions for a single closed class</a>
+<li class="chapter" data-level="4.1" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#the-chapman-kolmogorov-equations-and-n-step-transition-probabilities"><i class="fa fa-check"></i><b>4.1</b> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
+<li class="chapter" data-level="4.2" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#distribution-of-x_n"><i class="fa fa-check"></i><b>4.2</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
+<li class="chapter" data-level="4.3" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#joint-distribution"><i class="fa fa-check"></i><b>4.3</b> Joint Distribution</a></li>
+<li class="chapter" data-level="4.4" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#random-walk-with-absorbing-and-reflecting-barriers"><i class="fa fa-check"></i><b>4.4</b> Random walk with absorbing and reflecting barrier(s)</a></li>
+<li class="chapter" data-level="4.5" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#an-example-of-nonhomogeneous-markov-chain"><i class="fa fa-check"></i><b>4.5</b> An example of nonhomogeneous Markov chain</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>5</b> Simulation</a>
 <ul>
-<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#stationary-distributions"><i class="fa fa-check"></i>Stationary distributions</a></li>
-<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#proportion-of-time-in-each-state"><i class="fa fa-check"></i>Proportion of Time in Each State</a></li>
-<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-method-of-finding-the-stationary-distribution"><i class="fa fa-check"></i>The method of finding the stationary distribution</a></li>
+<li class="chapter" data-level="5.1" data-path="simulation.html"><a href="simulation.html#monte-carlo-methods"><i class="fa fa-check"></i><b>5.1</b> Monte Carlo Methods</a></li>
 </ul></li>
-<li class="chapter" data-level="4.15" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain"><i class="fa fa-check"></i><b>4.15</b> Sufficient conditions for the long-run behaviour of a Markov chain</a></li>
-<li class="chapter" data-level="4.16" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#limiting-distributions"><i class="fa fa-check"></i><b>4.16</b> Limiting distributions</a></li>
-<li class="chapter" data-level="4.17" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#main-result"><i class="fa fa-check"></i><b>4.17</b> Main result</a>
+<li class="chapter" data-level="6" data-path="classification-of-states.html"><a href="classification-of-states.html"><i class="fa fa-check"></i><b>6</b> Classification of states</a></li>
+<li class="chapter" data-level="7" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html"><i class="fa fa-check"></i><b>7</b> Absorption probabilities and expected time to absorption</a>
 <ul>
-<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#applications-of-markov-chains-to-ncd-systems"><i class="fa fa-check"></i>Applications of Markov chains to NCD systems</a></li>
+<li class="chapter" data-level="7.1" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html#first-step-analysis"><i class="fa fa-check"></i><b>7.1</b> First step analysis</a></li>
+<li class="chapter" data-level="7.2" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html#the-expected-time-to-absorption"><i class="fa fa-check"></i><b>7.2</b> The expected time to absorption</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a>
+<li class="chapter" data-level="8" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html"><i class="fa fa-check"></i><b>8</b> The long-term distribution of a Markov chain</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#datacamp-light"><i class="fa fa-check"></i><b>5.1</b> DataCamp Light</a></li>
+<li class="chapter" data-level="8.1" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#stationary-and-limiting-distributions-for-a-single-closed-class"><i class="fa fa-check"></i><b>8.1</b> Stationary and limiting distributions for a single closed class</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#stationary-distributions"><i class="fa fa-check"></i>Stationary distributions</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#proportion-of-time-in-each-state"><i class="fa fa-check"></i>Proportion of Time in Each State</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#the-method-of-finding-the-stationary-distribution"><i class="fa fa-check"></i>The method of finding the stationary distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="8.2" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain"><i class="fa fa-check"></i><b>8.2</b> Sufficient conditions for the long-run behaviour of a Markov chain</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#limiting-distributions"><i class="fa fa-check"></i>Limiting distributions</a></li>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#main-result"><i class="fa fa-check"></i>Main result</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#applications-of-markov-chains-to-ncd-systems"><i class="fa fa-check"></i>Applications of Markov chains to NCD systems</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="to-be-added.html"><a href="to-be-added.html"><i class="fa fa-check"></i><b>9</b> To be added</a></li>
+<li class="chapter" data-level="10" data-path="new-chapter.html"><a href="new-chapter.html"><i class="fa fa-check"></i><b>10</b> New chapter</a></li>
+<li class="chapter" data-level="11" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>11</b> Applications</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="applications.html"><a href="applications.html#datacamp-light"><i class="fa fa-check"></i><b>11.1</b> DataCamp Light</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>12</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -209,674 +220,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stochastic-processes" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Stochastic processes</h1>
-<p>Evolution of a random process is at least partially random, and each run
-the process leads to potentially a different outcome. It is of great
-interest to understand or model the behaviour of a random process by
-describing how different states, represented by random variables <span class="math inline">\(X\)</span>’s,
-evolve in the system over time. Just as probability theory is considered
-as the study of mathematical models of random phenomena, the theory of
-stochastic processes plays an important role in the study of
-time-dependent random phenomena. Stochastic processes can be used to
-represent many different random phenomena from different fields such as
-science, engineering, finance, and economics.</p>
-<p>A <strong>stochastic process</strong> is a collection of random variables
-<span class="math inline">\(\{ X_t : t \in T\}\)</span> defined on a common sample space, where</p>
-<ul>
-<li><p><span class="math inline">\(t\)</span> is a parameter running over some index set <span class="math inline">\(T\)</span>, called the
-<strong>time domain</strong>.</p></li>
-<li><p>The common sample space of the random variables (the range of
-possible values for <span class="math inline">\(X_t\)</span>) denoted by <span class="math inline">\(S\)</span> is called the <strong>state
-space</strong> of the process.</p></li>
-</ul>
-<ol style="list-style-type: decimal">
-<li><p>The set of random variables may be dependent or need not be
-identically distributed.</p></li>
-<li><p>Techniques used to study stochastic processes depend on whether the
-state space or the index set (the time domain) are discrete or
-continuous.</p></li>
-</ol>
-<div id="classification-of-stochastic-processes" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Classification of stochastic processes</h2>
-<p>Stochastic processes can be classified on the basis of the nature of
-their state space and index set.</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Discrete state space with discrete time changes</strong> : No claims
-discount (NCD) policy: A car owner purchases a motor insurance
-policy for which the premium charged depends on the claim record.
-Let <span class="math inline">\(X_t\)</span> denote the discount status of a policyholder with three
-levels of discount, i.e. <span class="math inline">\(S = \{0,1,2\}\)</span> corresponding to three
-discount levels of 0%, 20% and 40% and the time set is
-<span class="math inline">\(T = \{0,1,2,\ldots\}\)</span>. Both time and state space are discrete.</p></li>
-<li><p><strong>Discrete state space with continuous time changes</strong> : In a health
-insurance system, an insurance company may classify policyholders as
-Healthy, Sick or Dead, i.e. <span class="math inline">\(S = \{H, S, D\}\)</span>. The time domain can
-be taken as continuous, <span class="math inline">\(T = [0,\infty)\)</span>.</p></li>
-<li><p><strong>Continuous state space with continuous time changes</strong> : Let <span class="math inline">\(S_t\)</span>
-be the total amount claimed by time <span class="math inline">\(t \in T\)</span> where <span class="math inline">\(T = [0,\infty)\)</span>
-and the state space is <span class="math inline">\(\mathbb{R}\)</span>. Both time and state space are
-continuous. Some continuous time stochastic process taking value in
-a continuous state space will be studied in Risk Analysis and
-Credibility course.</p></li>
-<li><p><strong>Continuous state space with discrete time changes</strong> : The outcomes
-of the above claim process <span class="math inline">\(S_t\)</span> could be recorded continuously,
-however, we may choose to model the values only at discrete time,
-for e.g. the total claim amounts at the end of each day. This may
-due to the limitation of the measurement process (for e.g. expensive
-to measure). Hence, the time domain is discrete but the state space
-is continuous.</p></li>
-</ol>
-<p>In case that claim amounts are recorded to the nearest baht or in
-satang, i.e. discrete state space, we could also approximate or model
-the process by using a discrete state space, rather than continuous.</p>
-</div>
-<div id="random-walk-an-introductory-example" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Random walk: an introductory example</h2>
-<p>One of the simplest examples of a stochastic process is a simple random
-walk. Consider a simple model of the price of a stock measured in
-satang. For each trading day <span class="math inline">\(n = 0,1,2, \ldots\)</span>, the stock price
-increases by 1 satang with probability <span class="math inline">\(p\)</span> or decreases by 1 satang with
-probability <span class="math inline">\(q = 1-p\)</span>. Let <span class="math inline">\(X_n\)</span> denote the stock price at day <span class="math inline">\(n\)</span> and
-<span class="math inline">\(X_0 = 100\)</span>, i.e. <span class="math inline">\(X_0 =\)</span>. This simple model is called a simple random
-walk.</p>
-<p>In the simple random walk process, time is discrete (as observed at the
-end of each day) and the state space is discrete. The stochastic model
-has an infinite number of outcomes known as <strong>stochastic realisations or
-sample paths</strong>. A <strong>sample path</strong> is then just the sequence of a
-particular set of experiments. Graphs of some stochastic realisations of
-the simple random walk with <span class="math inline">\(p = 0.5\)</span> and <span class="math inline">\(a = 100\)</span> are shown in Figure
-<a href="stochastic-processes.html#fig:SamplePaths" reference-type="ref" reference="fig:SamplePaths">1</a>.</p>
-<div class="figure">
-<embed src="SamplePaths.pdf" id="fig:SamplePaths" style="width:4in" />
-<p class="caption">Some stochastic realisations of the simple random
-walk</p>
-</div>
-<p>A complete description of the simple random walk, observed as a
-collection of <span class="math inline">\(n\)</span> random variables at time points
-<span class="math inline">\(t_1, t_2, \ldots, t_n\)</span> can be specified by the joint distribution of
-<span class="math inline">\(X_{t_1}, X_{t_2}, \ldots, X_{t_n}\)</span>, i.e.
-<span class="math display">\[F(x_1, x_2, \ldots, x_n) = \Pr(X_{t_1} \le x_1, X_{t_2} \le x_2, \ldots, X_{t_n} \le x_n).\]</span>
-However, the <strong>multidimensional distribution function cannot be easily
-written in a closed form</strong> unless the random variables have a
-multivariate normal distribution. In practice, it is more convenient to
-deal with some stochastic processes via some simple <strong>intermediary
-processes</strong> or under some addition assumptions.</p>
-<p>In general, a simple random walk <span class="math inline">\(X_n\)</span> is a discrete-time stochastic
-process defined by</p>
-<ul>
-<li><p><span class="math inline">\(X_0 = a\)</span> and</p></li>
-<li><p>for <span class="math inline">\(n \ge1\)</span>,
-<span class="math display">\[X_n = a + \sum_{i=1}^n  Z_i, \text{ where } Z_i = \begin{cases}
-    1, &amp; \text{ with probability } p  \\
-    -1, &amp; \text{ with probability } q =  1- p.  
- \end{cases}\]</span></p></li>
-</ul>
-<ol style="list-style-type: decimal">
-<li><p>When <span class="math inline">\(p = 1/2\)</span>, the value of the process increases or decreases
-randomly by 1 unit with equal probability. In this case, the process
-is known as a <strong>symmetric</strong> random walk.</p></li>
-<li><p>The (intermediary) process <span class="math inline">\(\{ Z_i : i \in \mathbb{N}\}\)</span> is a
-sequence of independent identically distributed (i.i.d.) random
-variables. The process <span class="math inline">\(X_t\)</span> themselves are neither independent nor
-identically distributed. This process <span class="math inline">\(Z_i\)</span> is also known as <strong>white
-noise process</strong>.</p></li>
-</ol>
-<div class="example">
-<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 3.1  </strong></span><em>Explain why the simple random process <span class="math inline">\(X_n\)</span> is neither
-independent nor identically distributed.</em></p>
-</div>
-<p>Suppose that <span class="math inline">\(X_0 = 100\)</span>. Firstly, we will show that <span class="math inline">\(X_n\)</span> is not
-independent. From definition, the process <span class="math inline">\(X_n\)</span> can be written as
-<span class="math display">\[X_n = X_{n-1} + Z_n.\]</span> That is, the value of <span class="math inline">\(X_n\)</span> is the previous
-value plus a random change of 1 or <span class="math inline">\(-1\)</span>. Therefore, the value of the
-process depends on the previous value and they are not independent. For
-e.g.,
-<span class="math display">\[\Pr(X_2 = 102) &gt; 0 \quad \text{ but } \quad  \Pr(X_2 = 102 | X_1 = 99) = 0.\]</span></p>
-<p>The process <span class="math inline">\(X_n\)</span> cannot be identically distributed. For e.g. <span class="math inline">\(X_1\)</span> can
-take the values of 99 and 101, while <span class="math inline">\(X_2\)</span> can take three different
-values of 98, 100 and 102.</p>
-<div class="example">
-<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 3.2  </strong></span><em>Let <span class="math display">\[\begin{aligned}
-    \mu &amp;= \mathrm{E}[Z_i] \\
-    \sigma^2 &amp;= \mathrm{Var}[Z_i] \end{aligned}\]</span> Calculate the
-expectation (<span class="math inline">\(\mu\)</span>) and variance (<span class="math inline">\(\sigma^2\)</span>) of the random variable
-<span class="math inline">\(Z_i\)</span>.</em></p>
-</div>
-<p><span class="math display">\[\begin{aligned}
-    \mu &amp;= \mathrm{E}[Z_i] = 1\cdot p + (-1) \cdot q = p - q.\\\end{aligned}\]</span>
-<span class="math display">\[\begin{aligned}
-    \sigma^2 &amp;= \mathrm{Var}[Z_i] \\
-            &amp;=\mathrm{E}[Z_i^2] - (\mathrm{E}[Z_i] )^2 \\
-            &amp;= 1 - (p-q)^2  = (p+q)^2 - (p-q)^2\\
-            &amp;= 4pq. \end{aligned}\]</span></p>
-<div class="example">
-<p><span id="exm:unlabeled-div-11" class="example"><strong>Example 3.3  </strong></span><em>Calculate the expectation and variance of the process
-<span class="math inline">\(X_n\)</span> at time <span class="math inline">\(n\)</span>.</em></p>
-</div>
-<p><span class="math display">\[\begin{aligned}
-     \mathrm{E}[X_n] &amp;=  \mathrm{E}[a + \sum_{i=1}^n Z_i] = a + n\mu.\end{aligned}\]</span>
-<span class="math display">\[\begin{aligned}
-    \mathrm{Var}[X_n]&amp;= \mathrm{Var}[a + \sum_{i=1}^n Z_i]  = n \sigma^2.\end{aligned}\]</span>
-It should be noted that the variance of <span class="math inline">\(X_n\)</span> increases with time.</p>
-<div class="example">
-<p><span id="exm:unlabeled-div-12" class="example"><strong>Example 3.4  </strong></span><em>For the random process, calculate
-<span class="math display">\[\Pr(X_2 = 98, X_5 = 99 | X_0 = 100).\]</span></em></p>
-</div>
-<p>The process <span class="math inline">\(X_n\)</span> must decrease on the first two days, which happens
-with probability <span class="math inline">\((1-p)^2\)</span>. Independently, it must then increases on
-another two days and decrease on one day (not necessarily in that
-order), giving three different possibilities. Each of these has
-probability <span class="math inline">\(p^2(1-p)\)</span>. So
-<span class="math display">\[\Pr(X_2 = 98, X_5 = 99 | X_0 = 100) = (1-p)^2 \cdot 3 p^2(1-p) = 3p^2(1-p)^3.\]</span></p>
-<p>In what follows, we will see that exact calculations are possible for
-the simple random walk process. Note also that it is sufficient to
-understand the behaviour of the random walk when it starts at <span class="math inline">\(X_0 = 0\)</span>.</p>
-<div class="example">
-<p><span id="exm:unlabeled-div-13" class="example"><strong>Example 3.5  </strong></span><em>For the random process with <span class="math inline">\(X_0 = 0\)</span>, <span class="math inline">\(X_{2n}\)</span> is
-always even and <span class="math inline">\(X_{2n+1}\)</span> is always odd. Based on the binomial
-distribution, show that <span class="math display">\[\begin{aligned}
-    \Pr(X_{2n} = 2m) &amp;= {2n \choose n+m} p^{n+m} q^{n-m}, \quad   -n \le m \le n \\
-    \Pr(X_{2n+1} = 2m+1) &amp;= {2n + 1 \choose n+m+1} p^{n+m+1} q^{n-m}, \quad   -n-1 \le m \le n.\end{aligned}\]</span></em></p>
-</div>
-<p>Let <span class="math inline">\(A\)</span> denote the number of <span class="math inline">\(+1\)</span> and <span class="math inline">\(B\)</span> denote the number of <span class="math inline">\(-1\)</span>.
-Then <span class="math inline">\(A + B = 2n\)</span> and <span class="math inline">\(X_{2n} = A - B\)</span> (i.e. the position at time <span class="math inline">\(2n\)</span>).
-Hence, <span class="math display">\[\begin{aligned}
-    \Pr(X_{2n} = 2m) &amp;= \Pr( A - B = 2m) \\
-    &amp;= \Pr( A - (2n - A) = 2m)  =   \Pr( 2A - 2n  = 2m) =   \Pr( A   = m + n)\\
-    &amp;= {2n \choose n+m} p^{n+m} q^{2n-(n+m)}, \quad   -n \le m \le n \\
-    &amp;= {2n \choose n+m} p^{n+m} q^{n-m}, \quad   -n \le m \le n.\end{aligned}\]</span></p>
-<!-- # Introduction to Stochastic Processes {#intro} -->
-<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
-<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
-<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
-<!-- par(mar = c(4, 4, .1, .1)) -->
-<!-- plot(pressure, type = 'b', pch = 19) -->
-<!-- ``` -->
-<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
-<!-- ```{r nice-tab, tidy=FALSE} -->
-<!-- knitr::kable( -->
-<!--   head(iris, 20), caption = 'Here is a nice table!', -->
-<!--   booktabs = TRUE -->
-<!-- ) -->
-<!-- ``` -->
-<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
-<!-- The course will cover the probabilistic framework for stochastic models -->
-<!-- of real-world applications with emphasis on actuarial work. We will -->
-<!-- illustrate some practical actuarial problems for which we will develop -->
-<!-- mathematical models, tools and techniques for analysing and quantifying -->
-<!-- the uncertainty of the problems. -->
-<!-- Here are some of the examples which will be covered later in the course. -->
-<!-- Examples of real world processes -->
-<!-- ================================ -->
-<!-- ::: {.example} -->
-<!-- **Example 1**. *(**No claims discount systems (NCD)**) A well-known -->
-<!-- model widely used by auto insurance companies is the **no claims -->
-<!-- discount system**, in which an insured receives a discount for a claim -->
-<!-- free year, while the insured is penalised by an additional premium when -->
-<!-- one or more accidents occur.* -->
-<!-- *An example of the NCD system in UK may be structured as follows:* -->
-<!--     *Level*     *7*      *6*     *5*     *4*     *3*     *2*     *1* -->
-<!--   ----------- -------- ------- ------- ------- ------- ------- ------- -->
-<!--    *Premium*   *100%*   *75%*   *65%*   *55%*   *45%*   *40%*   *33%* -->
-<!-- *The rules for moving between these levels are as follows:* -->
-<!-- -   *For a claim-free year, a policyholder moves down 1 level.* -->
-<!-- -   *Levels 4$-$7:* -->
-<!--     -   *For every one claim, the policyholder moves up 1 level or -->
-<!--         remains at level 7.* -->
-<!--     -   *For every two or more claims, move to, or remains at, level 7.* -->
-<!-- -   *Levels 2$-$3:* -->
-<!--     -   *For every one claim, move up 2 levels.* -->
-<!--     -   *For every two claims, move up 4 levels.* -->
-<!--     -   *For every three or more claims, move to level 7.* -->
-<!-- -   *Level 1:* -->
-<!--     -   *For every one claim, move to level 4.* -->
-<!--     -   *For every two claims, move to level 6.* -->
-<!--     -   *For every three or more claims, move to level 7.* -->
-<!-- *The no claims discount system is a form of experience rating consisting -->
-<!-- of a finite number of levels (or classes), each with its own premium. -->
-<!-- The 7 levels are experience-rated as described above.* -->
-<!-- *For the NCD model, questions of interest may include:* -->
-<!-- 1.  *For 10,000 policyholders at level 7, estimate the *expected -->
-<!--     numbers* at each discount level at a given time, or once stability -->
-<!--     has been achieved.* -->
-<!-- 2.  *What is the *probability* that a policyholder who is at a specific -->
-<!--     discount level (i.e. one of the levels 1-6) has no discount after 2 -->
-<!--     years?* -->
-<!-- 3.  *What is the *distribution* of being in one of the levels at time 5 -->
-<!--     years?* -->
-<!-- 4.  *Suppose a large number of people having the same claim -->
-<!--     probabilities take out policies at the same time. What is the -->
-<!--     proportion would you expect to be in each discount level in the long -->
-<!--     run?* -->
-<!-- *What would be a suitable model to study the NCD system? As opposed to a -->
-<!-- **deterministic model** for which its outcomes are fixed, the outcomes -->
-<!-- of the NCD model are uncertain. It turns out that the NCD system can be -->
-<!-- studied within the framework of Markov chains, which are examples of -->
-<!-- stochastic processes. The use of matrix algebra provides a powerful tool -->
-<!-- to understand and analyse the processes.* -->
-<!-- *The evolution of the states or levels can be described the random -->
-<!-- variables $X_0, X_1,X_2, \ldots$ and probability distributions, where -->
-<!-- $X_n$ is the level of the policyholder at time $n$. In this example, the -->
-<!-- set of all states called the state space is discrete, which consists of -->
-<!-- seven levels, and the time variable is also discrete. This is an example -->
-<!-- of a **discrete time, discrete state space stochastic process**.* -->
-<!-- ::: -->
-<!-- ::: {.example} -->
-<!-- **Example 2**. *(**Poisson processes**) Consider the number of claims -->
-<!-- that occur up to time $t$ (denoted by $N_t$) from a portfolio of health -->
-<!-- insurance policies (or other types of insurance products). Suppose that -->
-<!-- the average rate of occurrence of claims per time unit (e.g. day or week -->
-<!-- ) is given by $\lambda$.* -->
-<!-- *Here are some questions of interest:* -->
-<!-- 1.  *On average, 20 claims arrive every day, what is the probability -->
-<!--     that more than 100 claims arrive within a week?* -->
-<!-- 2.  *What is the expected time until the next claim?* -->
-<!-- *In this example, the state space consists of all whole numbers -->
-<!-- $\{0, 1, 2, \ldots\}$, while the time variable is continuous. The -->
-<!-- process is a **continuous-time stochastic process with discrete state -->
-<!-- space**. The model used to model the insurance claims is an example of -->
-<!-- **Poisson processes**. The Poisson process is one of the most -->
-<!-- widely-used counting processes. Even thought we know that claims occur -->
-<!-- at a certain rate, but completely at random. Moreover, the timing -->
-<!-- between claims seem to be completely random.* -->
-<!-- *Later, we will see that there are several ways to describe this -->
-<!-- process. One can focus on the number of claims that occur up to time $t$ -->
-<!-- or the times between those claims when they occur. Many important -->
-<!-- properties of Poisson processes will be discussed.* -->
-<!-- ::: -->
-<!-- ::: {.example} -->
-<!-- **Example 3**. *(**Markov processes**) Suppose that we observe a total -->
-<!-- of $n$ independent lives all aged between $x$ and $x + 1$. For life $i$, -->
-<!-- we define the following terms:* -->
-<!-- -   *$x+ a_i$ is the age at which observation -->
-<!--     begins,$\quad 0 \le a_i < 1$.* -->
-<!-- -   *$x+ b_i$ is the age at which observation ends, if life does not -->
-<!--     die, $\quad 0 \le b_i < 1$.* -->
-<!-- -   *$x+ t_i$ is the age at which observation stops, by death or -->
-<!--     censoring.* -->
-<!-- -   *$d_i = 1$, if life $i$ dies, otherwise $d_i = 0$, if life $i$ -->
-<!--     censored.* -->
-<!-- *For example, consider the following mortality data on eight lives all -->
-<!-- aged between $70$ and $71$.* -->
-<!--    *Life*   *$a_i$*   *$b_i$*   *$d_i$*   *$t_i$* -->
-<!--   -------- --------- --------- --------- --------- -->
-<!--     *1*       *0*       *1*       *1*     *0.25* -->
-<!--     *2*       *0*       *1*       *1*     *0.75* -->
-<!--     *3*       *0*       *1*       *0*       *1* -->
-<!--     *4*      *0.1*     *0.6*      *1*      *0.5* -->
-<!--     *5*      *0.2*     *0.7*      *1*      *0.6* -->
-<!--     *6*      *0.2*     *0.4*      *0*      *0.4* -->
-<!--     *7*      *0.5*      *1*       *1*     *0.75* -->
-<!--     *8*      *0.5*    *0.75*      *0*     *0.75* -->
-<!-- *How would one use this dataset to estimate the probability that a life -->
-<!-- aged 70 dies before age $70 + t$ or survives to at least age $70 + t$, -->
-<!-- for $t \in [0,1)$?* -->
-<!-- *In this example, we can represent the process by $\{X_t\}_{t \ge 0}$ -->
-<!-- with two possible states (alive or dead). This model is also an example -->
-<!-- of a **continuous-time stochastic process with discrete state space**.* -->
-<!-- *Here, we illustrate three actuarial applications which can be modelled -->
-<!-- by some **stochastic processes**. We should also emphasis that the -->
-<!-- outcome of one of the above processes is not fixed or uncertain. The -->
-<!-- course will provide important tools and techniques to analyse the -->
-<!-- problems with the goal of quantifying the uncertainty in the system.* -->
-<!-- ::: -->
-<!-- Review of probability theory -->
-<!-- ============================ -->
-<!-- Random variables -->
-<!-- ---------------- -->
-<!-- The dynamics of a stochastic process are describes by random variables -->
-<!-- and probability distributions. This section provides a brief discussion -->
-<!-- of the properties of random variables. -->
-<!-- The probability theory is about random variables. Roughly speaking, a -->
-<!-- random variable can be regarded as an uncertain, numerical quantity -->
-<!-- (i.e. the value in $\mathbb{R}$) whose possible values depend on the -->
-<!-- outcomes of a certain random phenomenon. The random variable is usually -->
-<!-- denoted by a capital letter $X, Y, \ldots,$ etc.. -->
-<!-- More precisely, let $S$ be a sample space. A **random variable** $X$ is -->
-<!-- a real-valued function defined on the sample space $S$, -->
-<!-- $$X : S \rightarrow \mathbb{R}.$$ Hence, the random variable $X$ is a -->
-<!-- function that maps outcomes to real values. -->
-<!-- ::: {.example} -->
-<!-- **Example 4**. *Two coins are tossed simultaneously and the outcomes are -->
-<!-- $HH, HT, TH$ and $TT$. We can associate the outcomes of this experiment -->
-<!-- with the set $A = \{1,2,3,4 \}$, where $X(HH) = 1, X(HT) = 2, X(TH) = 3$ -->
-<!-- and $X(TT) = 4$. Assume each of the outcomes has an equal probability of -->
-<!-- 1/4. Here, we can associate a function $P$ (known as a probability -->
-<!-- measure) defined on $S = \{HH, HT, TH, TT \}$ by -->
-<!-- $$P(HH) = 1/4,  P(HT) = 1/4,  P(TH) = 1/4,  P(TT) = 1/4.$$* -->
-<!-- ::: -->
-<!-- A probability measure $P : \mathcal{A} \rightarrow [0,1]$, where -->
-<!-- $\mathcal{A}$ is a collection of subsets of $S$, has the following -->
-<!-- properties -->
-<!-- 1.  $0 \le P(A), \quad A \subset S$. -->
-<!-- 2.  $P(S) = 1$. -->
-<!-- 3.  If $A_i \cap A_j = \emptyset$ for $i,j = 1,2, \ldots$, and -->
-<!--     $i \neq j$ where $A_j \subset S$, then -->
-<!--     $$P(\cup^\infty_{i=1} A_i)  = \sum^\infty_{i=1} P(A_i).$$ -->
-<!-- Random variables can be discrete or continuous. If the range of a random -->
-<!-- variable is finite or countably infinite, then the random variable is a -->
-<!-- **discrete random variable**. Otherwise, if its range is an uncountable -->
-<!-- set, then it is a **continuous random variable**. -->
-<!-- Probability distribution -->
-<!-- ------------------------ -->
-<!-- The probability distribution of a random variable $X$ is a function -->
-<!-- describing all possible values of $X$ and their corresponding -->
-<!-- probabilities or the likelihood of obtaining those values of $X$. -->
-<!-- Functions that define the probability measure for a discrete or a -->
-<!-- continuous random variable are the **probability mass function (pmf)** -->
-<!-- and the **probability density function (pdf)**, respectively. -->
-<!-- Suppose $X$ is a discrete random variable. Then the function -->
-<!-- $$f(x) = P(X = x)$$ that is defined for each $x$ in the range of $X$ is -->
-<!-- called the **probability mass function** (p.m.f) of a random variable -->
-<!-- $X$. -->
-<!-- Suppose $X$ is a continuous random variable with c.d.f $F$ and there -->
-<!-- exists a nonnegative, integrable function $f$, -->
-<!-- $f: \mathbb{R} \rightarrow [0, \infty)$ such that -->
-<!-- $$F(x) = \int_{-\infty}^x f(y)\, dy$$ Then the function $f$ is called -->
-<!-- the **probability density function** (p.d.f) of a random variable $X$. -->
-<!-- Examples of discrete and continuous random variables {#examples-of-discrete-and-continuous-random-variables .unnumbered} -->
-<!-- ---------------------------------------------------- -->
-<!-- The main quantities of interest in a portfolio of motor insurance are -->
-<!-- the number of claims arriving in a fixed time period and the sizes of -->
-<!-- those claims. Clearly, the number of claims can be describe by a -->
-<!-- discrete random variable, whose range is finite or countably infinite. -->
-<!-- On the other hand, the claim sizes can be describe by a continuous -->
-<!-- random variable defined over continuous sample spaces. -->
-<!-- ::: {.example} -->
-<!-- **Example 5**. *Let $N$ denote the number of claims which arise up to a -->
-<!-- given time. The range of all possible values $N$ is -->
-<!-- $\mathbf{N} \cup \{0\}$. Here $N$ is an example of discrete random -->
-<!-- variable. We could model the number of claims by the Poisson family of -->
-<!-- distributions. Recall that a random variable $N$ has a Poisson -->
-<!-- distribution with the parameter $\lambda$ if its probability -->
-<!-- distribution is given by -->
-<!-- $$f(n) = e^{- \lambda} \frac{\lambda^n}{n !}, \quad \text{ for } n = 0,1,\ldots.$$* -->
-<!-- *Now suppose further that the number of claims $N$ which arise on a -->
-<!-- portfolio in a week has a $\text{Poisson}(\lambda)$ where $\lambda = 5$. -->
-<!-- Calculate the following quantities:* -->
-<!-- 1.  *$\Pr(N \ge 6)$.* -->
-<!-- 2.  *$\mathrm{E}[N]$.* -->
-<!-- ::: -->
-<!-- 1.  $\Pr(N \ge 6) = 1 - \Pr(N \le 5) = 1 - \sum_{n=0}^5 f(n) = 0.3840393.$ -->
-<!-- 2.  Clearly, $\mathrm{E}[N] = \lambda = 5$. -->
-<!-- ::: {.example} -->
-<!-- **Example 6**. *Let $X$ denote the claim sizes in a given time period. -->
-<!-- The range of all possible values $X$ is the set of all non-negative -->
-<!-- numbers. Here $X$ is an example of a continuous random variable. -->
-<!-- Suitable families of distributions which could be used to modelled claim -->
-<!-- sizes are \"fat tails\" distribution. They allow for possibilities of -->
-<!-- large claim sizes.* -->
-<!-- *Examples of fat-tailed distributions include* -->
-<!-- -   *the Pareto distribution,* -->
-<!-- -   *the Log-normal distribution,* -->
-<!-- -   *the Weibull distribution with shape parameter greater than 0 but -->
-<!--     less than 1, and* -->
-<!-- -   *the Burr distribution.* -->
-<!-- ::: -->
-<!-- The course \"SCMA 470 Risk Analysis and Credibility\" provides more -->
-<!-- details about the loss distribution. -->
-<!-- Conditional probability -->
-<!-- ----------------------- -->
-<!-- A stochastic process can be defined as a collection or sequence of -->
-<!-- random variables. The concept of **conditional probability** plays an -->
-<!-- important role to analyse dependency between random variables in the -->
-<!-- process. Roughly speaking, conditional probability is the probability of -->
-<!-- seeing some event knowing that some other event has actually occurred. -->
-<!-- Let $A$ and $B$ be two events (elements of $\mathcal{A}$). The -->
-<!-- conditional probability of event $A$ given $B$ denoted by $P(A | B)$ is -->
-<!-- defined as $$P(A|B) =  \frac{P(A \cap B)}{P(B)}.$$ Note that -->
-<!-- $P(A \cap B)$ is often called the joint probability of $A$ and $B$, and -->
-<!-- $P(A)$ and $P(B)$ are often called the marginal probabilities of $A$ and -->
-<!-- $B$, respectively. -->
-<!-- The events $A$ and $B$ are independent if the occurrence of either one -->
-<!-- of the events does not affect the probability of occurrence of the -->
-<!-- other. More precisely, the events $A$ and $B$ are independent if -->
-<!-- $$P(A \cap B) = P(A)P(B),$$ or equivalently, $$P(A|B) =  P(A).$$ -->
-<!-- Law of total probability {#law-of-total-probability .unnumbered} -->
-<!-- ------------------------ -->
-<!-- Suppose there are three events: $A$, $B$, and $C$. Events $B$ and $C$ -->
-<!-- are distinct from each other while event $A$ intersects with both -->
-<!-- events. We do not know the probability of event $A$. However, partial -->
-<!-- information and dependencies between events can be used to calculate the -->
-<!-- probability of event $A$, i.e. we know the probability of event A under -->
-<!-- condition B and the probability of event A under condition C. -->
-<!-- The total probability rule states that by using the two conditional -->
-<!-- probabilities, we can find the probability of event A, which is -->
-<!-- $$P(A) = P(A \cap B) + P(A \cap C).$$ In general, suppose -->
-<!-- $B_1, B_2, \ldots B_n$ be a collection of events that partition the -->
-<!-- sample space. Then for any event $A$, -->
-<!-- $$P(A) = \sum_{i = 1}^n   P(A \cap B_i )  = \sum_{i = 1}^n   P(A | B_i ) P(B_i) .$$ -->
-<!-- ::: {.example} -->
-<!-- **Example 7**. *Suppose in a particular study area, the vaccination rate -->
-<!-- for the yearly flu virus is 70%. Suppose of those vaccinated, 10% of the -->
-<!-- residents still get the flu that year. Calculate the conditional -->
-<!-- probability of someone getting the flu in this area given that the -->
-<!-- person was vaccinated.* -->
-<!-- ::: -->
-<!-- ::: {.example} -->
-<!-- **Example 8**. *You are an invester buying shares of a company. You have -->
-<!-- discovered that the company is planning to introduce a new project that -->
-<!-- is likely to affect the company's stock price. You have determined the -->
-<!-- following probabilities:* -->
-<!-- -   *There is a 80% probability that the new project will be launched.* -->
-<!-- -   *If a company launches the project, there is a 85% probability that -->
-<!--     the company's stock price will increase.* -->
-<!-- -   *If a company does not launch the project, there is a 30% -->
-<!--     probability that the company's stock price will increase.* -->
-<!-- ::: -->
-<!-- Calculate the probability that the company's stock price will increase. -->
-<!-- Conditional distribution and conditional expectation -->
-<!-- ---------------------------------------------------- -->
-<!-- Let $X$ and $Y$ be two discrete random variables with joint probability -->
-<!-- mass function $$f(x,y) = P(X = x, Y = y).$$ If $X$ and $Y$ are -->
-<!-- continuous random variables, the joint probability density function -->
-<!-- $f (x, y)$ satisfies -->
-<!-- $$P( X \le x, Y \le y) = \int_{-\infty}^x \int_{-\infty}^y f(u,v) \, du\, dv.$$ -->
-<!-- When no information is given about the value of $Y$, the marginal -->
-<!-- probability density function of $X$, $f_X(x)$ is used to calculate the -->
-<!-- probabilities of events concerning $X$. However, when the value of $Y$ -->
-<!-- is known, to find such probabilities, $f_{X|Y} (x|y)$, the conditional -->
-<!-- probability density function of $X$ given that $Y = y$ is used and is -->
-<!-- defined as follows: $$f_{X|Y} (x|y)  = \frac{f(x,y)}{f_Y(y)}$$ provided -->
-<!-- that $f_Y (y) > 0$. The conditional mass function of $X$ is defined in a -->
-<!-- similar manner. $$P(X = x | Y = y) = \frac{P(X = x, Y = y)}{P(X = x)}.$$ -->
-<!-- Note also that the conditional probability density function of $X$ given -->
-<!-- that $Y = y$ is itself a probability density function, i.e. -->
-<!-- $$\int_{-\infty}^\infty f_{X|Y}(x|y)\, dx  =  1.$$ -->
-<!-- Note that the conditional probability distribution function of $X$ given -->
-<!-- that $Y = y$, the conditional expectation of $X$ given that $Y = y$ can -->
-<!-- be as follows: -->
-<!-- $$F_{Y|X}(x|y) = P(X \le x | Y = y) = \int_ {-\infty}^x f_{X|Y}(t|y) \, dt$$ -->
-<!-- and -->
-<!-- $$\mathrm{E}(X|Y = y) =  \int_{-\infty}^{\infty} x  f_{X|Y}(x|y) \, dx,$$ -->
-<!-- where $f_Y(y) > 0$. -->
-<!-- Note that if $X$ and $Y$ are independent, then $f_{X|Y}$ coincides with -->
-<!-- $f_X$ because -->
-<!-- $$f_{X|Y}(x|y) = \frac{f(x,y)}{f_Y(y)} =\frac{f_X(x)f_Y(y)}{f_Y(y)} = f_X(x).$$ -->
-<!-- Central Limit Theorem -->
-<!-- --------------------- -->
-<!-- This section introduces the Central Limit Theorem, which is an important -->
-<!-- theorem in probability theory. It states that the mean of $n$ -->
-<!-- independent and identically distributed random variables has an -->
-<!-- approximate normal distribution given a sufficiently large $n$. This -->
-<!-- applies to a collection of random variables from any distribution with a -->
-<!-- finite mean and variance. In summary we can use the Central Limit -->
-<!-- Theorem to extract probabilistic information about the sums of -->
-<!-- independent and identical random variables. -->
-<!-- Central Limit Theorem {#central-limit-theorem-1 .unnumbered} -->
-<!-- --------------------- -->
-<!-- Let $X_1, X_2, \ldots$ be a sequence of i.i.d. random variables with a -->
-<!-- finite mean $\mathrm{E}[X_i] = \mu$ and finite variance -->
-<!-- $\mathrm{Var}[X_i] = \sigma^2$. Let $Z_n$ be the normalised average of -->
-<!-- the first $n$ random variables $$\begin{aligned} -->
-<!--         Z_n &= \frac{\sum_{i=1}^n X_i/n  - \mu}{\sigma/\sqrt{n}} \\ -->
-<!--                &= \frac{X_1 + X_2 + \ldots + X_n  - n\mu}{\sigma \sqrt{n}}. -->
-<!--     \end{aligned}$$ Then $Z_n$ converges in distribution to a standard -->
-<!-- normal distribution. -->
-<!-- Stochastic processes -->
-<!-- ==================== -->
-<!-- Evolution of a random process is at least partially random, and each run -->
-<!-- the process leads to potentially a different outcome. It is of great -->
-<!-- interest to understand or model the behaviour of a random process by -->
-<!-- describing how different states, represented by random variables $X$'s, -->
-<!-- evolve in the system over time. Just as probability theory is considered -->
-<!-- as the study of mathematical models of random phenomena, the theory of -->
-<!-- stochastic processes plays an important role in the study of -->
-<!-- time-dependent random phenomena. Stochastic processes can be used to -->
-<!-- represent many different random phenomena from different fields such as -->
-<!-- science, engineering, finance, and economics. -->
-<!-- A **stochastic process** is a collection of random variables -->
-<!-- $\{ X_t : t \in T\}$ defined on a common sample space, where -->
-<!-- -   $t$ is a parameter running over some index set $T$, called the -->
-<!--     **time domain**. -->
-<!-- -   The common sample space of the random variables (the range of -->
-<!--     possible values for $X_t$) denoted by $S$ is called the **state -->
-<!--     space** of the process. -->
-<!-- 1.  The set of random variables may be dependent or need not be -->
-<!--     identically distributed. -->
-<!-- 2.  Techniques used to study stochastic processes depend on whether the -->
-<!--     state space or the index set (the time domain) are discrete or -->
-<!--     continuous. -->
-<!-- Classification of stochastic processes -->
-<!-- -------------------------------------- -->
-<!-- Stochastic processes can be classified on the basis of the nature of -->
-<!-- their state space and index set. -->
-<!-- 1.  **Discrete state space with discrete time changes** : No claims -->
-<!--     discount (NCD) policy: A car owner purchases a motor insurance -->
-<!--     policy for which the premium charged depends on the claim record. -->
-<!--     Let $X_t$ denote the discount status of a policyholder with three -->
-<!--     levels of discount, i.e. $S = \{0,1,2\}$ corresponding to three -->
-<!--     discount levels of 0%, 20% and 40% and the time set is -->
-<!--     $T = \{0,1,2,\ldots\}$. Both time and state space are discrete. -->
-<!-- 2.  **Discrete state space with continuous time changes** : In a health -->
-<!--     insurance system, an insurance company may classify policyholders as -->
-<!--     Healthy, Sick or Dead, i.e. $S = \{H, S, D\}$. The time domain can -->
-<!--     be taken as continuous, $T = [0,\infty)$. -->
-<!-- 3.  **Continuous state space with continuous time changes** : Let $S_t$ -->
-<!--     be the total amount claimed by time $t \in T$ where $T = [0,\infty)$ -->
-<!--     and the state space is $\mathbb{R}$. Both time and state space are -->
-<!--     continuous. Some continuous time stochastic process taking value in -->
-<!--     a continuous state space will be studied in Risk Analysis and -->
-<!--     Credibility course. -->
-<!-- 4.  **Continuous state space with discrete time changes** : The outcomes -->
-<!--     of the above claim process $S_t$ could be recorded continuously, -->
-<!--     however, we may choose to model the values only at discrete time, -->
-<!--     for e.g. the total claim amounts at the end of each day. This may -->
-<!--     due to the limitation of the measurement process (for e.g. expensive -->
-<!--     to measure). Hence, the time domain is discrete but the state space -->
-<!--     is continuous. -->
-<!-- In case that claim amounts are recorded to the nearest baht or in -->
-<!-- satang, i.e. discrete state space, we could also approximate or model -->
-<!-- the process by using a discrete state space, rather than continuous. -->
-<!-- Random walk: an introductory example -->
-<!-- ------------------------------------ -->
-<!-- One of the simplest examples of a stochastic process is a simple random -->
-<!-- walk. Consider a simple model of the price of a stock measured in -->
-<!-- satang. For each trading day $n = 0,1,2, \ldots$, the stock price -->
-<!-- increases by 1 satang with probability $p$ or decreases by 1 satang with -->
-<!-- probability $q = 1-p$. Let $X_n$ denote the stock price at day $n$ and -->
-<!-- $X_0 = 100$, i.e. $X_0 =$. This simple model is called a simple random -->
-<!-- walk. -->
-<!-- In the simple random walk process, time is discrete (as observed at the -->
-<!-- end of each day) and the state space is discrete. The stochastic model -->
-<!-- has an infinite number of outcomes known as **stochastic realisations or -->
-<!-- sample paths**. A **sample path** is then just the sequence of a -->
-<!-- particular set of experiments. Graphs of some stochastic realisations of -->
-<!-- the simple random walk with $p = 0.5$ and $a = 100$ are shown in Figure -->
-<!-- [1]{reference-type="ref" reference="fig:SamplePaths"}. -->
-<!-- ![Some stochastic realisations of the simple random -->
-<!-- walk](SamplePaths.pdf){#fig:SamplePaths width="4in"} -->
-<!-- A complete description of the simple random walk, observed as a -->
-<!-- collection of $n$ random variables at time points -->
-<!-- $t_1, t_2, \ldots, t_n$ can be specified by the joint distribution of -->
-<!-- $X_{t_1}, X_{t_2}, \ldots, X_{t_n}$, i.e. -->
-<!-- $$F(x_1, x_2, \ldots, x_n) = \Pr(X_{t_1} \le x_1, X_{t_2} \le x_2, \ldots, X_{t_n} \le x_n).$$ -->
-<!-- However, the **multidimensional distribution function cannot be easily -->
-<!-- written in a closed form** unless the random variables have a -->
-<!-- multivariate normal distribution. In practice, it is more convenient to -->
-<!-- deal with some stochastic processes via some simple **intermediary -->
-<!-- processes** or under some addition assumptions. -->
-<!-- In general, a simple random walk $X_n$ is a discrete-time stochastic -->
-<!-- process defined by -->
-<!-- -   $X_0 = a$ and -->
-<!-- -   for $n \ge1$, -->
-<!--     $$X_n = a + \sum_{i=1}^n  Z_i, \text{ where } Z_i = \begin{cases} -->
-<!--         1, & \text{ with probability } p  \\ -->
-<!--         -1, & \text{ with probability } q =  1- p. -->
-<!--      \end{cases}$$ -->
-<!-- 1.  When $p = 1/2$, the value of the process increases or decreases -->
-<!--     randomly by 1 unit with equal probability. In this case, the process -->
-<!--     is known as a **symmetric** random walk. -->
-<!-- 2.  The (intermediary) process $\{ Z_i : i \in \mathbb{N}\}$ is a -->
-<!--     sequence of independent identically distributed (i.i.d.) random -->
-<!--     variables. The process $X_t$ themselves are neither independent nor -->
-<!--     identically distributed. This process $Z_i$ is also known as **white -->
-<!--     noise process**. -->
-<!-- ::: {.example} -->
-<!-- **Example 9**. *Explain why the simple random process $X_n$ is neither -->
-<!-- independent nor identically distributed.* -->
-<!-- ::: -->
-<!-- Suppose that $X_0 = 100$. Firstly, we will show that $X_n$ is not -->
-<!-- independent. From definition, the process $X_n$ can be written as -->
-<!-- $$X_n = X_{n-1} + Z_n.$$ That is, the value of $X_n$ is the previous -->
-<!-- value plus a random change of 1 or $-1$. Therefore, the value of the -->
-<!-- process depends on the previous value and they are not independent. For -->
-<!-- e.g., -->
-<!-- $$\Pr(X_2 = 102) > 0 \quad \text{ but } \quad  \Pr(X_2 = 102 | X_1 = 99) = 0.$$ -->
-<!-- The process $X_n$ cannot be identically distributed. For e.g. $X_1$ can -->
-<!-- take the values of 99 and 101, while $X_2$ can take three different -->
-<!-- values of 98, 100 and 102. -->
-<!-- ::: {.example} -->
-<!-- **Example 10**. *Let $$\begin{aligned} -->
-<!--     \mu &= \mathrm{E}[Z_i] \\ -->
-<!--     \sigma^2 &= \mathrm{Var}[Z_i] \end{aligned}$$ Calculate the -->
-<!-- expectation ($\mu$) and variance ($\sigma^2$) of the random variable -->
-<!-- $Z_i$.* -->
-<!-- ::: -->
-<!-- $$\begin{aligned} -->
-<!--     \mu &= \mathrm{E}[Z_i] = 1\cdot p + (-1) \cdot q = p - q.\\\end{aligned}$$ -->
-<!-- $$\begin{aligned} -->
-<!--     \sigma^2 &= \mathrm{Var}[Z_i] \\ -->
-<!--             &=\mathrm{E}[Z_i^2] - (\mathrm{E}[Z_i] )^2 \\ -->
-<!--             &= 1 - (p-q)^2  = (p+q)^2 - (p-q)^2\\ -->
-<!--             &= 4pq. \end{aligned}$$ -->
-<!-- ::: {.example} -->
-<!-- **Example 11**. *Calculate the expectation and variance of the process -->
-<!-- $X_n$ at time $n$.* -->
-<!-- ::: -->
-<!-- $$\begin{aligned} -->
-<!--      \mathrm{E}[X_n] &=  \mathrm{E}[a + \sum_{i=1}^n Z_i] = a + n\mu.\end{aligned}$$ -->
-<!-- $$\begin{aligned} -->
-<!--     \mathrm{Var}[X_n]&= \mathrm{Var}[a + \sum_{i=1}^n Z_i]  = n \sigma^2.\end{aligned}$$ -->
-<!-- It should be noted that the variance of $X_n$ increases with time. -->
-<!-- ::: {.example} -->
-<!-- **Example 12**. *For the random process, calculate -->
-<!-- $$\Pr(X_2 = 98, X_5 = 99 | X_0 = 100).$$* -->
-<!-- ::: -->
-<!-- The process $X_n$ must decrease on the first two days, which happens -->
-<!-- with probability $(1-p)^2$. Independently, it must then increases on -->
-<!-- another two days and decrease on one day (not necessarily in that -->
-<!-- order), giving three different possibilities. Each of these has -->
-<!-- probability $p^2(1-p)$. So -->
-<!-- $$\Pr(X_2 = 98, X_5 = 99 | X_0 = 100) = (1-p)^2 \cdot 3 p^2(1-p) = 3p^2(1-p)^3.$$ -->
-<!-- In what follows, we will see that exact calculations are possible for -->
-<!-- the simple random walk process. Note also that it is sufficient to -->
-<!-- understand the behaviour of the random walk when it starts at $X_0 = 0$. -->
-<!-- ::: {.example} -->
-<!-- **Example 13**. *For the random process with $X_0 = 0$, $X_{2n}$ is -->
-<!-- always even and $X_{2n+1}$ is always odd. Based on the binomial -->
-<!-- distribution, show that $$\begin{aligned} -->
-<!--     \Pr(X_{2n} = 2m) &= {2n \choose n+m} p^{n+m} q^{n-m}, \quad   -n \le m \le n \\ -->
-<!--     \Pr(X_{2n+1} = 2m+1) &= {2n + 1 \choose n+m+1} p^{n+m+1} q^{n-m}, \quad   -n-1 \le m \le n.\end{aligned}$$* -->
-<!-- ::: -->
-<!-- Let $A$ denote the number of $+1$ and $B$ denote the number of $-1$. -->
-<!-- Then $A + B = 2n$ and $X_{2n} = A - B$ (i.e. the position at time $2n$). -->
-<!-- Hence, $$\begin{aligned} -->
-<!--     \Pr(X_{2n} = 2m) &= \Pr( A - B = 2m) \\ -->
-<!--     &= \Pr( A - (2n - A) = 2m)  =   \Pr( 2A - 2n  = 2m) =   \Pr( A   = m + n)\\ -->
-<!--     &= {2n \choose n+m} p^{n+m} q^{2n-(n+m)}, \quad   -n \le m \le n \\ -->
-<!--     &= {2n \choose n+m} p^{n+m} q^{n-m}, \quad   -n \le m \le n.\end{aligned}$$ -->
+<div id="to-be-added" class="section level1" number="9">
+<h1><span class="header-section-number">Chapter 9</span> To be added</h1>
 <!-- # Discrete-time Markov chains -->
 <!-- # Discrete-time Markov chains -->
 <!-- Recall the simple random walk model of the price of the stock. Suppose -->
@@ -2153,14 +1498,13 @@ Hence, <span class="math display">\[\begin{aligned}
 <!-- ::: -->
 
 </div>
-</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="review-of-probability-theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="discrete-time-markov-chains.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-long-term-distribution-of-a-markov-chain.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="new-chapter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -2192,7 +1536,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-stochastic-processes.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-literature.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -2200,7 +1544,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/pairote-sat/SCMA469/blob/master/02-stochastic-processes.Rmd",
+"link": "https://github.com/pairote-sat/SCMA469/blob/master/02-literature.Rmd",
 "text": null
 },
 "download": ["bookdownproj.pdf", "bookdownproj.epub"],

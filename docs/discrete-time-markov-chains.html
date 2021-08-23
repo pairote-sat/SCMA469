@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Discrete-time Markov chains | A Minimal Book Example</title>
+  <title>Chapter 4 Discrete-time Markov chains | SCMA469 Actuarial Statistics</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Discrete-time Markov chains | A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 4 Discrete-time Markov chains | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,15 +16,15 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Discrete-time Markov chains | A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 4 Discrete-time Markov chains | SCMA469 Actuarial Statistics" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
 
-<meta name="author" content="Yihui Xie" />
+<meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2021-08-05" />
+<meta name="date" content="2021-08-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="stochastic-processes.html"/>
-<link rel="next" href="the-chapman-kolmogorov-equations.html"/>
+<link rel="next" href="applications.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -85,39 +85,38 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  background-color: #f8f8f8; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -134,74 +133,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">SCMA469 Actuarial Statistics</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction to Stochastic Processes</a></li>
-<li class="chapter" data-level="3" data-path="examples-of-real-world-processes.html"><a href="examples-of-real-world-processes.html"><i class="fa fa-check"></i><b>3</b> Examples of real world processes</a></li>
-<li class="chapter" data-level="4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html"><i class="fa fa-check"></i><b>4</b> Review of probability theory</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Stochastic Processes</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#random-variables"><i class="fa fa-check"></i><b>4.1</b> Random variables</a></li>
-<li class="chapter" data-level="4.2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#probability-distribution"><i class="fa fa-check"></i><b>4.2</b> Probability distribution</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#examples-of-real-world-processes"><i class="fa fa-check"></i><b>1.1</b> Examples of real world processes</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html"><i class="fa fa-check"></i><b>2</b> Review of probability theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#random-variables"><i class="fa fa-check"></i><b>2.1</b> Random variables</a></li>
+<li class="chapter" data-level="2.2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#probability-distribution"><i class="fa fa-check"></i><b>2.2</b> Probability distribution</a></li>
 <li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#examples-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i>Examples of discrete and continuous random variables</a></li>
-<li class="chapter" data-level="4.3" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-probability"><i class="fa fa-check"></i><b>4.3</b> Conditional probability</a></li>
-<li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#law-of-total-probability"><i class="fa fa-check"></i>Law of total probability</a></li>
-<li class="chapter" data-level="4.4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>4.4</b> Conditional distribution and conditional expectation</a></li>
-<li class="chapter" data-level="4.5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.5</b> Central Limit Theorem</a></li>
-<li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem-1"><i class="fa fa-check"></i>Central Limit Theorem</a></li>
+<li class="chapter" data-level="2.3" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-probability"><i class="fa fa-check"></i><b>2.3</b> Conditional probability</a></li>
+<li class="chapter" data-level="2.4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#law-of-total-probability"><i class="fa fa-check"></i><b>2.4</b> Law of total probability</a></li>
+<li class="chapter" data-level="2.5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>2.5</b> Conditional distribution and conditional expectation</a></li>
+<li class="chapter" data-level="2.6" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem"><i class="fa fa-check"></i><b>2.6</b> Central Limit Theorem</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="stochastic-processes.html"><a href="stochastic-processes.html"><i class="fa fa-check"></i><b>5</b> Stochastic processes</a>
+<li class="chapter" data-level="3" data-path="stochastic-processes.html"><a href="stochastic-processes.html"><i class="fa fa-check"></i><b>3</b> Stochastic processes</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="stochastic-processes.html"><a href="stochastic-processes.html#classification-of-stochastic-processes"><i class="fa fa-check"></i><b>5.1</b> Classification of stochastic processes</a></li>
-<li class="chapter" data-level="5.2" data-path="stochastic-processes.html"><a href="stochastic-processes.html#random-walk-an-introductory-example"><i class="fa fa-check"></i><b>5.2</b> Random walk: an introductory example</a></li>
+<li class="chapter" data-level="3.1" data-path="stochastic-processes.html"><a href="stochastic-processes.html#classification-of-stochastic-processes"><i class="fa fa-check"></i><b>3.1</b> Classification of stochastic processes</a></li>
+<li class="chapter" data-level="3.2" data-path="stochastic-processes.html"><a href="stochastic-processes.html#random-walk-an-introductory-example"><i class="fa fa-check"></i><b>3.2</b> Random walk: an introductory example</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html"><i class="fa fa-check"></i><b>6</b> Discrete-time Markov chains</a>
+<li class="chapter" data-level="4" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html"><i class="fa fa-check"></i><b>4</b> Discrete-time Markov chains</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#one-step-transition-probabilities"><i class="fa fa-check"></i><b>6.1</b> One-step transition probabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html"><i class="fa fa-check"></i><b>7</b> The Chapman-Kolmogorov equations</a>
+<li class="chapter" data-level="4.1" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#one-step-transition-probabilities"><i class="fa fa-check"></i><b>4.1</b> One-step transition probabilities</a></li>
+<li class="chapter" data-level="4.2" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-chapman-kolmogorov-equations-and-n-step-transition-probabilities"><i class="fa fa-check"></i><b>4.2</b> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
+<li class="chapter" data-level="4.3" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#distribution-of-x_n"><i class="fa fa-check"></i><b>4.3</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
+<li class="chapter" data-level="4.4" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#joint-distribution"><i class="fa fa-check"></i><b>4.4</b> Joint Distribution</a></li>
+<li class="chapter" data-level="4.5" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#random-walk-with-absorbing-and-reflecting-barriers"><i class="fa fa-check"></i><b>4.5</b> Random walk with absorbing and reflecting barrier(s)</a></li>
+<li class="chapter" data-level="4.6" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#an-example-of-nonhomogeneous-markov-chain"><i class="fa fa-check"></i><b>4.6</b> An example of nonhomogeneous Markov chain</a></li>
+<li class="chapter" data-level="4.7" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#simulation"><i class="fa fa-check"></i><b>4.7</b> Simulation</a></li>
+<li class="chapter" data-level="4.8" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#monte-carlo-methods"><i class="fa fa-check"></i><b>4.8</b> Monte Carlo Methods</a></li>
+<li class="chapter" data-level="4.9" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#classification-of-states"><i class="fa fa-check"></i><b>4.9</b> Classification of states</a></li>
+<li class="chapter" data-level="4.10" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#absorption-probabilities-and-expected-time-to-absorption"><i class="fa fa-check"></i><b>4.10</b> Absorption probabilities and expected time to absorption</a></li>
+<li class="chapter" data-level="4.11" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#first-step-analysis"><i class="fa fa-check"></i><b>4.11</b> First step analysis</a></li>
+<li class="chapter" data-level="4.12" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-expected-time-to-absorption"><i class="fa fa-check"></i><b>4.12</b> The expected time to absorption</a></li>
+<li class="chapter" data-level="4.13" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-long-term-distribution-of-a-markov-chain"><i class="fa fa-check"></i><b>4.13</b> The long-term distribution of a Markov chain</a></li>
+<li class="chapter" data-level="4.14" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#stationary-and-limiting-distributions-for-a-single-closed-class"><i class="fa fa-check"></i><b>4.14</b> Stationary and limiting distributions for a single closed class</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#the-chapman-kolmogorov-equations-and-n-step-transition-probabilities"><i class="fa fa-check"></i><b>7.1</b> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
-<li class="chapter" data-level="7.2" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#distribution-of-x_n"><i class="fa fa-check"></i><b>7.2</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
-<li class="chapter" data-level="7.3" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#joint-distribution"><i class="fa fa-check"></i><b>7.3</b> Joint Distribution</a></li>
-<li class="chapter" data-level="7.4" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#random-walk-with-absorbing-and-reflecting-barriers"><i class="fa fa-check"></i><b>7.4</b> Random walk with absorbing and reflecting barrier(s)</a></li>
-<li class="chapter" data-level="7.5" data-path="the-chapman-kolmogorov-equations.html"><a href="the-chapman-kolmogorov-equations.html#an-example-of-nonhomogeneous-markov-chain"><i class="fa fa-check"></i><b>7.5</b> An example of nonhomogeneous Markov chain</a></li>
+<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#stationary-distributions"><i class="fa fa-check"></i>Stationary distributions</a></li>
+<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#proportion-of-time-in-each-state"><i class="fa fa-check"></i>Proportion of Time in Each State</a></li>
+<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-method-of-finding-the-stationary-distribution"><i class="fa fa-check"></i>The method of finding the stationary distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>8</b> Simulation</a>
+<li class="chapter" data-level="4.15" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain"><i class="fa fa-check"></i><b>4.15</b> Sufficient conditions for the long-run behaviour of a Markov chain</a></li>
+<li class="chapter" data-level="4.16" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#limiting-distributions"><i class="fa fa-check"></i><b>4.16</b> Limiting distributions</a></li>
+<li class="chapter" data-level="4.17" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#main-result"><i class="fa fa-check"></i><b>4.17</b> Main result</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="simulation.html"><a href="simulation.html#monte-carlo-methods"><i class="fa fa-check"></i><b>8.1</b> Monte Carlo Methods</a></li>
+<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#applications-of-markov-chains-to-ncd-systems"><i class="fa fa-check"></i>Applications of Markov chains to NCD systems</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="classification-of-states.html"><a href="classification-of-states.html"><i class="fa fa-check"></i><b>9</b> Classification of states</a></li>
-<li class="chapter" data-level="10" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html"><i class="fa fa-check"></i><b>10</b> Absorption probabilities and expected time to absorption</a>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html#first-step-analysis"><i class="fa fa-check"></i><b>10.1</b> First step analysis</a></li>
-<li class="chapter" data-level="10.2" data-path="absorption-probabilities-and-expected-time-to-absorption.html"><a href="absorption-probabilities-and-expected-time-to-absorption.html#the-expected-time-to-absorption"><i class="fa fa-check"></i><b>10.2</b> The expected time to absorption</a></li>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#datacamp-light"><i class="fa fa-check"></i><b>5.1</b> DataCamp Light</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html"><i class="fa fa-check"></i><b>11</b> The long-term distribution of a Markov chain</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#stationary-and-limiting-distributions-for-a-single-closed-class"><i class="fa fa-check"></i><b>11.1</b> Stationary and limiting distributions for a single closed class</a>
-<ul>
-<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#stationary-distributions"><i class="fa fa-check"></i>Stationary distributions</a></li>
-<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#proportion-of-time-in-each-state"><i class="fa fa-check"></i>Proportion of Time in Each State</a></li>
-<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#the-method-of-finding-the-stationary-distribution"><i class="fa fa-check"></i>The method of finding the stationary distribution</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain"><i class="fa fa-check"></i><b>11.2</b> Sufficient conditions for the long-run behaviour of a Markov chain</a></li>
-<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#limiting-distributions"><i class="fa fa-check"></i>Limiting distributions</a></li>
-<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#main-result"><i class="fa fa-check"></i>Main result</a>
-<ul>
-<li class="chapter" data-level="" data-path="the-long-term-distribution-of-a-markov-chain.html"><a href="the-long-term-distribution-of-a-markov-chain.html#applications-of-markov-chains-to-ncd-systems"><i class="fa fa-check"></i>Applications of Markov chains to NCD systems</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>12</b> Methods</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="methods.html"><a href="methods.html#math-example"><i class="fa fa-check"></i><b>12.1</b> math example</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>13</b> Applications</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="applications.html"><a href="applications.html#datacamp-light"><i class="fa fa-check"></i><b>13.1</b> DataCamp Light</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>14</b> Final Words</a></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -215,7 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SCMA469 Actuarial Statistics</a>
           </h1>
         </div>
 
@@ -223,8 +209,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="discrete-time-markov-chains" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Discrete-time Markov chains</h1>
+<div id="discrete-time-markov-chains" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Discrete-time Markov chains</h1>
 <p>Recall the simple random walk model of the price of the stock. Suppose
 the stock price for the first four days are
 <span class="math display">\[(X_0, X_1, X_2, X_3) = (100, 99, 98, 99).\]</span> Based on this past
@@ -248,7 +234,7 @@ for all time points <span class="math inline">\(n\)</span> and all states <span 
 It is convenient to assume that the state space of the Markov chain is a
 subset of non-negative integers, i.e. <span class="math inline">\(S \subseteq \{0, 1, \ldots \}\)</span>.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-14" class="example"><strong>Example 6.1  </strong></span><strong>Example 1</strong>. <em>A process with independent increments has the Markov
+<p><span id="exm:unlabeled-div-14" class="example"><strong>Example 4.1  </strong></span><em>A process with independent increments has the Markov
 property.</em></p>
 </div>
 <p>Recall the following definitions. An increment of a process is the
@@ -264,8 +250,8 @@ Markov property, we proceed as follows: <span class="math display">\[\begin{alig
 &amp;= \Pr(X_t - X_s + x \in A |  X_{s} = x)  \text{(by independence of the past)} \\
 &amp;= \Pr(X_t  \in A |  X_{s} = x).\end{aligned}\]</span></p>
 <p>The random walk process has the Markov property.</p>
-<div id="one-step-transition-probabilities" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> One-step transition probabilities</h2>
+<div id="one-step-transition-probabilities" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> One-step transition probabilities</h2>
 <p>The conditional probability that <span class="math inline">\(X_{n+1}\)</span> is in state <span class="math inline">\(j\)</span> given that
 <span class="math inline">\(X_n\)</span> is in state <span class="math inline">\(i\)</span> is called <strong>one-step transition probability</strong> and
 is denoted by <span class="math display">\[\Pr(X_{n+1} = j | X_n = i) = p_{ij}^{n,n+1}.\]</span> Note that
@@ -290,7 +276,7 @@ following properties:
 for all <span class="math inline">\(i,j \in S.\)</span> A matrix that satisfies these properties is called
 a <strong>stochastic matrix</strong>.</p>
 <div class="example">
-<p><span id="exm:NCD" class="example"><strong>Example 6.2  </strong></span><strong>Example 2</strong>. <em>No claims discount (NCD) policy: Let <span class="math inline">\(X_n\)</span> be the
+<p><span id="exm:NCD" class="example"><strong>Example 4.2  </strong></span><em>No claims discount (NCD) policy: Let <span class="math inline">\(X_n\)</span> be the
 discount status of a policyholder at time <span class="math inline">\(n\)</span>. There are three levels of
 discount, i.e. <span class="math inline">\(S = \{0,1,2\}\)</span> corresponding to three discount levels of
 0, 20% and 40%. The following rules are assumed:</em></p>
@@ -326,7 +312,7 @@ in <span class="math inline">\(n\)</span> steps <span class="math display">\[\Pr
 <p>Later we will apply matrix algebra to compute these types of
 probabilities and long-term probabilities.</p>
 <div class="example">
-<p><span id="exm:healthInsurance" class="example"><strong>Example 6.3  </strong></span><strong>Example 3</strong>. <em>In a health insurance system, at the end of each day an
+<p><span id="exm:healthInsurance" class="example"><strong>Example 4.3  </strong></span><em>In a health insurance system, at the end of each day an
 insurance company classifies policyholders as Healthy, Sick or Dead,
 i.e. <span class="math inline">\(S = \{H, S, D\}\)</span>. The following transition matrix <span class="math inline">\(P\)</span> for a
 healthy-sick-dead model is given by <span class="math display">\[P = \begin{bmatrix}
@@ -341,7 +327,7 @@ healthy-sick-dead model is given by <span class="math display">\[P = \begin{bmat
 completely determined by its transition probability matrix and its
 initial probability distribution <span class="math inline">\(X_0\)</span> at time 0.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-15" class="example"><strong>Example 6.4  </strong></span><strong>Example 4</strong>. <em>By using the definition of conditional probabilities,
+<p><span id="exm:unlabeled-div-15" class="example"><strong>Example 4.4  </strong></span><em>By using the definition of conditional probabilities,
 show that
 <span class="math display">\[\Pr(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n) = \mu_{i_0}\, p_{i_0i_1} \cdots \, p_{i_{n-2} i_{n-1}}\, p_{i_{n-1} i_n},\]</span>
 where <span class="math inline">\(\boldsymbol{\mu} = \boldsymbol{\mu}^{(0)}\)</span> is the distribution of
@@ -357,7 +343,7 @@ probability mass function of <span class="math inline">\(X_0\)</span>.)</em></p>
   &amp;= \mu_{i_0}\, p_{i_0i_1} \cdots \, p_{i_{n-2} i_{n-1}}\, p_{i_{n-1} i_n}.
   \end{aligned}\]</span></p>
 <div class="example">
-<p><span id="exm:MKProperty1" class="example"><strong>Example 6.5  </strong></span><strong>Example 5</strong>. <em>Show that <span class="math display">\[\begin{aligned}
+<p><span id="exm:MKProperty1" class="example"><strong>Example 4.5  </strong></span><em>Show that <span class="math display">\[\begin{aligned}
 \Pr(X_{n+1} &amp;= i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n, X_{n-1} = i_{n-1}, \ldots, X_0 = i_{0}) \\
             &amp;= \Pr(X_{n+1} = i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n) \\
             &amp;=  p_{i_{n} i_{n+1}} \cdots \, p_{i_{n+m-2} i_{n+m-1}}\, p_{i_{n+m-1} i_{n+m}}.\end{aligned}\]</span></em></p>
@@ -374,9 +360,9 @@ probability mass function of <span class="math inline">\(X_0\)</span>.)</em></p>
 can be calculated by summing the probabilities of elementary elements of
 these forms.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-16" class="example"><strong>Example 6.6  </strong></span><strong>Example 6</strong>. <em>For the NCD system defined on the state space
+<p><span id="exm:unlabeled-div-16" class="example"><strong>Example 4.6  </strong></span><em>For the NCD system defined on the state space
 <span class="math inline">\(S = \{0,1,2\}\)</span> as given in
-Example <a href="#NCD" reference-type="ref" reference="NCD">Example 2</a>, suppose
+ExampleÂ <a href="#NCD" reference-type="ref" reference="NCD">ExampleÂ 2</a>, suppose
 that the probability of a claim-free year <span class="math inline">\(p = 3/4\)</span>, and the
 distribution of the initial discount rate
 <span class="math inline">\(\boldsymbol{\mu} = (0.5,0.3,0.2)\)</span>. Find the following:</em></p>
@@ -402,7 +388,7 @@ distribution of the initial discount rate
     &amp;= \Pr(X_0 = 2) \cdot \Pr(X_1 = 1 | X_0 = 2 ) \cdot  \Pr(X_2 = 0 | X_1 = 1) \quad  \text{(again by Markov property)}\\
     &amp;= \mu_3 p_{32} p_{21} = 0.2\cdot(1/4)\cdot(1/4) = 1/80.\end{aligned}\]</span></p>
 <p>Alternatively, it follows from
-Example <a href="#MKProperty1" reference-type="ref" reference="MKProperty1">Example 5</a> that,
+ExampleÂ <a href="#MKProperty1" reference-type="ref" reference="MKProperty1">ExampleÂ 5</a> that,
 <span class="math display">\[\Pr(X_0 = 2, X_1 = 1, X_2 = 0) = \mu_3 p_{32} p_{21} = 0.2\cdot(1/4)\cdot(1/4) = 1/80.\]</span></p></li>
 <li><p><span class="math display">\[\begin{aligned}
 \Pr( X_1 = 1, X_2 = 0 | X_0 = 2)
@@ -429,6 +415,1184 @@ time-homogeneity, it follows that <span class="math display">\[\begin{aligned}
 &amp;=   \Pr( X_{1} = 1 | X_{0} = 2) \cdot \Pr( X_{1} = 0 | X_{0} = 1) \quad \text{(by time-homogeneity)}\\ 
 &amp;= p_{32} p_{21} = (1/4)\cdot(1/4) = 1/16.\end{aligned}\]</span></p></li>
 </ol>
+<!-- The Chapman-Kolmogorov equations -->
+<!-- --------------------------------- -->
+</div>
+<div id="the-chapman-kolmogorov-equations-and-n-step-transition-probabilities" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</h2>
+<p>The <span class="math inline">\(n\)</span>-step transition probability denoted by <span class="math inline">\(p^{(n)}_{ij}\)</span> is the
+probability that the process goes from state <span class="math inline">\(i\)</span> to state <span class="math inline">\(j\)</span> in <span class="math inline">\(n\)</span>
+transitions, i.e. <span class="math display">\[p^{(n)}_{ij} = \Pr(X_{m+n} = j | X_m = i ).\]</span> Note
+that for homogeneous process, the left hand side of the above equation
+does not depend on <span class="math inline">\(m\)</span>. Suppose that the transition from state <span class="math inline">\(i\)</span> at
+time <span class="math inline">\(m\)</span> to state <span class="math inline">\(j\)</span> at time <span class="math inline">\(m+n\)</span> (i.e. in <span class="math inline">\(n\)</span> steps), going via state
+<span class="math inline">\(k\)</span> in <span class="math inline">\(l\)</span> steps. One needs to examine all possible paths (from <span class="math inline">\(i\)</span> to
+<span class="math inline">\(k\)</span> and then <span class="math inline">\(k\)</span> to <span class="math inline">\(j\)</span>) and hence the <span class="math inline">\(n\)</span>-step transition probability
+<span class="math inline">\(p^{(n)}_{ij}\)</span> can be expressed as the sum of the product of the
+transition probabilities <span class="math inline">\(p^{(l)}_{ik} \, p^{(n-l)}_{kj}\)</span>.
+<span class="math display">\[\begin{aligned}
+ \label{Chapman}
+    p^{(n)}_{ij} = \sum_{k \in S}p^{(l)}_{ik} p^{(n-l)}_{kj}, \quad 0 &lt; l &lt; n  \end{aligned}\]</span>
+To derive <a href="#Chapman" reference-type="eqref" reference="Chapman"><span class="math display">\[Chapman\]</span></a>, we proceed as follows:</p>
+<p><span class="math display">\[\begin{aligned}
+    p^{(n)}_{ij} &amp;= \Pr(X_n = j | X_0 = i) \\ 
+    &amp;= \sum_{k \in S} \Pr(X_n = j , X_l = k | X_0 = i)    \\
+    &amp;= \sum_{k \in S} \Pr(X_n = j | X_l = k , X_0 = i)  \cdot   \Pr(X_l = k |  X_0 = i) \\
+    &amp;= \sum_{k \in S} \Pr(X_n = j | X_l = k )  \cdot   \Pr(X_l = k |  X_0 = i) \\
+    &amp;= \sum_{k \in S}p^{(n-l)}_{kj} p^{(l)}_{ik} , = \sum_{k \in S}p^{(l)}_{ik} p^{(n-l)}_{kj}, \quad 0 &lt; l &lt; n . \end{aligned}\]</span></p>
+<p>This result is known as the Chapman-Kolmogorov equation. This relation
+can be expressed in terms of matrix multiplication as
+<span class="math display">\[P^n  = P^l P^{n-l}.\]</span> The <span class="math inline">\(n\)</span>-<strong>step transition probabilities</strong>
+<span class="math inline">\(p^{(n)}_{ij}\)</span> are the <span class="math inline">\(ij\)</span> elements of <span class="math inline">\(P^n\)</span>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-17" class="example"><strong>Example 4.7  </strong></span><em>For the NCD system given in
+ExampleÂ <a href="#NCD" reference-type="ref" reference="NCD">ExampleÂ 2</a>, suppose
+that <span class="math inline">\(p = 3/4\)</span>, the probability of a claim-free year and the initial
+discount level of a policyholder is 1 (with 20% discount).</em></p>
+<ol style="list-style-type: decimal">
+<li><p><em>Calculate the probability of starting with a discount level of 20%
+and ending up 3 years later at the same level.</em></p></li>
+<li><p><em>Calculate the policyholder’s expected level of discount after 3
+years.</em></p></li>
+</ol>
+</div>
+<p>The transition matrix is <span class="math display">\[P = \begin{bmatrix}
+    1/4 &amp; 3/4 &amp; 0    \\
+    1/4 &amp; 0 &amp; 3/4   \\
+    0 &amp; 1/4 &amp; 3/4    \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix},\]</span> and <span class="math display">\[P^3 = \begin{bmatrix}
+    7/64 &amp; 21/64 &amp; 9/16    \\
+    7/64 &amp; 3/16 &amp; 45/64   \\
+    1/16 &amp; 15/64 &amp; 45/64    \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>The probability of starting with a discount level of 20% and ending
+up 3 years later at the same level is equal to
+<span class="math inline">\(p_{11}^{(3)} = 3/16,\)</span> which is the element in the second row and
+second column of the matrix <span class="math inline">\(P^3\)</span> (not to be confused with the
+indices used) .</p></li>
+<li><p>The policy’s expected level of discount after 3 years is
+<span class="math display">\[\begin{aligned}
+\mathrm{E}[X_3 | X_0 = 1] &amp;= \sum_{j=0}^{2} j \cdot  \Pr(X_3 = j | X_0 = 1) \\
+&amp;= 0 \cdot (7/64) + 1 \cdot (3/16) + 2 \cdot (45/64)   \\
+&amp;= 51/32 = 1.59375.\end{aligned}\]</span></p></li>
+</ol>
+</div>
+<div id="distribution-of-x_n" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Distribution of <span class="math inline">\(X_n\)</span></h2>
+<p>Let <span class="math inline">\(\boldsymbol{\mu}^{(n)}\)</span> be the vector of probability mass function
+of <span class="math inline">\(X_n\)</span>, i.e. <span class="math display">\[\boldsymbol{\mu}^{(n)} = (\mu_1, \mu_2, \ldots ),\]</span>
+where <span class="math inline">\(\mu_i = \Pr(X_n = i)\)</span>. It follows that
+<span class="math display">\[\boldsymbol{\mu}^{(n+1)} = \boldsymbol{\mu}^{(n)} P\]</span> and, in general,
+<span class="math display">\[\boldsymbol{\mu}^{(n+m)} = \boldsymbol{\mu}^{(n)} P^m.\]</span></p>
+<div class="example">
+<ol style="list-style-type: decimal">
+<li></li>
+<li><p><em>Show that
+<span class="math display">\[Pr(X_1 = i) = \sum_{k \in S} \mu_k p_{ki} = ( \boldsymbol{\mu} P)_i,\]</span>
+which is the <span class="math inline">\(i\)</span>th element of the vector <span class="math inline">\(\boldsymbol{\mu} P.\)</span> Here
+<span class="math inline">\(\boldsymbol{\mu} = \boldsymbol{\mu}^{0}\)</span> is the distribution of
+initial random variable <span class="math inline">\(X_0\)</span> with <span class="math inline">\(\mu_i = \Pr(X_0 = i)\)</span>.</em></p></li>
+<li><p><em>In general, show that the distribution of <span class="math inline">\(X_n\)</span> is given by
+<span class="math display">\[Pr(X_n = i) =  ( \boldsymbol{\mu} P^n)_i.\]</span></em></p></li>
+</ol>
+</div>
+<ol style="list-style-type: decimal">
+<li><span class="math display">\[\begin{aligned}
+    \Pr(X_1 = i) &amp;= \sum_{k \in S} \Pr(X_1 = i | X_0 = k) \cdot \Pr(X_0 = k) \\
+    &amp;=  \sum_{k \in S} \mu_k \cdot p_{ki} \\
+    &amp;= ( \boldsymbol{\mu} P)_i.\end{aligned}\]</span></li>
+</ol>
+<div class="example">
+<p><span id="exm:weather" class="example"><strong>Example 4.8  </strong></span><em>The simple weather pattern can be classified into three
+types including rainy (<span class="math inline">\(R\)</span>), cloudy (<span class="math inline">\(C\)</span>) and sunny (<span class="math inline">\(S\)</span>). The weather
+is observed daily. The following information is provided.</em></p>
+<ul>
+<li><p><em>On any given rainy day, the probability that it will rain the next
+day is 0.7; the probability that it will be cloudy the next day
+0.2.</em></p></li>
+<li><p><em>On any given cloudy day, the probability that it will rain the next
+day is 0.75; the probability that it will be sunny the next day
+0.1.</em></p></li>
+<li><p><em>On any given sunny day, the probability that it will rain the next
+day is 0.2; the probability that it will be sunny the next day 0.4.</em></p></li>
+</ul>
+<p><em>The weather forecast for tomorrow shows that there is a 40% chance of
+rain and a 60% chance of cloudy. Find the probability that it will sunny
+2 days later.</em></p>
+</div>
+<p>As the ordered state of the chain is <span class="math inline">\(R, C, S\)</span>, the initial distribution
+is <span class="math inline">\(\boldsymbol{\mu} = (0.4, 0.6, 0)\)</span>. The transition matrix <span class="math inline">\(P\)</span> is
+given by <span class="math display">\[P = \begin{bmatrix}
+    0.7 &amp; 0.2 &amp; 0.1    \\
+    0.75 &amp; 0.15 &amp; 0.1   \\
+    0.2 &amp; 0.4 &amp; 0.4   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix},\]</span> and <span class="math display">\[P^2 = \begin{bmatrix}
+    0.66 &amp; 0.21 &amp; 0.13    \\
+    0.6575 &amp; 0.2125 &amp; 0.13   \\
+    0.52 &amp; 0.26 &amp; 0.22   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span> This gives
+<span class="math display">\[\boldsymbol{\mu} \cdot P^2 = (0.6585,0.2115, 0.13).\]</span> Hence, the
+desired probability of sunny is
+<span class="math display">\[\Pr(X_2 = S) =( \boldsymbol{\mu} \cdot P^2 )_S  = (\boldsymbol{\mu} \cdot P^2 )_3 = 0.13.\]</span></p>
+</div>
+<div id="joint-distribution" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Joint Distribution</h2>
+<p>Let <span class="math inline">\(X_0, X_1, \ldots\)</span> be a Markov chain with transition matrix <span class="math inline">\(P\)</span> and
+initial distribution <span class="math inline">\(\boldsymbol{\mu}.\)</span> For all
+<span class="math inline">\(0 \le n_1 \le n_2 &lt; \cdots &lt; n_{k-1} &lt; n_k\)</span> and states
+<span class="math inline">\(i_1, i_2, \ldots , i_{k-1}, i_k,\)</span>
+<span class="math display">\[P(X_{n_1} = i_1, X_{n_2} = i_2,\ldots, X_{n_k} = i_{k1}1, X_{n_k} = i_k)
+= (\boldsymbol{\mu} P^{n_1} )_{i_1} (P^{n_2 - n_1} )_{i_1i_2} \cdots (P^{n_k - n_{k -1}} )_{i_{k-1}i_k}.\]</span>
+From the above result, the joint probability is obtained from just the
+initial distribution <span class="math inline">\(\boldsymbol{\mu}\)</span> and the transition matrix <span class="math inline">\(P\)</span>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-19" class="example"><strong>Example 4.9  </strong></span><em>In ExampleÂ <a href="#weather" reference-type="ref" reference="weather">ExampleÂ 9</a>, on Sunday, the chances of rain, cloudy and sunny
+have the same probabilities. Find the probability that it will be sunny
+on the following Wednesday and Friday, and cloudy on Saturday.</em></p>
+</div>
+<p>We are given that <span class="math inline">\(\boldsymbol{\mu} = (1/3, 1/3, 1/3).\)</span> From
+<span class="math display">\[P^3 = \begin{bmatrix}
+    0.645500 &amp; 0.215500 &amp; 0.139   \\
+    0.645625 &amp; 0.215375 &amp; 0.139  \\
+    0.603000 &amp; 0.231000 &amp; 0.166   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix},\]</span> the required probability is <span class="math display">\[\begin{aligned}
+ \Pr(X_3 = S, X_5 = S, X_6 = C) &amp;= (\boldsymbol{\mu}  \cdot P^3)_S \cdot  P^{2}_{SS} \cdot P_{SC} \\
+&amp;= (\boldsymbol{\mu}  \cdot P^3)_3 \cdot P^{2}_{33} \cdot P_{32}  \\
+&amp;= 0.148 \cdot  0.22 \cdot 0.4 = 0.013024.\end{aligned}\]</span></p>
+</div>
+<div id="random-walk-with-absorbing-and-reflecting-barriers" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Random walk with absorbing and reflecting barrier(s)</h2>
+<div class="example">
+<p><span id="exm:unlabeled-div-20" class="example"><strong>Example 4.10  </strong></span><em>A one-dimensional random walk <span class="math inline">\(\{X_n\}\)</span> is defined on a
+finite or infinite subset of integers in which the process in state <span class="math inline">\(i\)</span>
+can either stay in <span class="math inline">\(i\)</span> or move to its neighbouring states <span class="math inline">\(i -1\)</span> and
+<span class="math inline">\(i+1\)</span>. Suppose that given that <span class="math inline">\(X_n = i\)</span> at time <span class="math inline">\(n\)</span>,</em></p>
+<ul>
+<li><p><em>the probability of moving to state <span class="math inline">\(i+1\)</span> is <span class="math inline">\(p_i\)</span>,</em></p></li>
+<li><p><em>the probability of remaining in state <span class="math inline">\(i\)</span> is <span class="math inline">\(r_i\)</span>, and</em></p></li>
+<li><p><em>the probability of moving to state <span class="math inline">\(i-1\)</span> is <span class="math inline">\(q_i\)</span>,</em></p></li>
+</ul>
+<p><em>where <span class="math inline">\(p_i + q_i + r_i = 1\)</span> for all <span class="math inline">\(i\)</span>.</em></p>
+<ol style="list-style-type: decimal">
+<li><p><em>Write down the transition matrix.</em></p></li>
+<li><p><em>Show that the random walk has Markov property.</em></p></li>
+</ol>
+</div>
+<ol style="list-style-type: decimal">
+<li><p>The transition diagram and the transition matrix are infinite:</p>
+<p><span class="math display">\[P = \begin{bmatrix}
+    \ddots &amp; \cdots &amp; \cdots &amp; \cdots &amp; \cdots &amp; \cdots  &amp; \cdots    \\
+    \cdots &amp; q_{-1} &amp; r_{-1}  &amp; p_{-1}  &amp; \cdots &amp; \cdots  &amp; \cdots  \\
+    \cdots &amp; \cdots &amp; q_{0} &amp; r_{0}  &amp; p_{0}  &amp; \cdots   &amp; \cdots  \\
+    \cdots &amp; \cdots &amp; \cdots &amp; q_{1} &amp; r_{1}  &amp; p_{1}    &amp; \cdots    \\
+    \cdots &amp; \cdots &amp; \cdots &amp; \cdots &amp; \cdots  &amp; \cdots  &amp; \ddots   \\    
+ %0 &amp; 0 &amp; 0 &amp; 1/2 &amp; 1/2     \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span></p></li>
+<li><p>Clearly, the Markov property holds because <span class="math display">\[\begin{aligned}
+    &amp;\Pr(X_{n+1} = k | X_n = i, X_{n-1} = i_{n-1}, \ldots, X_0 = i_0)  \\
+    &amp;= \Pr(X_{n+1} = k | X_n = i) =
+    \begin{cases}
+               p_i,              &amp; k = i+1\\
+               r_i,              &amp; k = i\\
+               q_i,               &amp; k = i-1\\               
+               0,       &amp; \text{otherwise}.
+           \end{cases}\end{aligned}\]</span></p></li>
+</ol>
+<div class="example">
+<p><span id="exm:simpleRW" class="example"><strong>Example 4.11  </strong></span><em>The random walk can be used to model the fortune of a
+gambler. The gambler bets per game and the probability of winning is <span class="math inline">\(p\)</span>
+and the probability of losing is <span class="math inline">\(q\)</span> where <span class="math inline">\(p + q = 1\)</span>. In addition, the
+gambler is ruined (or goes broke) if he reaches state 0, and also stops
+the game if he reaches state <span class="math inline">\(N\)</span>. Therefore, the state space is
+<span class="math inline">\(S = \{0, 1, \ldots, N\}\)</span>. Note that
+<span class="math display">\[p_{00} = 1 \text { and } p_{NN} = 1.\]</span> The states <span class="math inline">\(0\)</span> and <span class="math inline">\(N\)</span> are
+referred to as <strong>absorbing boundaries (absorbing states)</strong> and the
+remaining states <span class="math inline">\(1,2,\ldots,N-1\)</span> are <strong>transient</strong>. Roughly speaking,
+if a state is known as transient if there is a possibility of leaving
+the state and never returning.</em></p>
+</div>
+<p>The transition diagram and the transition matrix of the simple random
+walk with absorbing boundaries (states) are given as follows:</p>
+<p><span class="math display">\[P = \begin{bmatrix}
+    1&amp; 0 &amp; 0 &amp; 0&amp; \cdots &amp; 0&amp; 0  &amp; 0    \\
+    q &amp; 0 &amp; p  &amp; 0&amp; \cdots &amp; 0&amp; 0  &amp; 0  \\
+    0 &amp; q &amp; 0 &amp; p  &amp; \cdots &amp; 0&amp; 0 &amp; 0   \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp;  \ddots &amp; \vdots    &amp; \vdots &amp; \vdots   \\
+    0 &amp; 0 &amp; 0 &amp; 0  &amp; \cdots &amp; q &amp; 0 &amp; p   \\
+    0 &amp; 0 &amp; 0 &amp; 0  &amp; \cdots &amp; 0 &amp; 0 &amp; 1   \\
+ %0 &amp; 0 &amp; 0 &amp; 1/2 &amp; 1/2     \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>In general, a state <span class="math inline">\(i\)</span> is called <strong>absorbing</strong> if <span class="math inline">\(p_{ii} = 1\)</span></p></li>
+<li><p>The simple random walk as given in Example
+<a href="#simpleRW" reference-type="ref" reference="simpleRW">ExampleÂ 12</a>
+can be modified so that whenever the process is in state 0 (or state
+<span class="math inline">\(N\)</span>),</p>
+<ul>
+<li><p>the probability of remaining in state 0 is <span class="math inline">\(\alpha\)</span>, and</p></li>
+<li><p>the probability of moving to state 1 is <span class="math inline">\(1 - \alpha\)</span>.</p></li>
+</ul>
+<p>In this case, the state 0 is referred to as a <strong>reflecting barrier</strong>
+for the chain. The process might be used to model the fortune of an
+individual when negative fortune is reset to zero.</p></li>
+</ol>
+</div>
+<div id="an-example-of-nonhomogeneous-markov-chain" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> An example of nonhomogeneous Markov chain</h2>
+<p>In this section, we give an example of a discrete-time nonhomogeneous
+Markov chain. Again, without stated otherwise, we shall assume that the
+discrete-time Markov chains are homogeneous.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-21" class="example"><strong>Example 4.12  </strong></span><em>(Adapted from W.J.Stewart)
+<span id="exampleStationary2" label="exampleStationary2"><span class="math display">\[exampleStationary2\]</span></span>
+A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> consists of two states <span class="math inline">\(\{1,2\}\)</span>. At
+time step <span class="math inline">\(n\)</span>, the probability that the Markov chain remains in its
+current state is given by <span class="math display">\[p_{11}(n) = p_{22}(n) = 1/n,\]</span> while the
+probability that it changes state is given by
+<span class="math display">\[p_{12}(n) = p_{21}(n) = 1 - 1/n.\]</span></em></p>
+<ol style="list-style-type: decimal">
+<li><p><em>Draw a transition diagram of the Markov chain.</em></p></li>
+<li><p><em>Write down the transition matrix.</em></p></li>
+<li><p><em>Calculate <span class="math inline">\(\Pr(X_5 = 2, X_4 = 2, X_3 = 1, X_2 =1 | X_1 = 1)\)</span>.</em></p></li>
+</ol>
+</div>
+<ol style="list-style-type: decimal">
+<li><p>The transition diagram and the transition matrix are dependent of
+the time step <span class="math inline">\(n\)</span>, and are given as follows:</p>
+<p><span class="math display">\[P(n) = \begin{bmatrix}
+    \frac{1}{n} &amp; \frac{n-1}{n}   \\
+    \frac{(n-1)}{n} &amp; \frac{1}{n}   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span></p></li>
+<li><p>The probability of taking a particular part can be calculated by
+<span class="math display">\[\begin{aligned}
+    \Pr(X_5 = 2, X_4 = 2, X_3 = 1, X_2 =1 | X_1 = 1)  &amp;= p_{11}(1) \cdot p_{11}(2) \cdot p_{12}(3) \cdot p_{22}(4) \\
+        &amp;= 1 \cdot 1/2 \cdot 2/3 \cdot 1/4 = 1/12.\end{aligned}\]</span>
+Other paths lead to state 2 after four transitions, and have
+different probabilities according to the route they follow. What is
+important is that, no matter which route is chosen, once the Markov
+chain arrives in state 2 after four steps, the future evolution is
+specified by <span class="math inline">\(P(5)\)</span>, and not any other <span class="math inline">\(P(i), i \le 4\)</span>.</p></li>
+</ol>
+</div>
+<div id="simulation" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Simulation</h2>
+<p>Simulation is a powerful tool for studying Markov chains. For many
+Markov chains in real-world applications, state spaces are large and
+matrix methods may not be practical.</p>
+<p>A Markov chain can be simulated from an initial distribution and
+transition matrix. To simulate a Markov sequence <span class="math inline">\(X_0,X_1, \ldots,\)</span>
+simulate each random variable sequentially conditional on the outcome of
+the previous variable. That is, first simulate <span class="math inline">\(X_0\)</span> according to the
+initial distribution. If <span class="math inline">\(X_0 = i\)</span>, then simulate <span class="math inline">\(X_1\)</span> from the <span class="math inline">\(i-th\)</span>
+row of the transition matrix. If <span class="math inline">\(X_1 = j\)</span>, then simulate <span class="math inline">\(X_2\)</span> from the
+<span class="math inline">\(j-th\)</span> row of the transition matrix, and so on.</p>
+<pre><code>[frame=single, escapeinside={(*}{*)}, caption={Algorithm for Simulating a Markov Chain}]
+
+Input: (i) initial distribution  (*$\boldsymbol{\mu}$*), (ii) transition matrix (*$P$*), (iii) number of steps (*$n$*).
+Output: (*$X_0, X_1, \ldots , X_n$*)
+Algorithm:
+    Generate (*$X_0$*) according to (*$\boldsymbol{\mu}$*)
+    FOR (*$i = 1, \ldots ,n$*)
+        Assume that (*$X_{i-1} = j$*)
+        Set (*$\boldsymbol p = j-$*)th row of (*$P$*) 
+        Generate (*$X_i$*) according to (*$\boldsymbol p$*)
+    END FOR</code></pre>
+</div>
+<div id="monte-carlo-methods" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Monte Carlo Methods</h2>
+<p>Monte Carlo methods are simulation-based algorithms that rely on
+generating a large set of samples from a statistical model to obtain the
+behaviour of the model and estimate the quantities of interest. For a
+large sample set of a random variable representing a quantity of
+interest, the law of large numbers allows to approximate the expectation
+by the average value from the samples.</p>
+<p>Consider repeated independent trials of a random experiment. We will
+need to generate a large number of samples <span class="math inline">\(X_1, X_2, \ldots\)</span> from the
+model. A Monte Carlo method for estimating the expectation
+<span class="math inline">\(\mathrm{E}( X )\)</span> is a numerical method based on the approximation
+<span class="math display">\[\mathrm{E}(X) \approx \frac{1}{N}\sum_{i=1}^N X_i,\]</span> where
+<span class="math inline">\(X_1, X_2, \ldots\)</span> are i.i.d. with the same distribution as <span class="math inline">\(X\)</span>.</p>
+<p>While computing expectations and computing probabilities at first look
+like different problems, the latter can be reduced to the former: if <span class="math inline">\(X\)</span>
+is a random variable, we have
+<span class="math display">\[\Pr(X \in A) = \mathrm{E}(1_A(X)).\]</span></p>
+<p>Using this equality, we can estimate <span class="math inline">\(\Pr(X \in A)\)</span> by
+<span class="math display">\[\Pr(X \in A) = \mathrm{E}(1_A(X)) = \frac{1}{N}\sum_{i=1}^N 1_A(X_i).\]</span></p>
+<p>Recall that the indicator function of the set <span class="math inline">\(A\)</span> is the defined as
+<span class="math display">\[1_A(x) =
+\begin{cases*}
+     1          &amp; if $x \in A $ \\
+      0        &amp; otherwise.
+\end{cases*}\]</span></p>
+<p>The following user-defined function in Excel can be used to simulate
+random numbers from a discrete distribution.</p>
+<pre><code>[frame=single, escapeinside={(*}{*)}, caption={A user-defined function in Excel to simulate random numbers from a discrete distribution. 
+}]
+Public Function Discrete(value As Variant, prob As Variant)
+
+Dim i As Integer
+Dim cumProb As Single
+Dim uniform As Single
+Randomize
+&#39;Randomize Statement
+&#39;Initializes the random-number generator.
+
+Application.Volatile
+
+&#39; This example marks the user-defined function Discrete as volatile.
+&#39; The function will be recalculated when any cell in any workbook
+&#39; in the application window changes value worksheet.
+
+uniform = Rnd
+cumProb = prob(1)
+i = 1
+Do Until cumProb &gt; uniform
+    i = i + 1
+    cumProb = cumProb + prob(i)
+Loop
+Discrete = value(i)
+
+End Function</code></pre>
+<div class="example">
+<p><span id="exm:unlabeled-div-22" class="example"><strong>Example 4.13  </strong></span><em>(R or Excel) A gambler starts with and plays a game
+where the chance of winning each round is 60%. The gambler either wins
+or loses on each round. The game stops when the gambler either gains or
+goes bust.</em></p>
+<ol style="list-style-type: decimal">
+<li><p><em>Develop an Excel worksheet or create an R code to simulate 50 steps
+of the finite Markov chain of the random walk <span class="math inline">\(X_n\)</span> given in
+ExampleÂ <a href="#simpleRW" reference-type="ref" reference="simpleRW">ExampleÂ 12</a>. Repeat the simulation 10 times. How many of
+your simulations end at 0.</em></p></li>
+<li><p><em>Use the results from the simulations to estimate the mean and
+variance of <span class="math inline">\(X_{5}\)</span>.</em></p></li>
+<li><p><em>Use the results from the simulations to estimate the probability
+that the gambler is eventually ruined.</em></p></li>
+</ol>
+</div>
+<div class="example">
+<p><span id="exm:exampleStationary2" class="example"><strong>Example 4.14  </strong></span><em>(R or Excel) A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on
+states <span class="math inline">\(\{1,2\}\)</span> has the following transition matrix
+<span class="math display">\[P = \begin{bmatrix}
+    1-a &amp; a   \\
+    b &amp; 1-b   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix},\]</span> where <span class="math inline">\(0 &lt; a,b &lt; 1.\)</span></em></p>
+<ol style="list-style-type: decimal">
+<li><p><em>Use either Excel or R to estimate the long-term distribution of the
+Markov chain. (Hint: consider the <span class="math inline">\(n\)</span>-step transition matrix for
+several increasing values of <span class="math inline">\(n\)</span>). Comments on the results
+obtained.</em></p>
+<p><em>Later we will see that in many cases, a Markov chain exhibits a
+long-term limiting behaviour. The chain settles down to an
+equilibrium distribution, which is independent of its initial
+state.</em></p></li>
+<li><p><em>Use simulations to estimate the long-term probability that a Markov
+chain hits each of the states. (Hint: simulate the Markov chain 1000
+steps and calculate the proportion of visits to each state)</em></p></li>
+</ol>
+</div>
+</div>
+<div id="classification-of-states" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Classification of states</h2>
+<p>Throughout this section <span class="math inline">\(\{ X_n\}_{n \ge 0}\)</span> is a time homogeneous
+Markov chain with state space <span class="math inline">\(S\)</span> and transition matrix
+<span class="math inline">\(P = (p_{ij})_{i,j \in S}\)</span>.</p>
+<p>For any <span class="math inline">\(i, j \in S\)</span>,</p>
+<ul>
+<li><p>The state <span class="math inline">\(j\)</span> can be <strong>reached</strong> from the state <span class="math inline">\(i\)</span>, denoted by
+<span class="math inline">\(i \rightarrow j\)</span> if there is a nonzero probability
+<span class="math inline">\(p^{(n)}_{ij} &gt; 0\)</span> for some <span class="math inline">\(n \ge 0\)</span>.</p></li>
+<li><p>The states <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are said to <strong>communicate</strong>, or to be <strong>in
+the same class</strong>, and denoted by <span class="math inline">\(i \leftrightarrow j\)</span>, if
+<span class="math inline">\(i \rightarrow j\)</span> and <span class="math inline">\(j \rightarrow i\)</span>.</p></li>
+</ul>
+<p>Note that <span class="math inline">\(i \rightarrow j\)</span> if and only if there exist states
+<span class="math inline">\(k_1, k_2, \ldots, k_r\)</span> such that
+<span class="math display">\[p_{ik_1} p_{k_1k_2} \ldots p_{k_r j}&gt;0,\]</span> i.e. it is not necessary
+that <span class="math inline">\(j\)</span> can be reached from the state <span class="math inline">\(i\)</span> in one single step.</p>
+<ul>
+<li>The relation <span class="math inline">\(\leftrightarrow\)</span> is an equivalence relation and
+partition the state space <span class="math inline">\(S\)</span> into equivalence classes, which are
+known as <strong>classes (or communication classes)</strong> of the Markov chain.
+Thus in any class all the states communicate, but none of them
+communicates with any state outside the class.</li>
+</ul>
+<p>Additional properties for a communication class are defined as follows:</p>
+<ul>
+<li>The class <span class="math inline">\(C\)</span> is said to be <strong>closed</strong> if it is impossible to reach
+any state outside <span class="math inline">\(C\)</span> from any state in <span class="math inline">\(C\)</span>, i.e. escape from <span class="math inline">\(C\)</span> is
+impossible. Otherwise, the class <span class="math inline">\(C\)</span> is said to be <strong>non-closed</strong>,
+i.e. escape from <span class="math inline">\(C\)</span> is possible.</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>If the entire state space <span class="math inline">\(S\)</span> is only one communication class (all
+states communicate), then it is necessarily closed and the Markov
+chain is said to be <strong>irreducible</strong>. Otherwise, the Markov chain is
+said to be <strong>reducible</strong>.</p></li>
+<li><p>A closed class consisting of a single state is an <strong>absorbing
+state</strong>.</p></li>
+</ul>
+<div class="example">
+<p><span id="exm:unlabeled-div-23" class="example"><strong>Example 4.15  </strong></span><em>Consider each of the following Markov chains:</em></p>
+<ol style="list-style-type: lower-alpha">
+<li><p><em>NCD system (Example <a href="#NCD" reference-type="ref" reference="NCD">ExampleÂ 2</a>),</em></p></li>
+<li><p><em>the health insurance system (Example
+<a href="#healthInsurance" reference-type="ref" reference="healthInsurance">ExampleÂ 3</a>), and</em></p></li>
+<li><p><em>a simple random walk (Example
+<a href="#simpleRW" reference-type="ref" reference="simpleRW">ExampleÂ 12</a>),</em></p></li>
+</ol>
+<p><em>Identify the communication classes. Is the Markov chain irreducible?</em></p>
+</div>
+<p>It is a good practice to use transition diagram and also verify the
+answers.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Every two states are intercommunicating, so <span class="math inline">\(\{0,1,2\}\)</span> is a single
+closed class, and hence the Markov chain is irreducible. This is
+because <span class="math inline">\(0 \rightarrow 1\)</span> and <span class="math inline">\(1 \rightarrow 0\)</span> (<span class="math inline">\(p_{01} &gt; 0\)</span> and
+<span class="math inline">\(p_{10} &gt; 0\)</span>), and <span class="math inline">\(1 \rightarrow 2\)</span> and <span class="math inline">\(2 \rightarrow 1\)</span>
+(<span class="math inline">\(p_{12} &gt; 0\)</span> and <span class="math inline">\(p_{21} &gt; 0\)</span>).</p></li>
+<li><p>There are two classes of intercommunicating states, <span class="math inline">\(O = \{H,S\}\)</span> is
+non-closed, and <span class="math inline">\(C = \{ D \}\)</span> is closed (and also an absorbing
+state). Clearly, the Markov chain is not irreducible. This is
+because</p>
+<ul>
+<li><p><span class="math inline">\(p_{DD} = 1\)</span>, i.e. <span class="math inline">\(C\)</span> is a class.</p></li>
+<li><p><span class="math inline">\(O\)</span> is open class because <span class="math inline">\(p_{HS} &gt; 0\)</span>, <span class="math inline">\(p_{SH} &gt;0\)</span>, so this is
+a class, and for example <span class="math inline">\(p_{HD}\)</span> &gt; 0 but <span class="math inline">\(p^{(n)}_{DH} = 0\)</span>
+for all <span class="math inline">\(n\)</span> (i.e. one cannot leave <span class="math inline">\(C\)</span> starting from the state
+<span class="math inline">\(D\)</span>), so O is an open class.</p></li>
+</ul></li>
+<li><p>The simple random walk with absorbing boundaries has three classes,
+<span class="math inline">\(\{1,2, \ldots, N-1 \}\)</span> is non-closed class, <span class="math inline">\(\{0 \}\)</span> and <span class="math inline">\(\{N \}\)</span>
+are two closed classes.</p></li>
+</ol>
+<div class="example">
+<p><span id="exm:exampleMC" class="example"><strong>Example 4.16  </strong></span><em>A Markov chain with state space <span class="math inline">\(S = \{1,2,3,4,5\}\)</span> has
+the following transition matrix: <span class="math display">\[P = \begin{bmatrix}
+    1 &amp; 0 &amp; 0 &amp; 0 &amp; 0     \\
+    1/5 &amp; 1/5 &amp; 1/5 &amp; 1/5 &amp; 1/5   \\
+    1/3 &amp; 1/3 &amp; 0 &amp; 1/3 &amp; 0     \\  
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1     \\
+0 &amp; 0 &amp; 0 &amp; 1/2 &amp; 1/2     \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span></em></p>
+<ol style="list-style-type: decimal">
+<li><p><em>Draw a transition diagram.</em></p></li>
+<li><p><em>Identify the communication classes. Is the Markov chain
+irreducible?</em></p></li>
+</ol>
+</div>
+<p>There are two closed classes <span class="math inline">\(C_1 = \{1\}\)</span> and <span class="math inline">\(C_2 = \{4,5\}\)</span> and one
+non-closed class <span class="math inline">\(O = \{ 2,3\}\)</span>. This is because</p>
+<ul>
+<li><p><span class="math inline">\(C_1\)</span> is closed because <span class="math inline">\(p_{11} = 1\)</span>.</p></li>
+<li><p><span class="math inline">\(C_2\)</span> is a class because <span class="math inline">\(4 \rightarrow 5\)</span> (<span class="math inline">\(p_{45} &gt;0\)</span>) and
+<span class="math inline">\(5 \rightarrow 4\)</span> (<span class="math inline">\(p_{54} &gt;0\)</span>), and is closed because <span class="math inline">\(p_{ij} = 0\)</span>
+for all <span class="math inline">\(i \in C_2\)</span> and <span class="math inline">\(j \not\in C_2\)</span>.</p></li>
+<li><p><span class="math inline">\(O\)</span> is a class because <span class="math inline">\(2 \rightarrow 3\)</span> (<span class="math inline">\(p_{23} &gt;0\)</span>) and
+<span class="math inline">\(3 \rightarrow 2\)</span> (<span class="math inline">\(p_{32} &gt; 0\)</span>), and is non-closed because
+<span class="math inline">\(p_{21} &gt; 0\)</span>, but <span class="math inline">\(p_{11} = 1\)</span>.</p></li>
+</ul>
+</div>
+<div id="absorption-probabilities-and-expected-time-to-absorption" class="section level2" number="4.10">
+<h2><span class="header-section-number">4.10</span> Absorption probabilities and expected time to absorption</h2>
+<p>For the random walk with absorbing boundaries (i.e. <span class="math inline">\(0\)</span> and <span class="math inline">\(N\)</span>), two
+questions arises, in which state, <span class="math inline">\(0\)</span> or <span class="math inline">\(N\)</span> is the process eventually
+absorbed (or trapped) and on the average how long does it take to reach
+one of these absorbing states? We first define the following terms which
+applies to the random walk process with absorbing boundaries.</p>
+<p>The time of absorption <span class="math inline">\(T\)</span> is defined as
+<span class="math display">\[T = \min\{ n \ge 0 | X_n = 0 \text{ or } X_n = N \}\]</span> and the
+<strong>probability of eventually absorption</strong> in state 0 is given by
+<span class="math display">\[u_i = \Pr\{ X_T = 0 | X_0 = i  \}, \text{ for } i = 1,2,\ldots,N-1.\]</span>
+The <strong>mean time to absorption</strong> of the process is given by
+<span class="math display">\[\mathrm{E}[T |  X_0 = i ] \, \text{ for } i = 1,2,\ldots,N-1.\]</span></p>
+</div>
+<div id="first-step-analysis" class="section level2" number="4.11">
+<h2><span class="header-section-number">4.11</span> First step analysis</h2>
+<p>First step analysis allows us to evaluate quantities of interest from
+the Markov chain, for e.g. the absorption probabilities and the mean
+duration until absorption. The method is based on considering all
+possibilities at the end of the first transition and then apply the law
+of total probability to formulate equations involved all unknown
+quantities. We illustrate how to use the first step analysis in the
+following Markov chain.</p>
+<div class="example">
+<p><span id="exm:eg_absorption" class="example"><strong>(#exm:eg_absorption) </strong></span><em>Consider the Markov chain with state space
+<span class="math inline">\(S = \{0,1,2\}\)</span> and transition probability matrix given by
+<span class="math display">\[P = \begin{bmatrix}
+    1 &amp; 0 &amp; 0    \\
+    p_{10} &amp; p_{11} &amp; p_{12}   \\
+   0 &amp; 0 &amp; 1   \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span></em></p>
+</div>
+<p>The classes and types are as follows:</p>
+<ul>
+<li><p>Two closed classes are <span class="math inline">\(C_1 = \{0\}\)</span> and <span class="math inline">\(C_2 = \{2\}\)</span>.</p></li>
+<li><p><span class="math inline">\(\{1\}\)</span> is a non-closed class.</p></li>
+</ul>
+<p>Let us consider the problem of evaluating the absorption probabilities.
+For any closed class <span class="math inline">\(C\)</span>, define
+<span class="math display">\[u^C_{i} = \Pr(\text{Markov chain eventually absorbed in } C | X_0 = i).\]</span>
+Clearly, the absorption probabilities also depend on the initial states.
+A vector of absorption probabilities is then given by
+<span class="math inline">\(\mathbf{u}^C = (u^C_i)_{i \in S}\)</span> We suppress the superscript <span class="math inline">\(C\)</span> and
+simply write <span class="math inline">\(u^C_{i} = u_i\)</span> and <span class="math inline">\(\mathbf{u}^C = \mathbf{u}\)</span>.</p>
+<p>Consider the closed class <span class="math inline">\(C_1 = \{0\}\)</span>. We have <span class="math display">\[\begin{aligned}
+    u_{0} &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 0) = 1, \\ 
+    u_{2} &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 2) = 0, \\ 
+    u_{1} &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 1) = u_1. \\   \end{aligned}\]</span>
+By considering the first transition from state <span class="math inline">\(1\)</span> to either state 0, 1
+and 2, and using the Markov property, the law of total probability gives
+<span class="math display">\[\begin{aligned}
+    u_1 &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 1) \\
+    &amp;= \sum_{k = 0}^2 \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 1, X_1 = k)   \Pr(X_1 = k | X_0 = 1) \\
+    &amp;= \sum_{k = 0}^2 \Pr(\text{Markov chain eventually absorbed in } C_1 | X_1 = k)    \Pr(X_1 = k | X_0 = 1) \\
+    &amp;=  (p_{10}) \cdot  u_0 + (p_{11}) \cdot  u_1 + (p_{12}) \cdot  u_2  \\ 
+    &amp;= (p_{10})\cdot 1 + (p_{11}) \cdot  u_1 +  (p_{12}) \cdot 0. \end{aligned}\]</span>
+Solving for <span class="math inline">\(u_1\)</span> gives
+<span class="math display">\[u_1 =  u^{C_1}_1 = \frac{p_{10}}{1 - p_{11}} = \frac{p_{10}}{p_{10} +  p_{12}}.\]</span></p>
+<p>Similarly, we have <span class="math display">\[\begin{aligned}
+    u_0 &amp;= p_{00} \cdot u_0 + p_{01} \cdot  u_1 +  p_{02} \cdot  u_2 \\
+    u_1 &amp;= p_{10} \cdot  u_0 + p_{11} \cdot  u_1 + p_{12} \cdot  u_2  \\ 
+    u_2 &amp;= p_{20} \cdot  u_0 + p_{21} \cdot  u_1 + p_{22} \cdot  u_2,  \\\end{aligned}\]</span>
+where the first and the last equations reduce to <span class="math inline">\(u_0 = u_0\)</span> and
+<span class="math inline">\(u_2 = u_2\)</span>, respectively. In general, for a closed class <span class="math inline">\(C\)</span>, the
+vector of absorption probabilities <span class="math inline">\(\mathbf{u}\)</span> satisfies the following
+system of linear equations:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\mathbf{u} = P\mathbf{u}\)</span> (here <span class="math inline">\(\mathbf{u}\)</span> is treated as a column
+vector),</p></li>
+<li><p><span class="math inline">\(u_{i} = \Pr(\text{Markov chain eventually absorbed in } C) | X_0 = i) = 1\)</span>
+for all <span class="math inline">\(i \in C\)</span>, and</p></li>
+<li><p><span class="math inline">\(u_{i} = \Pr(\text{Markov chain eventually absorbed in } C) | X_0 = i) = 0\)</span>
+for all <span class="math inline">\(i\)</span> in any other close classes.</p></li>
+</ol>
+<div class="example">
+<p><span id="exm:absorption" class="example"><strong>Example 4.17  </strong></span><em>In this example, consider the closed class
+<span class="math inline">\(C_2 = \{2\}\)</span>. Find the absorption probabilities <span class="math inline">\(u^{C_2}_0, u^{C_2}_1\)</span>
+and <span class="math inline">\(u^{C_2}_2\)</span>. Comment on these results.</em></p>
+</div>
+<p>For the closed class <span class="math inline">\(C_2\)</span>, we proceed in the same way as in the closed
+class <span class="math inline">\(C_1\)</span>. Let <span class="math inline">\(\mathbf{u}=\mathbf{u}^{C_{2}} = (u_0,u_1,u_2)^T\)</span> be
+the vector of absorption probabilities in the closed class <span class="math inline">\(C_{2}=\{2\}\)</span>
+with <span class="math inline">\(u_0 = 0\)</span> and <span class="math inline">\(u_2 =1\)</span>. It follows that <span class="math display">\[\begin{aligned}
+    u_1 &amp;=  p_{10} \cdot  u_0 + p_{11} \cdot  u_1 + p_{12} \cdot  u_2  \\
+    &amp;=  p_{11} \cdot  u_1 + p_{12}.\end{aligned}\]</span> Hence,
+<span class="math inline">\(u_1 = \frac{p_{12}}{1- p_{11}} =\frac{p_{12}}{p_{10}+ p_{12}}\)</span>. It
+should be emphasised that
+<span class="math display">\[\mathbf{u}^{C_1} + \mathbf{u}^{C_2} = \mathbf{1} .\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>For any initial state <span class="math inline">\(i\)</span>, the sum of the absorption probabilities
+over all closed classes is 1 (as verified in Example
+<a href="#absorption" reference-type="ref" reference="absorption">ExampleÂ 19</a>). In particular, when a Markov chain has two
+closed classes <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span>,
+<span class="math inline">\(\mathbf{u}^{C_2} = \mathbf{1} - \mathbf{u}^{C_1}\)</span>.</p></li>
+<li><p>In the case when <span class="math inline">\(S\)</span> is finite or when the set of states in
+non-closed classes is finite, the vector <span class="math inline">\(\mathbf{u}\)</span> is the unique
+solution of the above system of linear equations.</p></li>
+</ol>
+<div class="example">
+<p><span id="exm:unlabeled-div-24" class="example"><strong>Example 4.18  </strong></span><em>Consider the Markov chain defined in Example
+<a href="#exampleMC" reference-type="ref" reference="exampleMC">ExampleÂ 17</a>.
+Find the absorption probabilities in the closed class <span class="math inline">\(C_1 = \{1\}\)</span> and
+<span class="math inline">\(C_2 = \{4,5\}\)</span>.</em></p>
+</div>
+<p>Here <span class="math inline">\(C_{1}=\{1\}\)</span> and <span class="math inline">\(C_{2}=\{4,5\}\)</span> are closed classes and
+<span class="math inline">\(0 = \{2,3\}\)</span> is an open class.</p>
+<p>Let <span class="math inline">\(\mathbf{u}=\mathbf{u}^{C_{1}}\)</span> be the vector of absorption
+probabilities in the closed class <span class="math inline">\(C_{1}=\{1\}\)</span>. Write
+<span class="math inline">\(\mathbf{u}= (u_1,u_2, \ldots,u_5)^T\)</span> and <span class="math inline">\(u_1 = 1\)</span> and <span class="math inline">\(u_4 = u_5 =0\)</span>,
+From <span class="math inline">\(\mathbf{u}=P \cdot \mathbf{u}\)</span>,</p>
+<p><span class="math display">\[\left(\begin{array}{c}u_{1} \\ u_{2} \\ \vdots \\ u_{5}\end{array}\right)=P\left(\begin{array}{c}u_{1} \\ u_{2} \\ \vdots \\ u_{5}\end{array}\right) \text {gives}\]</span>
+<span class="math display">\[\begin{aligned}
+    u_2 &amp;= \frac{1}{5} + \frac{1}{5} u_2 + \frac{1}{5} u_3 \\
+    u_3 &amp;= \frac{1}{3} + \frac{1}{3} u_2.   \end{aligned}\]</span> Solving the
+linear system for <span class="math inline">\(u_2\)</span> and <span class="math inline">\(u_3\)</span> yields <span class="math inline">\(u_2 = 4/11\)</span> and <span class="math inline">\(u_3 = 5/11\)</span>.
+Hence, the absorption probabilities in the closed class <span class="math inline">\(C_1\)</span> is
+<span class="math display">\[\mathbf{u}= (1,4/11,5/11,0,0)^T.\]</span> In addition, since there are two
+closed classes,
+<span class="math inline">\(\mathbf{u}^{C_2} = \mathbf{1} - \mathbf{u}^{C_1} = (0,7/11,6/11,1,1)^T.\)</span></p>
+</div>
+<div id="the-expected-time-to-absorption" class="section level2" number="4.12">
+<h2><span class="header-section-number">4.12</span> The expected time to absorption</h2>
+<p>The expected time to absorption can be determined by analysing all
+possibilities occurring in the first step. We again consider the process
+defined in Example <a href="#eg_absorption" reference-type="ref" reference="eg_absorption">ExampleÂ 18</a> on the set <span class="math inline">\(\{0, 1, 2\}\)</span> with the transition
+matrix <span class="math display">\[P = \begin{bmatrix}
+    1 &amp; 0 &amp; 0    \\
+    p_{10} &amp; p_{11} &amp; p_{12}   \\
+   0 &amp; 0 &amp; 1   \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span> The time of absorption <span class="math inline">\(T\)</span> is defined as
+<span class="math display">\[T = \min\{ n \ge 0 | X_n = 0 \text{ or } X_n = 2 \}\]</span> and the mean
+time to absorption of the process is given by
+<span class="math inline">\(v = \mathrm{E}[T | X_0 = 1 ] .\)</span></p>
+<p>The following observations can be made:</p>
+<ol style="list-style-type: decimal">
+<li><p>The absorption time <span class="math inline">\(T\)</span> is always at least 1.</p></li>
+<li><p>If either <span class="math inline">\(X_1 = 0\)</span> or <span class="math inline">\(X_1 = 2\)</span>, then no further steps are
+required.</p></li>
+<li><p>If <span class="math inline">\(X_1 = 1\)</span>, then the process is back at its starting point and on
+the average <span class="math inline">\(v\)</span> additional steps are required for absorption.</p></li>
+</ol>
+<p>Weighting all these possibilities by their respective probabilities, we
+obtain the following equation <span class="math display">\[\begin{aligned}
+v &amp;= 1 + p_{10} \cdot 0 + p_{11} \cdot v  + p_{12} \cdot 0    \\
+  &amp;= 1 +  p_{11} \cdot v,\end{aligned}\]</span> which results in
+<span class="math display">\[v = \frac{1}{1 - p_{11}}.\]</span></p>
+<div class="example">
+<p><span id="exm:eg_absorption2" class="example"><strong>(#exm:eg_absorption2) </strong></span><em>Consider the Markov chain with state space
+<span class="math inline">\(S = \{0,1,2,3\}\)</span> and transition probability matrix given by
+<span class="math display">\[P = \begin{bmatrix}
+    1 &amp; 0 &amp; 0  &amp; 0  \\
+    p_{10} &amp; p_{11} &amp; p_{12} &amp; p_{13}   \\
+    p_{20} &amp; p_{21} &amp; p_{22} &amp; p_{23}   \\    
+   0 &amp; 0 &amp; 0 &amp; 1   \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span> Let <span class="math inline">\(T\)</span> be the time of absorption defined by
+<span class="math display">\[T = \min\{ n \ge 0 | X_n = 0 \text{ or } X_n = 3 \}\]</span> and the
+<strong>absorption probabilities</strong> given by
+<span class="math display">\[u_i = \Pr\{ X_T = 0 | X_0 = i  \}, \text{ for } i = 1,2\]</span> and the mean
+time to absorption of the process is given by
+<span class="math display">\[v_i  = \mathrm{E}[T |  X_0 = 1 ] , \text{ for } i = 1,2.\]</span> Calculate
+the absorption probabilities and the mean time to absorption.</em></p>
+</div>
+<p>There are 2 closed classes including <span class="math inline">\(C_1= \{ 0 \}\)</span>, and <span class="math inline">\(C_2= \{ 3 \}\)</span>,
+and one non-closed class <span class="math inline">\(O = \{1,2 \}\)</span>. Here,
+<span class="math display">\[u_i = u_i^{C_1} = \Pr\{ X_T = 0 | X_0 = i  \} = \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = i), \text{ for } i = 1,2\]</span>
+By conditioning on the first step from state <span class="math inline">\(i\)</span> and using the Markov
+property, we have <span class="math display">\[u_i^{C_1} = \sum_{j \in S} p_{ij} u_j^{C_1}.\]</span>
+Clearly, <span class="math inline">\(u_0^{C_1} = 1\)</span> and <span class="math inline">\(u_3^{C_1} = 0\)</span>. In particular, we have
+<span class="math display">\[\begin{aligned}
+    u_1 &amp;= p_{10} \cdot 1 + p_{11} \cdot u_1 + p_{12} \cdot u_2 \\
+    u_2 &amp;= p_{20} \cdot 1 + p_{21} \cdot u_1 + p_{22} \cdot u_2, \\\end{aligned}\]</span>
+which can also be obtained from the matrix equation
+<span class="math inline">\(\mathbf{u} = P\mathbf{u}\)</span>, where <span class="math inline">\(\mathbf{u} = (1, u_1, u_2, 0)^T\)</span>. The
+solution to the system of linear equations is <span class="math display">\[\begin{aligned}
+    u_1 &amp;= \frac{ p_{10} (p_{22} - 1) - p_{12} p_{20}  }{ p_{11}(-p_{22}) +  p_{11}  + p_{12} p_{21}  + p_{22} - 1}, \\
+    u_2 &amp;= \frac{(  p_{11} - 1) p_{20} - p_{10} p_{21}  }{    p_{11}(-p_{22})  + p_{11}  + p_{12} p_{21} + p_{22} -1  }  . \\\end{aligned}\]</span></p>
+<p>Similarly, the mean time to absorption also depends on the starting
+state. By the first step analysis, we have for
+<span class="math inline">\(v_i = \mathrm{E}[T | X_0 = 1 ]\)</span>, <span class="math display">\[\begin{aligned}
+    v_1 &amp;=  1 + p_{11} \cdot v_1 + p_{12} \cdot v_2 \\
+    v_2 &amp;=  1 + p_{21} \cdot v_1 + p_{22} \cdot v_2. \\\end{aligned}\]</span>
+Here the absorption time <span class="math inline">\(T\)</span> is always at least 1. If either <span class="math inline">\(X_1 = 0\)</span>
+or <span class="math inline">\(X_1 = 3\)</span>, then no further steps are required. On the other hand, if
+<span class="math inline">\(X_1 = 1\)</span> or <span class="math inline">\(X_1 = 2\)</span>, then the process will require additional steps,
+and on the average, these are <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span>. Weighting these two
+possibilities, i.e. whether <span class="math inline">\(X_1 = 1\)</span> or <span class="math inline">\(X_1 = 2\)</span>, by their respective
+probabilities and summing according to the law of total probability
+result in the above system of equations.</p>
+<p>Solving the equations for <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span> give the mean time to
+absorption <span class="math display">\[\begin{aligned}
+    v_1 &amp;=  \frac{-p_{12}  + p_{22} -1}{p_{11}(-p_{22}) + p_{11} + p_{12}p_{21} + p_{22} - 1}, \\
+    v_2 &amp;=  \frac{p_{11}  - p_{21} -1}{p_{11}(-p_{22}) + p_{11} + p_{12}p_{21} + p_{22} - 1}. \\\end{aligned}\]</span></p>
+</div>
+<div id="the-long-term-distribution-of-a-markov-chain" class="section level2" number="4.13">
+<h2><span class="header-section-number">4.13</span> The long-term distribution of a Markov chain</h2>
+<p>In this section, we present another important property concerning
+limiting behaviour of <span class="math inline">\(P^n\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span> and hence the
+long-term distribution of a Markov chain satisfying some certain
+conditions. In particular, some Markov chains will converge to an
+equilibrium (limiting) distribution, which is independent of its initial
+state.</p>
+<p>We also assume that the Markov chain with <strong>a single closed class</strong> <span class="math inline">\(S\)</span>.</p>
+</div>
+<div id="stationary-and-limiting-distributions-for-a-single-closed-class" class="section level2" number="4.14">
+<h2><span class="header-section-number">4.14</span> Stationary and limiting distributions for a single closed class</h2>
+<div id="stationary-distributions" class="section level3 unnumbered">
+<h3>Stationary distributions</h3>
+<p>Throughout this section, we consider a Markov chain whose transition
+probability matrix is <span class="math inline">\(P\)</span> and state space <span class="math inline">\(S\)</span> is a single close class.
+Then <span class="math inline">\(S\)</span> is necessarily closed and hence irreducible.</p>
+<p>A probability distribution <span class="math inline">\(\boldsymbol{\pi} = (\pi)_{i \in S}\)</span> on <span class="math inline">\(S\)</span>
+is <strong>stationary</strong> if the following conditions hold (here
+<span class="math inline">\(\boldsymbol{\pi}\)</span> is a row vector):</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\pi_j = \sum_{i \in S} \pi_i p_{ij}\)</span> or equivalently
+<span class="math inline">\(\boldsymbol{\pi} P =\boldsymbol{\pi}\)</span>,</p></li>
+<li><p><span class="math inline">\(\pi_j \ge 0\)</span>,</p></li>
+<li><p><span class="math inline">\(\sum_{j \in S} \pi_j = 1\)</span>.</p></li>
+</ol>
+<!-- -->
+<ol style="list-style-type: decimal">
+<li><p>For any stationary distribution <span class="math inline">\(\boldsymbol{\pi}\)</span>, for all
+<span class="math inline">\(n \ge 1\)</span>, <span class="math display">\[\boldsymbol{\pi}  P^n  =\boldsymbol{\pi}.\]</span> Therefore,
+if we take <span class="math inline">\(\boldsymbol{\pi}\)</span> as the initial probability
+distribution, i.e. <span class="math inline">\(\Pr(X_0 = i) = \pi_i\)</span>, then then the
+distribution of <span class="math inline">\(X_n\)</span> is also <span class="math inline">\(\boldsymbol{\pi}\)</span> , i.e.
+<span class="math inline">\(\Pr(X_n = i) = \pi_i\)</span></p></li>
+<li><p>The probability distribution <span class="math inline">\(\boldsymbol{\pi}\)</span> is said to be an
+invariant probability distribution.</p></li>
+<li><p>The most important property concerning the stationary
+distribution(which will be made formal) is that it gives the
+<strong>long-term (limiting) distribution</strong> of a Markov chain. In
+addition, <span class="math inline">\(\pi_j\)</span> also gives <strong>the long run mean fraction of time</strong>
+that the process <span class="math inline">\(\{X_n\}\)</span> is in state <span class="math inline">\(j\)</span>.</p></li>
+</ol>
+<div class="example">
+<p><span id="exm:exampleStationary" class="example"><strong>Example 4.19  </strong></span><em>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states <span class="math inline">\(\{1,2\}\)</span>
+has the following transition matrix <span class="math display">\[P = \begin{bmatrix}
+    1-a &amp; a   \\
+    b &amp; 1-b   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix},\]</span> where <span class="math inline">\(0 &lt; a,b &lt; 1.\)</span></em></p>
+<ol style="list-style-type: decimal">
+<li><p><em>Show that <span class="math display">\[P^n = \frac{1}{a+b} \begin{bmatrix}
+    b &amp; a   \\
+    b &amp; a   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix} +
+\frac{(1-a-b)^n}{a+b} \begin{bmatrix}
+    a &amp; -a   \\
+    -b &amp; b   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span></em></p></li>
+<li><p><em>Show that the stationary probability distribution is
+<span class="math display">\[\boldsymbol{\pi} = \left( \frac{b}{a+b},  \frac{a}{a+b} \right)  .\]</span></em></p></li>
+<li><p><em>Show that
+<span class="math display">\[\lim_{n \rightarrow \infty} p_{ij}^{(n)} = \pi_j &gt; 0 , \text{ for }j \in \{1,2\}.\]</span></em></p></li>
+</ol>
+</div>
+</div>
+<div id="proportion-of-time-in-each-state" class="section level3 unnumbered">
+<h3>Proportion of Time in Each State</h3>
+<p>The limiting distribution provides the long-term behaviour of the Markov
+chain, i.e. it is the long-term probability that a Markov chain hits
+each state. In this section, it can be shown that it also gives the
+long-term proportion of time that the chain visits each state. Let us
+consider a Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> whose transition probability
+matrix is <span class="math inline">\(P\)</span> and its limiting distribution is <span class="math inline">\(\boldsymbol{\pi}\)</span>. Note
+that the limiting distribution for the Markov chain satisfies
+<span class="math display">\[\lim_{n \rightarrow \infty}  p^{(n)}_{ij} =  \pi_j.\]</span></p>
+<p>For each state <span class="math inline">\(j\)</span>, define indicator random variable <span class="math display">\[I_k =
+    \begin{cases*}
+      1, &amp; if $X_k = j$ \\
+      0,  &amp; otherwise,
+    \end{cases*}\]</span> for <span class="math inline">\(k = 0,1,\ldots\)</span>. Hence, the number of times that
+the Markov chain visits <span class="math inline">\(j\)</span> in the first <span class="math inline">\(n\)</span> steps is given by
+<span class="math inline">\(\sum_{k =0}^{n-1} I_k\)</span> and the expected long-term proportion of time
+that the chain visits state <span class="math inline">\(j\)</span> given that its initial state is <span class="math inline">\(i\)</span> is
+<span class="math display">\[\begin{aligned}
+    \lim_{n \rightarrow \infty} \mathrm{E}\left(\frac{1}{n}  \sum_{k =0}^{n-1} I_k \, |\, X_0 = i \right) &amp;= 
+    \lim_{n \rightarrow \infty}  \frac{1}{n}  \sum_{k =0}^{n-1} \mathrm{E}( I_k \, |\, X_0 = i ) \\
+    &amp;= \lim_{n \rightarrow \infty}  \frac{1}{n}  \sum_{k =0}^{n-1} \Pr(X_k = j | X_0 = i)\\
+    &amp;= \lim_{n \rightarrow \infty}  \frac{1}{n}  \sum_{k =0}^{n-1} p^{(k)}_{ij}\\
+    &amp;= \lim_{n \rightarrow \infty}  p^{(n)}_{ij} =  \pi_j.\end{aligned}\]</span></p>
+<p>Here we use the fact that if the sequence of numbers converges to a
+limit, i.e. <span class="math inline">\(x_n \rightarrow x\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>, then the
+sequence of partial averages also converges to that limit, i.e.
+<span class="math inline">\((x_1 + x_2 + \cdots x_n)/n \rightarrow x\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>.
+This result is known as Cesaro’s lemma.</p>
+<div class="example">
+<p><span id="exm:weatherExample2" class="example"><strong>Example 4.20  </strong></span><em>Recall from
+ExampleÂ <a href="#weather" reference-type="ref" reference="weather">ExampleÂ 9</a>,
+the simple weather pattern can be classified into three types including
+rainy (<span class="math inline">\(R\)</span>), cloudy (<span class="math inline">\(C\)</span>) and sunny (<span class="math inline">\(S\)</span>). The weather is observed daily
+and can be modelled by the Markov transition matrix
+<span class="math display">\[P = \begin{bmatrix}
+    0.7 &amp; 0.2 &amp; 0.1    \\
+    0.75 &amp; 0.15 &amp; 0.1   \\
+   0.2 &amp; 0.4 &amp; 0.4   \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span> It can be shown that the stationary distribution and
+also the limiting distribution of the Markov chain is
+<span class="math display">\[\boldsymbol{\pi} = (94/147, 32/147,    1/7)\]</span> which gives the
+proportions of visits to rainy, cloudy and sunny states are 94/147,
+32/147, 1/7, respectively.</em></p>
+</div>
+</div>
+<div id="the-method-of-finding-the-stationary-distribution" class="section level3 unnumbered">
+<h3>The method of finding the stationary distribution</h3>
+<p>To find the stationary distribution, we simply solve the linear
+equations <span class="math inline">\(\boldsymbol{\pi} P =\boldsymbol{\pi}\)</span> (note that one of the
+equations can be discarded), together with the condition
+<span class="math inline">\(\sum_{j \in S} \pi_j = 1\)</span>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-25" class="example"><strong>Example 4.21  </strong></span><em>For the NCD process in Example
+<a href="#NCD" reference-type="ref" reference="NCD">ExampleÂ 2</a>, the Markov
+chain has the following transition probability matrix
+<span class="math display">\[P = \begin{bmatrix}
+    1- p &amp; p &amp; 0    \\
+    1-p &amp; 0 &amp; p   \\
+    0 &amp; 1-p &amp; p    \\
+\end{bmatrix}.\]</span> Find the stationary probability distribution of this
+chain.</em></p>
+</div>
+<p>Denote the stationary probability distribution by
+<span class="math inline">\(\boldsymbol{\pi} = (\pi_1, \pi_2, \pi_3)\)</span>. From
+<span class="math inline">\(\boldsymbol{\pi} P =\boldsymbol{\pi}\)</span> and
+<span class="math inline">\(\pi_1 + \pi_2 + \pi_3 = 1\)</span>,
+<span class="math display">\[(\pi_1,  \pi_2, \pi_3)  \begin{bmatrix}
+    1- p &amp; p &amp; 0    \\
+    1-p &amp; 0 &amp; p   \\
+    0 &amp; 1-p &amp; p    \\
+\end{bmatrix} =  (\pi_1,  \pi_2, \pi_3),\]</span> which is equivalent to
+<span class="math display">\[\begin{aligned}
+(1- p)\pi_1 + (1- p)\pi_2 &amp;= \pi_1 \\
+p\pi_1 + (1- p)\pi_3 &amp;= \pi_2 \\
+p\pi_2 + p\pi_3 &amp;= \pi_3 \end{aligned}\]</span></p>
+<p>By discarding one of the equations and adding the condition that
+<span class="math inline">\(\pi_1 + \pi_2 + \pi_3 = 1\)</span>, one can solve for
+<span class="math inline">\(\pi_1, \pi_2, \pi_3\)</span>:
+<span class="math display">\[\pi_1 = \frac{(p-1)^2}{p^2 - p + 1},  \quad \pi_2 = \frac{-p^2 + p}{p^2 - p + 1},  \quad \pi_3 = \frac{p^2}{p^2 - p + 1}.\]</span></p>
+<ol style="list-style-type: decimal">
+<li>In the above two examples, it can be shown that
+<span class="math display">\[\lim_{n \rightarrow \infty} p_{ij}^{(n)} = \pi_j &gt; 0 , \text{ for }j \in S,\]</span>
+or, in terms of the Markov chain <span class="math inline">\(\{X_n\}\)</span>,
+<span class="math display">\[\lim_{n \rightarrow \infty} \Pr(X_n = j | X_0 = i) = \pi_j &gt; 0, \text{ for }j \in S.\]</span>
+This means that in the long run (as <span class="math inline">\(n\rightarrow \infty\)</span>), the
+probability of finding Markov chain in state <span class="math inline">\(j\)</span> is approximately
+<span class="math inline">\(\pi_j\)</span> <strong>no matter in which state the chain began at time 0</strong>. This
+property holds for some Markov chains which satisfy <strong>"certain
+conditions"</strong>.</li>
+</ol>
+</div>
+</div>
+<div id="sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain" class="section level2" number="4.15">
+<h2><span class="header-section-number">4.15</span> Sufficient conditions for the long-run behaviour of a Markov chain</h2>
+<p>In what follows, we will establish a set of sufficient conditions for
+the long-run behaviour of a Markov chain. Two important results are
+stated without proof.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-26" class="theorem"><strong>Theorem 4.1  </strong></span><strong>Theorem 1</strong>. <em>A Markov chain with a finite state space has at least
+one stationary probability distribution.</em></p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-27" class="theorem"><strong>Theorem 4.2  </strong></span><strong>Theorem 2</strong>. <em>An irreducible Markov chain with a finite state space
+has a unique stationary probability distribution.</em></p>
+</div>
+<div class="example">
+<p><span id="exm:rwInfiniteS" class="example"><strong>Example 4.22  </strong></span><em>The simple random walks <span class="math inline">\(X_n\)</span> on
+<span class="math inline">\(S = \{\ldots, -2, -1, 0,1,2, \ldots \}\)</span> is defined as
+<span class="math display">\[X_n = X_0 + \xi_1 + \xi_2 + \ldots + \xi_n,\]</span> where the random
+variables <span class="math inline">\(\xi_j\)</span> are independent identically distributed with
+<span class="math display">\[\Pr(\xi = 1) = p, \quad \Pr(\xi = -1) = 1- p.\]</span> We can check that this
+Markov chain is irreducible. However, the state space <span class="math inline">\(S\)</span> is infinite.
+It can be checked directly from the equations
+<span class="math inline">\(\boldsymbol{\pi} P =\boldsymbol{\pi}\)</span> that there is <strong>no</strong> stationary
+distribution (given as an exercise).</em></p>
+</div>
+<p>First we know that the entries of a stationary distribution sum to one.
+Suppose the contrary that there is a stationary distribution
+<span class="math inline">\(\boldsymbol{\pi}\)</span> for the simple random walk. Then by spatial
+invariance of the simple random walk, <span class="math inline">\(\pi_i\)</span> is constant for all
+<span class="math inline">\(i \in S\)</span> and also <span class="math inline">\(\sum_{i\in S}\pi_i = 1\)</span>, which is impossible because
+<span class="math inline">\(S\)</span> is infinite. Hence, there is <strong>no</strong> stationary distribution for the
+simple random walk.</p>
+</div>
+<div id="limiting-distributions" class="section level2" number="4.16">
+<h2><span class="header-section-number">4.16</span> Limiting distributions</h2>
+<p>One of the important properties of stationary distributions is that the
+distribution of the Markov chain satisfying certain conditions converges
+to the stationary distribution. This result provides the long-term
+behaviour of the Markov chain. In order to state the main result of this
+section, we need to introduce another concept, namely the period of a
+state.</p>
+<p>A state <span class="math inline">\(i\)</span> is said to be <strong>periodic</strong> with period <span class="math inline">\(d &gt; 1\)</span> if a return
+to <span class="math inline">\(i\)</span> is possible only in a number of steps that is a multiple of <span class="math inline">\(d\)</span>.
+Equivalently, the period <span class="math inline">\(d\)</span> is the greatest common divisor of all
+integers <span class="math inline">\(n\)</span> for which <span class="math inline">\(p^{(n)}_{ii} &gt; 0\)</span>. If the greatest common
+divisor is 1, the state has period 1 and is said to be <strong>aperiodic</strong>.</p>
+<p>A Markov chain in which each state has period 1 is called <strong>aperiodic</strong>.
+Most Markov chains in applications are aperiodic.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-28" class="example"><strong>Example 4.23  </strong></span><em>Is the NCD system in
+ExampleÂ <a href="#NCD" reference-type="ref" reference="NCD">ExampleÂ 2</a>
+aperiodic?</em></p>
+</div>
+<p>The entire state space of the NCD system is a single class, and is
+necessarily closed. Note also that <span class="math inline">\(p_{00} &gt; 0\)</span> (and also <span class="math inline">\(p_{22} &gt; 0\)</span>),
+i.e. the state 0 (and state 2) has an arrow back to itself.
+Consequently, it is aperiodic because a return to this state is possible
+in any number of steps (or the system can remain in this state in any
+length of time).</p>
+<p>Similarly, a return to state 1 is possible in <span class="math inline">\(2,3, \ldots\)</span> steps.
+Therefore, the NCD system is aperiodic.</p>
+<ol style="list-style-type: decimal">
+<li><p>Periodicity is a class property, i.e. all states in one class have
+the same period (or if <span class="math inline">\(i \leftrightarrow j\)</span>, then <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> have
+the same period).</p></li>
+<li><p>The Markov chain <span class="math inline">\(\{X_n\}_{n\ge 0}\)</span> is aperiodic if and only if
+there exists some <span class="math inline">\(n &gt;0\)</span> such that
+<span class="math display">\[p^{(n)}_{ij} &gt; 0 \text{ for all } i,j \in S.\]</span> Such Markov chain
+is also called <strong>regular</strong>.</p></li>
+</ol>
+<div class="example">
+<p><span id="exm:unlabeled-div-29" class="example"><strong>Example 4.24  </strong></span><em>In the random walk model on a finite state space
+<span class="math inline">\(S = \{0,1,\ldots, N\}\)</span> with absorbing boundaries in
+ExampleÂ <a href="#simpleRW" reference-type="ref" reference="simpleRW">ExampleÂ 12</a>, determine the period of each state.</em></p>
+</div>
+<p>The transition diagram and the transition matrix of the simple random
+walk with absorbing boundaries (states) are given as follows:</p>
+<p>The simple random walk with absorbing boundaries has three classes,
+<span class="math inline">\(O = \{1, 2, \ldots, N - 1\}\)</span> is non-closed class, <span class="math inline">\(C_1 = {0}\)</span> and
+<span class="math inline">\(C_2 = {N}\)</span> are two closed classes. For each state <span class="math inline">\(i\)</span> in <span class="math inline">\(O\)</span>,
+<span class="math inline">\(p^{(2n)}_{ii} &gt; 0\)</span> and <span class="math inline">\(p^{(2n+1)}_{ii} = 0\)</span> for <span class="math inline">\(n = 1,2,\ldots\)</span>.
+Therefore, the state <span class="math inline">\(i\)</span> in this open communication class has period 2.</p>
+<p>On the other hand, <span class="math inline">\(p_{00} = 1\)</span> (and also <span class="math inline">\(p_{NN} = 1\)</span>) and hence, the
+states <span class="math inline">\(0\)</span> and <span class="math inline">\(N\)</span> are aperiodic because a return to each of these
+states is possible in any number of steps (or the system can remain in
+this state in any length of time).</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-30" class="example"><strong>Example 4.25  </strong></span><em>In the random walk model on an infinite state space
+<span class="math inline">\(S = \{\ldots,-2,-1,0,1,2, \ldots \}\)</span> in
+ExampleÂ <a href="#rwInfiniteS" reference-type="ref" reference="rwInfiniteS">ExampleÂ 25</a>, determine the period of each state.</em></p>
+</div>
+<p>The entire state space is a single class. Note also that
+<span class="math inline">\(p^{(2n)}_{ii} &gt; 0\)</span> and <span class="math inline">\(p^{(2n+1)}_{ii} = 0\)</span> for <span class="math inline">\(n = 1,2,\ldots\)</span>.
+Therefore each state in the random walk on an infinite set <span class="math inline">\(S\)</span> is
+periodic with period 2.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-31" class="example"><strong>Example 4.26  </strong></span><em>Suppose the states of the system are <span class="math inline">\(\{1,2,3,4 \}\)</span> and
+the transition matrix is <span class="math display">\[P = \begin{bmatrix}
+    0 &amp; 1/2 &amp; 0 &amp; 1/2    \\
+    1/4 &amp; 0 &amp; 3/4 &amp; 0   \\
+    0 &amp; 1/3 &amp; 0 &amp; 2/3    \\
+    1/2 &amp; 0 &amp; 1/2 &amp; 0   \\
+\end{bmatrix}.\]</span> Determine the period of each state.</em></p>
+</div>
+<p>The entire state space is a single class. Note also that
+<span class="math inline">\(p^{(2n)}_{ii} &gt; 0\)</span> and <span class="math inline">\(p^{(2n+1)}_{ii} = 0\)</span> for <span class="math inline">\(n = 1,2,\ldots\)</span>.
+Therefore each state in the random walk on an infinite set <span class="math inline">\(S\)</span> is
+periodic with period 2.</p>
+<div class="example">
+<p><span id="exm:exampleLongTerm" class="example"><strong>Example 4.27  </strong></span><em>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states <span class="math inline">\(\{1,2\}\)</span>
+has the following transition matrix <span class="math display">\[P = \begin{bmatrix}
+    0 &amp; 1   \\
+    1 &amp; 0   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix},\]</span></em></p>
+<ol style="list-style-type: decimal">
+<li><p><em><span id="example1" label="example1"><span class="math display">\[example1\]</span></span> Find the stationary
+distribution(s) of this Markov chain.</em></p></li>
+<li><p><em>Describe the long-term behaviour of the Markov chain. Does the
+distribution of the chain tend to the stationary distribution(s)
+found in <a href="discrete-time-markov-chains.html#example1" reference-type="ref" reference="example1"><span class="math display">\[example1\]</span></a>.</em></p></li>
+</ol>
+</div>
+<ol style="list-style-type: decimal">
+<li><p>To find the stationary distribution
+<span class="math inline">\(\boldsymbol{\pi} = (\pi_{1}, \pi_{2})\)</span>, we need to solve
+<span class="math display">\[\left(\pi_{1},  \pi_{2}\right) \begin{bmatrix}
+    0 &amp; 1   \\
+    1 &amp; 0   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix} = \left(\pi_{1},  \pi_{2}\right),\]</span> and
+<span class="math display">\[\pi_{1} +  \pi_{2}  = 1.\]</span> This gives
+<span class="math inline">\(\boldsymbol{\pi} = (1/2, 1/2).\)</span></p></li>
+<li><p>There is an equal chance of being in either state. Note that for any
+initial probability distribution
+<span class="math inline">\(\boldsymbol{\mu} = (\mu_{1},\mu_{2})\)</span> with <span class="math inline">\(\mu_{1}+\mu_{2}=1\)</span>, we
+have</p>
+<p><span class="math display">\[\boldsymbol{\mu} \cdot P=\boldsymbol{\mu} \cdot P^{3}=\boldsymbol{\mu} \cdot P^{5}=\ldots
+=(\mu_{2},\mu_{1})\]</span> and
+<span class="math display">\[\boldsymbol{\mu} P^{2}=\boldsymbol{\mu} P^{4}=\boldsymbol{\mu} P^{6}=\ldots = (\mu_{1},\mu_{2}).\]</span></p>
+<p>The process does not settle down to an equilibrium position. Note
+also that the chain is not aperiodic, i.e. each state is periodic of
+period 2. The process does not conform to stationary in the long
+run.</p></li>
+</ol>
+<div class="example">
+<p><span id="exm:unlabeled-div-32" class="example"><strong>Example 4.28  </strong></span><em>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states <span class="math inline">\(\{1,2\}\)</span>
+has the following transition matrix <span class="math display">\[P = \begin{bmatrix}
+    1/3 &amp; 2/3   \\
+    2/3 &amp; 1/3   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix},\]</span> Answer the same questions as given in the Example
+<a href="#exampleLongTerm" reference-type="ref" reference="exampleLongTerm">ExampleÂ 30</a></em></p>
+</div>
+<ol style="list-style-type: decimal">
+<li><p>The process is finite and irreducible, so a unique stationary
+distribution exists. To find the stationary distribution
+<span class="math inline">\(\boldsymbol{\pi} = (\pi_{1}, \pi_{2})\)</span>, we need to solve
+<span class="math display">\[\left(\pi_{1},  \pi_{2}\right) \begin{bmatrix}
+    1/3 &amp; 2/3   \\
+    2/3 &amp; 1/3   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix} = \left(\pi_{1},  \pi_{2}\right),\]</span> and
+<span class="math display">\[\pi_{1} +  \pi_{2}  = 1.\]</span> Solving the system of linear equations
+gives <span class="math inline">\(\boldsymbol{\pi} = (1/2, 1/2).\)</span></p></li>
+<li><p>The chain is aperiodic. Therefore, according to the results from
+ExampleÂ <a href="#exampleStationary" reference-type="ref" reference="exampleStationary">ExampleÂ 22</a>, if follows that
+<span class="math display">\[\lim_{n \rightarrow \infty} p_{i1}^{(n)} = 1/2 &gt; 0 , \text{ and }  \lim_{n \rightarrow \infty} p_{i2}^{(n)} = 1/2,\]</span>
+which is independent of <span class="math inline">\(i\)</span>. This is contrast to the process given
+in ExampleÂ <a href="#exampleLongTerm" reference-type="ref" reference="exampleLongTerm">ExampleÂ 30</a>, i.e. the process in this example
+reaches the stationary probability distribution in the long run.</p></li>
+</ol>
+</div>
+<div id="main-result" class="section level2" number="4.17">
+<h2><span class="header-section-number">4.17</span> Main result</h2>
+<p>The main result in this section can be stated as follows:</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-33" class="theorem"><strong>Theorem 4.3  </strong></span><strong>Theorem 3</strong>. <em>Let <span class="math inline">\(P\)</span> be the transition probability matrix of a
+homogeneous discrete-time Markov chain <span class="math inline">\(\{X_n \}_{n \ge 0}\)</span>. If the
+Markov chain is</em></p>
+<ul>
+<li><p><em>finite,</em></p></li>
+<li><p><em>irreducible and</em></p></li>
+<li><p><em>aperiodic,</em></p></li>
+</ul>
+<p><em>then there is the unique probability distribution
+<span class="math inline">\(\boldsymbol{\pi} = (\pi_j)_{j\in S}\)</span> such that
+<span class="math display">\[\lim_{n \rightarrow \infty} p^{(n)}_{ij} = \pi_j &gt; 0, \text{ for any } j \in S\]</span>
+and <span class="math display">\[\sum_{j \in S} \pi_j = 1,\]</span> and this distribution is independent
+of the initial state. Such probability distribution <span class="math inline">\(\boldsymbol{\pi}\)</span>
+is called the <strong>limiting probability distribution</strong>. In addition, the
+limiting distribution <span class="math inline">\(\boldsymbol{\pi} = (\pi_j)_{j\in S}\)</span> is the
+stationary probability distribution of the Markov chain, i.e. it also
+satisfies <span class="math inline">\(\boldsymbol{\pi} P =\boldsymbol{\pi}\)</span>.</em></p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-34" class="example"><strong>Example 4.29  </strong></span><em>Recall the Markov chain as given in
+ExampleÂ <a href="#exampleStationary" reference-type="ref" reference="exampleStationary">ExampleÂ 22</a>. The Markov chain is finite, irreducible
+and aperiodic. We have also shown that
+<span class="math display">\[\boldsymbol{\pi} = \left( \frac{b}{a+b},  \frac{a}{a+b} \right)\]</span> is
+the limiting distribution, i.e.
+<span class="math display">\[\lim_{n \rightarrow \infty} p_{ij}^{(n)} = \pi_j &gt; 0 , \text{ for }j \in \{1,2\},\]</span>
+independent of <span class="math inline">\(i\)</span>. This limiting distribution is also the unique
+stationary distribution of the Markov chain, which can be verified by
+<span class="math display">\[\left( \frac{b}{a+b},  \frac{a}{a+b} \right) \begin{bmatrix}
+    1-a &amp; a   \\
+    b &amp; 1-b   \\
+\end{bmatrix} =  \left( \frac{b}{a+b},  \frac{a}{a+b} \right),\]</span> where
+<span class="math inline">\(0 &lt; a,b &lt; 1.\)</span></em></p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-35" class="example"><strong>Example 4.30  </strong></span><em>The above result can be applied to the NCD system
+because it is finite, irreducible and aperiodic. Indeed, there is the
+unique limiting probability distribution
+<span class="math display">\[\boldsymbol{\pi} = \left(\frac{(p-1)^2}{p^2 - p +1}, \frac{p - p^2}{p^2 - p +1}, \frac{p^2}{p^2 - p +1}\right),\]</span>
+which is the stationary distribution of the chain. This gives the
+long-term behaviour of the Markov chain, i.e. the probability of finding
+the Markov chain in state <span class="math inline">\(j\)</span> is approximately <span class="math inline">\(\pi_j\)</span> independent of
+the initial distribution.</em></p>
+<p><em>For example, let <span class="math inline">\(p = 0.8\)</span> in the transition probability matrix <span class="math inline">\(P\)</span>.
+We compute several powers of <span class="math inline">\(P\)</span> as follows: <span class="math display">\[\begin{aligned}
+P &amp;= \begin{bmatrix}
+0.2 &amp; 0.8 &amp; 0\\
+0.2 &amp; 0 &amp; 0.8\\
+0 &amp; 0.2 &amp; 0.8\\
+\end{bmatrix}
+,  &amp;
+P^2 &amp;= \begin{bmatrix}
+0.2 &amp; 0.16 &amp; 0.64\\
+0.04 &amp; 0.32 &amp; 0.64\\
+0.04 &amp; 0.16 &amp; 0.8\\
+\end{bmatrix}, \\
+P^4 &amp;= \begin{bmatrix}
+0.072 &amp; 0.1856 &amp; 0.7424\\
+0.0464 &amp; 0.2112 &amp; 0.7424\\
+0.0464 &amp; 0.1856 &amp; 0.768\\
+\end{bmatrix}
+,  &amp;
+P^8 &amp;= \begin{bmatrix}
+0.0482432 &amp; 0.1903514 &amp; 0.7614054\\
+0.04758784 &amp; 0.1910067 &amp; 0.7614054\\
+0.04758784 &amp; 0.1903514 &amp; 0.7620608\\
+\end{bmatrix} \\
+P^{16} &amp;= \begin{bmatrix}
+0.04761946 &amp; 0.1904761 &amp; 0.7619044\\
+0.04761903 &amp; 0.1904765 &amp; 0.7619044\\
+0.04761903 &amp; 0.1904761 &amp; 0.7619049\\
+\end{bmatrix}
+,  &amp;
+P^{32} &amp;= \begin{bmatrix}
+0.04761905 &amp; 0.1904762 &amp; 0.7619048\\
+0.04761905 &amp; 0.1904762 &amp; 0.7619048\\
+0.04761905 &amp; 0.1904762 &amp; 0.7619048\\
+\end{bmatrix}.\end{aligned}\]</span></em></p>
+</div>
+<p>The limiting probability distribution is
+<span class="math display">\[\lim_{n\rightarrow \infty} P^n=
+ \begin{bmatrix}
+0.04761905 &amp; 0.1904762 &amp; 0.7619048\\
+0.04761905 &amp; 0.1904762 &amp; 0.7619048\\
+0.04761905 &amp; 0.1904762 &amp; 0.7619048\\
+\end{bmatrix}.\]</span></p>
+<div id="applications-of-markov-chains-to-ncd-systems" class="section level3 unnumbered">
+<h3>Applications of Markov chains to NCD systems</h3>
+<div class="example">
+<p><span id="exm:unlabeled-div-36" class="example"><strong>Example 4.31  </strong></span><em>A no-claims discount system for motor insurance has
+three levels of discount:</em></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><em>Level</em></th>
+<th align="center"><em>1</em></th>
+<th align="center"><em>2</em></th>
+<th align="center"><em>3</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><em>Discount</em></td>
+<td align="center"><em>0%</em></td>
+<td align="center"><em>30%</em></td>
+<td align="center"><em>50%</em></td>
+</tr>
+</tbody>
+</table>
+<p><em>The rules for moving between these levels are given as follows:</em></p>
+<ul>
+<li><p><em>Following a claim-free year, move to the next higher level, or
+remain at level 3.</em></p></li>
+<li><p><em>Following a year with one claim, move to the next lower level, or
+remain at level 1.</em></p></li>
+<li><p><em>Following a year with two or more claims, move to level 1, or
+remain at level 1.</em></p></li>
+</ul>
+<p><em>A portfolio consists of 10000 policyholders, of which</em></p>
+<ul>
+<li><p><em>5000 policyholders are classified as good drivers. The number of
+claims per year in this group is <span class="math inline">\(\text{Poisson}(0.1)\)</span>.</em></p></li>
+<li><p><em>5000 policyholders are classified as bad drivers. The number of
+claims per year in this group is <span class="math inline">\(\text{Poisson}(0.2)\)</span>.</em></p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p><em>Calculate <span class="math inline">\(\Pr[N = 0]\)</span>, <span class="math inline">\(\Pr[N = 1]\)</span>, and <span class="math inline">\(\Pr[N \ge 2]\)</span> for each
+group.</em></p></li>
+<li><p><em>Write down the transition probability matrix of this no-claims
+discount system for each group.</em></p></li>
+<li><p><em>Calculate the expected number of policyholders at each level for
+each group once stability has been achieved.</em></p></li>
+<li><p><em>Calculate the expected premium income per driver from each group
+once stability has been achieved.</em></p></li>
+<li><p><em>Calculate the ratio of the expected premium income per driver from
+the group of good drivers to that from the group of bad drivers once
+stability has been achieved.</em></p></li>
+<li><p><em>Comments on the results obtained. Does this NCD system encourage
+good driving?</em></p></li>
+</ol>
+</div>
+
+</div>
 </div>
 </div>
             </section>
@@ -437,7 +1601,7 @@ time-homogeneity, it follows that <span class="math display">\[\begin{aligned}
         </div>
       </div>
 <a href="stochastic-processes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="the-chapman-kolmogorov-equations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -469,7 +1633,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-literature.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-dtmc.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -477,10 +1641,10 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": null,
+"link": "https://github.com/pairote-sat/SCMA469/blob/master/03-dtmc.Rmd",
 "text": null
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["bookdownproj.pdf", "bookdownproj.epub"],
 "toc": {
 "collapse": "subsection"
 }

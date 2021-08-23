@@ -1,5 +1,7 @@
-# Discrete-time Markov chains
- 
+
+Discrete-time Markov chains
+===========================
+
 Recall the simple random walk model of the price of the stock. Suppose
 the stock price for the first four days are
 $$(X_0, X_1, X_2, X_3) = (100, 99, 98, 99).$$ Based on this past
@@ -26,7 +28,7 @@ It is convenient to assume that the state space of the Markov chain is a
 subset of non-negative integers, i.e. $S  \subseteq \{0, 1,  \ldots \}$.
 
 ::: {.example}
-**Example 1**. *A process with independent increments has the Markov
+*A process with independent increments has the Markov
 property.*
 :::
 
@@ -77,7 +79,7 @@ for all $i,j \in S.$ A matrix that satisfies these properties is called
 a **stochastic matrix**.
 
 ::: {#NCD .example}
-**Example 2**. *No claims discount (NCD) policy: Let $X_n$ be the
+*No claims discount (NCD) policy: Let $X_n$ be the
 discount status of a policyholder at time $n$. There are three levels of
 discount, i.e. $S = \{0,1,2\}$ corresponding to three discount levels of
 0, 20% and 40%. The following rules are assumed:*
@@ -119,7 +121,7 @@ Later we will apply matrix algebra to compute these types of
 probabilities and long-term probabilities.
 
 ::: {#healthInsurance .example}
-**Example 3**. *In a health insurance system, at the end of each day an
+*In a health insurance system, at the end of each day an
 insurance company classifies policyholders as Healthy, Sick or Dead,
 i.e. $S = \{H, S, D\}$. The following transition matrix $P$ for a
 healthy-sick-dead model is given by $$P = \begin{bmatrix}
@@ -137,7 +139,7 @@ completely determined by its transition probability matrix and its
 initial probability distribution $X_0$ at time 0.
 
 ::: {.example}
-**Example 4**. *By using the definition of conditional probabilities,
+*By using the definition of conditional probabilities,
 show that
 $$\Pr(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n) = \mu_{i_0}\, p_{i_0i_1} \cdots \, p_{i_{n-2} i_{n-1}}\, p_{i_{n-1} i_n},$$
 where $\boldsymbol{\mu} = \boldsymbol{\mu}^{(0)}$ is the distribution of
@@ -155,7 +157,7 @@ $$\begin{aligned}
   \end{aligned}$$
 
 ::: {#MKProperty1 .example}
-**Example 5**. *Show that $$\begin{aligned}
+*Show that $$\begin{aligned}
 \Pr(X_{n+1} &= i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n, X_{n-1} = i_{n-1}, \ldots, X_0 = i_{0}) \\
             &= \Pr(X_{n+1} = i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n) \\
             &=  p_{i_{n} i_{n+1}} \cdots \, p_{i_{n+m-2} i_{n+m-1}}\, p_{i_{n+m-1} i_{n+m}}.\end{aligned}$$*
@@ -175,9 +177,9 @@ can be calculated by summing the probabilities of elementary elements of
 these forms.
 
 ::: {.example}
-**Example 6**. *For the NCD system defined on the state space
+*For the NCD system defined on the state space
 $S = \{0,1,2\}$ as given in
-Example [Example 2](#NCD){reference-type="ref" reference="NCD"}, suppose
+ExampleÂ [ExampleÂ 2](#NCD){reference-type="ref" reference="NCD"}, suppose
 that the probability of a claim-free year $p = 3/4$, and the
 distribution of the initial discount rate
 $\boldsymbol{\mu}  = (0.5,0.3,0.2)$. Find the following:*
@@ -207,7 +209,7 @@ The corresponding transition matrix is $$P = \begin{bmatrix}
         &= \mu_3 p_{32} p_{21} = 0.2\cdot(1/4)\cdot(1/4) = 1/80.\end{aligned}$$
 
     Alternatively, it follows from
-    Example [Example 5](#MKProperty1){reference-type="ref"
+    ExampleÂ [ExampleÂ 5](#MKProperty1){reference-type="ref"
     reference="MKProperty1"} that,
     $$\Pr(X_0 = 2, X_1 = 1, X_2 = 0) = \mu_3 p_{32} p_{21} = 0.2\cdot(1/4)\cdot(1/4) = 1/80.$$
 
@@ -238,8 +240,8 @@ The corresponding transition matrix is $$P = \begin{bmatrix}
     &=   \Pr( X_{1} = 1 | X_{0} = 2) \cdot \Pr( X_{1} = 0 | X_{0} = 1) \quad \text{(by time-homogeneity)}\\ 
     &= p_{32} p_{21} = (1/4)\cdot(1/4) = 1/16.\end{aligned}$$
 
-The Chapman-Kolmogorov equations
-================================
+<!-- The Chapman-Kolmogorov equations -->
+<!-- --------------------------------- -->
 
 The Chapman-Kolmogorov equations and $n$-step transition probabilities
 ----------------------------------------------------------------------
@@ -258,8 +260,9 @@ $$\begin{aligned}
  \label{Chapman}
     p^{(n)}_{ij} = \sum_{k \in S}p^{(l)}_{ik} p^{(n-l)}_{kj}, \quad 0 < l < n  \end{aligned}$$
 To derive [\[Chapman\]](#Chapman){reference-type="eqref"
-reference="Chapman"}, we proceed as follows: $$\begin{aligned}
- \label{Chapman}
+reference="Chapman"}, we proceed as follows:
+
+$$\begin{aligned}
     p^{(n)}_{ij} &= \Pr(X_n = j | X_0 = i) \\ 
     &= \sum_{k \in S} \Pr(X_n = j , X_l = k | X_0 = i)    \\
     &= \sum_{k \in S} \Pr(X_n = j | X_l = k , X_0 = i)  \cdot   \Pr(X_l = k |  X_0 = i) \\
@@ -272,8 +275,8 @@ $$P^n  = P^l P^{n-l}.$$ The $n$-**step transition probabilities**
 $p^{(n)}_{ij}$ are the $ij$ elements of $P^n$.
 
 ::: {.example}
-**Example 7**. *For the NCD system given in
-Example [Example 2](#NCD){reference-type="ref" reference="NCD"}, suppose
+*For the NCD system given in
+ExampleÂ [ExampleÂ 2](#NCD){reference-type="ref" reference="NCD"}, suppose
 that $p = 3/4$, the probability of a claim-free year and the initial
 discount level of a policyholder is 1 (with 20% discount).*
 
@@ -320,8 +323,6 @@ $$\boldsymbol{\mu}^{(n+1)} = \boldsymbol{\mu}^{(n)} P$$ and, in general,
 $$\boldsymbol{\mu}^{(n+m)} = \boldsymbol{\mu}^{(n)} P^m.$$
 
 ::: {.example}
-**Example 8**.
-
 1.  *Show that
     $$Pr(X_1 = i) = \sum_{k \in S} \mu_k p_{ki} = ( \boldsymbol{\mu} P)_i,$$
     which is the $i$th element of the vector $\boldsymbol{\mu} P.$ Here
@@ -338,7 +339,7 @@ $$\boldsymbol{\mu}^{(n+m)} = \boldsymbol{\mu}^{(n)} P^m.$$
         &= ( \boldsymbol{\mu} P)_i.\end{aligned}$$
 
 ::: {#weather .example}
-**Example 9**. *The simple weather pattern can be classified into three
+*The simple weather pattern can be classified into three
 types including rainy ($R$), cloudy ($C$) and sunny ($S$). The weather
 is observed daily. The following information is provided.*
 
@@ -390,7 +391,7 @@ From the above result, the joint probability is obtained from just the
 initial distribution $\boldsymbol{\mu}$ and the transition matrix $P$.
 
 ::: {.example}
-**Example 10**. *In Example [Example 9](#weather){reference-type="ref"
+*In ExampleÂ [ExampleÂ 9](#weather){reference-type="ref"
 reference="weather"}, on Sunday, the chances of rain, cloudy and sunny
 have the same probabilities. Find the probability that it will be sunny
 on the following Wednesday and Friday, and cloudy on Saturday.*
@@ -412,7 +413,7 @@ Random walk with absorbing and reflecting barrier(s)
 ----------------------------------------------------
 
 ::: {.example}
-**Example 11**. *A one-dimensional random walk $\{X_n\}$ is defined on a
+*A one-dimensional random walk $\{X_n\}$ is defined on a
 finite or infinite subset of integers in which the process in state $i$
 can either stay in $i$ or move to its neighbouring states $i -1$ and
 $i+1$. Suppose that given that $X_n = i$ at time $n$,*
@@ -453,7 +454,7 @@ $i+1$. Suppose that given that $X_n = i$ at time $n$,*
                \end{cases}\end{aligned}$$
 
 ::: {#simpleRW .example}
-**Example 12**. *The random walk can be used to model the fortune of a
+*The random walk can be used to model the fortune of a
 gambler. The gambler bets per game and the probability of winning is $p$
 and the probability of losing is $q$ where $p + q = 1$. In addition, the
 gambler is ruined (or goes broke) if he reaches state 0, and also stops
@@ -483,7 +484,7 @@ $$P = \begin{bmatrix}
 1.  In general, a state $i$ is called **absorbing** if $p_{ii} = 1$
 
 2.  The simple random walk as given in Example
-    [Example 12](#simpleRW){reference-type="ref" reference="simpleRW"}
+    [ExampleÂ 12](#simpleRW){reference-type="ref" reference="simpleRW"}
     can be modified so that whenever the process is in state 0 (or state
     $N$),
 
@@ -503,7 +504,7 @@ Markov chain. Again, without stated otherwise, we shall assume that the
 discrete-time Markov chains are homogeneous.
 
 ::: {.example}
-**Example 13**. *(Adapted from W.J.Stewart)
+*(Adapted from W.J.Stewart)
 [\[exampleStationary2\]]{#exampleStationary2 label="exampleStationary2"}
 A Markov chain $X_0, X_1, \ldots$ consists of two states $\{1,2\}$. At
 time step $n$, the probability that the Markov chain remains in its
@@ -538,8 +539,8 @@ $$p_{12}(n) = p_{21}(n) = 1 - 1/n.$$*
     chain arrives in state 2 after four steps, the future evolution is
     specified by $P(5)$, and not any other $P(i), i \le 4$.
 
-Simulation
-==========
+## Simulation
+
 
 Simulation is a powerful tool for studying Markov chains. For many
 Markov chains in real-world applications, state spaces are large and
@@ -585,17 +586,19 @@ $X_1, X_2, \ldots$ are i.i.d. with the same distribution as $X$.
 While computing expectations and computing probabilities at first look
 like different problems, the latter can be reduced to the former: if $X$
 is a random variable, we have
-$$\Pr(X \in A) = \mathrm{E}(\mathbbm{1}_A(X)).$$
+$$\Pr(X \in A) = \mathrm{E}(1_A(X)).$$
 
 Using this equality, we can estimate $\Pr(X \in A)$ by
-$$\Pr(X \in A) = \mathrm{E}(\mathbbm{1}_A(X)) = \frac{1}{N}\sum_{i=1}^N \mathbbm{1}_A(X_i).$$
+$$\Pr(X \in A) = \mathrm{E}(1_A(X)) = \frac{1}{N}\sum_{i=1}^N 1_A(X_i).$$
 
 Recall that the indicator function of the set $A$ is the defined as
-$$\mathbbm{1}_A(x) =
+
+$$1_A(x) =
 \begin{cases*}
      1          & if $x \in A $ \\
       0        & otherwise.
-\end{cases*}$$
+\end{cases*}
+$$
 
 The following user-defined function in Excel can be used to simulate
 random numbers from a discrete distribution.
@@ -629,14 +632,14 @@ random numbers from a discrete distribution.
     End Function
 
 ::: {.example}
-**Example 14**. *(R or Excel) A gambler starts with and plays a game
+*(R or Excel) A gambler starts with and plays a game
 where the chance of winning each round is 60%. The gambler either wins
 or loses on each round. The game stops when the gambler either gains or
 goes bust.*
 
 1.  *Develop an Excel worksheet or create an R code to simulate 50 steps
     of the finite Markov chain of the random walk $X_n$ given in
-    Example [Example 12](#simpleRW){reference-type="ref"
+    ExampleÂ [ExampleÂ 12](#simpleRW){reference-type="ref"
     reference="simpleRW"}. Repeat the simulation 10 times. How many of
     your simulations end at 0.*
 
@@ -648,7 +651,7 @@ goes bust.*
 :::
 
 ::: {#exampleStationary2 .example}
-**Example 15**. *(R or Excel) A Markov chain $X_0, X_1, \ldots$ on
+*(R or Excel) A Markov chain $X_0, X_1, \ldots$ on
 states $\{1,2\}$ has the following transition matrix
 $$P = \begin{bmatrix}
     1-a & a   \\
@@ -672,8 +675,7 @@ $$P = \begin{bmatrix}
     steps and calculate the proportion of visits to each state)*
 :::
 
-Classification of states
-========================
+## Classification of states
 
 Throughout this section $\{ X_n\}_{n \ge 0}$ is a time homogeneous
 Markov chain with state space $S$ and transition matrix
@@ -719,17 +721,17 @@ Additional properties for a communication class are defined as follows:
     state**.
 
 ::: {.example}
-**Example 16**. *Consider each of the following Markov chains:*
+*Consider each of the following Markov chains:*
 
-(a) *NCD system (Example [Example 2](#NCD){reference-type="ref"
+(a) *NCD system (Example [ExampleÂ 2](#NCD){reference-type="ref"
     reference="NCD"}),*
 
 (b) *the health insurance system (Example
-    [Example 3](#healthInsurance){reference-type="ref"
+    [ExampleÂ 3](#healthInsurance){reference-type="ref"
     reference="healthInsurance"}), and*
 
 (c) *a simple random walk (Example
-    [Example 12](#simpleRW){reference-type="ref"
+    [ExampleÂ 12](#simpleRW){reference-type="ref"
     reference="simpleRW"}),*
 
 *Identify the communication classes. Is the Markov chain irreducible?*
@@ -761,7 +763,7 @@ answers.
     are two closed classes.
 
 ::: {#exampleMC .example}
-**Example 17**. *A Markov chain with state space $S = \{1,2,3,4,5\}$ has
+*A Markov chain with state space $S = \{1,2,3,4,5\}$ has
 the following transition matrix: $$P = \begin{bmatrix}
     1 & 0 & 0 & 0 & 0     \\
     1/5 & 1/5 & 1/5 & 1/5 & 1/5   \\
@@ -790,8 +792,8 @@ non-closed class $O = \{ 2,3\}$. This is because
     $3 \rightarrow 2$ ($p_{32} > 0$), and is non-closed because
     $p_{21} > 0$, but $p_{11} = 1$.
 
-Absorption probabilities and expected time to absorption
-========================================================
+## Absorption probabilities and expected time to absorption
+
 
 For the random walk with absorbing boundaries (i.e. $0$ and $N$), two
 questions arises, in which state, $0$ or $N$ is the process eventually
@@ -818,7 +820,7 @@ quantities. We illustrate how to use the first step analysis in the
 following Markov chain.
 
 ::: {#eg_absorption .example}
-**Example 18**. *Consider the Markov chain with state space
+*Consider the Markov chain with state space
 $S = \{0,1,2\}$ and transition probability matrix given by
 $$P = \begin{bmatrix}
     1 & 0 & 0    \\
@@ -876,7 +878,7 @@ system of linear equations:
     for all $i$ in any other close classes.
 
 ::: {#absorption .example}
-**Example 19**. *In this example, consider the closed class
+*In this example, consider the closed class
 $C_2 = \{2\}$. Find the absorption probabilities $u^{C_2}_0, u^{C_2}_1$
 and $u^{C_2}_2$. Comment on these results.*
 :::
@@ -893,7 +895,7 @@ $$\mathbf{u}^{C_1} + \mathbf{u}^{C_2} = \mathbf{1} .$$
 
 1.  For any initial state $i$, the sum of the absorption probabilities
     over all closed classes is 1 (as verified in Example
-    [Example 19](#absorption){reference-type="ref"
+    [ExampleÂ 19](#absorption){reference-type="ref"
     reference="absorption"}). In particular, when a Markov chain has two
     closed classes $C_1$ and $C_2$,
     $\mathbf{u}^{C_2} = \mathbf{1} - \mathbf{u}^{C_1}$.
@@ -903,8 +905,8 @@ $$\mathbf{u}^{C_1} + \mathbf{u}^{C_2} = \mathbf{1} .$$
     solution of the above system of linear equations.
 
 ::: {.example}
-**Example 20**. *Consider the Markov chain defined in Example
-[Example 17](#exampleMC){reference-type="ref" reference="exampleMC"}.
+*Consider the Markov chain defined in Example
+[ExampleÂ 17](#exampleMC){reference-type="ref" reference="exampleMC"}.
 Find the absorption probabilities in the closed class $C_1 = \{1\}$ and
 $C_2 = \{4,5\}$.*
 :::
@@ -932,7 +934,7 @@ The expected time to absorption
 
 The expected time to absorption can be determined by analysing all
 possibilities occurring in the first step. We again consider the process
-defined in Example [Example 18](#eg_absorption){reference-type="ref"
+defined in Example [ExampleÂ 18](#eg_absorption){reference-type="ref"
 reference="eg_absorption"} on the set $\{0, 1, 2\}$ with the transition
 matrix $$P = \begin{bmatrix}
     1 & 0 & 0    \\
@@ -961,7 +963,7 @@ v &= 1 + p_{10} \cdot 0 + p_{11} \cdot v  + p_{12} \cdot 0    \\
 $$v = \frac{1}{1 - p_{11}}.$$
 
 ::: {#eg_absorption2 .example}
-**Example 21**. *Consider the Markov chain with state space
+*Consider the Markov chain with state space
 $S = \{0,1,2,3\}$ and transition probability matrix given by
 $$P = \begin{bmatrix}
     1 & 0 & 0  & 0  \\
@@ -1011,8 +1013,7 @@ absorption $$\begin{aligned}
     v_1 &=  \frac{-p_{12}  + p_{22} -1}{p_{11}(-p_{22}) + p_{11} + p_{12}p_{21} + p_{22} - 1}, \\
     v_2 &=  \frac{p_{11}  - p_{21} -1}{p_{11}(-p_{22}) + p_{11} + p_{12}p_{21} + p_{22} - 1}. \\\end{aligned}$$
 
-The long-term distribution of a Markov chain
-============================================
+## The long-term distribution of a Markov chain
 
 In this section, we present another important property concerning
 limiting behaviour of $P^n$ as $n \rightarrow \infty$ and hence the
@@ -1063,7 +1064,7 @@ $\boldsymbol{\pi}$ is a row vector):
     that the process $\{X_n\}$ is in state $j$.
 
 ::: {#exampleStationary .example}
-**Example 22**. *A Markov chain $X_0, X_1, \ldots$ on states $\{1,2\}$
+*A Markov chain $X_0, X_1, \ldots$ on states $\{1,2\}$
 has the following transition matrix $$P = \begin{bmatrix}
     1-a & a   \\
     b & 1-b   \\
@@ -1124,8 +1125,8 @@ $(x_1 + x_2 + \cdots x_n)/n \rightarrow x$ as $n \rightarrow \infty$.
 This result is known as Cesaro's lemma.
 
 ::: {#weatherExample2 .example}
-**Example 23**. *Recall from
-Example [Example 9](#weather){reference-type="ref" reference="weather"},
+*Recall from
+ExampleÂ [ExampleÂ 9](#weather){reference-type="ref" reference="weather"},
 the simple weather pattern can be classified into three types including
 rainy ($R$), cloudy ($C$) and sunny ($S$). The weather is observed daily
 and can be modelled by the Markov transition matrix
@@ -1149,8 +1150,8 @@ equations can be discarded), together with the condition
 $\sum_{j \in S} \pi_j = 1$.
 
 ::: {.example}
-**Example 24**. *For the NCD process in Example
-[Example 2](#NCD){reference-type="ref" reference="NCD"}, the Markov
+*For the NCD process in Example
+[ExampleÂ 2](#NCD){reference-type="ref" reference="NCD"}, the Markov
 chain has the following transition probability matrix
 $$P = \begin{bmatrix}
     1- p & p & 0    \\
@@ -1207,7 +1208,7 @@ has a unique stationary probability distribution.*
 :::
 
 ::: {#rwInfiniteS .example}
-**Example 25**. *The simple random walks $X_n$ on
+*The simple random walks $X_n$ on
 $S = \{\ldots, -2, -1, 0,1,2, \ldots \}$ is defined as
 $$X_n = X_0 + \xi_1 + \xi_2 + \ldots + \xi_n,$$ where the random
 variables $\xi_j$ are independent identically distributed with
@@ -1226,7 +1227,7 @@ $i \in S$ and also $\sum_{i\in S}\pi_i = 1$, which is impossible because
 $S$ is infinite. Hence, there is **no** stationary distribution for the
 simple random walk.
 
-Limiting distributions {#limiting-distributions .unnumbered}
+Limiting distributions {#limiting-distributions}
 ----------------------
 
 One of the important properties of stationary distributions is that the
@@ -1246,8 +1247,8 @@ A Markov chain in which each state has period 1 is called **aperiodic**.
 Most Markov chains in applications are aperiodic.
 
 ::: {.example}
-**Example 26**. *Is the NCD system in
-Example [Example 2](#NCD){reference-type="ref" reference="NCD"}
+*Is the NCD system in
+ExampleÂ [ExampleÂ 2](#NCD){reference-type="ref" reference="NCD"}
 aperiodic?*
 :::
 
@@ -1271,9 +1272,9 @@ Therefore, the NCD system is aperiodic.
     is also called **regular**.
 
 ::: {.example}
-**Example 27**. *In the random walk model on a finite state space
+*In the random walk model on a finite state space
 $S = \{0,1,\ldots, N\}$ with absorbing boundaries in
-Example [Example 12](#simpleRW){reference-type="ref"
+ExampleÂ [ExampleÂ 12](#simpleRW){reference-type="ref"
 reference="simpleRW"}, determine the period of each state.*
 :::
 
@@ -1292,9 +1293,9 @@ states is possible in any number of steps (or the system can remain in
 this state in any length of time).
 
 ::: {.example}
-**Example 28**. *In the random walk model on an infinite state space
+*In the random walk model on an infinite state space
 $S = \{\ldots,-2,-1,0,1,2, \ldots \}$ in
-Example [Example 25](#rwInfiniteS){reference-type="ref"
+ExampleÂ [ExampleÂ 25](#rwInfiniteS){reference-type="ref"
 reference="rwInfiniteS"}, determine the period of each state.*
 :::
 
@@ -1304,7 +1305,7 @@ Therefore each state in the random walk on an infinite set $S$ is
 periodic with period 2.
 
 ::: {.example}
-**Example 29**. *Suppose the states of the system are $\{1,2,3,4 \}$ and
+*Suppose the states of the system are $\{1,2,3,4 \}$ and
 the transition matrix is $$P = \begin{bmatrix}
     0 & 1/2 & 0 & 1/2    \\
     1/4 & 0 & 3/4 & 0   \\
@@ -1319,7 +1320,7 @@ Therefore each state in the random walk on an infinite set $S$ is
 periodic with period 2.
 
 ::: {#exampleLongTerm .example}
-**Example 30**. *A Markov chain $X_0, X_1, \ldots$ on states $\{1,2\}$
+*A Markov chain $X_0, X_1, \ldots$ on states $\{1,2\}$
 has the following transition matrix $$P = \begin{bmatrix}
     0 & 1   \\
     1 & 0   \\
@@ -1362,14 +1363,14 @@ has the following transition matrix $$P = \begin{bmatrix}
     run.
 
 ::: {.example}
-**Example 31**. *A Markov chain $X_0, X_1, \ldots$ on states $\{1,2\}$
+*A Markov chain $X_0, X_1, \ldots$ on states $\{1,2\}$
 has the following transition matrix $$P = \begin{bmatrix}
     1/3 & 2/3   \\
     2/3 & 1/3   \\
     %\vdots & \vdots & \vdots  & \vdots \\
     %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
 \end{bmatrix},$$ Answer the same questions as given in the Example
-[Example 30](#exampleLongTerm){reference-type="ref"
+[ExampleÂ 30](#exampleLongTerm){reference-type="ref"
 reference="exampleLongTerm"}*
 :::
 
@@ -1386,15 +1387,15 @@ reference="exampleLongTerm"}*
     gives $\boldsymbol{\pi} = (1/2, 1/2).$
 
 2.  The chain is aperiodic. Therefore, according to the results from
-    Example [Example 22](#exampleStationary){reference-type="ref"
+    ExampleÂ [ExampleÂ 22](#exampleStationary){reference-type="ref"
     reference="exampleStationary"}, if follows that
     $$\lim_{n \rightarrow \infty} p_{i1}^{(n)} = 1/2 > 0 , \text{ and }  \lim_{n \rightarrow \infty} p_{i2}^{(n)} = 1/2,$$
     which is independent of $i$. This is contrast to the process given
-    in Example [Example 30](#exampleLongTerm){reference-type="ref"
+    in ExampleÂ [ExampleÂ 30](#exampleLongTerm){reference-type="ref"
     reference="exampleLongTerm"}, i.e. the process in this example
     reaches the stationary probability distribution in the long run.
 
-Main result {#main-result .unnumbered}
+Main result {#main-result}
 -----------
 
 The main result in this section can be stated as follows:
@@ -1422,8 +1423,8 @@ satisfies $\boldsymbol{\pi}  P  =\boldsymbol{\pi}$.*
 :::
 
 ::: {.example}
-**Example 32**. *Recall the Markov chain as given in
-Example [Example 22](#exampleStationary){reference-type="ref"
+*Recall the Markov chain as given in
+ExampleÂ [ExampleÂ 22](#exampleStationary){reference-type="ref"
 reference="exampleStationary"}. The Markov chain is finite, irreducible
 and aperiodic. We have also shown that
 $$\boldsymbol{\pi} = \left( \frac{b}{a+b},  \frac{a}{a+b} \right)$$ is
@@ -1439,7 +1440,7 @@ $0 < a,b < 1.$*
 :::
 
 ::: {.example}
-**Example 33**. *The above result can be applied to the NCD system
+*The above result can be applied to the NCD system
 because it is finite, irreducible and aperiodic. Indeed, there is the
 unique limiting probability distribution
 $$\boldsymbol{\pi} = \left(\frac{(p-1)^2}{p^2 - p +1}, \frac{p - p^2}{p^2 - p +1}, \frac{p^2}{p^2 - p +1}\right),$$
@@ -1496,7 +1497,7 @@ $$\lim_{n\rightarrow \infty} P^n=
 ### Applications of Markov chains to NCD systems {#applications-of-markov-chains-to-ncd-systems .unnumbered}
 
 ::: {.example}
-**Example 34**. *A no-claims discount system for motor insurance has
+*A no-claims discount system for motor insurance has
 three levels of discount:*
 
     *Level*     *1*     *2*     *3*
@@ -1541,6 +1542,3 @@ three levels of discount:*
 6.  *Comments on the results obtained. Does this NCD system encourage
     good driving?*
 :::
-
-
-

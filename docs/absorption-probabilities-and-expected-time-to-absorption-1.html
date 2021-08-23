@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 15 Methods | SCMA469 Actuarial Statistics</title>
+  <title>Chapter 13 Absorption probabilities and expected time to absorption | SCMA469 Actuarial Statistics</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 15 Methods | SCMA469 Actuarial Statistics" />
+  <meta property="og:title" content="Chapter 13 Absorption probabilities and expected time to absorption | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 15 Methods | SCMA469 Actuarial Statistics" />
+  <meta name="twitter:title" content="Chapter 13 Absorption probabilities and expected time to absorption | SCMA469 Actuarial Statistics" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="the-long-term-distribution-of-a-markov-chain-1.html"/>
-<link rel="next" href="applications.html"/>
+<link rel="prev" href="classification-of-states-1.html"/>
+<link rel="next" href="the-long-term-distribution-of-a-markov-chain-1.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -243,38 +243,209 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="methods" class="section level1" number="15">
-<h1><span class="header-section-number">Chapter 15</span> Methods</h1>
-<p>We describe our methods in this chapter.</p>
-<p>Math can be added in body using usual syntax like this</p>
-<div id="math-example" class="section level2" number="15.1">
-<h2><span class="header-section-number">15.1</span> math example</h2>
-<p><span class="math inline">\(p\)</span> is unknown but expected to be around 1/3. Standard error will be approximated</p>
-<p><span class="math display">\[
-SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
-\]</span></p>
-<p>You can also use math in footnotes like this<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
-<p>We will approximate standard error to 0.027<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
-
+<div id="absorption-probabilities-and-expected-time-to-absorption-1" class="section level1" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Absorption probabilities and expected time to absorption</h1>
+<p>For the random walk with absorbing boundaries (i.e. <span class="math inline">\(0\)</span> and <span class="math inline">\(N\)</span>), two
+questions arises, in which state, <span class="math inline">\(0\)</span> or <span class="math inline">\(N\)</span> is the process eventually
+absorbed (or trapped) and on the average how long does it take to reach
+one of these absorbing states? We first define the following terms which
+applies to the random walk process with absorbing boundaries.</p>
+<p>The time of absorption <span class="math inline">\(T\)</span> is defined as
+<span class="math display">\[T = \min\{ n \ge 0 | X_n = 0 \text{ or } X_n = N \}\]</span> and the
+<strong>probability of eventually absorption</strong> in state 0 is given by
+<span class="math display">\[u_i = \Pr\{ X_T = 0 | X_0 = i  \}, \text{ for } i = 1,2,\ldots,N-1.\]</span>
+The <strong>mean time to absorption</strong> of the process is given by
+<span class="math display">\[\mathrm{E}[T |  X_0 = i ] \, \text{ for } i = 1,2,\ldots,N-1.\]</span></p>
+<div id="first-step-analysis-1" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> First step analysis</h2>
+<p>First step analysis allows us to evaluate quantities of interest from
+the Markov chain, for e.g. the absorption probabilities and the mean
+duration until absorption. The method is based on considering all
+possibilities at the end of the first transition and then apply the law
+of total probability to formulate equations involved all unknown
+quantities. We illustrate how to use the first step analysis in the
+following Markov chain.</p>
+<div class="example">
+<p><span id="exm:eg_absorption" class="example"><strong>(#exm:eg_absorption) </strong></span><strong>Example 18</strong>. <em>Consider the Markov chain with state space
+<span class="math inline">\(S = \{0,1,2\}\)</span> and transition probability matrix given by
+<span class="math display">\[P = \begin{bmatrix}
+    1 &amp; 0 &amp; 0    \\
+    p_{10} &amp; p_{11} &amp; p_{12}   \\
+   0 &amp; 0 &amp; 1   \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span></em></p>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>where we mention <span class="math inline">\(p = \frac{a}{b}\)</span><a href="methods.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p><span class="math inline">\(p\)</span> is unknown but expected to be around 1/3. Standard error will be approximated</p>
-<p><span class="math display">\[
-SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
-\]</span><a href="methods.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<p>The classes and types are as follows:</p>
+<ul>
+<li><p>Two closed classes are <span class="math inline">\(C_1 = \{0\}\)</span> and <span class="math inline">\(C_2 = \{2\}\)</span>.</p></li>
+<li><p><span class="math inline">\(\{1\}\)</span> is a non-closed class.</p></li>
+</ul>
+<p>Let us consider the problem of evaluating the absorption probabilities.
+For any closed class <span class="math inline">\(C\)</span>, define
+<span class="math display">\[u^C_{i} = \Pr(\text{Markov chain eventually absorbed in } C | X_0 = i).\]</span>
+Clearly, the absorption probabilities also depend on the initial states.
+A vector of absorption probabilities is then given by
+<span class="math inline">\(\mathbf{u}^C = (u^C_i)_{i \in S}\)</span> We suppress the superscript <span class="math inline">\(C\)</span> and
+simply write <span class="math inline">\(u^C_{i} = u_i\)</span> and <span class="math inline">\(\mathbf{u}^C = \mathbf{u}\)</span>.</p>
+<p>Consider the closed class <span class="math inline">\(C_1 = \{0\}\)</span>. We have <span class="math display">\[\begin{aligned}
+    u_{0} &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 0) = 1, \\
+    u_{2} &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 2) = 0, \\
+    u_{1} &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 1) = u_1. \\   \end{aligned}\]</span>
+By considering the first transition from state <span class="math inline">\(1\)</span> to either state 0, 1
+and 2, and using the Markov property, the law of total probability gives
+<span class="math display">\[\begin{aligned}
+    u_1 &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 1) \\
+    &amp;= \sum_{k = 0}^2 \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 1, X_1 = k)   \Pr(X_1 = k | X_0 = 1) \\
+    &amp;= \sum_{k = 0}^2 \Pr(\text{Markov chain eventually absorbed in } C_1 | X_1 = k)    \Pr(X_1 = k | X_0 = 1) \\
+    &amp;=  (p_{10}) \cdot  u_0 + (p_{11}) \cdot  u_1 + (p_{12}) \cdot  u_2  \\
+    &amp;= (p_{10})\cdot 1 + (p_{11}) \cdot  u_1 +  (p_{12}) \cdot 0. \end{aligned}\]</span>
+Solving for <span class="math inline">\(u_1\)</span> gives
+<span class="math display">\[u_1 =  u^{C_1}_1 = \frac{p_{10}}{1 - p_{11}} = \frac{p_{10}}{p_{10} +  p_{12}}.\]</span></p>
+<p>Similarly, we have <span class="math display">\[\begin{aligned}
+    u_0 &amp;= p_{00} \cdot u_0 + p_{01} \cdot  u_1 +  p_{02} \cdot  u_2 \\
+    u_1 &amp;= p_{10} \cdot  u_0 + p_{11} \cdot  u_1 + p_{12} \cdot  u_2  \\
+    u_2 &amp;= p_{20} \cdot  u_0 + p_{21} \cdot  u_1 + p_{22} \cdot  u_2,  \\\end{aligned}\]</span>
+where the first and the last equations reduce to <span class="math inline">\(u_0 = u_0\)</span> and
+<span class="math inline">\(u_2 = u_2\)</span>, respectively. In general, for a closed class <span class="math inline">\(C\)</span>, the
+vector of absorption probabilities <span class="math inline">\(\mathbf{u}\)</span> satisfies the following
+system of linear equations:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\mathbf{u} = P\mathbf{u}\)</span> (here <span class="math inline">\(\mathbf{u}\)</span> is treated as a column
+vector),</p></li>
+<li><p><span class="math inline">\(u_{i} = \Pr(\text{Markov chain eventually absorbed in } C) | X_0 = i) = 1\)</span>
+for all <span class="math inline">\(i \in C\)</span>, and</p></li>
+<li><p><span class="math inline">\(u_{i} = \Pr(\text{Markov chain eventually absorbed in } C) | X_0 = i) = 0\)</span>
+for all <span class="math inline">\(i\)</span> in any other close classes.</p></li>
 </ol>
+<div class="example">
+<p><span id="exm:absorption" class="example"><strong>Example 6.1  </strong></span><strong>Example 19</strong>. <em>In this example, consider the closed class
+<span class="math inline">\(C_2 = \{2\}\)</span>. Find the absorption probabilities <span class="math inline">\(u^{C_2}_0, u^{C_2}_1\)</span>
+and <span class="math inline">\(u^{C_2}_2\)</span>. Comment on these results.</em></p>
+</div>
+<p>For the closed class <span class="math inline">\(C_2\)</span>, we proceed in the same way as in the closed
+class <span class="math inline">\(C_1\)</span>. Let <span class="math inline">\(\mathbf{u}=\mathbf{u}^{C_{2}} = (u_0,u_1,u_2)^T\)</span> be
+the vector of absorption probabilities in the closed class <span class="math inline">\(C_{2}=\{2\}\)</span>
+with <span class="math inline">\(u_0 = 0\)</span> and <span class="math inline">\(u_2 =1\)</span>. It follows that <span class="math display">\[\begin{aligned}
+    u_1 &amp;=  p_{10} \cdot  u_0 + p_{11} \cdot  u_1 + p_{12} \cdot  u_2  \\
+    &amp;=  p_{11} \cdot  u_1 + p_{12}.\end{aligned}\]</span> Hence,
+<span class="math inline">\(u_1 = \frac{p_{12}}{1- p_{11}} =\frac{p_{12}}{p_{10}+ p_{12}}\)</span>. It
+should be emphasised that
+<span class="math display">\[\mathbf{u}^{C_1} + \mathbf{u}^{C_2} = \mathbf{1} .\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>For any initial state <span class="math inline">\(i\)</span>, the sum of the absorption probabilities
+over all closed classes is 1 (as verified in Example
+<a href="#absorption" reference-type="ref" reference="absorption">Example 19</a>). In particular, when a Markov chain has two
+closed classes <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span>,
+<span class="math inline">\(\mathbf{u}^{C_2} = \mathbf{1} - \mathbf{u}^{C_1}\)</span>.</p></li>
+<li><p>In the case when <span class="math inline">\(S\)</span> is finite or when the set of states in
+non-closed classes is finite, the vector <span class="math inline">\(\mathbf{u}\)</span> is the unique
+solution of the above system of linear equations.</p></li>
+</ol>
+<div class="example">
+<p><span id="exm:unlabeled-div-34" class="example"><strong>Example 13.1  </strong></span><strong>Example 20</strong>. <em>Consider the Markov chain defined in Example
+<a href="#exampleMC" reference-type="ref" reference="exampleMC">Example 17</a>.
+Find the absorption probabilities in the closed class <span class="math inline">\(C_1 = \{1\}\)</span> and
+<span class="math inline">\(C_2 = \{4,5\}\)</span>.</em></p>
+</div>
+<p>Here <span class="math inline">\(C_{1}=\{1\}\)</span> and <span class="math inline">\(C_{2}=\{4,5\}\)</span> are closed classes and
+<span class="math inline">\(0 = \{2,3\}\)</span> is an open class.</p>
+<p>Let <span class="math inline">\(\mathbf{u}=\mathbf{u}^{C_{1}}\)</span> be the vector of absorption
+probabilities in the closed class <span class="math inline">\(C_{1}=\{1\}\)</span>. Write
+<span class="math inline">\(\mathbf{u}= (u_1,u_2, \ldots,u_5)^T\)</span> and <span class="math inline">\(u_1 = 1\)</span> and <span class="math inline">\(u_4 = u_5 =0\)</span>,
+From <span class="math inline">\(\mathbf{u}=P \cdot \mathbf{u}\)</span>,</p>
+<p><span class="math display">\[\left(\begin{array}{c}u_{1} \\ u_{2} \\ \vdots \\ u_{5}\end{array}\right)=P\left(\begin{array}{c}u_{1} \\ u_{2} \\ \vdots \\ u_{5}\end{array}\right) \text {gives}\]</span>
+<span class="math display">\[\begin{aligned}
+    u_2 &amp;= \frac{1}{5} + \frac{1}{5} u_2 + \frac{1}{5} u_3 \\
+    u_3 &amp;= \frac{1}{3} + \frac{1}{3} u_2.   \end{aligned}\]</span> Solving the
+linear system for <span class="math inline">\(u_2\)</span> and <span class="math inline">\(u_3\)</span> yields <span class="math inline">\(u_2 = 4/11\)</span> and <span class="math inline">\(u_3 = 5/11\)</span>.
+Hence, the absorption probabilities in the closed class <span class="math inline">\(C_1\)</span> is
+<span class="math display">\[\mathbf{u}= (1,4/11,5/11,0,0)^T.\]</span> In addition, since there are two
+closed classes,
+<span class="math inline">\(\mathbf{u}^{C_2} = \mathbf{1} - \mathbf{u}^{C_1} = (0,7/11,6/11,1,1)^T.\)</span></p>
+</div>
+<div id="the-expected-time-to-absorption-1" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> The expected time to absorption</h2>
+<p>The expected time to absorption can be determined by analysing all
+possibilities occurring in the first step. We again consider the process
+defined in Example <a href="#eg_absorption" reference-type="ref" reference="eg_absorption">Example 18</a> on the set <span class="math inline">\(\{0, 1, 2\}\)</span> with the transition
+matrix <span class="math display">\[P = \begin{bmatrix}
+    1 &amp; 0 &amp; 0    \\
+    p_{10} &amp; p_{11} &amp; p_{12}   \\
+   0 &amp; 0 &amp; 1   \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span> The time of absorption <span class="math inline">\(T\)</span> is defined as
+<span class="math display">\[T = \min\{ n \ge 0 | X_n = 0 \text{ or } X_n = 2 \}\]</span> and the mean
+time to absorption of the process is given by
+<span class="math inline">\(v = \mathrm{E}[T | X_0 = 1 ] .\)</span></p>
+<p>The following observations can be made:</p>
+<ol style="list-style-type: decimal">
+<li><p>The absorption time <span class="math inline">\(T\)</span> is always at least 1.</p></li>
+<li><p>If either <span class="math inline">\(X_1 = 0\)</span> or <span class="math inline">\(X_1 = 2\)</span>, then no further steps are
+required.</p></li>
+<li><p>If <span class="math inline">\(X_1 = 1\)</span>, then the process is back at its starting point and on
+the average <span class="math inline">\(v\)</span> additional steps are required for absorption.</p></li>
+</ol>
+<p>Weighting all these possibilities by their respective probabilities, we
+obtain the following equation <span class="math display">\[\begin{aligned}
+v &amp;= 1 + p_{10} \cdot 0 + p_{11} \cdot v  + p_{12} \cdot 0    \\
+  &amp;= 1 +  p_{11} \cdot v,\end{aligned}\]</span> which results in
+<span class="math display">\[v = \frac{1}{1 - p_{11}}.\]</span></p>
+<div class="example">
+<p><span id="exm:eg_absorption2" class="example"><strong>(#exm:eg_absorption2) </strong></span><strong>Example 21</strong>. <em>Consider the Markov chain with state space
+<span class="math inline">\(S = \{0,1,2,3\}\)</span> and transition probability matrix given by
+<span class="math display">\[P = \begin{bmatrix}
+    1 &amp; 0 &amp; 0  &amp; 0  \\
+    p_{10} &amp; p_{11} &amp; p_{12} &amp; p_{13}   \\
+    p_{20} &amp; p_{21} &amp; p_{22} &amp; p_{23}   \\
+   0 &amp; 0 &amp; 0 &amp; 1   \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span> Let <span class="math inline">\(T\)</span> be the time of absorption defined by
+<span class="math display">\[T = \min\{ n \ge 0 | X_n = 0 \text{ or } X_n = 3 \}\]</span> and the
+<strong>absorption probabilities</strong> given by
+<span class="math display">\[u_i = \Pr\{ X_T = 0 | X_0 = i  \}, \text{ for } i = 1,2\]</span> and the mean
+time to absorption of the process is given by
+<span class="math display">\[v_i  = \mathrm{E}[T |  X_0 = 1 ] , \text{ for } i = 1,2.\]</span> Calculate
+the absorption probabilities and the mean time to absorption.</em></p>
+</div>
+<p>There are 2 closed classes including <span class="math inline">\(C_1= \{ 0 \}\)</span>, and <span class="math inline">\(C_2= \{ 3 \}\)</span>,
+and one non-closed class <span class="math inline">\(O = \{1,2 \}\)</span>. Here,
+<span class="math display">\[u_i = u_i^{C_1} = \Pr\{ X_T = 0 | X_0 = i  \} = \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = i), \text{ for } i = 1,2\]</span>
+By conditioning on the first step from state <span class="math inline">\(i\)</span> and using the Markov
+property, we have <span class="math display">\[u_i^{C_1} = \sum_{j \in S} p_{ij} u_j^{C_1}.\]</span>
+Clearly, <span class="math inline">\(u_0^{C_1} = 1\)</span> and <span class="math inline">\(u_3^{C_1} = 0\)</span>. In particular, we have
+<span class="math display">\[\begin{aligned}
+    u_1 &amp;= p_{10} \cdot 1 + p_{11} \cdot u_1 + p_{12} \cdot u_2 \\
+    u_2 &amp;= p_{20} \cdot 1 + p_{21} \cdot u_1 + p_{22} \cdot u_2, \\\end{aligned}\]</span>
+which can also be obtained from the matrix equation
+<span class="math inline">\(\mathbf{u} = P\mathbf{u}\)</span>, where <span class="math inline">\(\mathbf{u} = (1, u_1, u_2, 0)^T\)</span>. The
+solution to the system of linear equations is <span class="math display">\[\begin{aligned}
+    u_1 &amp;= \frac{ p_{10} (p_{22} - 1) - p_{12} p_{20}  }{ p_{11}(-p_{22}) +  p_{11}  + p_{12} p_{21}  + p_{22} - 1}, \\
+    u_2 &amp;= \frac{(  p_{11} - 1) p_{20} - p_{10} p_{21}  }{    p_{11}(-p_{22})  + p_{11}  + p_{12} p_{21} + p_{22} -1  }  . \\\end{aligned}\]</span></p>
+<p>Similarly, the mean time to absorption also depends on the starting
+state. By the first step analysis, we have for
+<span class="math inline">\(v_i = \mathrm{E}[T | X_0 = 1 ]\)</span>, <span class="math display">\[\begin{aligned}
+    v_1 &amp;=  1 + p_{11} \cdot v_1 + p_{12} \cdot v_2 \\
+    v_2 &amp;=  1 + p_{21} \cdot v_1 + p_{22} \cdot v_2. \\\end{aligned}\]</span>
+Here the absorption time <span class="math inline">\(T\)</span> is always at least 1. If either <span class="math inline">\(X_1 = 0\)</span>
+or <span class="math inline">\(X_1 = 3\)</span>, then no further steps are required. On the other hand, if
+<span class="math inline">\(X_1 = 1\)</span> or <span class="math inline">\(X_1 = 2\)</span>, then the process will require additional steps,
+and on the average, these are <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span>. Weighting these two
+possibilities, i.e. whether <span class="math inline">\(X_1 = 1\)</span> or <span class="math inline">\(X_1 = 2\)</span>, by their respective
+probabilities and summing according to the law of total probability
+result in the above system of equations.</p>
+<p>Solving the equations for <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span> give the mean time to
+absorption <span class="math display">\[\begin{aligned}
+    v_1 &amp;=  \frac{-p_{12}  + p_{22} -1}{p_{11}(-p_{22}) + p_{11} + p_{12}p_{21} + p_{22} - 1}, \\
+    v_2 &amp;=  \frac{p_{11}  - p_{21} -1}{p_{11}(-p_{22}) + p_{11} + p_{12}p_{21} + p_{22} - 1}. \\\end{aligned}\]</span></p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="the-long-term-distribution-of-a-markov-chain-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="classification-of-states-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-long-term-distribution-of-a-markov-chain-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -306,7 +477,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-method.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-literature.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -314,7 +485,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/pairote-sat/SCMA469/blob/master/03-method.Rmd",
+"link": "https://github.com/pairote-sat/SCMA469/blob/master/02-literature.Rmd",
 "text": null
 },
 "download": ["bookdownproj.pdf", "bookdownproj.epub"],

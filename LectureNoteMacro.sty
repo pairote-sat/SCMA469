@@ -1,0 +1,168 @@
+\ProvidesPackage{LectureNoteMacro}[2017/08/23 v1.0 My own macros]
+
+%\documentclass[twocolumn]{article}
+
+
+%/Users/kaemyui/texmf/tex/pythontex.py temp3.tex
+% Engine-specific settings
+% Detect pdftex/xetex/luatex, and load appropriate font packages.
+% This is inspired by the approach in the iftex package.
+% pdftex:
+\ifx\pdfmatch\undefined
+\else
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+\fi
+% xetex:
+\ifx\XeTeXinterchartoks\undefined
+\else
+    \usepackage{fontspec}
+    \defaultfontfeatures{Ligatures=TeX}
+\fi
+% luatex:
+\ifx\directlua\undefined
+\else
+    \usepackage{fontspec}
+\fi
+% End engine-specific settings
+\usepackage{lmodern}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+
+%\usepackage[pyfuture=all]{pythontex}
+
+%\usepackage[svgnames]{xcolor}
+
+% \usepackage{hyperref}
+% \hypersetup{colorlinks=true,urlcolor=Green,linkcolor=blue}
+
+\newcommand{\pytex}{Python\TeX}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath,amsfonts}
+\usepackage{enumerate}
+\usepackage{array}
+
+
+\usepackage{actuarialsymbol}
+\usepackage{actuarialangle}
+
+\usepackage{graphicx}
+
+
+
+%gamma(\alpha,\lambda)
+\newcommand{\dnormal}{\mathcal{N}(\mu, \sigma^2)}
+\newcommand{\dgamma}{\mathcal{G}(\alpha, \lambda)}
+\newcommand{\dexp}{\text{Exp}(\lambda)}
+\newcommand{\dlognormal}{\mathcal{LN}(\mu, \sigma^2)}
+\newcommand{\dpareto}{\text{Pa}(\alpha, \lambda)}
+\newcommand{\dpoisson}{\text{Poisson}(\lambda)}
+\newcommand{\dnb}{\mathcal{NB}(k, p)}
+
+\newcommand{\vnormal}[1]{\mathcal{N}(#1)}
+\newcommand{\vgamma}[1]{\mathcal{G}(#1)}
+\newcommand{\vexp}[1]{\text{Exp}(#1)}
+\newcommand{\vpareto}[1]{\text{Pa}(#1)}
+\newcommand{\vpoisson}[1]{\text{Poisson}(#1)}
+
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Sk}{\mathrm{Sk}}
+\newcommand{\Cor}{\mathrm{Cor}}
+
+%\newcommand{\Pr}{\mathrm{Pr}}
+
+
+
+\newcommand*\diff{\mathop{}\!d}
+
+% See https://tex.stackexchange.com/questions/308101/defining-a-global-flag-to-conditionally-remove-text
+\usepackage{etoolbox,environ}
+\newtoggle{teach}
+\toggletrue{teach}   %Comment this line to get student version
+\NewEnviron{teachr}
+  {\iftoggle{teach}{\BODY}{}}
+
+
+\usepackage{tikz}
+\usetikzlibrary{calc, automata, chains, arrows.meta, quotes}
+
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+
+% How to add different Q.E.D. symbols to different theorems?
+% https://tex.stackexchange.com/questions/79190/how-to-add-different-q-e-d-symbols-to-different-theorems
+%
+% \usepackage{thmtools}
+%
+% \declaretheoremstyle[
+%   qed=$\blacksquare$,
+%   numbered=no,
+%   bodyfont=\itshape
+% ]{mystyle}
+% \declaretheorem[style=mystyle]{solution}
+%
+%
+% \newtheorem{definition}{Definition}
+% \newtheorem{theorem}{Theorem}
+% \newtheorem{example}{Example}
+% \newtheorem{lemma}{Lemma}
+% \newtheorem{rem}{Remark}
+% \newtheorem{qt}{Question}
+%
+%
+% \def\mythm#1{\begin{theorem}  {#1} \end{theorem}}
+% \def\mydfn#1{\begin{definition}  {#1} \end{definition}}
+% \def\mylem#1{\begin{lemma}  {#1} \end{lemma}}
+% \def\myrem#1{\begin{rem}  {#1} \end{rem}}
+% \def\myqt#1{\begin{qt}  {#1} \end{qt}}
+%
+
+
+
+
+
+
+
+%% This replaces theSolution below:
+%\newtheorem{solution}{Solution}
+
+
+\newcommand{\theSolution}{%
+ \medbreak\noindent{\bf  Solution:}\hspace{1ex}\ignorespaces
+}
+
+\newcommand{\theNote}{%
+ \medbreak\noindent{\bf  Note}\hspace{1ex}\ignorespaces
+}
+
+\newcommand{\theNotes}{%
+ \medbreak\noindent{\bf  Notes}\hspace{1ex}\ignorespaces
+}
+\newcommand{\code}[1]{%
+	\texttt{#1}
+}
+
+\newcommand{\tb}{\textbaht}
+
+
+
+
+
+%%%%%%%%%%%
+%%% https://tex.stackexchange.com/questions/107884/lstlisting-in-a-box
+\usepackage{listings}
+
+\lstset{
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  columns=fullflexible
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
