@@ -1,6 +1,5 @@
+# Discrete-time Markov chains
 
-Discrete-time Markov chains
-===========================
 
 Recall the simple random walk model of the price of the stock. Suppose
 the stock price for the first four days are
@@ -49,8 +48,7 @@ Markov property, we proceed as follows: $$\begin{aligned}
 
 The random walk process has the Markov property.
 
-One-step transition probabilities
----------------------------------
+## One-step transition probabilities
 
 The conditional probability that $X_{n+1}$ is in state $j$ given that
 $X_n$ is in state $i$ is called **one-step transition probability** and
@@ -243,8 +241,8 @@ The corresponding transition matrix is $$P = \begin{bmatrix}
 <!-- The Chapman-Kolmogorov equations -->
 <!-- --------------------------------- -->
 
-The Chapman-Kolmogorov equations and $n$-step transition probabilities
-----------------------------------------------------------------------
+##  The Chapman-Kolmogorov equations and $n$-step transition probabilities
+
 
 The $n$-step transition probability denoted by $p^{(n)}_{ij}$ is the
 probability that the process goes from state $i$ to state $j$ in $n$
@@ -313,8 +311,8 @@ The transition matrix is $$P = \begin{bmatrix}
     &= 0 \cdot (7/64) + 1 \cdot (3/16) + 2 \cdot (45/64)   \\
     &= 51/32 = 1.59375.\end{aligned}$$
 
-Distribution of $X_n$
----------------------
+##  Distribution of $X_n$
+
 
 Let $\boldsymbol{\mu}^{(n)}$ be the vector of probability mass function
 of $X_n$, i.e. $$\boldsymbol{\mu}^{(n)} = (\mu_1, \mu_2, \ldots ),$$
@@ -378,8 +376,7 @@ $$\boldsymbol{\mu} \cdot P^2 = (0.6585,0.2115, 0.13).$$ Hence, the
 desired probability of sunny is
 $$\Pr(X_2 = S) =( \boldsymbol{\mu} \cdot P^2 )_S  = (\boldsymbol{\mu} \cdot P^2 )_3 = 0.13.$$
 
-Joint Distribution
-------------------
+##  Joint Distribution
 
 Let $X_0, X_1, \ldots$ be a Markov chain with transition matrix $P$ and
 initial distribution $\boldsymbol{\mu}.$ For all
@@ -409,8 +406,7 @@ $$P^3 = \begin{bmatrix}
 &= (\boldsymbol{\mu}  \cdot P^3)_3 \cdot P^{2}_{33} \cdot P_{32}  \\
 &= 0.148 \cdot  0.22 \cdot 0.4 = 0.013024.\end{aligned}$$
 
-Random walk with absorbing and reflecting barrier(s)
-----------------------------------------------------
+##  Random walk with absorbing and reflecting barrier(s)
 
 ::: {.example}
 *A one-dimensional random walk $\{X_n\}$ is defined on a
@@ -496,8 +492,8 @@ $$P = \begin{bmatrix}
     for the chain. The process might be used to model the fortune of an
     individual when negative fortune is reset to zero.
 
-An example of nonhomogeneous Markov chain
------------------------------------------
+##  An example of nonhomogeneous Markov chain
+
 
 In this section, we give an example of a discrete-time nonhomogeneous
 Markov chain. Again, without stated otherwise, we shall assume that the
@@ -566,8 +562,7 @@ $j-th$ row of the transition matrix, and so on.
             Generate (*$X_i$*) according to (*$\boldsymbol p$*)
         END FOR
 
-Monte Carlo Methods
--------------------
+##  Monte Carlo Methods
 
 Monte Carlo methods are simulation-based algorithms that rely on
 generating a large set of samples from a statistical model to obtain the
@@ -808,8 +803,8 @@ $$u_i = \Pr\{ X_T = 0 | X_0 = i  \}, \text{ for } i = 1,2,\ldots,N-1.$$
 The **mean time to absorption** of the process is given by
 $$\mathrm{E}[T |  X_0 = i ] \, \text{ for } i = 1,2,\ldots,N-1.$$
 
-First step analysis
--------------------
+##  First step analysis
+
 
 First step analysis allows us to evaluate quantities of interest from
 the Markov chain, for e.g. the absorption probabilities and the mean
@@ -929,8 +924,8 @@ $$\mathbf{u}= (1,4/11,5/11,0,0)^T.$$ In addition, since there are two
 closed classes,
 $\mathbf{u}^{C_2} = \mathbf{1} - \mathbf{u}^{C_1} = (0,7/11,6/11,1,1)^T.$
 
-The expected time to absorption
--------------------------------
+##  The expected time to absorption
+
 
 The expected time to absorption can be determined by analysing all
 possibilities occurring in the first step. We again consider the process
@@ -1024,8 +1019,8 @@ state.
 
 We also assume that the Markov chain with **a single closed class** $S$.
 
-Stationary and limiting distributions for a single closed class
----------------------------------------------------------------
+##  Stationary and limiting distributions for a single closed class
+
 
 ### Stationary distributions {#stationary-distributions .unnumbered}
 
@@ -1190,8 +1185,8 @@ $$\pi_1 = \frac{(p-1)^2}{p^2 - p + 1},  \quad \pi_2 = \frac{-p^2 + p}{p^2 - p + 
     property holds for some Markov chains which satisfy **\"certain
     conditions\"**.
 
-Sufficient conditions for the long-run behaviour of a Markov chain
-------------------------------------------------------------------
+##  Sufficient conditions for the long-run behaviour of a Markov chain
+
 
 In what follows, we will establish a set of sufficient conditions for
 the long-run behaviour of a Markov chain. Two important results are
@@ -1227,8 +1222,8 @@ $i \in S$ and also $\sum_{i\in S}\pi_i = 1$, which is impossible because
 $S$ is infinite. Hence, there is **no** stationary distribution for the
 simple random walk.
 
-Limiting distributions {#limiting-distributions}
-----------------------
+##  Limiting distributions {#limiting-distributions}
+
 
 One of the important properties of stationary distributions is that the
 distribution of the Markov chain satisfying certain conditions converges
@@ -1395,8 +1390,8 @@ reference="exampleLongTerm"}*
     reference="exampleLongTerm"}, i.e. the process in this example
     reaches the stationary probability distribution in the long run.
 
-Main result {#main-result}
------------
+##  Main result {#main-result}
+
 
 The main result in this section can be stated as follows:
 

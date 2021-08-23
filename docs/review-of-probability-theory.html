@@ -144,7 +144,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#random-variables"><i class="fa fa-check"></i><b>2.1</b> Random variables</a></li>
 <li class="chapter" data-level="2.2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#probability-distribution"><i class="fa fa-check"></i><b>2.2</b> Probability distribution</a></li>
-<li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#examples-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i>Examples of discrete and continuous random variables</a></li>
 <li class="chapter" data-level="2.3" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-probability"><i class="fa fa-check"></i><b>2.3</b> Conditional probability</a></li>
 <li class="chapter" data-level="2.4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#law-of-total-probability"><i class="fa fa-check"></i><b>2.4</b> Law of total probability</a></li>
 <li class="chapter" data-level="2.5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>2.5</b> Conditional distribution and conditional expectation</a></li>
@@ -226,13 +225,13 @@ a real-valued function defined on the sample space <span class="math inline">\(S
 <span class="math display">\[X : S \rightarrow \mathbb{R}.\]</span> Hence, the random variable <span class="math inline">\(X\)</span> is a
 function that maps outcomes to real values.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-4" class="example"><strong>Example 2.1  </strong></span><em>Two coins are tossed simultaneously and the outcomes are
+<p><span id="exm:unlabeled-div-4" class="example"><strong>Example 2.1  </strong></span>*Two coins are tossed simultaneously and the outcomes are
 <span class="math inline">\(HH, HT, TH\)</span> and <span class="math inline">\(TT\)</span>. We can associate the outcomes of this experiment
 with the set <span class="math inline">\(A = \{1,2,3,4 \}\)</span>, where <span class="math inline">\(X(HH) = 1, X(HT) = 2, X(TH) = 3\)</span>
 and <span class="math inline">\(X(TT) = 4\)</span>. Assume each of the outcomes has an equal probability of
 1/4. Here, we can associate a function <span class="math inline">\(P\)</span> (known as a probability
-measure) defined on <span class="math inline">\(S = \{HH, HT, TH, TT \}\)</span> by
-<span class="math display">\[P(HH) = 1/4,  P(HT) = 1/4,  P(TH) = 1/4,  P(TT) = 1/4.\]</span></em></p>
+measure) defined on <span class="math inline">\(S = \{HH, HT, TH, TT \}\)</span> by</p>
+<p><span class="math display">\[P(HH) = 1/4,  P(HT) = 1/4,  P(TH) = 1/4,  P(TT) = 1/4.\]</span></p>
 </div>
 <p>A probability measure <span class="math inline">\(P : \mathcal{A} \rightarrow [0,1]\)</span>, where
 <span class="math inline">\(\mathcal{A}\)</span> is a collection of subsets of <span class="math inline">\(S\)</span>, has the following
@@ -266,9 +265,8 @@ exists a nonnegative, integrable function <span class="math inline">\(f\)</span>
 <span class="math inline">\(f: \mathbb{R} \rightarrow [0, \infty)\)</span> such that
 <span class="math display">\[F(x) = \int_{-\infty}^x f(y)\, dy\]</span> Then the function <span class="math inline">\(f\)</span> is called
 the <strong>probability density function</strong> (p.d.f) of a random variable <span class="math inline">\(X\)</span>.</p>
-</div>
-<div id="examples-of-discrete-and-continuous-random-variables" class="section level2 unnumbered">
-<h2>Examples of discrete and continuous random variables</h2>
+<div id="examples-of-discrete-and-continuous-random-variables" class="section level4 unnumbered">
+<h4>Examples of discrete and continuous random variables</h4>
 <p>The main quantities of interest in a portfolio of motor insurance are
 the number of claims arriving in a fixed time period and the sizes of
 those claims. Clearly, the number of claims can be describe by a
@@ -296,6 +294,31 @@ Calculate the following quantities:</em></p>
 <li><p><span class="math inline">\(\Pr(N \ge 6) = 1 - \Pr(N \le 5) = 1 - \sum_{n=0}^5 f(n) = 0.3840393.\)</span></p></li>
 <li><p>Clearly, <span class="math inline">\(\mathrm{E}[N] = \lambda = 5\)</span>.</p></li>
 </ol>
+<p>In R, density, distribution function, for the Poisson distribution with parameter <span class="math inline">\(\lambda\)</span> is shown as follows:</p>
+<table>
+<colgroup>
+<col width="21%" />
+<col width="38%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Distribution</th>
+<th>Density function: <span class="math inline">\(P(X = x)\)</span></th>
+<th>Distribution function: <span class="math inline">\(P(X ≤ x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Poisson</td>
+<td><code>dpois(x, lambda, log = FALSE)</code></td>
+<td><code>ppois(q, lambda, lower.tail = TRUE, log.p = FALSE)</code></td>
+</tr>
+</tbody>
+</table>
+<p>When lower.tail is set to be TRUE (or default), probabilities are <span class="math inline">\(P(X ≤ x)\)</span>, otherwise, <span class="math inline">\(P(X &gt; x)\)</span>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="review-of-probability-theory.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppois</span>(<span class="dv">5</span>, <span class="at">lambda =</span> <span class="dv">5</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] 0.3840393</code></pre>
 <div class="example">
 <p><span id="exm:unlabeled-div-6" class="example"><strong>Example 2.3  </strong></span><em>Let <span class="math inline">\(X\)</span> denote the claim sizes in a given time period.
 The range of all possible values <span class="math inline">\(X\)</span> is the set of all non-negative
@@ -311,9 +334,19 @@ large claim sizes.</em></p>
 less than 1, and</em></p></li>
 <li><p><em>the Burr distribution.</em></p></li>
 </ul>
+<script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="review-of-probability-theory.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="review-of-probability-theory.html#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="at">by=</span><span class="fl">0.1</span>))</span>
+<span id="cb3-3"><a href="review-of-probability-theory.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="review-of-probability-theory.html#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_function</span>(<span class="fu">aes</span>(x),<span class="at">fun=</span>dweibull,<span class="at">args =</span> <span class="fu">list</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">scale =</span> <span class="dv">1</span>))  <span class="sc">+</span> </span>
+<span id="cb3-5"><a href="review-of-probability-theory.html#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;x&quot;</span>, <span class="at">y =</span> <span class="st">&quot;f(x)&quot;</span>, </span>
+<span id="cb3-6"><a href="review-of-probability-theory.html#cb3-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Weibull Distribution With Shape &amp; Scale Parameters = 1&quot;</span>) </span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>See <a href="https://dk81.github.io/dkmathstats_site/rvisual-cont-prob-dists.html" class="uri">https://dk81.github.io/dkmathstats_site/rvisual-cont-prob-dists.html</a> for more details.</p>
 </div>
 <p>The course "SCMA 470 Risk Analysis and Credibility" provides more
 details about the loss distribution.</p>
+</div>
 </div>
 <div id="conditional-probability" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Conditional probability</h2>
@@ -963,7 +996,8 @@ gitbook.start({
 },
 "download": ["bookdownproj.pdf", "bookdownproj.epub"],
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true
 }
 });
 });

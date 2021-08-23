@@ -1,6 +1,5 @@
 
-Review of probability theory
-============================
+# Review of probability theory
 
 Random variables
 ----------------
@@ -27,7 +26,8 @@ with the set $A = \{1,2,3,4 \}$, where $X(HH) = 1, X(HT) = 2, X(TH) = 3$
 and $X(TT) = 4$. Assume each of the outcomes has an equal probability of
 1/4. Here, we can associate a function $P$ (known as a probability
 measure) defined on $S = \{HH, HT, TH, TT \}$ by
-$$P(HH) = 1/4,  P(HT) = 1/4,  P(TH) = 1/4,  P(TT) = 1/4.$$*
+
+$$P(HH) = 1/4,  P(HT) = 1/4,  P(TH) = 1/4,  P(TT) = 1/4.$$
 :::
 
 A probability measure $P : \mathcal{A} \rightarrow [0,1]$, where
@@ -68,8 +68,8 @@ $f: \mathbb{R} \rightarrow [0, \infty)$ such that
 $$F(x) = \int_{-\infty}^x f(y)\, dy$$ Then the function $f$ is called
 the **probability density function** (p.d.f) of a random variable $X$.
 
-Examples of discrete and continuous random variables {#examples-of-discrete-and-continuous-random-variables .unnumbered}
-----------------------------------------------------
+####  Examples of discrete and continuous random variables {#examples-of-discrete-and-continuous-random-variables .unnumbered}
+
 
 The main quantities of interest in a portfolio of motor insurance are
 the number of claims arriving in a fixed time period and the sizes of
@@ -101,6 +101,24 @@ Calculate the following quantities:*
 
 2.  Clearly, $\mathrm{E}[N] = \lambda = 5$.
 
+
+In R, density, distribution function, for the Poisson distribution with parameter $\lambda$ is shown as follows:
+
+Distribution |	Density function: $P(X = x)$ |	Distribution function: $P(X ≤ x)$ | 
+-------------| ----------------------- | ------------------------
+Poisson |  `dpois(x, lambda, log = FALSE)` |  `ppois(q, lambda, lower.tail = TRUE, log.p = FALSE)
+`
+
+When lower.tail	is set to be TRUE (or default), probabilities are $P(X ≤ x)$, otherwise, $P(X > x)$.
+
+```{r}
+ppois(5, lambda = 5, lower.tail = FALSE)
+```
+
+
+
+
+
 ::: {.example}
 *Let $X$ denote the claim sizes in a given time period.
 The range of all possible values $X$ is the set of all non-negative
@@ -119,6 +137,20 @@ large claim sizes.*
     less than 1, and*
 
 -   *the Burr distribution.*
+
+<script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
+
+```{r}
+library(ggplot2)
+df <- data.frame(x=seq(0,10,by=0.1))
+ggplot(df) + 
+    stat_function(aes(x),fun=dweibull,args = list(shape = 1, scale = 1))  + 
+    labs(x = "x", y = "f(x)", 
+       title = "Weibull Distribution With Shape & Scale Parameters = 1") 
+```
+
+See https://dk81.github.io/dkmathstats_site/rvisual-cont-prob-dists.html for more details.
+
 :::
 
 The course \"SCMA 470 Risk Analysis and Credibility\" provides more

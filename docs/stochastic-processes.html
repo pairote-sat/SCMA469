@@ -144,7 +144,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#random-variables"><i class="fa fa-check"></i><b>2.1</b> Random variables</a></li>
 <li class="chapter" data-level="2.2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#probability-distribution"><i class="fa fa-check"></i><b>2.2</b> Probability distribution</a></li>
-<li class="chapter" data-level="" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#examples-of-discrete-and-continuous-random-variables"><i class="fa fa-check"></i>Examples of discrete and continuous random variables</a></li>
 <li class="chapter" data-level="2.3" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-probability"><i class="fa fa-check"></i><b>2.3</b> Conditional probability</a></li>
 <li class="chapter" data-level="2.4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#law-of-total-probability"><i class="fa fa-check"></i><b>2.4</b> Law of total probability</a></li>
 <li class="chapter" data-level="2.5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>2.5</b> Conditional distribution and conditional expectation</a></li>
@@ -275,10 +274,10 @@ the process by using a discrete state space, rather than continuous.</p>
 <h2><span class="header-section-number">3.2</span> Random walk: an introductory example</h2>
 <p>One of the simplest examples of a stochastic process is a simple random
 walk. Consider a simple model of the price of a stock measured in
-satang. For each trading day <span class="math inline">\(n = 0,1,2, \ldots\)</span>, the stock price
-increases by 1 satang with probability <span class="math inline">\(p\)</span> or decreases by 1 satang with
+baht. For each trading day <span class="math inline">\(n = 0,1,2, \ldots\)</span>, the stock price
+increases by 1 baht with probability <span class="math inline">\(p\)</span> or decreases by 1 baht with
 probability <span class="math inline">\(q = 1-p\)</span>. Let <span class="math inline">\(X_n\)</span> denote the stock price at day <span class="math inline">\(n\)</span> and
-<span class="math inline">\(X_0 = 100\)</span>, i.e. <span class="math inline">\(X_0 =\)</span>. This simple model is called a simple random
+<span class="math inline">\(X_0 = 100\)</span>. This simple model is called a simple random
 walk.</p>
 <p>In the simple random walk process, time is discrete (as observed at the
 end of each day) and the state space is discrete. The stochastic model
@@ -292,6 +291,22 @@ the simple random walk with <span class="math inline">\(p = 0.5\)</span> and <sp
 <p class="caption">Some stochastic realisations of the simple random
 walk</p>
 </div>
+<p>We can use R to generate sample paths of this random walk.</p>
+<script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="stochastic-processes.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb4-2"><a href="stochastic-processes.html#cb4-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb4-3"><a href="stochastic-processes.html#cb4-3" aria-hidden="true" tabindex="-1"></a>Z<span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>), <span class="dv">10</span>, <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(p, <span class="dv">1</span><span class="sc">-</span> p))</span>
+<span id="cb4-4"><a href="stochastic-processes.html#cb4-4" aria-hidden="true" tabindex="-1"></a>Z</span></code></pre></div>
+<pre><code>##  [1] -1 -1  1  1 -1  1  1  1  1 -1</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="stochastic-processes.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(c(100, 100 + cumsum(Z)))</span></span>
+<span id="cb6-2"><a href="stochastic-processes.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># qqplot(0:10,c(100, 100 + cumsum(Z)))</span></span>
+<span id="cb6-3"><a href="stochastic-processes.html#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="stochastic-processes.html#cb6-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb6-5"><a href="stochastic-processes.html#cb6-5" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">100</span> <span class="sc">+</span> <span class="fu">cumsum</span>(Z))</span>
+<span id="cb6-6"><a href="stochastic-processes.html#cb6-6" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> x, <span class="at">y =</span> y1)</span>
+<span id="cb6-7"><a href="stochastic-processes.html#cb6-7" aria-hidden="true" tabindex="-1"></a>dat <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y1)) <span class="sc">+</span> </span>
+<span id="cb6-8"><a href="stochastic-processes.html#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>A complete description of the simple random walk, observed as a
 collection of <span class="math inline">\(n\)</span> random variables at time points
 <span class="math inline">\(t_1, t_2, \ldots, t_n\)</span> can be specified by the joint distribution of
@@ -2205,7 +2220,8 @@ gitbook.start({
 },
 "download": ["bookdownproj.pdf", "bookdownproj.epub"],
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true
 }
 });
 });

@@ -1,5 +1,4 @@
-Stochastic processes
-====================
+# Stochastic processes
 
 Evolution of a random process is at least partially random, and each run
 the process leads to potentially a different outcome. It is of great
@@ -29,8 +28,8 @@ $\{ X_t : t \in T\}$ defined on a common sample space, where
     state space or the index set (the time domain) are discrete or
     continuous.
 
-Classification of stochastic processes
---------------------------------------
+## Classification of stochastic processes
+
 
 Stochastic processes can be classified on the basis of the nature of
 their state space and index set.
@@ -67,15 +66,15 @@ In case that claim amounts are recorded to the nearest baht or in
 satang, i.e. discrete state space, we could also approximate or model
 the process by using a discrete state space, rather than continuous.
 
-Random walk: an introductory example
-------------------------------------
+## Random walk: an introductory example
+
 
 One of the simplest examples of a stochastic process is a simple random
 walk. Consider a simple model of the price of a stock measured in
-satang. For each trading day $n = 0,1,2, \ldots$, the stock price
-increases by 1 satang with probability $p$ or decreases by 1 satang with
+baht. For each trading day $n = 0,1,2, \ldots$, the stock price
+increases by 1 baht with probability $p$ or decreases by 1 baht with
 probability $q = 1-p$. Let $X_n$ denote the stock price at day $n$ and
-$X_0 = 100$, i.e. $X_0 =$. This simple model is called a simple random
+$X_0 = 100$. This simple model is called a simple random
 walk.
 
 In the simple random walk process, time is discrete (as observed at the
@@ -88,6 +87,27 @@ the simple random walk with $p = 0.5$ and $a = 100$ are shown in Figure
 
 ![Some stochastic realisations of the simple random
 walk](SamplePaths.pdf){#fig:SamplePaths width="4in"}
+
+We can use R to generate sample paths of this random walk.
+
+<script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
+
+```{r}
+set.seed(1)
+p <- 0.5
+Z<- sample(x = c(1,-1), 10, replace = T, prob = c(p, 1- p))
+Z
+# plot(c(100, 100 + cumsum(Z)))
+# qqplot(0:10,c(100, 100 + cumsum(Z)))
+
+x <- 0:10
+y1 <- c(100, 100 + cumsum(Z))
+dat <- tibble(x = x, y = y1)
+dat %>% ggplot(aes(x = x, y = y1)) + 
+  geom_line(col = "blue")
+```
+
+
 
 A complete description of the simple random walk, observed as a
 collection of $n$ random variables at time points
