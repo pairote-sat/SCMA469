@@ -90,9 +90,14 @@ walk](SamplePaths.pdf){#fig:SamplePaths width="4in"}
 
 We can use R to generate sample paths of this random walk.
 
+```{r, include=FALSE}
+tutorial::go_interactive()
+```
+
 <script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
 
 ```{r}
+library(tidyr)
 set.seed(1)
 p <- 0.5
 Z<- sample(x = c(1,-1), 10, replace = T, prob = c(p, 1- p))
@@ -102,9 +107,11 @@ Z
 
 x <- 0:10
 y1 <- c(100, 100 + cumsum(Z))
-dat <- tibble(x = x, y = y1)
+dat <- data.frame(x = x, y = y1)
 dat %>% ggplot(aes(x = x, y = y1)) + 
-  geom_line(col = "blue")
+  geom_line(col = "blue") +
+  ggtitle("A simple random walk")
+
 ```
 
 

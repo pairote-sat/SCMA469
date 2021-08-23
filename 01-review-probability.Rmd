@@ -111,6 +111,13 @@ Poisson |  `dpois(x, lambda, log = FALSE)` |  `ppois(q, lambda, lower.tail = TRU
 
 When lower.tail	is set to be TRUE (or default), probabilities are $P(X ≤ x)$, otherwise, $P(X > x)$.
 
+```{r, include=FALSE}
+tutorial::go_interactive()
+```
+
+<script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
+
+
 ```{r}
 ppois(5, lambda = 5, lower.tail = FALSE)
 ```
@@ -137,6 +144,10 @@ large claim sizes.*
     less than 1, and*
 
 -   *the Burr distribution.*
+
+```{r, include=FALSE}
+tutorial::go_interactive()
+```
 
 <script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
 
