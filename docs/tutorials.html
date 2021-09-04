@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Tutorials | SCMA469 Actuarial Statistics</title>
+  <meta name="description" content="Chapter 5 Tutorials | SCMA469 Actuarial Statistics" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Tutorials | SCMA469 Actuarial Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Tutorials | SCMA469 Actuarial Statistics" />
+  
+  
+  
+
+<meta name="author" content="Pairote Satiracoo" />
+
+
+<meta name="date" content="2021-09-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="discrete-time-markov-chains.html"/>
+<link rel="next" href="applications.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SCMA469 Actuarial Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Stochastic Processes</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#examples-of-real-world-processes"><i class="fa fa-check"></i><b>1.1</b> Examples of real world processes</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html"><i class="fa fa-check"></i><b>2</b> Review of probability theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#random-variables"><i class="fa fa-check"></i><b>2.1</b> Random variables</a></li>
+<li class="chapter" data-level="2.2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#probability-distribution"><i class="fa fa-check"></i><b>2.2</b> Probability distribution</a></li>
+<li class="chapter" data-level="2.3" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-probability"><i class="fa fa-check"></i><b>2.3</b> Conditional probability</a></li>
+<li class="chapter" data-level="2.4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#law-of-total-probability"><i class="fa fa-check"></i><b>2.4</b> Law of total probability</a></li>
+<li class="chapter" data-level="2.5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>2.5</b> Conditional distribution and conditional expectation</a></li>
+<li class="chapter" data-level="2.6" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem"><i class="fa fa-check"></i><b>2.6</b> Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stochastic-processes.html"><a href="stochastic-processes.html"><i class="fa fa-check"></i><b>3</b> Stochastic processes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="stochastic-processes.html"><a href="stochastic-processes.html#classification-of-stochastic-processes"><i class="fa fa-check"></i><b>3.1</b> Classification of stochastic processes</a></li>
+<li class="chapter" data-level="3.2" data-path="stochastic-processes.html"><a href="stochastic-processes.html#random-walk-an-introductory-example"><i class="fa fa-check"></i><b>3.2</b> Random walk: an introductory example</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html"><i class="fa fa-check"></i><b>4</b> Discrete-time Markov chains</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#one-step-transition-probabilities"><i class="fa fa-check"></i><b>4.1</b> One-step transition probabilities</a></li>
+<li class="chapter" data-level="4.2" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-chapman-kolmogorov-equations-and-n-step-transition-probabilities"><i class="fa fa-check"></i><b>4.2</b> The Chapman-Kolmogorov equations and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
+<li class="chapter" data-level="4.3" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#distribution-of-x_n"><i class="fa fa-check"></i><b>4.3</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
+<li class="chapter" data-level="4.4" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#joint-distribution"><i class="fa fa-check"></i><b>4.4</b> Joint Distribution</a></li>
+<li class="chapter" data-level="4.5" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#random-walk-with-absorbing-and-reflecting-barriers"><i class="fa fa-check"></i><b>4.5</b> Random walk with absorbing and reflecting barrier(s)</a></li>
+<li class="chapter" data-level="4.6" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#an-example-of-nonhomogeneous-markov-chain"><i class="fa fa-check"></i><b>4.6</b> An example of nonhomogeneous Markov chain</a></li>
+<li class="chapter" data-level="4.7" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#simulation"><i class="fa fa-check"></i><b>4.7</b> Simulation</a></li>
+<li class="chapter" data-level="4.8" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#monte-carlo-methods"><i class="fa fa-check"></i><b>4.8</b> Monte Carlo Methods</a></li>
+<li class="chapter" data-level="4.9" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#classification-of-states"><i class="fa fa-check"></i><b>4.9</b> Classification of states</a></li>
+<li class="chapter" data-level="4.10" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#absorption-probabilities-and-expected-time-to-absorption"><i class="fa fa-check"></i><b>4.10</b> Absorption probabilities and expected time to absorption</a></li>
+<li class="chapter" data-level="4.11" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#first-step-analysis"><i class="fa fa-check"></i><b>4.11</b> First step analysis</a></li>
+<li class="chapter" data-level="4.12" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-expected-time-to-absorption"><i class="fa fa-check"></i><b>4.12</b> The expected time to absorption</a></li>
+<li class="chapter" data-level="4.13" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-long-term-distribution-of-a-markov-chain"><i class="fa fa-check"></i><b>4.13</b> The long-term distribution of a Markov chain</a></li>
+<li class="chapter" data-level="4.14" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#stationary-and-limiting-distributions-for-a-single-closed-class"><i class="fa fa-check"></i><b>4.14</b> Stationary and limiting distributions for a single closed class</a>
+<ul>
+<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#stationary-distributions"><i class="fa fa-check"></i>Stationary distributions</a></li>
+<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#proportion-of-time-in-each-state"><i class="fa fa-check"></i>Proportion of Time in Each State</a></li>
+<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-method-of-finding-the-stationary-distribution"><i class="fa fa-check"></i>The method of finding the stationary distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.15" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain"><i class="fa fa-check"></i><b>4.15</b> Sufficient conditions for the long-run behaviour of a Markov chain</a></li>
+<li class="chapter" data-level="4.16" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#limiting-distributions"><i class="fa fa-check"></i><b>4.16</b> Limiting distributions</a></li>
+<li class="chapter" data-level="4.17" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#main-result"><i class="fa fa-check"></i><b>4.17</b> Main result</a>
+<ul>
+<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#applications-of-markov-chains-to-ncd-systems"><i class="fa fa-check"></i>Applications of Markov chains to NCD systems</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tutorials.html"><a href="tutorials.html"><i class="fa fa-check"></i><b>5</b> Tutorials</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="tutorials.html"><a href="tutorials.html#tutorial-1"><i class="fa fa-check"></i><b>5.1</b> Tutorial 1</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>6</b> Applications</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="applications.html"><a href="applications.html#datacamp-light"><i class="fa fa-check"></i><b>6.1</b> DataCamp Light</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>7</b> Final words</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="final-words.html"><a href="final-words.html#datacamp-light-1"><i class="fa fa-check"></i><b>7.1</b> DataCamp Light</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SCMA469 Actuarial Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tutorials" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Tutorials</h1>
+<div id="tutorial-1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Tutorial 1</h2>
+<ol style="list-style-type: decimal">
+<li><p>Consider a random walk, <span class="math inline">\(S_n\)</span>, with <span class="math inline">\(S_0 = 0\)</span> and where each step is
+normally distributed with mean 0 and variance 10.</p>
+<ol style="list-style-type: decimal">
+<li><p>What is the distribution of <span class="math inline">\(S_{10}\)</span>?</p></li>
+<li><p>Calculate <span class="math inline">\(\Pr(S_{10} &lt; -10)\)</span>.</p></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>We have <span class="math inline">\(S_{10}\)</span> is a sum of
+<span class="math inline">\(S_0\)</span> and the i.i.d random variables <span class="math inline">\(Z_i\)</span>, each distributed
+normal distribution, <span class="math inline">\(Z_i \sim N(0,10)\)</span>. Moreover,
+<span class="math display">\[\mathrm{E}[S_{10}] = \mathrm{E}[S_0 + \sum_{i=1}^{10} Z_i] = S_0 + \sum_{i=1}^{10} \mathrm{E}[Z_i] = 0\]</span>
+and
+<span class="math display">\[\mathrm{Var}[S_{10}] = \mathrm{Var}[S_0 + \sum_{i=1}^{10} Z_i] = \sum_{i=1}^{10} \mathrm{Var}[Z_i] = 100\]</span>
+Therefore, the distribution of <span class="math inline">\(S_{10}\)</span> is normally distributed,
+<span class="math inline">\(S_{10} \sim N(0,100)\)</span>.</p></li>
+<li><p>From the previous result,
+<span class="math display">\[\Pr(S_{10} &lt; -10) = \Pr(Z &lt; -1) = 0.1587.\]</span></p></li>
+</ol></li>
+<li><p>Suppose that the value of a commodity as a random walk, where each
+day the change in price has mean $0.05 and variance $0.1. Use the
+central limit theorem to estimate the probability that its value is
+more than $6 after 100 days if the initial value is $0.50.</p>
+<p><strong>Solution:</strong> We have <span class="math inline">\(S_{100}\)</span> is a sum of <span class="math inline">\(S_0\)</span> and the i.i.d
+random variables <span class="math inline">\(Z_i\)</span>, each distributed normal distribution,
+<span class="math inline">\(Z_i \sim N(0.05,0.1)\)</span>. Moreover,
+<span class="math display">\[\mathrm{E}[S_{100}] = \mathrm{E}[S_0 + \sum_{i=1}^{100} Z_i] = S_0 + \sum_{i=1}^{100} \mathrm{E}[Z_i] = 5.5\]</span>
+and
+<span class="math display">\[\mathrm{Var}[S_{100}] = \mathrm{Var}[S_0 + \sum_{i=1}^{100} Z_i] = \sum_{i=1}^{100} \mathrm{Var}[Z_i] = 10\]</span>
+Therefore, the distribution of <span class="math inline">\(S_{100}\)</span> is normally distributed,
+<span class="math inline">\(S_{100} \sim N(5.5,10)\)</span>.</p>
+<p>The Central Limit Theorem implies that <span class="math inline">\(S_{100}\)</span> is approximately
+normally distributed, <span class="math inline">\(S_{100} \sim N(5.5,10)\)</span>.</p>
+<p><span class="math display">\[\Pr(S_{100} &gt; 6) = \Pr(Z &gt; 0.1581) = 1 -  \Pr(Z &lt; 0.1581)  = 1- 0.5628 = 0.4372.\]</span></p></li>
+<li><p>For the random walk process as described in the lecture note,</p>
+<ol style="list-style-type: decimal">
+<li><p>Calculate <span class="math inline">\(\Pr(X_8 = 96 | X_0 = 100),\)</span></p></li>
+<li><p>Calculate <span class="math inline">\(\Pr(X_1 = 99, X_8 = 96 | X_0 = 100),\)</span></p></li>
+<li><p>Calculate <span class="math inline">\(\Pr(X_1 = 99, X_4 = 98, X_8 = 96 | X_0 = 100),\)</span></p></li>
+<li><p>Calculate <span class="math inline">\(\Pr( X_4 = 98, X_8 = 96 |X_1 = 99, X_0 = 100),\)</span></p></li>
+<li><p>Given <span class="math inline">\(X_0 = 100\)</span>, calculate <span class="math inline">\(\mathrm{E}[X_5]\)</span>.</p></li>
+<li><p>Write down the joint distribution of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_3\)</span> given
+<span class="math inline">\(X_0 = 100\)</span>. (Hint: consider all possible sample paths)</p></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Here the price must increase on any 2 day(s) and decrease on any
+6 day(s), not necessarily in that order. There are
+<span class="math inline">\({ 8 \choose 2} = 28\)</span> different possibilities and each of these
+has probability <span class="math inline">\(p^{2}(1-p)^{6}\)</span>. Therefore, the required
+probability is
+<span class="math display">\[\Pr(X_8 = 96 | X_0 = 100) =  28  p^{2}(1-p)^{6} .\]</span></p></li>
+<li><p>The problem can be divided into two periods:</p>
+<ul>
+<li><p>The first period of 1 day(s): the price in this period must
+increase on any 0 day(s) and decrease on any 1 day(s), not
+necessarily in that order. There are <span class="math inline">\({ 1 \choose 0}\)</span>
+different possibilities and each of these has probability
+<span class="math inline">\(p^{0}(1-p)^{1}\)</span>.</p></li>
+<li><p>The next period of 7 day(s): the price in this period must
+increase on any 2 day(s) and decrease on any 5 day(s), not
+necessarily in that order. There are <span class="math inline">\({ 7 \choose 2}\)</span>
+different possibilities and each of these has probability
+<span class="math inline">\(p^{2}(1-p)^{5}\)</span>.</p></li>
+</ul>
+<p>The required probability is
+<span class="math display">\[\Pr(X_1 = 99, X_8 = 96 | X_0 = 100)  =  21  p^{2}(1-p)^{6} .\]</span></p></li>
+<li><p>Similar to the previous problem, the required probability can be
+calculated as follows:</p>
+<p>The problem can be divided into three periods:</p>
+<ul>
+<li><p>The first period of 1 day(s): the price in this period must
+increase on any 0 day(s) and decrease on any 1 day(s), not
+necessarily in that order. There are <span class="math inline">\({ 1 \choose 0}\)</span>
+different possibilities and each of these has probability
+<span class="math inline">\(p^{0}(1-p)^{1}\)</span>.</p></li>
+<li><p>The next period of 3 day(s): the price in this period must
+increase on any 1 day(s) and decrease on any 2 day(s), not
+necessarily in that order. There are <span class="math inline">\({ 3 \choose 1}\)</span>
+different possibilities and each of these has probability
+<span class="math inline">\(p^{1}(1-p)^{2}\)</span>.</p></li>
+<li><p>The last period of 4 day(s): the price in this period must
+increase on any 1 day(s) and decrease on any 3 day(s), not
+necessarily in that order. There are <span class="math inline">\({ 4 \choose 1}\)</span>
+different possibilities and each of these has probability
+<span class="math inline">\(p^{1}(1-p)^{3}\)</span>.</p></li>
+</ul>
+<p>The required probability is <span class="math display">\[\Pr(X_1 = 99,
+X_4 = 98, X_8 = 96 | X_0 = 100)  =  12  p^{2}(1-p)^{6} .\]</span></p></li>
+<li><p>By Markov property, we have <span class="math display">\[\Pr(
+X_4 = 98, X_8 = 96 |X_1 = 99, X_0 = 100), 
+= \Pr(
+X_4 = 98, X_8 = 96 |X_1 = 99).\]</span> Again, the problem can be
+divided into two periods:</p>
+<ul>
+<li><p>The first period of 3 day(s): the price in this period must
+increase on any 1 day(s) and decrease on any 2 day(s), not
+necessarily in that order. There are <span class="math inline">\({ 3 \choose 1}\)</span>
+different possibilities and each of these has probability
+<span class="math inline">\(p^{1}(1-p)^{2}\)</span>.</p></li>
+<li><p>The next period of 4 day(s): the price in this period must
+increase on any 1 day(s) and decrease on any 3 day(s), not
+necessarily in that order. There are <span class="math inline">\({ 4 \choose 1}\)</span>
+different possibilities and each of these has probability
+<span class="math inline">\(p^{1}(1-p)^{3}\)</span>.</p></li>
+</ul>
+<p>The required probability is <span class="math display">\[\Pr(
+X_4 = 98, X_8 = 96 |X_1 = 99, X_0 = 100)
+= \Pr(
+X_4 = 98, X_8 = 96 |X_1 = 99)  =  12  p^{2}(1-p)^{5} .\]</span></p></li>
+<li><p>The variable <span class="math inline">\(X_5\)</span> can take the values from
+<span class="math inline">\(95, 97, 99, 101, 103, 105\)</span>. In particular, <span class="math display">\[\begin{aligned}
+    \Pr(X_5 &amp;= 95) = {5 \choose 0} p^0 (1-p)^5 =  1 
+p^0 (1-p)^5    \\
+    \Pr(X_5 &amp;= 97) = {5 \choose 1} p^1 (1-p)^4 = 5 
+    p^1 (1-p)^4\\
+    \Pr(X_5 &amp;= 99) = {5 \choose 2} p^2 (1-p)^3 = 10 
+    p^2 (1-p)^3\\
+    &amp;\vdots \\
+    \Pr(X_5 &amp;= 105) = {5 \choose 5} p^5 (1-p)^0 = 1 
+    p^5 (1-p)^0 \end{aligned}\]</span></p>
+<p>Therefore, <span class="math inline">\(\mathrm{E}[X_5] =  95 \cdot \left( 1 p^0 (1-p)^5 \right) + 97 \cdot \left(5 p^1 (1-p)^4 \right) + 99 \cdot \left(10 p^2 (1-p)^3 \right) + \cdots + 105 \cdot \left( 1  p^5 (1-p)^0 \right) = 95 + 10*x.\)</span>
+Alternatively, <span class="math display">\[\begin{aligned}
+  E\left[X_{5}\right] &amp;=E\left[100+\sum_{i=1}^{5} Z_{i}\right] \\
+  &amp;= 100+5 \cdot E\left[Z_{i}\right]  \\
+  &amp;=100+ 5 (2 p-1)  \\
+  &amp;=95 + 10p\end{aligned}\]</span>
+where <span class="math inline">\(E\left[Z_{i}\right] = p-q = p - (1 - p) = 2p -1.\)</span></p></li>
+</ol></li>
+<li><p>For each event,</p>
+<ul>
+<li><p>Identify a stochastic process <span class="math inline">\(\{ X_t : t \in T\}\)</span> and describe
+<span class="math inline">\(X_t\)</span> in context.</p></li>
+<li><p>Describe the time domain and state space. State whether the time
+domain and state space are discrete or continuous.</p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>Sociologists categorise the population of a country into upper-,
+middle- and lower-class groups. One of the government offices
+has monitored the movement of successive generations among these
+three groups.</p></li>
+<li><p>The insurer’s surplus (an excess of income or assets over
+expenditure or liabilities in a given period) at any future time
+which is defined as the initial surplus plus the premium income
+up to time <span class="math inline">\(t\)</span> minus the aggregate claims up to time <span class="math inline">\(t\)</span>.</p></li>
+<li><p>In a working day, a coffee shop owner records customer arrival
+times.</p></li>
+<li><p>The gambler starts with m and bets per game. The probability of
+winning is <span class="math inline">\(p\)</span> and the probability of losing is <span class="math inline">\(q\)</span> where
+<span class="math inline">\(p + q = 1\)</span>. In addition, the gambler is ruined (or goes broke)
+if he reaches state 0, and also stops the game if he reaches
+state <span class="math inline">\(N\)</span>.</p></li>
+<li><p>In the board game Monopoly, there are 40 squares. A player is
+interested to know the successive board position.</p></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(X_{n}\)</span> be the class of <span class="math inline">\(n^{\text {th }}\)</span> generation of a
+family. The state space, <span class="math inline">\(S=\{\text {Upper, Middle, Lower} \}\)</span>,
+is discrete. The index set, <span class="math inline">\(I=\{0,1,2, \ldots\}\)</span>, is also
+discrete.</p></li>
+<li><p>Let <span class="math inline">\(S(t)\)</span> be the insurer’s surplus at time <span class="math inline">\(t\)</span>.
+<span class="math inline">\(S=\mathbb{R} \text { and } I=[0, \infty)\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(X_{n}\)</span> be the amount of money of the gambler after game
+<span class="math inline">\(n\)</span>.</p>
+<p><span class="math inline">\(S=\{0,1,2 \ldots, N\} \text { and } I=\{0,1,2 ,\ldots \}\)</span>.</p></li>
+<li><p>Suppose that the opening hours of the coffee shop are from 7:00
+am to 6:00 pm (i.e. 11 hours). Let <span class="math inline">\(X_{n}\)</span> be the arrival time
+of customer <span class="math inline">\(n\)</span>. State space (continuous)</p>
+<p><span class="math inline">\(S=[0,11 \times 60]=[0,660]\)</span> (in minutes) and
+<span class="math inline">\(I=\{1,2, \ldots\}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(x_{n}\)</span> be a player’s board position after <span class="math inline">\(n\)</span> plays.</p>
+<p><span class="math inline">\(S=\{1,2,3, \ldots, 40\}\)</span> and <span class="math inline">\(I=\{0,1,2, \ldots \}.\)</span></p></li>
+</ol></li>
+<li><p>The simple weather pattern can be classified into three types
+including rainy (<span class="math inline">\(R\)</span>), cloudy (<span class="math inline">\(C\)</span>) and sunny (<span class="math inline">\(S\)</span>). The weather is
+observed daily. The following information is provided.</p>
+<ul>
+<li><p>On any given rainy day, the probability that it will rain the
+next day is 0.7; the probability that it will be cloudy the next
+day 0.2.</p></li>
+<li><p>On any given cloudy day, the probability that it will rain the
+next day is 0.75; the probability that it will be sunny the next
+day 0.1.</p></li>
+<li><p>On any given sunny day, the probability that it will rain the
+next day is 0.2; the probability that it will be sunny the next
+day 0.4.</p></li>
+</ul>
+<p>Explain how this may be modelled by a Markov chain.</p>
+<p><strong>Solution:</strong> The three weather conditions describe the three state of
+the Markov chain. Let <span class="math inline">\(X_{n}\)</span>be the weather condition on day <span class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p>State 1 (R) rainy day</p></li>
+<li><p>State 2 (C) cloudy day</p></li>
+<li><p>State 3 (S) sunny day</p></li>
+</ul>
+<p>The transition probability matrix <span class="math inline">\(P\)</span> for this Markov chain is</p>
+<p><span class="math display">\[P=\left[\begin{array}{lll}
+0.7 &amp; 0.2 &amp; 0.1 \\
+0.75 &amp; 0.15 &amp; 0.1 \\
+0.2 &amp; 0.4 &amp; 0.4
+\end{array}\right]\]</span></p>
+<p>This stochastic process has the Morkov property because the weather
+condition on the next day depends only on the condition today.</p></li>
+<li><p>Explain whether an independent and identically distributed sequence
+of random variables has a Markov property.</p>
+<p><strong>Solution:</strong> Assume that
+this Markov chain <span class="math inline">\(X_0, X_1, X_2 \ldots,\)</span> takes values in
+<span class="math inline">\(\{1,2, \ldots, k\} \text { with }\)</span></p>
+<p><span class="math display">\[P\left(X_{n}=j\right) = p_{j} \quad \text { for } j=1,2, \ldots, k \quad \text { and } n \geq 0 .\]</span>
+Note that this equality holds for all <span class="math inline">\(n\)</span> because
+<span class="math inline">\(\left\{X_{n} \right\}_{n \ge 0}\)</span> have the same distribution.</p>
+<p>By independence,</p>
+<p><span class="math display">\[P\left(x_{n}=j \mid x_{n-1}=i\right)=P\left(x_{n}=j\right)=p_{j},\]</span></p>
+<p>This proves our claim that the i.i.d. sequence of random variables
+has a Markov property. Note also that the transition matrix is
+<span class="math display">\[P = 
+\begin{bmatrix}
+p_1 &amp; p_2 &amp; \cdots &amp; p_k \\
+p_1 &amp; p_2 &amp; \cdots &amp; p_k \\
+\vdots &amp; \vdots &amp;  &amp; \vdots \\
+p_1 &amp; p_2 &amp; \cdots &amp; p_k \\
+\end{bmatrix}.\]</span></p></li>
+<li><p>The random variables <span class="math inline">\(Z_1, Z_2, \ldots\)</span> are independent and with the
+common probability mass function <span class="math display">\[Z_i = \begin{cases}
+    1, &amp; \text{ with probability }  0.2 \\
+    2, &amp; \text{ with probability }  0.3 \\  
+    3, &amp; \text{ with probability }  0.4 \\  
+    4, &amp; \text{ with probability }  0.1 \\  
+ \end{cases}\]</span> Let <span class="math inline">\(X_0 = 1\)</span> and
+<span class="math inline">\(X_n = \max\{Z_1, Z_2, \ldots, Z_n \}\)</span> be the largest <span class="math inline">\(Z\)</span> observed
+to date. Explain how this may be modelled by a Markov chain.
+<strong>Solution:</strong></p>
+<p>Given <span class="math inline">\(X_{0}=1\)</span> and
+<span class="math inline">\(X_{n}=\max \left\{Z_{1}, Z_{2}, \ldots, Z_{n}\right\}\)</span> where
+<span class="math inline">\(\left\{Z_{i}\right\}\)</span> are i.i.d. random variables with</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><span class="math inline">\(i\)</span></th>
+<th align="left">1</th>
+<th align="left">2</th>
+<th align="left">3</th>
+<th align="left">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(P(Z_i = i)\)</span></td>
+<td align="left">0.2</td>
+<td align="left">0.3</td>
+<td align="left">0.4</td>
+<td align="left">0.1</td>
+</tr>
+</tbody>
+</table>
+<p>We note that <span class="math display">\[\begin{aligned}
+X_{n+1} &amp;=\operatorname{max}\left\{Z_{1}, Z_{2}, \ldots, Z_{n+1}\right\} \\
+&amp;=\operatorname{max}\left\{X_{n}, Z_{n+1}\right\}
+\end{aligned}\]</span> Consider the transition probabilities</p>
+<p><span class="math display">\[\begin{aligned}
+P\left(X_{n+1} = j \mid X_{n}=i \right) &amp;= P\left(\max \left\{X_{n}, Z_{n+1}\right\}=j \mid X_{n}=i\right) \\
+&amp;=P\left(\max \left\{i, Z_{n+1}\right\}=j \mid X_{n}=i\right)
+\end{aligned}\]</span></p>
+<p><strong>Case 1:</strong> If <span class="math inline">\(i=1\)</span>, then <span class="math display">\[\max \left\{1, Z_{n+1}\right\}= 
+\begin{cases}
+1  &amp; \text{w.p. } 0.2 \\
+2 &amp; \text{w.p. } 0.3 \\
+3  &amp; \text{w.p. } 0.4 \\
+4  &amp; \text{w.p. } 0.1 \\
+\end{cases}\]</span></p>
+<p><strong>Case 2:</strong> If <span class="math inline">\(i=2\)</span>, then <span class="math display">\[\max \left\{2, Z_{n+1}\right\}= 
+\begin{cases}
+1  &amp; \text{w.p. } 0 \\
+2 &amp; \text{w.p. } 0.5 \quad (\text{i.e. } z_{n+1} = 1 \text{ or } 2  )\\
+3  &amp; \text{w.p. } 0.4 \\
+4  &amp; \text{w.p. } 0.1 \\
+\end{cases}\]</span></p>
+<p><strong>Case 3:</strong> If <span class="math inline">\(i=3\)</span>, then <span class="math display">\[\max \left\{3, Z_{n+1}\right\}= 
+\begin{cases}
+1  &amp; \text{w.p. } 0 \\
+2 &amp; \text{w.p. } 0 \\
+3  &amp; \text{w.p. } 0.9 \\
+4  &amp; \text{w.p. } 0.1 \\
+\end{cases}\]</span></p>
+<p><strong>Case 4:</strong> If <span class="math inline">\(i=4\)</span>, then <span class="math display">\[\max \left\{4, Z_{n+1}\right\}= 
+\begin{cases}
+1  &amp; \text{w.p. } 0 \\
+2 &amp; \text{w.p. } 0 \\
+3  &amp; \text{w.p. } 0 \\
+4  &amp; \text{w.p. } 1 \\
+\end{cases}\]</span> The transition probability matrix is then</p>
+<p><span class="math display">\[P = 
+\begin{bmatrix}
+0.2 &amp; 0.3 &amp; 0.4 &amp; 0.1 \\
+0 &amp; 0.5 &amp; 0.4 &amp; 0.1 \\
+0 &amp; 0 &amp; 0.9 &amp; 0.1 \\
+0 &amp; 0 &amp; 0 &amp; 0.1 \\
+\end{bmatrix}.\]</span> Clearly the sequence <span class="math inline">\(X_0, X_1, X_2,\ldots\)</span> can be
+modelled by the Markov chain with the transition probability matrix
+<span class="math inline">\(P\)</span>. Moreover, given the most recent value <span class="math inline">\(X_n\)</span>, its future value
+<span class="math inline">\(X_{n+1}\)</span> is independent of the past history
+<span class="math inline">\(X_0, X_1, \ldots, X_{n-1}\)</span>.</p></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="discrete-time-markov-chains.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-Tutorials.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/pairote-sat/SCMA469/blob/master/04-Tutorials.Rmd",
+"text": null
+},
+"download": ["SCMA469Bookdownproj.pdf", "SCMA469Bookdownproj.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

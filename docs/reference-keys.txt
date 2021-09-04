@@ -1,4 +1,5 @@
 fig:SamplePaths
+fig:FigRW
 intro
 examples-of-real-world-processes
 review-of-probability-theory
@@ -29,6 +30,8 @@ stationary-and-limiting-distributions-for-a-single-closed-class
 sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain
 limiting-distributions
 main-result
+tutorials
+tutorial-1
 applications
 datacamp-light
 final-words
