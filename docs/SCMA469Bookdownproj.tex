@@ -42,6 +42,46 @@
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -88,7 +128,7 @@
 
 \title{SCMA469 Actuarial Statistics}
 \author{Pairote Satiracoo}
-\date{2021-09-04}
+\date{2021-09-16}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -908,6 +948,8 @@ property.}
 
 \end{example}
 
+\textbf{Solution:}
+
 Recall the following definitions. An increment of a process is the
 amount by which its value changes over a period of time, for e.g.
 \(X_{t +u} - X_t\) where \(u > 0\).
@@ -917,13 +959,14 @@ and every \(u > 0\), the increment \(X_{t +u} - X_t\) is independent of all
 the past of the process \(\{X_s : 0 \le s \le t \}\)).
 
 In order to show that a process with independent increments has the
-Markov property, we proceed as follows: \[\begin{aligned}
-\Pr(X_t \in A | X_{s_1} = x_1, X_{s_2} = x_2, \ldots, X_{s} = x) 
-&= \Pr(X_t - X_s + x \in A | X_{s_1} = x_1, X_{s_2} = x_2, \ldots, X_{s} = x) \\
+Markov property, we proceed as follows: for all times \(s_1 < s_2 < \ldots < s_n < s < t\)
+\[\begin{aligned}
+\Pr(X_t \in A | X_{s_1} = x_1, X_{s_2} = x_2, \ldots, X_{s_n} = x_n ,X_{s} = x) 
+&= \Pr(X_t - X_s + x \in A | X_{s_1} = x_1, X_{s_2} = x_2, \ldots, X_{s_n} = x_n, X_{s} = x) \\
 &= \Pr(X_t - X_s + x \in A |  X_{s} = x)  \text{(by independence of the past)} \\
 &= \Pr(X_t  \in A |  X_{s} = x).\end{aligned}\]
 
-The random walk process has the Markov property.
+\textbf{Note} The random walk process has the Markov property.
 
 \hypertarget{one-step-transition-probabilities}{%
 \section{One-step transition probabilities}\label{one-step-transition-probabilities}}
@@ -1035,10 +1078,11 @@ show that
 \[\Pr(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n) = \mu_{i_0}\, p_{i_0i_1} \cdots \, p_{i_{n-2} i_{n-1}}\, p_{i_{n-1} i_n},\]
 where \(\boldsymbol{\mu} = \boldsymbol{\mu}^{(0)}\) is the distribution of
 initial random variable \(X_0\), i.e.~\(\mu_i = \Pr(X_0 = i)\) (the
-probability mass function of \(X_0\).)}
+probability mass function of \(X_0\)).}
 
 \end{example}
 
+\textbf{Solution:}
 \[\begin{aligned}
  &\Pr(X_0 = i_0, X_1 = i_1, \ldots, X_n = i_n) \\
   &= \Pr(X_0 = i_0, X_1 = i_1, \ldots, X_{n-1} = i_{n-1}) \cdot \Pr(X_n = i_n | X_0 = i_0, X_1 = i_1, \ldots, X_{n-1} = i_{n-1})\\
@@ -1058,6 +1102,7 @@ probability mass function of \(X_0\).)}
 
 \end{example}
 
+\textbf{Solution:}
 \[\begin{aligned}
 &\Pr(X_{n+1} = i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n, X_{n-1} = i_{n-1}, \ldots, X_0 = i_{0}) \\
 &= \Pr(X_{n+1} = i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n) \\ 
@@ -1067,7 +1112,7 @@ probability mass function of \(X_0\).)}
 &= \Pr( X_{n+m} = i_{n+m}| X_{n+m-1} = i_{n+m-1}) \cdots \Pr( X_{n+2} = i_{n+2}| X_{n + 1} = i_{n + 1}) \cdot p_{i_n i_{n+1}} \\ 
 &= p_{i_{n+m-1} i_{n+m}} \cdot p_{i_{n+m-2} i_{n+m-1}}   \cdots p_{i_n i_{n+1}} .\end{aligned}\]
 
-More general probabilities of the possible realisations of the process
+\textbf{Note} More general probabilities of the possible realisations of the process
 can be calculated by summing the probabilities of elementary elements of
 these forms.
 
@@ -1075,8 +1120,8 @@ these forms.
 \protect\hypertarget{exm:unlabeled-div-16}{}\label{exm:unlabeled-div-16}
 
 \emph{For the NCD system defined on the state space
-\(S = \{0,1,2\}\) as given in
-ExampleÂ~\protect\hyperlink{NCD}{ExampleÂ~2}, suppose
+\(S = \{0,1,2\}\) as given in Example \ref{exm:NCD}
+, suppose
 that the probability of a claim-free year \(p = 3/4\), and the
 distribution of the initial discount rate
 \(\boldsymbol{\mu} = (0.5,0.3,0.2)\). Find the following:}
@@ -1095,6 +1140,7 @@ distribution of the initial discount rate
   \(\Pr( X_{11} = 1, X_{12} = 0 | X_{10} = 2).\)
 \end{enumerate}
 
+\textbf{Solution:}
 The corresponding transition matrix is \[P = \begin{bmatrix}
     1/4 & 3/4 & 0    \\
     1/4 & 0 & 3/4   \\
@@ -1114,7 +1160,8 @@ The corresponding transition matrix is \[P = \begin{bmatrix}
       &= \mu_3 p_{32} p_{21} = 0.2\cdot(1/4)\cdot(1/4) = 1/80.\end{aligned}\]
 
   Alternatively, it follows from
-  ExampleÂ~\protect\hyperlink{MKProperty1}{ExampleÂ~5} that,
+  Example \ref{exm:MKProperty1}
+  that,
   \[\Pr(X_0 = 2, X_1 = 1, X_2 = 0) = \mu_3 p_{32} p_{21} = 0.2\cdot(1/4)\cdot(1/4) = 1/80.\]
 \item
   \[\begin{aligned}
@@ -1145,8 +1192,8 @@ The corresponding transition matrix is \[P = \begin{bmatrix}
   &= p_{32} p_{21} = (1/4)\cdot(1/4) = 1/16.\end{aligned}\]
 \end{enumerate}
 
-\hypertarget{the-chapman-kolmogorov-equations-and-n-step-transition-probabilities}{%
-\section{\texorpdfstring{The Chapman-Kolmogorov equations and \(n\)-step transition probabilities}{The Chapman-Kolmogorov equations and n-step transition probabilities}}\label{the-chapman-kolmogorov-equations-and-n-step-transition-probabilities}}
+\hypertarget{the-chapman-kolmogorov-equation-and-n-step-transition-probabilities}{%
+\section{\texorpdfstring{The Chapman-Kolmogorov equation and \(n\)-step transition probabilities}{The Chapman-Kolmogorov equation and n-step transition probabilities}}\label{the-chapman-kolmogorov-equation-and-n-step-transition-probabilities}}
 
 The \(n\)-step transition probability denoted by \(p^{(n)}_{ij}\) is the
 probability that the process goes from state \(i\) to state \(j\) in \(n\)
@@ -1159,16 +1206,15 @@ time \(m\) to state \(j\) at time \(m+n\) (i.e.~in \(n\) steps), going via state
 \(p^{(n)}_{ij}\) can be expressed as the sum of the product of the
 transition probabilities \(p^{(l)}_{ik} \, p^{(n-l)}_{kj}\).
 \[\begin{aligned}
- \label{Chapman}
-    p^{(n)}_{ij} = \sum_{k \in S}p^{(l)}_{ik} p^{(n-l)}_{kj}, \quad 0 < l < n  \end{aligned}\]
-To derive \protect\hyperlink{Chapman}{\[Chapman\]}, we proceed as follows:
+p^{(n)}_{ij} = \sum_{k \in S}p^{(l)}_{ik} p^{(n-l)}_{kj}, \quad 0 < l < n  \end{aligned}\]
+To derive the Chapman-Kolmogorov equation, we proceed as follows:
 
 \[\begin{aligned}
-    p^{(n)}_{ij} &= \Pr(X_n = j | X_0 = i) \\ 
-    &= \sum_{k \in S} \Pr(X_n = j , X_l = k | X_0 = i)    \\
-    &= \sum_{k \in S} \Pr(X_n = j | X_l = k , X_0 = i)  \cdot   \Pr(X_l = k |  X_0 = i) \\
-    &= \sum_{k \in S} \Pr(X_n = j | X_l = k )  \cdot   \Pr(X_l = k |  X_0 = i) \\
-    &= \sum_{k \in S}p^{(n-l)}_{kj} p^{(l)}_{ik} , = \sum_{k \in S}p^{(l)}_{ik} p^{(n-l)}_{kj}, \quad 0 < l < n . \end{aligned}\]
+p^{(n)}_{ij} &= \Pr(X_n = j | X_0 = i) \\ 
+&= \sum_{k \in S} \Pr(X_n = j , X_l = k | X_0 = i)    \\
+&= \sum_{k \in S} \Pr(X_n = j | X_l = k , X_0 = i)  \cdot   \Pr(X_l = k |  X_0 = i) \\
+&= \sum_{k \in S} \Pr(X_n = j | X_l = k )  \cdot   \Pr(X_l = k |  X_0 = i) \\
+&= \sum_{k \in S}p^{(n-l)}_{kj} p^{(l)}_{ik} , = \sum_{k \in S}p^{(l)}_{ik} p^{(n-l)}_{kj}, \quad 0 < l < n . \end{aligned}\]
 
 This result is known as the Chapman-Kolmogorov equation. This relation
 can be expressed in terms of matrix multiplication as
@@ -1178,23 +1224,22 @@ can be expressed in terms of matrix multiplication as
 \begin{example}
 \protect\hypertarget{exm:unlabeled-div-17}{}\label{exm:unlabeled-div-17}
 
-\emph{For the NCD system given in
-ExampleÂ~\protect\hyperlink{NCD}{ExampleÂ~2}, suppose
-that \(p = 3/4\), the probability of a claim-free year and the initial
+\emph{For the NCD system given in Example \ref{exm:NCD},
+suppose that \(p = 3/4\), the probability of a claim-free year and the initial
 discount level of a policyholder is 1 (with 20\% discount).}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  \emph{Calculate the probability of starting with a discount level of 20\%
-  and ending up 3 years later at the same level.}
+  \emph{Calculate the probability of starting with a discount level of 20\% and ending up 3 years later at the same level.}
 \item
-  \emph{Calculate the policyholder's expected level of discount after 3
-  years.}
+  \emph{Calculate the policyholder's expected level of discount after 3 years.}
 \end{enumerate}
 
 \end{example}
 
+\textbf{Solution:}
 The transition matrix is \[P = \begin{bmatrix}
     1/4 & 3/4 & 0    \\
     1/4 & 0 & 3/4   \\
@@ -1220,9 +1265,9 @@ The transition matrix is \[P = \begin{bmatrix}
 \item
   The policy's expected level of discount after 3 years is
   \[\begin{aligned}
-  \mathrm{E}[X_3 | X_0 = 1] &= \sum_{j=0}^{2} j \cdot  \Pr(X_3 = j | X_0 = 1) \\
-  &= 0 \cdot (7/64) + 1 \cdot (3/16) + 2 \cdot (45/64)   \\
-  &= 51/32 = 1.59375.\end{aligned}\]
+    \mathrm{E}[X_3 | X_0 = 1] &= \sum_{j=0}^{2} j \cdot  \Pr(X_3 = j | X_0 = 1) \\
+    &= 0 \cdot (7/64) + 1 \cdot (3/16) + 2 \cdot (45/64)   \\
+    &= 51/32 = 1.59375.\end{aligned}\]
 \end{enumerate}
 
 \hypertarget{distribution-of-x_n}{%
@@ -1237,20 +1282,24 @@ where \(\mu_i = \Pr(X_n = i)\). It follows that
 \begin{example}
 \protect\hypertarget{exm:unlabeled-div-18}{}\label{exm:unlabeled-div-18}
 
+Consider the following questions:
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \emph{Show that
+  Show that
   \[Pr(X_1 = i) = \sum_{k \in S} \mu_k p_{ki} = ( \boldsymbol{\mu} P)_i,\]
   which is the \(i\)th element of the vector \(\boldsymbol{\mu} P.\) Here
   \(\boldsymbol{\mu} = \boldsymbol{\mu}^{0}\) is the distribution of
-  initial random variable \(X_0\) with \(\mu_i = \Pr(X_0 = i)\).}
+  initial random variable \(X_0\) with \(\mu_i = \Pr(X_0 = i)\).
 \item
-  \emph{In general, show that the distribution of \(X_n\) is given by
-  \[Pr(X_n = i) =  ( \boldsymbol{\mu} P^n)_i.\]}
+  In general, show that the distribution of \(X_n\) is given by
+  \[Pr(X_n = i) =  ( \boldsymbol{\mu} P^n)_i.\]
 \end{enumerate}
 
 \end{example}
+
+\textbf{Solution:}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1289,6 +1338,7 @@ rain and a 60\% chance of cloudy. Find the probability that it will sunny
 
 \end{example}
 
+\textbf{Solution:}
 As the ordered state of the chain is \(R, C, S\), the initial distribution
 is \(\boldsymbol{\mu} = (0.4, 0.6, 0)\). The transition matrix \(P\) is
 given by \[P = \begin{bmatrix}
@@ -1323,12 +1373,13 @@ initial distribution \(\boldsymbol{\mu}\) and the transition matrix \(P\).
 \begin{example}
 \protect\hypertarget{exm:unlabeled-div-19}{}\label{exm:unlabeled-div-19}
 
-\emph{In ExampleÂ~\protect\hyperlink{weather}{ExampleÂ~9}, on Sunday, the chances of rain, cloudy and sunny
+\emph{In Example \ref{exm:weather}, on Sunday, the chances of rain, cloudy and sunny
 have the same probabilities. Find the probability that it will be sunny
 on the following Wednesday and Friday, and cloudy on Saturday.}
 
 \end{example}
 
+\textbf{Solution:}
 We are given that \(\boldsymbol{\mu} = (1/3, 1/3, 1/3).\) From
 \[P^3 = \begin{bmatrix}
     0.645500 & 0.215500 & 0.139   \\
@@ -1373,20 +1424,23 @@ can either stay in \(i\) or move to its neighbouring states \(i -1\) and
 
 \end{example}
 
+\textbf{Solution:}
+1. The transition diagram and the transition matrix are infinite:
+
+\[P = \begin{bmatrix}
+        \ddots & \cdots & \cdots & \cdots & \cdots & \cdots  & \cdots    \\
+        \cdots & q_{-1} & r_{-1}  & p_{-1}  & \cdots & \cdots  & \cdots  \\
+        \cdots & \cdots & q_{0} & r_{0}  & p_{0}  & \cdots   & \cdots  \\
+        \cdots & \cdots & \cdots & q_{1} & r_{1}  & p_{1}    & \cdots    \\
+        \cdots & \cdots & \cdots & \cdots & \cdots  & \cdots  & \ddots   \\    
+     %0 & 0 & 0 & 1/2 & 1/2     \\
+        %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+    \end{bmatrix}.\]
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\item
-  The transition diagram and the transition matrix are infinite:
-
-  \[P = \begin{bmatrix}
-      \ddots & \cdots & \cdots & \cdots & \cdots & \cdots  & \cdots    \\
-      \cdots & q_{-1} & r_{-1}  & p_{-1}  & \cdots & \cdots  & \cdots  \\
-      \cdots & \cdots & q_{0} & r_{0}  & p_{0}  & \cdots   & \cdots  \\
-      \cdots & \cdots & \cdots & q_{1} & r_{1}  & p_{1}    & \cdots    \\
-      \cdots & \cdots & \cdots & \cdots & \cdots  & \cdots  & \ddots   \\    
-   %0 & 0 & 0 & 1/2 & 1/2     \\
-      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-  \end{bmatrix}.\]
+\setcounter{enumi}{1}
+\tightlist
 \item
   Clearly, the Markov property holds because \[\begin{aligned}
       &\Pr(X_{n+1} = k | X_n = i, X_{n-1} = i_{n-1}, \ldots, X_0 = i_0)  \\
@@ -1416,6 +1470,7 @@ the state and never returning.}
 
 \end{example}
 
+\textbf{Solution:}
 The transition diagram and the transition matrix of the simple random
 walk with absorbing boundaries (states) are given as follows:
 
@@ -1435,9 +1490,7 @@ walk with absorbing boundaries (states) are given as follows:
 \item
   In general, a state \(i\) is called \textbf{absorbing} if \(p_{ii} = 1\)
 \item
-  The simple random walk as given in Example
-  \protect\hyperlink{simpleRW}{ExampleÂ~12}
-  can be modified so that whenever the process is in state 0 (or state
+  The simple random walk as given in Example \ref{exm:simpleRW} can be modified so that whenever the process is in state 0 (or state
   \(N\)),
 
   \begin{itemize}
@@ -1463,7 +1516,6 @@ discrete-time Markov chains are homogeneous.
 \protect\hypertarget{exm:unlabeled-div-21}{}\label{exm:unlabeled-div-21}
 
 \emph{(Adapted from W.J.Stewart)
-\protect\hypertarget{exampleStationary2}{}{\[exampleStationary2\]}
 A Markov chain \(X_0, X_1, \ldots\) consists of two states \(\{1,2\}\). At
 time step \(n\), the probability that the Markov chain remains in its
 current state is given by \[p_{11}(n) = p_{22}(n) = 1/n,\] while the
@@ -1482,18 +1534,21 @@ probability that it changes state is given by
 
 \end{example}
 
+\textbf{Solution:}
+1. The transition diagram and the transition matrix are dependent of
+the time step \(n\), and are given as follows:
+
+\[P(n) = \begin{bmatrix}
+        \frac{1}{n} & \frac{n-1}{n}   \\
+        \frac{(n-1)}{n} & \frac{1}{n}   \\
+        %\vdots & \vdots & \vdots  & \vdots \\
+        %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+    \end{bmatrix}.\]
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\item
-  The transition diagram and the transition matrix are dependent of
-  the time step \(n\), and are given as follows:
-
-  \[P(n) = \begin{bmatrix}
-      \frac{1}{n} & \frac{n-1}{n}   \\
-      \frac{(n-1)}{n} & \frac{1}{n}   \\
-      %\vdots & \vdots & \vdots  & \vdots \\
-      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-  \end{bmatrix}.\]
+\setcounter{enumi}{1}
+\tightlist
 \item
   The probability of taking a particular part can be calculated by
   \[\begin{aligned}
@@ -1522,7 +1577,9 @@ row of the transition matrix. If \(X_1 = j\), then simulate \(X_2\) from the
 \(j-th\) row of the transition matrix, and so on.
 
 \begin{verbatim}
-[frame=single, escapeinside={(*}{*)}, caption={Algorithm for Simulating a Markov Chain}]
+<!-- [frame=single, escapeinside={(*}{*)}, caption={Algorithm for Simulating a Markov Chain}] -->
+
+Algorithm for Simulating a Markov Chain
 
 Input: (i) initial distribution  (*$\boldsymbol{\mu}$*), (ii) transition matrix (*$P$*), (iii) number of steps (*$n$*).
 Output: (*$X_0, X_1, \ldots , X_n$*)
@@ -1530,7 +1587,7 @@ Algorithm:
     Generate (*$X_0$*) according to (*$\boldsymbol{\mu}$*)
     FOR (*$i = 1, \ldots ,n$*)
         Assume that (*$X_{i-1} = j$*)
-        Set (*$\boldsymbol p = j-$*)th row of (*$P$*) 
+        Set (*$\boldsymbol p = j-$*)th row of (*$P$*)
         Generate (*$X_i$*) according to (*$\boldsymbol p$*)
     END FOR
 \end{verbatim}
@@ -1562,12 +1619,194 @@ Using this equality, we can estimate \(\Pr(X \in A)\) by
 
 Recall that the indicator function of the set \(A\) is the defined as
 
-\[1_A(x) =
-\begin{cases*}
-     1          & if $x \in A $ \\
-      0        & otherwise.
-\end{cases*}
-\]
+\[\begin{aligned}
+        1_A(x) &= 
+        \begin{cases}
+                   1,  & \text{if } x \in A\\               
+                   0,       & \text{otherwise}.
+               \end{cases}\end{aligned}\]
+
+The following user-defined function in Excel can be used to simulate
+random numbers from a discrete distribution.
+
+\begin{verbatim}
+<!-- [frame=single, escapeinside={(*}{*)}, caption={A user-defined function in Excel to simulate random numbers from a discrete distribution.  -->
+<!-- }] -->
+\end{verbatim}
+
+\begin{verbatim}
+A user-defined function in Excel to simulate random numbers from a discrete distribution.
+Public Function Discrete(value As Variant, prob As Variant)
+
+Dim i As Integer
+Dim cumProb As Single
+Dim uniform As Single
+Randomize
+'Randomize Statement
+'Initializes the random-number generator.
+
+Application.Volatile
+
+' This example marks the user-defined function Discrete as volatile.
+' The function will be recalculated when any cell in any workbook
+' in the application window changes value worksheet.
+
+uniform = Rnd
+cumProb = prob(1)
+i = 1
+Do Until cumProb > uniform
+    i = i + 1
+    cumProb = cumProb + prob(i)
+Loop
+Discrete = value(i)
+
+End Function
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(expm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: Matrix
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'Matrix'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:tidyr':
+## 
+##     expand, pack, unpack
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'expm'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:Matrix':
+## 
+##     expm
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(markovchain)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Package:  markovchain
+## Version:  0.8.6
+## Date:     2021-05-17
+## BugReport: https://github.com/spedygiorgio/markovchain/issues
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(diagram)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: shape
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(pracma)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'pracma'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:expm':
+## 
+##     expm, logm, sqrtm
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:Matrix':
+## 
+##     expm, lu, tril, triu
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{stateNames }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Rain"}\NormalTok{,}\StringTok{"Nice"}\NormalTok{,}\StringTok{"Snow"}\NormalTok{)}
+\NormalTok{Oz }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(.}\DecValTok{5}\NormalTok{,.}\DecValTok{25}\NormalTok{,.}\DecValTok{25}\NormalTok{,.}\DecValTok{5}\NormalTok{,}\DecValTok{0}\NormalTok{,.}\DecValTok{5}\NormalTok{,.}\DecValTok{25}\NormalTok{,.}\DecValTok{25}\NormalTok{,.}\DecValTok{5}\NormalTok{),}
+             \AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{row.names}\NormalTok{(Oz) }\OtherTok{\textless{}{-}}\NormalTok{ stateNames; }\FunctionTok{colnames}\NormalTok{(Oz) }\OtherTok{\textless{}{-}}\NormalTok{ stateNames}
+\NormalTok{Oz}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Rain Nice Snow
+## Rain 0.50 0.25 0.25
+## Nice 0.50 0.00 0.50
+## Snow 0.25 0.25 0.50
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plotmat}\NormalTok{(Oz,}\AttributeTok{pos =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{),}
+        \AttributeTok{lwd =} \DecValTok{1}\NormalTok{, }\AttributeTok{box.lwd =} \DecValTok{2}\NormalTok{,}
+        \AttributeTok{cex.txt =} \FloatTok{0.8}\NormalTok{,}
+        \AttributeTok{box.size =} \FloatTok{0.1}\NormalTok{,}
+        \AttributeTok{box.type =} \StringTok{"circle"}\NormalTok{,}
+        \AttributeTok{box.prop =} \FloatTok{0.5}\NormalTok{,}
+        \AttributeTok{box.col =} \StringTok{"light yellow"}\NormalTok{,}
+        \AttributeTok{arr.length=}\NormalTok{.}\DecValTok{1}\NormalTok{,}
+        \AttributeTok{arr.width=}\NormalTok{.}\DecValTok{1}\NormalTok{,}
+        \AttributeTok{self.cex =}\NormalTok{ .}\DecValTok{4}\NormalTok{,}
+        \AttributeTok{self.shifty =} \SpecialCharTok{{-}}\NormalTok{.}\DecValTok{01}\NormalTok{,}
+        \AttributeTok{self.shiftx =}\NormalTok{ .}\DecValTok{13}\NormalTok{,}
+        \AttributeTok{main =} \StringTok{""}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/MC-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Oz3 }\OtherTok{\textless{}{-}}\NormalTok{ Oz }\SpecialCharTok{\%\^{}\%} \DecValTok{3}
+\FunctionTok{round}\NormalTok{(Oz3,}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Rain  Nice  Snow
+## Rain 0.406 0.203 0.391
+## Nice 0.406 0.188 0.406
+## Snow 0.391 0.203 0.406
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{u }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\DecValTok{3}\NormalTok{, }\DecValTok{1}\SpecialCharTok{/}\DecValTok{3}\NormalTok{, }\DecValTok{1}\SpecialCharTok{/}\DecValTok{3}\NormalTok{)}
+\FunctionTok{round}\NormalTok{(u }\SpecialCharTok{\%*\%}\NormalTok{ Oz3,}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Rain  Nice  Snow
+## [1,] 0.401 0.198 0.401
+\end{verbatim}
+
+We can use R to generate sample paths of a Markov chain. We first load the library \texttt{markovchain} package. See \url{https://cran.r-project.org/web/packages/markovchain/vignettes/an_introduction_to_markovchain_package.pdf} for more details.
+
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KG1hcmtvdmNoYWluKVxud2VhdGhlclN0YXRlcyA8LSBjKFwic3VubnlcIiwgXCJjbG91ZHlcIiwgXCJyYWluXCIpIFxuYnlSb3cgPC0gVFJVRVxud2VhdGhlck1hdHJpeCA8LSBtYXRyaXgoZGF0YSA9IGMoMC43MCwgMC4yLCAwLjEsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLjMsIDAuNCwgMC4zLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4yLCAwLjQ1LCAwLjM1KSwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBieXJvdyA9IGJ5Um93LCBucm93ID0gMywgZGltbmFtZXMgPSBsaXN0KHdlYXRoZXJTdGF0ZXMsIHdlYXRoZXJTdGF0ZXMpKVxuXG5tY1dlYXRoZXIgPC0gbmV3KFwibWFya292Y2hhaW5cIiwgc3RhdGVzID0gd2VhdGhlclN0YXRlcywgYnlyb3cgPSBieVJvdywgdHJhbnNpdGlvbk1hdHJpeCA9IHdlYXRoZXJNYXRyaXgsIG5hbWUgPSBcIldlYXRoZXJcIilcblxuXG4jIHJtYXJrb3ZjaGFpbjogRnVuY3Rpb24gdG8gc2FtcGxlIGZyb20gbWFya292Y2hhaW4gb3IgbWFya292Y2hhaW5MaXN0IG9iamVjdHMuXG53ZWF0aGVyc09mRGF5cyA8LSBybWFya292Y2hhaW4obiA9IDM2NSwgb2JqZWN0ID0gbWNXZWF0aGVyLCB0MCA9IFwic3VubnlcIilcbndlYXRoZXJzT2ZEYXlzWzE6MzBdIn0=
 
 The following user-defined function in Excel can be used to simulate
 random numbers from a discrete distribution.
@@ -1615,7 +1854,7 @@ goes bust.}
 \item
   \emph{Develop an Excel worksheet or create an R code to simulate 50 steps
   of the finite Markov chain of the random walk \(X_n\) given in
-  ExampleÂ~\protect\hyperlink{simpleRW}{ExampleÂ~12}. Repeat the simulation 10 times. How many of
+  Example \ref{exm:simpleRW}. Repeat the simulation 10 times. How many of
   your simulations end at 0.}
 \item
   \emph{Use the results from the simulations to estimate the mean and
@@ -1637,20 +1876,29 @@ states \(\{1,2\}\) has the following transition matrix
     b & 1-b   \\
     %\vdots & \vdots & \vdots  & \vdots \\
     %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-\end{bmatrix},\] where \(0 < a,b < 1.\)}
+\end{bmatrix},\]
+where \(0 < a,b < 1.\)}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   \emph{Use either Excel or R to estimate the long-term distribution of the
   Markov chain. (Hint: consider the \(n\)-step transition matrix for
   several increasing values of \(n\)). Comments on the results
   obtained.}
+\end{enumerate}
 
-  \emph{Later we will see that in many cases, a Markov chain exhibits a
-  long-term limiting behaviour. The chain settles down to an
-  equilibrium distribution, which is independent of its initial
-  state.}
+\textbf{Note}
+\emph{Later we will see that in many cases, a Markov chain exhibits a
+long-term limiting behaviour. The chain settles down to an
+equilibrium distribution, which is independent of its initial
+state.}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
 \item
   \emph{Use simulations to estimate the long-term probability that a Markov
   chain hits each of the states. (Hint: simulate the Markov chain 1000
@@ -1679,6 +1927,7 @@ For any \(i, j \in S\),
   \(i \rightarrow j\) and \(j \rightarrow i\).
 \end{itemize}
 
+\textbf{Note}
 Note that \(i \rightarrow j\) if and only if there exist states
 \(k_1, k_2, \ldots, k_r\) such that
 \[p_{ik_1} p_{k_1k_2} \ldots p_{k_r j}>0,\] i.e.~it is not necessary
@@ -1724,19 +1973,18 @@ Additional properties for a communication class are defined as follows:
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 \item
-  \emph{NCD system (Example \protect\hyperlink{NCD}{ExampleÂ~2}),}
+  \emph{NCD system (Example \ref{exm:NCD}),}
 \item
-  \emph{the health insurance system (Example
-  \protect\hyperlink{healthInsurance}{ExampleÂ~3}), and}
+  \emph{the health insurance system (Example \ref{exm:healthInsurance}), and}
 \item
-  \emph{a simple random walk (Example
-  \protect\hyperlink{simpleRW}{ExampleÂ~12}),}
+  \emph{a simple random walk (Example \ref{exm:simpleRW}),}
 \end{enumerate}
 
 \emph{Identify the communication classes. Is the Markov chain irreducible?}
 
 \end{example}
 
+\textbf{Solution:}
 It is a good practice to use transition diagram and also verify the
 answers.
 
@@ -1793,6 +2041,7 @@ the following transition matrix: \[P = \begin{bmatrix}
 
 \end{example}
 
+\textbf{Solution:}
 There are two closed classes \(C_1 = \{1\}\) and \(C_2 = \{4,5\}\) and one
 non-closed class \(O = \{ 2,3\}\). This is because
 
@@ -1850,6 +2099,7 @@ following Markov chain.
 
 \end{example}
 
+\textbf{Solution:}
 The classes and types are as follows:
 
 \begin{itemize}
@@ -1882,6 +2132,7 @@ and 2, and using the Markov property, the law of total probability gives
 Solving for \(u_1\) gives
 \[u_1 =  u^{C_1}_1 = \frac{p_{10}}{1 - p_{11}} = \frac{p_{10}}{p_{10} +  p_{12}}.\]
 
+\textbf{Note}
 Similarly, we have \[\begin{aligned}
     u_0 &= p_{00} \cdot u_0 + p_{01} \cdot  u_1 +  p_{02} \cdot  u_2 \\
     u_1 &= p_{10} \cdot  u_0 + p_{11} \cdot  u_1 + p_{12} \cdot  u_2  \\ 
@@ -1913,6 +2164,7 @@ and \(u^{C_2}_2\). Comment on these results.}
 
 \end{example}
 
+\textbf{Solution:}
 For the closed class \(C_2\), we proceed in the same way as in the closed
 class \(C_1\). Let \(\mathbf{u}=\mathbf{u}^{C_{2}} = (u_0,u_1,u_2)^T\) be
 the vector of absorption probabilities in the closed class \(C_{2}=\{2\}\)
@@ -1923,14 +2175,17 @@ with \(u_0 = 0\) and \(u_2 =1\). It follows that \[\begin{aligned}
 should be emphasised that
 \[\mathbf{u}^{C_1} + \mathbf{u}^{C_2} = \mathbf{1} .\]
 
+\textbf{Notes}
+1. For any initial state \(i\), the sum of the absorption probabilities
+over all closed classes is 1 (as verified in Example
+\protect\hyperlink{absorption}{ExampleÂ~19}). In particular, when a Markov chain has two
+closed classes \(C_1\) and \(C_2\),
+\(\mathbf{u}^{C_2} = \mathbf{1} - \mathbf{u}^{C_1}\).
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\item
-  For any initial state \(i\), the sum of the absorption probabilities
-  over all closed classes is 1 (as verified in Example
-  \protect\hyperlink{absorption}{ExampleÂ~19}). In particular, when a Markov chain has two
-  closed classes \(C_1\) and \(C_2\),
-  \(\mathbf{u}^{C_2} = \mathbf{1} - \mathbf{u}^{C_1}\).
+\setcounter{enumi}{1}
+\tightlist
 \item
   In the case when \(S\) is finite or when the set of states in
   non-closed classes is finite, the vector \(\mathbf{u}\) is the unique
@@ -1940,13 +2195,13 @@ should be emphasised that
 \begin{example}
 \protect\hypertarget{exm:unlabeled-div-24}{}\label{exm:unlabeled-div-24}
 
-\emph{Consider the Markov chain defined in Example
-\protect\hyperlink{exampleMC}{ExampleÂ~17}.
+\emph{Consider the Markov chain defined in Example \ref{exm:exampleMC}.
 Find the absorption probabilities in the closed class \(C_1 = \{1\}\) and
 \(C_2 = \{4,5\}\).}
 
 \end{example}
 
+\textbf{Solution:}
 Here \(C_{1}=\{1\}\) and \(C_{2}=\{4,5\}\) are closed classes and
 \(0 = \{2,3\}\) is an open class.
 
@@ -1970,7 +2225,7 @@ closed classes,
 
 The expected time to absorption can be determined by analysing all
 possibilities occurring in the first step. We again consider the process
-defined in Example \protect\hyperlink{eg_absorption}{ExampleÂ~18} on the set \(\{0, 1, 2\}\) with the transition
+defined in Example @ref(exm:eg\_absorption) on the set \(\{0, 1, 2\}\) with the transition
 matrix \[P = \begin{bmatrix}
     1 & 0 & 0    \\
     p_{10} & p_{11} & p_{12}   \\
@@ -2022,6 +2277,7 @@ the absorption probabilities and the mean time to absorption.}
 
 \end{example}
 
+\textbf{Solution:}
 There are 2 closed classes including \(C_1= \{ 0 \}\), and \(C_2= \{ 3 \}\),
 and one non-closed class \(O = \{1,2 \}\). Here,
 \[u_i = u_i^{C_1} = \Pr\{ X_T = 0 | X_0 = i  \} = \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = i), \text{ for } i = 1,2\]
@@ -2093,15 +2349,17 @@ is \textbf{stationary} if the following conditions hold (here
   \(\sum_{j \in S} \pi_j = 1\).
 \end{enumerate}
 
+\textbf{Notes}
+1. For any stationary distribution \(\boldsymbol{\pi}\), for all
+\(n \ge 1\), \[\boldsymbol{\pi}  P^n  =\boldsymbol{\pi}.\] Therefore,
+if we take \(\boldsymbol{\pi}\) as the initial probability
+distribution, i.e.~\(\Pr(X_0 = i) = \pi_i\), then then the
+distribution of \(X_n\) is also \(\boldsymbol{\pi}\) , i.e.
+\(\Pr(X_n = i) = \pi_i\)
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\item
-  For any stationary distribution \(\boldsymbol{\pi}\), for all
-  \(n \ge 1\), \[\boldsymbol{\pi}  P^n  =\boldsymbol{\pi}.\] Therefore,
-  if we take \(\boldsymbol{\pi}\) as the initial probability
-  distribution, i.e.~\(\Pr(X_0 = i) = \pi_i\), then then the
-  distribution of \(X_n\) is also \(\boldsymbol{\pi}\) , i.e.
-  \(\Pr(X_n = i) = \pi_i\)
+\setcounter{enumi}{1}
 \item
   The probability distribution \(\boldsymbol{\pi}\) is said to be an
   invariant probability distribution.
@@ -2149,6 +2407,8 @@ has the following transition matrix \[P = \begin{bmatrix}
 
 \end{example}
 
+\textbf{Solution:} The solutions can be found from the tutorial.
+
 \hypertarget{proportion-of-time-in-each-state}{%
 \subsection*{Proportion of Time in Each State}\label{proportion-of-time-in-each-state}}
 \addcontentsline{toc}{subsection}{Proportion of Time in Each State}
@@ -2187,7 +2447,7 @@ This result is known as Cesaro's lemma.
 \protect\hypertarget{exm:weatherExample2}{}\label{exm:weatherExample2}
 
 \emph{Recall from
-ExampleÂ~\protect\hyperlink{weather}{ExampleÂ~9},
+Example \ref{exm:weather},
 the simple weather pattern can be classified into three types including
 rainy (\(R\)), cloudy (\(C\)) and sunny (\(S\)). The weather is observed daily
 and can be modelled by the Markov transition matrix
@@ -2216,8 +2476,7 @@ equations can be discarded), together with the condition
 \begin{example}
 \protect\hypertarget{exm:unlabeled-div-25}{}\label{exm:unlabeled-div-25}
 
-\emph{For the NCD process in Example
-\protect\hyperlink{NCD}{ExampleÂ~2}, the Markov
+\emph{For the NCD process in Example \ref{exm:NCD}, the Markov
 chain has the following transition probability matrix
 \[P = \begin{bmatrix}
     1- p & p & 0    \\
@@ -2228,6 +2487,7 @@ chain.}
 
 \end{example}
 
+\textbf{Solution:}
 Denote the stationary probability distribution by
 \(\boldsymbol{\pi} = (\pi_1, \pi_2, \pi_3)\). From
 \(\boldsymbol{\pi} P =\boldsymbol{\pi}\) and
@@ -2247,20 +2507,16 @@ By discarding one of the equations and adding the condition that
 \(\pi_1, \pi_2, \pi_3\):
 \[\pi_1 = \frac{(p-1)^2}{p^2 - p + 1},  \quad \pi_2 = \frac{-p^2 + p}{p^2 - p + 1},  \quad \pi_3 = \frac{p^2}{p^2 - p + 1}.\]
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  In the above two examples, it can be shown that
-  \[\lim_{n \rightarrow \infty} p_{ij}^{(n)} = \pi_j > 0 , \text{ for }j \in S,\]
-  or, in terms of the Markov chain \(\{X_n\}\),
-  \[\lim_{n \rightarrow \infty} \Pr(X_n = j | X_0 = i) = \pi_j > 0, \text{ for }j \in S.\]
-  This means that in the long run (as \(n\rightarrow \infty\)), the
-  probability of finding Markov chain in state \(j\) is approximately
-  \(\pi_j\) \textbf{no matter in which state the chain began at time 0}. This
-  property holds for some Markov chains which satisfy \textbf{"certain
-  conditions"}.
-\end{enumerate}
+\textbf{Note}
+1. In the above two examples, it can be shown that
+\[\lim_{n \rightarrow \infty} p_{ij}^{(n)} = \pi_j > 0 , \text{ for }j \in S,\]
+or, in terms of the Markov chain \(\{X_n\}\),
+\[\lim_{n \rightarrow \infty} \Pr(X_n = j | X_0 = i) = \pi_j > 0, \text{ for }j \in S.\]
+This means that in the long run (as \(n\rightarrow \infty\)), the
+probability of finding Markov chain in state \(j\) is approximately
+\(\pi_j\) \textbf{no matter in which state the chain began at time 0}. This
+property holds for some Markov chains which satisfy \textbf{"certain
+conditions"}.
 
 \hypertarget{sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain}{%
 \section{Sufficient conditions for the long-run behaviour of a Markov chain}\label{sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain}}
@@ -2300,6 +2556,7 @@ distribution (given as an exercise).}
 
 \end{example}
 
+\textbf{Solution:}
 First we know that the entries of a stationary distribution sum to one.
 Suppose the contrary that there is a stationary distribution
 \(\boldsymbol{\pi}\) for the simple random walk. Then by spatial
@@ -2331,11 +2588,12 @@ Most Markov chains in applications are aperiodic.
 \protect\hypertarget{exm:unlabeled-div-28}{}\label{exm:unlabeled-div-28}
 
 \emph{Is the NCD system in
-ExampleÂ~\protect\hyperlink{NCD}{ExampleÂ~2}
+Example \ref{exm:NCD}
 aperiodic?}
 
 \end{example}
 
+\textbf{Solution:}
 The entire state space of the NCD system is a single class, and is
 necessarily closed. Note also that \(p_{00} > 0\) (and also \(p_{22} > 0\)),
 i.e.~the state 0 (and state 2) has an arrow back to itself.
@@ -2346,12 +2604,15 @@ length of time).
 Similarly, a return to state 1 is possible in \(2,3, \ldots\) steps.
 Therefore, the NCD system is aperiodic.
 
+\textbf{Notes}
+1. Periodicity is a class property, i.e.~all states in one class have
+the same period (or if \(i \leftrightarrow j\), then \(i\) and \(j\) have
+the same period).
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\item
-  Periodicity is a class property, i.e.~all states in one class have
-  the same period (or if \(i \leftrightarrow j\), then \(i\) and \(j\) have
-  the same period).
+\setcounter{enumi}{1}
+\tightlist
 \item
   The Markov chain \(\{X_n\}_{n\ge 0}\) is aperiodic if and only if
   there exists some \(n >0\) such that
@@ -2364,10 +2625,11 @@ Therefore, the NCD system is aperiodic.
 
 \emph{In the random walk model on a finite state space
 \(S = \{0,1,\ldots, N\}\) with absorbing boundaries in
-ExampleÂ~\protect\hyperlink{simpleRW}{ExampleÂ~12}, determine the period of each state.}
+Example \ref{exm:simpleRW}, determine the period of each state.}
 
 \end{example}
 
+\textbf{Solution:}
 The transition diagram and the transition matrix of the simple random
 walk with absorbing boundaries (states) are given as follows:
 
@@ -2387,10 +2649,11 @@ this state in any length of time).
 
 \emph{In the random walk model on an infinite state space
 \(S = \{\ldots,-2,-1,0,1,2, \ldots \}\) in
-ExampleÂ~\protect\hyperlink{rwInfiniteS}{ExampleÂ~25}, determine the period of each state.}
+Example \ref{exm:rwInfiniteS}, determine the period of each state.}
 
 \end{example}
 
+\textbf{Solution:}
 The entire state space is a single class. Note also that
 \(p^{(2n)}_{ii} > 0\) and \(p^{(2n+1)}_{ii} = 0\) for \(n = 1,2,\ldots\).
 Therefore each state in the random walk on an infinite set \(S\) is
@@ -2409,6 +2672,7 @@ the transition matrix is \[P = \begin{bmatrix}
 
 \end{example}
 
+\textbf{Solution:}
 The entire state space is a single class. Note also that
 \(p^{(2n)}_{ii} > 0\) and \(p^{(2n+1)}_{ii} = 0\) for \(n = 1,2,\ldots\).
 Therefore each state in the random walk on an infinite set \(S\) is
@@ -2428,29 +2692,31 @@ has the following transition matrix \[P = \begin{bmatrix}
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \emph{\protect\hypertarget{example1}{}{\[example1\]} Find the stationary
-  distribution(s) of this Markov chain.}
+  Find the stationary
+  distribution(s) of this Markov chain.*
 \item
   \emph{Describe the long-term behaviour of the Markov chain. Does the
   distribution of the chain tend to the stationary distribution(s)
-  found in \protect\hyperlink{example1}{\[example1\]}.}
+  found in 1.}
 \end{enumerate}
 
 \end{example}
 
+\textbf{Solution:}
+1. To find the stationary distribution
+\(\boldsymbol{\pi} = (\pi_{1}, \pi_{2})\), we need to solve
+\[\left(\pi_{1},  \pi_{2}\right) \begin{bmatrix}
+        0 & 1   \\
+        1 & 0   \\
+        %\vdots & \vdots & \vdots  & \vdots \\
+        %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+    \end{bmatrix} = \left(\pi_{1},  \pi_{2}\right),\] and
+\[\pi_{1} +  \pi_{2}  = 1.\] This gives
+\(\boldsymbol{\pi} = (1/2, 1/2).\)
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\item
-  To find the stationary distribution
-  \(\boldsymbol{\pi} = (\pi_{1}, \pi_{2})\), we need to solve
-  \[\left(\pi_{1},  \pi_{2}\right) \begin{bmatrix}
-      0 & 1   \\
-      1 & 0   \\
-      %\vdots & \vdots & \vdots  & \vdots \\
-      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-  \end{bmatrix} = \left(\pi_{1},  \pi_{2}\right),\] and
-  \[\pi_{1} +  \pi_{2}  = 1.\] This gives
-  \(\boldsymbol{\pi} = (1/2, 1/2).\)
+\setcounter{enumi}{1}
 \item
   There is an equal chance of being in either state. Note that for any
   initial probability distribution
@@ -2476,28 +2742,30 @@ has the following transition matrix \[P = \begin{bmatrix}
     2/3 & 1/3   \\
     %\vdots & \vdots & \vdots  & \vdots \\
     %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-\end{bmatrix},\] Answer the same questions as given in the Example
-\protect\hyperlink{exampleLongTerm}{ExampleÂ~30}}
+\end{bmatrix},\] Answer the same questions as given in the Example \ref{exm:exampleLongTerm}}
 
 \end{example}
 
+\textbf{Solution:}
+1. The process is finite and irreducible, so a unique stationary
+distribution exists. To find the stationary distribution
+\(\boldsymbol{\pi} = (\pi_{1}, \pi_{2})\), we need to solve
+\[\left(\pi_{1},  \pi_{2}\right) \begin{bmatrix}
+        1/3 & 2/3   \\
+        2/3 & 1/3   \\
+        %\vdots & \vdots & \vdots  & \vdots \\
+        %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+    \end{bmatrix} = \left(\pi_{1},  \pi_{2}\right),\] and
+\[\pi_{1} +  \pi_{2}  = 1.\] Solving the system of linear equations
+gives \(\boldsymbol{\pi} = (1/2, 1/2).\)
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\item
-  The process is finite and irreducible, so a unique stationary
-  distribution exists. To find the stationary distribution
-  \(\boldsymbol{\pi} = (\pi_{1}, \pi_{2})\), we need to solve
-  \[\left(\pi_{1},  \pi_{2}\right) \begin{bmatrix}
-      1/3 & 2/3   \\
-      2/3 & 1/3   \\
-      %\vdots & \vdots & \vdots  & \vdots \\
-      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-  \end{bmatrix} = \left(\pi_{1},  \pi_{2}\right),\] and
-  \[\pi_{1} +  \pi_{2}  = 1.\] Solving the system of linear equations
-  gives \(\boldsymbol{\pi} = (1/2, 1/2).\)
+\setcounter{enumi}{1}
+\tightlist
 \item
   The chain is aperiodic. Therefore, according to the results from
-  ExampleÂ~\protect\hyperlink{exampleStationary}{ExampleÂ~22}, if follows that
+  Example \ref{exm:exampleStationary}, if follows that
   \[\lim_{n \rightarrow \infty} p_{i1}^{(n)} = 1/2 > 0 , \text{ and }  \lim_{n \rightarrow \infty} p_{i2}^{(n)} = 1/2,\]
   which is independent of \(i\). This is contrast to the process given
   in ExampleÂ~\protect\hyperlink{exampleLongTerm}{ExampleÂ~30}, i.e.~the process in this example
@@ -3080,6 +3348,565 @@ three levels of discount:}
   \(P\). Moreover, given the most recent value \(X_n\), its future value
   \(X_{n+1}\) is independent of the past history
   \(X_0, X_1, \ldots, X_{n-1}\).
+\end{enumerate}
+
+\hypertarget{tutorial-2}{%
+\section{Tutorial 2}\label{tutorial-2}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  A Markov chain \(X_0, X_1, \ldots\) on states 1 ,2 ,3 has the
+  following transition matrix \[P = \begin{bmatrix}
+      0.5 & 0.3 & 0.2    \\
+      0.2 & 0.2 & 0.6  \\
+      0.3 & 0.2 &  0.5    \\
+      %\vdots & \vdots & \vdots  & \vdots \\
+      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+  \end{bmatrix}.\] The distribution of the initial random variable
+  \(X_0\) is \(\boldsymbol{\mu} = (0.3,0,3,0.4)\).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Draw a transition diagram for the chain.
+  \item
+    Determine \(\Pr(X_0 = 1, X_1 = 2, X_2 = 3).\)
+  \item
+    Determine \(\Pr(X_1 = 2, X_2 = 3 | X_0 = 1).\)
+  \item
+    Determine \(\Pr(X_{11} = 2, X_{12} = 3 | X_{10} = 1).\)
+  \item
+    Determine \(\Pr(X_2 = 3 | X_0 = 1).\)
+  \item
+    Determine \(\Pr(X_3 = 3 | X_1 = 1).\)
+  \item
+    Determine \(\Pr(X_2 = 3).\)
+  \item
+    Determine \(\mathrm{E}[X_2]\)
+  \end{enumerate}
+\item
+  A Markov chain \(X_0, X_1, \ldots\) on states 1 ,2 ,3 has the
+  following transition matrix \[P = \begin{bmatrix}
+      0 & 1/2 & 1/2   \\
+      1/3  & 1/3  & 1/3   \\
+      1/2  & 1/2  & 0    \\
+      %\vdots & \vdots & \vdots  & \vdots \\
+      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+  \end{bmatrix}.\] The process starts in states \(X_0 = 1\).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Draw a transition diagram for the chain.
+  \item
+    Determine \(\Pr(X_0 = 1, X_1 = 3, X_2 = 2).\)
+  \item
+    Determine \(\Pr(X_1 = 3, X_2 = 2 | X_0 = 1).\)
+  \item
+    Determine \(\Pr(X_2 = 2 | X_0 = 1).\)
+  \item
+    Determine \(\Pr(X_3 = 2 | X_1 = 1).\)
+  \item
+    Determine \(\Pr(X_2 = 2).\)
+  \end{enumerate}
+\item
+  A Markov chain \(X_0, X_1, \ldots\) on sates 1 ,2~has the following
+  transition matrix \[P = \begin{bmatrix}
+      1-a & a   \\
+      b & 1-b   \\
+      %\vdots & \vdots & \vdots  & \vdots \\
+      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+  \end{bmatrix},\] where \(0 < a,b < 1.\)
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Draw a transition diagram for the chain.
+  \item
+    the distribution of \(X_1\).
+  \item
+    Show that \[P^n = \frac{1}{a+b} \begin{bmatrix}
+        b & a   \\
+        b & a   \\
+        %\vdots & \vdots & \vdots  & \vdots \\
+        %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+    \end{bmatrix} +
+    \frac{(1-a-b)^n}{a+b} \begin{bmatrix}
+        a & -a   \\
+        -b & b   \\
+        %\vdots & \vdots & \vdots  & \vdots \\
+        %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+    \end{bmatrix}.\]
+  \item
+    Given that \(X_0 = 1\), what is the probability that in the long
+    run the system will be in state 1? (Hint: consider
+    \(\lim_{n \rightarrow \infty} \boldsymbol{\mu} P^n\))
+  \item
+    Given that \(X_0 = 1\), what is the probability that in the long
+    run the system will be in state 2?
+  \item
+    Given that \(X_0 = 2\), what is the probability that in the long
+    run the system will be in state 1?
+  \item
+    Given that \(X_0 = 2\), what is the probability that in the long
+    run the system will be in state 2?
+  \end{enumerate}
+\item
+  Let \(a\) be a constant and \(\xi_1, \xi_2, \ldots\) be a sequence of
+  independent and identically distributed (i.i.d.) random variables.
+  The stochastic process \(\{ X_n\}\) is defined by
+  \[X_0 = a, \quad X_n = X_{n-1} + \xi_n, \, n > 1.\] This process is
+  known as a random walk.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Express the state \(X_n\) in terms of \(X_0\) and the random
+    variables \(\xi_i, i = 1,2 \ldots\).
+  \item
+    Find \(\mathrm{E}[X_n]\) and \(\mathrm{Var}[X_n]\).
+  \item
+    Does the process have the Markov property? Explain.
+  \item
+    Is the process stationary? Explain.
+  \end{enumerate}
+\item
+  Consider a homogeneous discrete-time Markov chain that describes the
+  daily weather pattern. The weather patterns are classified into 3
+  conditions: R(rainy), C (cloudy) and S(sunny). Based on the daily
+  observations, the following information are given:
+
+  \begin{itemize}
+  \item
+    On any rainy day, the probability that it will rain the next day
+    is 0.7; the probability that tomorrow will be cloudy is 0.2 and
+    the probability that tomorrow will be sunny is 0.1.
+  \item
+    On any cloudy day, the probability that it will rain the next
+    day is 0.5; the probability that tomorrow will be cloudy is 0.35
+    and the probability that tomorrow will be sunny is 0.15.
+  \item
+    On any sunny day, the probability that it will rain the next day
+    is 0.1; the probability that tomorrow will be cloudy is 0.4 and
+    the probability that tomorrow will be sunny is 0.5.
+  \end{itemize}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Draw a transition diagram for the chain and write down a
+    transition matrix.
+  \item
+    Find the probability that tomorrow is cloudy and the day after
+    is rainy, given that it is sunny today.
+  \item
+    Given that today is rainy, find the probability that it will be
+    sunny in two days time.
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{tutorial-3}{%
+\section{Tutorial 3}\label{tutorial-3}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  A Markov chain \(X_0, X_1, \ldots\) on states 1, 2, 3 with initial
+  distribution \(\boldsymbol{\mu} = (1/4,1/4,1/2)\). It has the
+  following transition matrix \[P = \begin{bmatrix}
+      1/2 & 1/4 & 1/4   \\
+      1/3  & 1/3  & 1/3   \\
+      1/5  & 2/5  & 2/5    \\
+      %\vdots & \vdots & \vdots  & \vdots \\
+      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+  \end{bmatrix}.\] Compute the following probabilities:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    \(\Pr(X_{11} = 1, X_{12} = 2, X_{13} = 3 | X_{10} = 1).\)
+  \item
+    \(\Pr(X_0 = 3, X_1 = 2 , X_2 = 1).\)
+  \item
+    \(\Pr(X_1 = 3, X_2 = 2 , X_3 = 1).\)
+  \item
+    \(\Pr(X_{1} = 2, X_{3} = 2, X_{5} = 2).\)
+  \end{enumerate}
+\item
+  A Markov chain with state space \(S = \{1,2,3,4,5,6\}\) has the
+  following transition matrix: \[P = \begin{bmatrix}
+  1/4 & 0 & 3/4 & 0 & 0 & 0  \\
+  0 & 0 & 0 & 1 & 0 & 0  \\
+  0 & 0 & 1/2 & 0 & 0 & 1/2  \\
+  1/5 & 1/5 & 1/5 & 0 & 1/5 & 1/5   \\
+  0 & 0 & 0 & 0 & 1 & 0  \\
+  1/3 & 0 & 0 & 0 & 0 & 2/3  \\
+      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+  \end{bmatrix}.\]
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Draw a transition diagram.
+  \item
+    Identify the communication classes and classify them as closed
+    or non-closed.
+  \item
+    Is the Markov chain irreducible?
+  \end{enumerate}
+\item
+  For each of the Markov chains whose
+  transition matrix is given below, identify the closed classes and
+  the vector of absorption probabilities associated with each of these
+  closed classes. Assume that the states are labelled \(1,2,3 \ldots\).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    \[\begin{bmatrix}
+            1/6 & 0 & 1/3 & 1/2      \\
+            0 & 1/3 & 2/3 & 0   \\
+        1/2 & 1/2 & 0 & 0     \\    
+        0 & 0 & 1/4 & 3/4     \\
+    \end{bmatrix}.\]
+  \item
+    \[\begin{bmatrix}
+            0 & 1/4 & 3/4 & 0      \\
+            0 & 1/3 & 0 & 2/3   \\
+        1/3 & 0 & 1/3 & 1/3     \\  
+        0 & 0 & 0 & 1     \\
+    \end{bmatrix}.\]
+  \item
+    \[\begin{bmatrix}
+           1/4 & 1/4 & 1/4 & 1/4      \\
+           0 & 3/4 & 1/4 & 0   \\
+           0 & 3/4 & 1/4 & 0   \\
+       0 & 0 & 0 & 1     \\
+         \end{bmatrix}.\]
+  \item
+    \[\begin{bmatrix}
+           0 & 0 & 0 & 1/2  & 0 & 0 & 1/2   \\
+           1/6 & 0 & 1/6 & 0  & 0 & 1/6 & 1/2 \\
+       0 & 0 & 1 & 0 & 0 & 0 & 0    \\ 
+           1/2 & 0 & 0 & 1/2  & 0 & 0 & 0   \\
+       1/4 & 1/4 & 0 & 0  & 0 & 0 & 1/2 \\
+       0 & 1 & 0 & 0 & 0 & 0 & 0    \\ 
+           1/2 & 0 & 0 & 0  & 0 & 0 & 1/2   \\
+         \end{bmatrix}.\]
+  \end{enumerate}
+\item
+  If the Markov chain defined in Question 3 is irreducible,
+  i.e.~it has a unique stationary distribution, then find the
+  stationary distribution of the chain.
+\item
+  Assume that a Markov chain has more than one closed classes (say \(r\)
+  closed classes). The Markov chain can \textbf{have many stationary
+  distributions}. Assume further that within each of these \(r\) closed
+  classes, the associated Markov chain is aperiodic. The followings
+  hold:
+
+  \begin{itemize}
+  \item
+    Within a closed class \(C_1\), let \(P_1\) be a reduction of a
+    matrix \(P\) which is formed by deleting all rows and columns
+    corresponding to states from other classes. Then there exists a
+    unique stationary distribution, denoted by
+    \(\{\pi_j^{(1)}\}_{j \in C_1}.\)
+  \item
+    Similarly, let
+    \(\{\pi_j^{(2)}\}_{j \in C_2}, \ldots, \{\pi_j^{(r)}\}_{j \in C_r}\)
+    be stationary distributions within other classes.
+  \end{itemize}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Show that for any numbers \(\gamma_1, \gamma_2, \ldots, \gamma_r\)
+    such that \(\sum_{m=1}^r \gamma_m = 1\), the following
+    distribution \(\{ \pi_j \}\) is stationary, where
+  \end{enumerate}
+
+  \begin{equation} 
+    \label{eq:limitdist}
+      \pi_j =
+       \begin{cases}
+          \pi_j^{(k)} \gamma_k & \text{for } j \in C_k, \, k= 1,\ldots, r \\
+          0 & \text{if } j \text{ is in a nonclosed class.}
+        \end{cases}
+      \end{equation}
+  (In particular, any stationary distribution of the Markov chain is of this form.)
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \setcounter{enumii}{1}
+  \item
+    Write down the general form of stationary distributions of the
+    Markov chain in Questions 3.3 and 3.4.
+  \item
+    Now we will focus on limiting distributions. Consider the three
+    following possible cases.
+
+    \begin{enumerate}
+    \def\labelenumiii{\arabic{enumiii}.}
+    \item
+      If \(X_0 = i\) and \(i \in C_k\) for some closed class \(C_k\),
+      then verify that the limiting distribution is defined as in Eqn.\eqref{eq:limitdist} where \(\gamma_k =1\) and
+      \(\gamma_m = 0,\) for \(m \neq k\).
+    \item
+      If \(X_0 = i\) and \(i\) is in a nonclosed class, then verify
+      that the limiting distribution is defined as in
+      Eqn.\eqref{eq:limitdist} where \(\gamma_k = \alpha^{(k)}_i\)
+      for \(k = 1,2,\ldots r\) where \(\alpha^{(k)}_i\) is the
+      probability of absorption in class \(C_k\). More precisely,
+      \[\pi_j =
+       \begin{cases}
+          \pi_j^{(k)} \alpha^{(k)}_i & \text{for } j \in C_k, \, k= 1,\ldots, r \\
+          0 & \text{if } j \text{ is in a nonclosed class.}
+        \end{cases}
+            %\pi_j^{(k)} \gamma_k \text{ for } j \in C_k, \, k= 1,\ldots, r \text { and }
+      \]
+    \item
+      If \(X_0\) is random, then this will leave as extra exercise.
+      (Hint: you may need to apply first step anslysis)
+    \end{enumerate}
+  \end{enumerate}
+\item
+  A no-claims discount system for motor insurance has four levels of
+  discount:
+
+  \begin{longtable}[]{@{}ccccc@{}}
+  \toprule
+  Level & 1 & 2 & 3 & 4 \\
+  \midrule
+  \endhead
+  Discount & 0\% & 10\% & 30\% & 50\% \\
+  \bottomrule
+  \end{longtable}
+
+  The rules for moving between these levels are given as follows:
+
+  \begin{itemize}
+  \item
+    Following a claim-free year, move to the next higher level, or
+    remain at level 4.
+  \item
+    Following a year with one claim, move to the next lower level,
+    or remain at level 1.
+  \item
+    Following a year with two or more claims, move down two levels,
+    or move to level 1 (from level 2), or remain at level 1.
+  \end{itemize}
+
+  A portfolio consists of 10,000 policyholders. Suppose also that the
+  number of claims per year is \(\vpoisson{0.1}\).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Calculate \(\Pr[N = 0]\), \(\Pr[N = 1]\), and \(\Pr[N \ge 2]\) for
+    each group.
+  \item
+    Write down the transition probability matrix of this no-claims
+    discount system.
+  \item
+    Find the probability that a policyholder who has the 30\%
+    discount has no discount after 2 years.
+  \item
+    Calculate the expected number of policyholders at each level at
+    times 1 and 2, assuming no exits.
+  \item
+    Calculate the expected number of policyholders at each level
+    once stability has been achieved, assuming no exits.
+  \end{enumerate}
+\item
+  A no-claims discount system for motor insurance has four levels of
+  discount:
+
+  \begin{longtable}[]{@{}ccccc@{}}
+  \toprule
+  Level & 1 & 2 & 3 & 4 \\
+  \midrule
+  \endhead
+  Discount & 0\% & 20\% & 30\% & 50\% \\
+  \bottomrule
+  \end{longtable}
+
+  The rules for moving between these levels are given as follows:
+
+  \begin{itemize}
+  \item
+    For a claim-free year, a policyholder moves to the next higher
+    level, or remains at level 4.
+  \item
+    For every claim in a year, the policyholder moves down a
+    discount level or remains at level 1, for example if the
+    policyholder is in level 4 and has one accident, he/she moves to
+    level 3, and 2 accidents, he/she moves to level 2, and 2 or more
+    accidents to level 1.
+  \end{itemize}
+
+  For a given policyholder, the number of claims each year, \(N\), has a
+  negative binomial distribution with parameters \(k=2\) and \(p = 0.5\).
+
+  Note that a random variable \(N\) has a negative distribution with
+  parameters \(k\) and \(p\), denoted by \(N \sim \dnb\) if its probability
+  mass function is given by
+  \[f_N(n) = \Pr(N = n) = \frac{\Gamma(k+n)}{\Gamma(n+1)\Gamma(k)} p^k (1- p)^n \quad n = 0,1,2,\ldots.\]
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Draw a transition diagram for the chain.
+  \item
+    Write down the transition matrix of this no-claims discount
+    system.
+  \item
+    Find the probability that a policyholder who has the maximum
+    discount level will have 20\% discount after two years.
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{tutorial-4}{%
+\section{Tutorial 4}\label{tutorial-4}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Customers arrive in a shop according to a Poisson process of rate
+  \(\lambda = 4\). Let \(N(t)\) be the number of customers that have
+  arrived up to time \(t\). Determine the following probabilities,
+  conditional probabilities and expectations.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    \(\Pr(N(1) = 2).\)
+  \item
+    \(\Pr(N(1) = 2 \text{ and } N(3) = 6).\)
+  \item
+    \(\Pr(N(1) = 2 | N(3) = 6).\)
+  \item
+    \(\Pr(N(3) = 6 | N(1) = 2).\)
+  \item
+    \(\Pr(N(1) \le 2).\)
+  \item
+    \(\Pr(N(1) = 1 \text{ and } N(2) = 3).\)
+  \item
+    \(\Pr(N(1) \ge 2 | N(1) \ge 1).\)
+  \item
+    \(\mathrm{E}[N(2)]\)
+  \item
+    \(\mathrm{E}[N(1)^2]\)
+  \item
+    \(\mathrm{E}[N(1)N(2)]\)
+  \end{enumerate}
+\item
+  Customers arrive in a shop according to a Poisson process of rate
+  \(\lambda = 4\) per hour. The shop opens at 9 am. Calculate the
+  probability that exactly one customer has arrived by 9.30 am and a
+  total of five customers have arrived by 11.30.
+\item
+  Defects occur along a cable according to a Poisson process of rate
+  \(\lambda = 0.1\) per kilometre.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Calculate the probability that no defects appear in the first
+    two kilometres of cable.
+  \item
+    Given that there are no defects in the first two kilometres of
+    cable, calculate the probability of no defects between two and
+    three kilometres of cable.
+  \end{enumerate}
+\item
+  Customers arrive at a department store according to a Poisson
+  process with rate \(\lambda = 2\) per minute.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Calculate the probability that in a given 5 minute period there
+    will be no customers arriving?
+  \item
+    Calculate the probability that the 10th customer after 11 am
+    will arrive before 11:05 am?
+  \item
+    If a third of customers are men, calculate the probability that
+    in a 5 minute period more than 3 men arrive given more than 4
+    women arrive.
+  \item
+    If every 5th customer receives a discount voucher, calculate the
+    distribution of the times between these vouchers being given
+    out? What is the probability that a time longer
+  \end{enumerate}
+\item
+  You have a bird table in your garden which attracts tailorbirds and
+  pigeons. Tailorbirds arrive according to a Poisson process with rate
+  \(\lambda_1\) and the pigeons arrive according to a Poisson process
+  with rate \(\lambda_2\).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    How long does it take for the first bird to arrive after a fixed
+    point in time?
+  \item
+    Calculate the probability this bird is a tailorbird?
+  \item
+    What is the distribution of the number of birds in the time
+    interval \([t_1, t_2)\)?
+  \item
+    Calculate the probability that exactly 3 tailorbirds arrive
+    before the first pigeon after a fixed point in time?
+  \end{enumerate}
+\item
+  Let \(X\) and \(Y\) be independent Poisson distributed random variables
+  with parameters \(\lambda_X\) and \(\lambda_Y\), respectively. Determine
+  the conditional distribution of \(X\), given that \(N = X + Y = n\).
+\item
+  Accidents occur on an highway according to a Poisson process at the
+  rate of 20 accidents per week. One out of four accidents involve
+  speeding.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    What is the probability that ten accidents involving speeding
+    will occur next week?
+  \item
+    What is the probability that at least one accident occurs
+    tomorrow?
+  \item
+    If sixty accidents occur in four weeks, what is the probability
+    that less than half of them involve speeding?
+  \end{enumerate}
+\item
+  Severe floods hit a southern of Thailand according to a Poisson
+  process with \(\lambda = 4\). The number of insurance claims filed
+  after any sever flood has a Poisson distribution with mean 60. The
+  number of server floods is independent of the number of insurance
+  claims. Find the expectation and standard deviation of the total
+  number of claims filed by time \(t\).
+\item
+  Assume that births occur at a hospital at the average rate of 3
+  births per hour. Assume that the probability that any birth is a boy
+  is 0.52.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    On an 8-hour shift, what is the expectation and standard
+    deviation of the number of male births?
+  \item
+    Assume that ten babies were born yesterday. Find the probability
+    that six are boys.
+  \item
+    Find the probability that only boys were born between 6 and 10
+    a.m.
+  \end{enumerate}
 \end{enumerate}
 
 \hypertarget{applications}{%

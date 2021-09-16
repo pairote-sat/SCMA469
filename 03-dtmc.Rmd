@@ -30,6 +30,7 @@ subset of non-negative integers, i.e. $S  \subseteq \{0, 1,  \ldots \}$.
 *A process with independent increments has the Markov
 property.*
 :::
+**Solution:**
 
 Recall the following definitions. An increment of a process is the
 amount by which its value changes over a period of time, for e.g.
@@ -40,13 +41,14 @@ and every $u > 0$, the increment $X_{t +u} - X_t$ is independent of all
 the past of the process $\{X_s : 0 \le s \le t \}$).
 
 In order to show that a process with independent increments has the
-Markov property, we proceed as follows: $$\begin{aligned}
-\Pr(X_t \in A | X_{s_1} = x_1, X_{s_2} = x_2, \ldots, X_{s} = x) 
-&= \Pr(X_t - X_s + x \in A | X_{s_1} = x_1, X_{s_2} = x_2, \ldots, X_{s} = x) \\
+Markov property, we proceed as follows: for all times $s_1 < s_2 < \ldots < s_n < s < t$ 
+$$\begin{aligned}
+\Pr(X_t \in A | X_{s_1} = x_1, X_{s_2} = x_2, \ldots, X_{s_n} = x_n ,X_{s} = x) 
+&= \Pr(X_t - X_s + x \in A | X_{s_1} = x_1, X_{s_2} = x_2, \ldots, X_{s_n} = x_n, X_{s} = x) \\
 &= \Pr(X_t - X_s + x \in A |  X_{s} = x)  \text{(by independence of the past)} \\
 &= \Pr(X_t  \in A |  X_{s} = x).\end{aligned}$$
 
-The random walk process has the Markov property.
+**Note** The random walk process has the Markov property.
 
 ## One-step transition probabilities
 
@@ -76,7 +78,7 @@ $$\ 0 \le p_{ij} \le 1, \quad \text{ and } \quad \sum_{j \in S}p_{ij} = 1,$$
 for all $i,j \in S.$ A matrix that satisfies these properties is called
 a **stochastic matrix**.
 
-::: {#NCD .example}
+::: {.example #NCD }
 *No claims discount (NCD) policy: Let $X_n$ be the
 discount status of a policyholder at time $n$. There are three levels of
 discount, i.e. $S = \{0,1,2\}$ corresponding to three discount levels of
@@ -118,7 +120,7 @@ figure.*
 Later we will apply matrix algebra to compute these types of
 probabilities and long-term probabilities.
 
-::: {#healthInsurance .example}
+::: {.example #healthInsurance }
 *In a health insurance system, at the end of each day an
 insurance company classifies policyholders as Healthy, Sick or Dead,
 i.e. $S = \{H, S, D\}$. The following transition matrix $P$ for a
@@ -142,9 +144,9 @@ show that
 $$\Pr(X_0 = i_0, X_1 = i_1, X_2 = i_2, \ldots, X_n = i_n) = \mu_{i_0}\, p_{i_0i_1} \cdots \, p_{i_{n-2} i_{n-1}}\, p_{i_{n-1} i_n},$$
 where $\boldsymbol{\mu} = \boldsymbol{\mu}^{(0)}$ is the distribution of
 initial random variable $X_0$, i.e. $\mu_i = \Pr(X_0 = i)$ (the
-probability mass function of $X_0$.)*
+probability mass function of $X_0$).*
 :::
-
+**Solution:**
 $$\begin{aligned}
  &\Pr(X_0 = i_0, X_1 = i_1, \ldots, X_n = i_n) \\
   &= \Pr(X_0 = i_0, X_1 = i_1, \ldots, X_{n-1} = i_{n-1}) \cdot \Pr(X_n = i_n | X_0 = i_0, X_1 = i_1, \ldots, X_{n-1} = i_{n-1})\\
@@ -154,13 +156,13 @@ $$\begin{aligned}
   &= \mu_{i_0}\, p_{i_0i_1} \cdots \, p_{i_{n-2} i_{n-1}}\, p_{i_{n-1} i_n}.
   \end{aligned}$$
 
-::: {#MKProperty1 .example}
+::: {.example #MKProperty1 }
 *Show that $$\begin{aligned}
 \Pr(X_{n+1} &= i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n, X_{n-1} = i_{n-1}, \ldots, X_0 = i_{0}) \\
             &= \Pr(X_{n+1} = i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n) \\
             &=  p_{i_{n} i_{n+1}} \cdots \, p_{i_{n+m-2} i_{n+m-1}}\, p_{i_{n+m-1} i_{n+m}}.\end{aligned}$$*
 :::
-
+**Solution:**
 $$\begin{aligned}
 &\Pr(X_{n+1} = i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n, X_{n-1} = i_{n-1}, \ldots, X_0 = i_{0}) \\
 &= \Pr(X_{n+1} = i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n) \\ 
@@ -170,14 +172,15 @@ $$\begin{aligned}
 &= \Pr( X_{n+m} = i_{n+m}| X_{n+m-1} = i_{n+m-1}) \cdots \Pr( X_{n+2} = i_{n+2}| X_{n + 1} = i_{n + 1}) \cdot p_{i_n i_{n+1}} \\ 
 &= p_{i_{n+m-1} i_{n+m}} \cdot p_{i_{n+m-2} i_{n+m-1}}   \cdots p_{i_n i_{n+1}} .\end{aligned}$$
 
-More general probabilities of the possible realisations of the process
+**Note** More general probabilities of the possible realisations of the process
 can be calculated by summing the probabilities of elementary elements of
 these forms.
 
 ::: {.example}
 *For the NCD system defined on the state space
-$S = \{0,1,2\}$ as given in
-ExampleÂ [ExampleÂ 2](#NCD){reference-type="ref" reference="NCD"}, suppose
+$S = \{0,1,2\}$ as given in Example \@ref(exm:NCD)
+<!-- ExampleÂ [ExampleÂ 2](#NCD){reference-type="ref" reference="NCD"} -->
+, suppose
 that the probability of a claim-free year $p = 3/4$, and the
 distribution of the initial discount rate
 $\boldsymbol{\mu}  = (0.5,0.3,0.2)$. Find the following:*
@@ -191,6 +194,7 @@ $\boldsymbol{\mu}  = (0.5,0.3,0.2)$. Find the following:*
 
 4.  $\Pr( X_{11} = 1, X_{12} = 0 | X_{10} = 2).$
 
+**Solution:**
 The corresponding transition matrix is $$P = \begin{bmatrix}
     1/4 & 3/4 & 0    \\
     1/4 & 0 & 3/4   \\
@@ -207,8 +211,8 @@ The corresponding transition matrix is $$P = \begin{bmatrix}
         &= \mu_3 p_{32} p_{21} = 0.2\cdot(1/4)\cdot(1/4) = 1/80.\end{aligned}$$
 
     Alternatively, it follows from
-    ExampleÂ [ExampleÂ 5](#MKProperty1){reference-type="ref"
-    reference="MKProperty1"} that,
+    Example \@ref(exm:MKProperty1)
+    that,
     $$\Pr(X_0 = 2, X_1 = 1, X_2 = 0) = \mu_3 p_{32} p_{21} = 0.2\cdot(1/4)\cdot(1/4) = 1/80.$$
 
 2.  $$\begin{aligned}
@@ -241,50 +245,45 @@ The corresponding transition matrix is $$P = \begin{bmatrix}
 <!-- The Chapman-Kolmogorov equations -->
 <!-- --------------------------------- -->
 
-##  The Chapman-Kolmogorov equations and $n$-step transition probabilities
+##  The Chapman-Kolmogorov equation and $n$-step transition probabilities
 
 
 The $n$-step transition probability denoted by $p^{(n)}_{ij}$ is the
 probability that the process goes from state $i$ to state $j$ in $n$
-transitions, i.e. $$p^{(n)}_{ij} = \Pr(X_{m+n} = j | X_m = i ).$$ Note
+  transitions, i.e. $$p^{(n)}_{ij} = \Pr(X_{m+n} = j | X_m = i ).$$ Note
 that for homogeneous process, the left hand side of the above equation
 does not depend on $m$. Suppose that the transition from state $i$ at
 time $m$ to state $j$ at time $m+n$ (i.e. in $n$ steps), going via state
 $k$ in $l$ steps. One needs to examine all possible paths (from $i$ to
-$k$ and then $k$ to $j$) and hence the $n$-step transition probability
+                                                           $k$ and then $k$ to $j$) and hence the $n$-step transition probability
 $p^{(n)}_{ij}$ can be expressed as the sum of the product of the
 transition probabilities $p^{(l)}_{ik} \, p^{(n-l)}_{kj}$.
 $$\begin{aligned}
- \label{Chapman}
-    p^{(n)}_{ij} = \sum_{k \in S}p^{(l)}_{ik} p^{(n-l)}_{kj}, \quad 0 < l < n  \end{aligned}$$
-To derive [\[Chapman\]](#Chapman){reference-type="eqref"
-reference="Chapman"}, we proceed as follows:
-
-$$\begin{aligned}
-    p^{(n)}_{ij} &= \Pr(X_n = j | X_0 = i) \\ 
-    &= \sum_{k \in S} \Pr(X_n = j , X_l = k | X_0 = i)    \\
-    &= \sum_{k \in S} \Pr(X_n = j | X_l = k , X_0 = i)  \cdot   \Pr(X_l = k |  X_0 = i) \\
-    &= \sum_{k \in S} \Pr(X_n = j | X_l = k )  \cdot   \Pr(X_l = k |  X_0 = i) \\
-    &= \sum_{k \in S}p^{(n-l)}_{kj} p^{(l)}_{ik} , = \sum_{k \in S}p^{(l)}_{ik} p^{(n-l)}_{kj}, \quad 0 < l < n . \end{aligned}$$
-
-This result is known as the Chapman-Kolmogorov equation. This relation
+p^{(n)}_{ij} = \sum_{k \in S}p^{(l)}_{ik} p^{(n-l)}_{kj}, \quad 0 < l < n  \end{aligned}$$
+  To derive the Chapman-Kolmogorov equation, we proceed as follows:
+  
+  $$\begin{aligned}
+p^{(n)}_{ij} &= \Pr(X_n = j | X_0 = i) \\ 
+&= \sum_{k \in S} \Pr(X_n = j , X_l = k | X_0 = i)    \\
+&= \sum_{k \in S} \Pr(X_n = j | X_l = k , X_0 = i)  \cdot   \Pr(X_l = k |  X_0 = i) \\
+&= \sum_{k \in S} \Pr(X_n = j | X_l = k )  \cdot   \Pr(X_l = k |  X_0 = i) \\
+&= \sum_{k \in S}p^{(n-l)}_{kj} p^{(l)}_{ik} , = \sum_{k \in S}p^{(l)}_{ik} p^{(n-l)}_{kj}, \quad 0 < l < n . \end{aligned}$$
+  
+  This result is known as the Chapman-Kolmogorov equation. This relation
 can be expressed in terms of matrix multiplication as
 $$P^n  = P^l P^{n-l}.$$ The $n$-**step transition probabilities**
-$p^{(n)}_{ij}$ are the $ij$ elements of $P^n$.
+  $p^{(n)}_{ij}$ are the $ij$ elements of $P^n$.
 
 ::: {.example}
-*For the NCD system given in
-ExampleÂ [ExampleÂ 2](#NCD){reference-type="ref" reference="NCD"}, suppose
-that $p = 3/4$, the probability of a claim-free year and the initial
-discount level of a policyholder is 1 (with 20% discount).*
+*For the NCD system given in Example \@ref(exm:NCD),
+<!-- ExampleÂ [ExampleÂ 2](#NCD){reference-type="ref" reference="NCD"},  -->
+  suppose that $p = 3/4$, the probability of a claim-free year and the initial
+  discount level of a policyholder is 1 (with 20% discount).*
 
-1.  *Calculate the probability of starting with a discount level of 20%
-    and ending up 3 years later at the same level.*
-
-2.  *Calculate the policyholder's expected level of discount after 3
-    years.*
+1. *Calculate the probability of starting with a discount level of 20% and ending up 3 years later at the same level.*
+2. *Calculate the policyholder's expected level of discount after 3 years.*
 :::
-
+**Solution:**
 The transition matrix is $$P = \begin{bmatrix}
     1/4 & 3/4 & 0    \\
     1/4 & 0 & 3/4   \\
@@ -306,13 +305,13 @@ The transition matrix is $$P = \begin{bmatrix}
     indices used) .
 
 2.  The policy's expected level of discount after 3 years is
-    $$\begin{aligned}
-    \mathrm{E}[X_3 | X_0 = 1] &= \sum_{j=0}^{2} j \cdot  \Pr(X_3 = j | X_0 = 1) \\
-    &= 0 \cdot (7/64) + 1 \cdot (3/16) + 2 \cdot (45/64)   \\
-    &= 51/32 = 1.59375.\end{aligned}$$
+  $$\begin{aligned}
+  \mathrm{E}[X_3 | X_0 = 1] &= \sum_{j=0}^{2} j \cdot  \Pr(X_3 = j | X_0 = 1) \\
+  &= 0 \cdot (7/64) + 1 \cdot (3/16) + 2 \cdot (45/64)   \\
+  &= 51/32 = 1.59375.\end{aligned}$$
+    
 
 ##  Distribution of $X_n$
-
 
 Let $\boldsymbol{\mu}^{(n)}$ be the vector of probability mass function
 of $X_n$, i.e. $$\boldsymbol{\mu}^{(n)} = (\mu_1, \mu_2, \ldots ),$$
@@ -321,22 +320,27 @@ $$\boldsymbol{\mu}^{(n+1)} = \boldsymbol{\mu}^{(n)} P$$ and, in general,
 $$\boldsymbol{\mu}^{(n+m)} = \boldsymbol{\mu}^{(n)} P^m.$$
 
 ::: {.example}
-1.  *Show that
-    $$Pr(X_1 = i) = \sum_{k \in S} \mu_k p_{ki} = ( \boldsymbol{\mu} P)_i,$$
-    which is the $i$th element of the vector $\boldsymbol{\mu} P.$ Here
-    $\boldsymbol{\mu} = \boldsymbol{\mu}^{0}$ is the distribution of
-    initial random variable $X_0$ with $\mu_i = \Pr(X_0 = i)$.*
+Consider the following questions:
 
-2.  *In general, show that the distribution of $X_n$ is given by
-    $$Pr(X_n = i) =  ( \boldsymbol{\mu} P^n)_i.$$*
+1. Show that
+$$Pr(X_1 = i) = \sum_{k \in S} \mu_k p_{ki} = ( \boldsymbol{\mu} P)_i,$$
+  which is the $i$th element of the vector $\boldsymbol{\mu} P.$ Here
+$\boldsymbol{\mu} = \boldsymbol{\mu}^{0}$ is the distribution of
+initial random variable $X_0$ with $\mu_i = \Pr(X_0 = i)$.
+
+2. In general, show that the distribution of $X_n$ is given by
+$$Pr(X_n = i) =  ( \boldsymbol{\mu} P^n)_i.$$
 :::
+**Solution:**
+
+
 
 1.  $$\begin{aligned}
         \Pr(X_1 = i) &= \sum_{k \in S} \Pr(X_1 = i | X_0 = k) \cdot \Pr(X_0 = k) \\
         &=  \sum_{k \in S} \mu_k \cdot p_{ki} \\
         &= ( \boldsymbol{\mu} P)_i.\end{aligned}$$
 
-::: {#weather .example}
+::: {.example #weather}
 *The simple weather pattern can be classified into three
 types including rainy ($R$), cloudy ($C$) and sunny ($S$). The weather
 is observed daily. The following information is provided.*
@@ -356,7 +360,7 @@ is observed daily. The following information is provided.*
 rain and a 60% chance of cloudy. Find the probability that it will sunny
 2 days later.*
 :::
-
+**Solution:**
 As the ordered state of the chain is $R, C, S$, the initial distribution
 is $\boldsymbol{\mu} = (0.4, 0.6, 0)$. The transition matrix $P$ is
 given by $$P = \begin{bmatrix}
@@ -388,12 +392,11 @@ From the above result, the joint probability is obtained from just the
 initial distribution $\boldsymbol{\mu}$ and the transition matrix $P$.
 
 ::: {.example}
-*In ExampleÂ [ExampleÂ 9](#weather){reference-type="ref"
-reference="weather"}, on Sunday, the chances of rain, cloudy and sunny
+*In Example \@ref(exm:weather), on Sunday, the chances of rain, cloudy and sunny
 have the same probabilities. Find the probability that it will be sunny
 on the following Wednesday and Friday, and cloudy on Saturday.*
 :::
-
+**Solution:**
 We are given that $\boldsymbol{\mu} = (1/3, 1/3, 1/3).$ From
 $$P^3 = \begin{bmatrix}
     0.645500 & 0.215500 & 0.139   \\
@@ -426,10 +429,10 @@ $i+1$. Suppose that given that $X_n = i$ at time $n$,*
 
 2.  *Show that the random walk has Markov property.*
 :::
-
+**Solution:**
 1.  The transition diagram and the transition matrix are infinite:
 
-    $$P = \begin{bmatrix}
+$$P = \begin{bmatrix}
         \ddots & \cdots & \cdots & \cdots & \cdots & \cdots  & \cdots    \\
         \cdots & q_{-1} & r_{-1}  & p_{-1}  & \cdots & \cdots  & \cdots  \\
         \cdots & \cdots & q_{0} & r_{0}  & p_{0}  & \cdots   & \cdots  \\
@@ -449,7 +452,7 @@ $i+1$. Suppose that given that $X_n = i$ at time $n$,*
                    0,       & \text{otherwise}.
                \end{cases}\end{aligned}$$
 
-::: {#simpleRW .example}
+::: {.example #simpleRW}
 *The random walk can be used to model the fortune of a
 gambler. The gambler bets per game and the probability of winning is $p$
 and the probability of losing is $q$ where $p + q = 1$. In addition, the
@@ -462,7 +465,7 @@ remaining states $1,2,\ldots,N-1$ are **transient**. Roughly speaking,
 if a state is known as transient if there is a possibility of leaving
 the state and never returning.*
 :::
-
+**Solution:**
 The transition diagram and the transition matrix of the simple random
 walk with absorbing boundaries (states) are given as follows:
 
@@ -479,9 +482,7 @@ $$P = \begin{bmatrix}
 
 1.  In general, a state $i$ is called **absorbing** if $p_{ii} = 1$
 
-2.  The simple random walk as given in Example
-    [ExampleÂ 12](#simpleRW){reference-type="ref" reference="simpleRW"}
-    can be modified so that whenever the process is in state 0 (or state
+2.  The simple random walk as given in Example \@ref(exm:simpleRW) can be modified so that whenever the process is in state 0 (or state
     $N$),
 
     -   the probability of remaining in state 0 is $\alpha$, and
@@ -501,7 +502,6 @@ discrete-time Markov chains are homogeneous.
 
 ::: {.example}
 *(Adapted from W.J.Stewart)
-[\[exampleStationary2\]]{#exampleStationary2 label="exampleStationary2"}
 A Markov chain $X_0, X_1, \ldots$ consists of two states $\{1,2\}$. At
 time step $n$, the probability that the Markov chain remains in its
 current state is given by $$p_{11}(n) = p_{22}(n) = 1/n,$$ while the
@@ -514,11 +514,11 @@ $$p_{12}(n) = p_{21}(n) = 1 - 1/n.$$*
 
 3.  *Calculate $\Pr(X_5 = 2, X_4 = 2, X_3 = 1, X_2 =1 | X_1 = 1)$.*
 :::
-
+**Solution:**
 1.  The transition diagram and the transition matrix are dependent of
     the time step $n$, and are given as follows:
 
-    $$P(n) = \begin{bmatrix}
+  $$P(n) = \begin{bmatrix}
         \frac{1}{n} & \frac{n-1}{n}   \\
         \frac{(n-1)}{n} & \frac{1}{n}   \\
         %\vdots & \vdots & \vdots  & \vdots \\
@@ -535,6 +535,8 @@ $$p_{12}(n) = p_{21}(n) = 1 - 1/n.$$*
     chain arrives in state 2 after four steps, the future evolution is
     specified by $P(5)$, and not any other $P(i), i \le 4$.
 
+
+
 ## Simulation
 
 
@@ -550,15 +552,17 @@ initial distribution. If $X_0 = i$, then simulate $X_1$ from the $i-th$
 row of the transition matrix. If $X_1 = j$, then simulate $X_2$ from the
 $j-th$ row of the transition matrix, and so on.
 
-    [frame=single, escapeinside={(*}{*)}, caption={Algorithm for Simulating a Markov Chain}]
-
+    <!-- [frame=single, escapeinside={(*}{*)}, caption={Algorithm for Simulating a Markov Chain}] -->
+    
+    Algorithm for Simulating a Markov Chain
+    
     Input: (i) initial distribution  (*$\boldsymbol{\mu}$*), (ii) transition matrix (*$P$*), (iii) number of steps (*$n$*).
     Output: (*$X_0, X_1, \ldots , X_n$*)
     Algorithm:
         Generate (*$X_0$*) according to (*$\boldsymbol{\mu}$*)
         FOR (*$i = 1, \ldots ,n$*)
             Assume that (*$X_{i-1} = j$*)
-            Set (*$\boldsymbol p = j-$*)th row of (*$P$*) 
+            Set (*$\boldsymbol p = j-$*)th row of (*$P$*)
             Generate (*$X_i$*) according to (*$\boldsymbol p$*)
         END FOR
 
@@ -586,14 +590,125 @@ $$\Pr(X \in A) = \mathrm{E}(1_A(X)).$$
 Using this equality, we can estimate $\Pr(X \in A)$ by
 $$\Pr(X \in A) = \mathrm{E}(1_A(X)) = \frac{1}{N}\sum_{i=1}^N 1_A(X_i).$$
 
-Recall that the indicator function of the set $A$ is the defined as
+Recall that the indicator function of the set $A$ is the defined as 
 
-$$1_A(x) =
-\begin{cases*}
-     1          & if $x \in A $ \\
-      0        & otherwise.
-\end{cases*}
-$$
+$$\begin{aligned}
+        1_A(x) &= 
+        \begin{cases}
+                   1,  & \text{if } x \in A\\               
+                   0,       & \text{otherwise}.
+               \end{cases}\end{aligned}$$
+
+
+The following user-defined function in Excel can be used to simulate
+random numbers from a discrete distribution.
+
+    <!-- [frame=single, escapeinside={(*}{*)}, caption={A user-defined function in Excel to simulate random numbers from a discrete distribution.  -->
+    <!-- }] -->
+
+<div class="verbatim">
+    A user-defined function in Excel to simulate random numbers from a discrete distribution.
+    Public Function Discrete(value As Variant, prob As Variant)
+
+    Dim i As Integer
+    Dim cumProb As Single
+    Dim uniform As Single
+    Randomize
+    'Randomize Statement
+    'Initializes the random-number generator.
+
+    Application.Volatile
+
+    ' This example marks the user-defined function Discrete as volatile.
+    ' The function will be recalculated when any cell in any workbook
+    ' in the application window changes value worksheet.
+
+    uniform = Rnd
+    cumProb = prob(1)
+    i = 1
+    Do Until cumProb > uniform
+        i = i + 1
+        cumProb = cumProb + prob(i)
+    Loop
+    Discrete = value(i)
+
+    End Function
+</div>
+
+
+
+
+
+```{r, include=FALSE}
+tutorial::go_interactive()
+```
+
+<script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
+
+```{r MC,  tut = FALSE, echo = TRUE}
+library(expm)
+library(markovchain)
+library(diagram)
+library(pracma)
+
+stateNames <- c("Rain","Nice","Snow")
+Oz <- matrix(c(.5,.25,.25,.5,0,.5,.25,.25,.5),
+             nrow=3, byrow=TRUE)
+row.names(Oz) <- stateNames; colnames(Oz) <- stateNames
+Oz
+
+
+
+plotmat(Oz,pos = c(1,2),
+        lwd = 1, box.lwd = 2,
+        cex.txt = 0.8,
+        box.size = 0.1,
+        box.type = "circle",
+        box.prop = 0.5,
+        box.col = "light yellow",
+        arr.length=.1,
+        arr.width=.1,
+        self.cex = .4,
+        self.shifty = -.01,
+        self.shiftx = .13,
+        main = "")
+
+
+Oz3 <- Oz %^% 3
+round(Oz3,3)
+
+
+u <- c(1/3, 1/3, 1/3)
+round(u %*% Oz3,3)
+```
+
+
+
+We can use R to generate sample paths of a Markov chain. We first load the library `markovchain` package. See [https://cran.r-project.org/web/packages/markovchain/vignettes/an_introduction_to_markovchain_package.pdf](https://cran.r-project.org/web/packages/markovchain/vignettes/an_introduction_to_markovchain_package.pdf) for more details. 
+
+
+<script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
+
+
+```{r MC2}
+library(markovchain)
+weatherStates <- c("sunny", "cloudy", "rain") 
+byRow <- TRUE
+weatherMatrix <- matrix(data = c(0.70, 0.2, 0.1,
+                                 0.3, 0.4, 0.3,
+                                 0.2, 0.45, 0.35), 
+                                 byrow = byRow, nrow = 3, dimnames = list(weatherStates, weatherStates))
+
+mcWeather <- new("markovchain", states = weatherStates, byrow = byRow, transitionMatrix = weatherMatrix, name = "Weather")
+
+
+# rmarkovchain: Function to sample from markovchain or markovchainList objects.
+weathersOfDays <- rmarkovchain(n = 365, object = mcWeather, t0 = "sunny")
+weathersOfDays[1:30]
+```
+
+
+
 
 The following user-defined function in Excel can be used to simulate
 random numbers from a discrete distribution.
@@ -626,6 +741,13 @@ random numbers from a discrete distribution.
 
     End Function
 
+
+
+
+
+
+
+
 ::: {.example}
 *(R or Excel) A gambler starts with and plays a game
 where the chance of winning each round is 60%. The gambler either wins
@@ -634,8 +756,7 @@ goes bust.*
 
 1.  *Develop an Excel worksheet or create an R code to simulate 50 steps
     of the finite Markov chain of the random walk $X_n$ given in
-    ExampleÂ [ExampleÂ 12](#simpleRW){reference-type="ref"
-    reference="simpleRW"}. Repeat the simulation 10 times. How many of
+    Example \@ref(exm:simpleRW). Repeat the simulation 10 times. How many of
     your simulations end at 0.*
 
 2.  *Use the results from the simulations to estimate the mean and
@@ -653,13 +774,15 @@ $$P = \begin{bmatrix}
     b & 1-b   \\
     %\vdots & \vdots & \vdots  & \vdots \\
     %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-\end{bmatrix},$$ where $0 < a,b < 1.$*
+\end{bmatrix},$$ 
+where $0 < a,b < 1.$*
 
 1.  *Use either Excel or R to estimate the long-term distribution of the
     Markov chain. (Hint: consider the $n$-step transition matrix for
     several increasing values of $n$). Comments on the results
     obtained.*
 
+**Note** 
     *Later we will see that in many cases, a Markov chain exhibits a
     long-term limiting behaviour. The chain settles down to an
     equilibrium distribution, which is independent of its initial
@@ -686,6 +809,7 @@ For any $i, j \in S$,
     the same class**, and denoted by $i \leftrightarrow j$, if
     $i \rightarrow j$ and $j \rightarrow i$.
 
+**Note** 
 Note that $i \rightarrow j$ if and only if there exist states
 $k_1, k_2, \ldots, k_r$ such that
 $$p_{ik_1} p_{k_1k_2} \ldots p_{k_r j}>0,$$ i.e. it is not necessary
@@ -718,20 +842,15 @@ Additional properties for a communication class are defined as follows:
 ::: {.example}
 *Consider each of the following Markov chains:*
 
-(a) *NCD system (Example [ExampleÂ 2](#NCD){reference-type="ref"
-    reference="NCD"}),*
+(a) *NCD system (Example \@ref(exm:NCD)),*
 
-(b) *the health insurance system (Example
-    [ExampleÂ 3](#healthInsurance){reference-type="ref"
-    reference="healthInsurance"}), and*
+(b) *the health insurance system (Example \@ref(exm:healthInsurance)), and*
 
-(c) *a simple random walk (Example
-    [ExampleÂ 12](#simpleRW){reference-type="ref"
-    reference="simpleRW"}),*
+(c) *a simple random walk (Example \@ref(exm:simpleRW)),*
 
 *Identify the communication classes. Is the Markov chain irreducible?*
 :::
-
+**Solution:**
 It is a good practice to use transition diagram and also verify the
 answers.
 
@@ -757,7 +876,7 @@ answers.
     $\{1,2, \ldots, N-1 \}$ is non-closed class, $\{0 \}$ and $\{N \}$
     are two closed classes.
 
-::: {#exampleMC .example}
+::: {.example #exampleMC}
 *A Markov chain with state space $S = \{1,2,3,4,5\}$ has
 the following transition matrix: $$P = \begin{bmatrix}
     1 & 0 & 0 & 0 & 0     \\
@@ -773,7 +892,7 @@ the following transition matrix: $$P = \begin{bmatrix}
 2.  *Identify the communication classes. Is the Markov chain
     irreducible?*
 :::
-
+**Solution:**
 There are two closed classes $C_1 = \{1\}$ and $C_2 = \{4,5\}$ and one
 non-closed class $O = \{ 2,3\}$. This is because
 
@@ -814,7 +933,7 @@ of total probability to formulate equations involved all unknown
 quantities. We illustrate how to use the first step analysis in the
 following Markov chain.
 
-::: {#eg_absorption .example}
+::: {.example #eg_absorption}
 *Consider the Markov chain with state space
 $S = \{0,1,2\}$ and transition probability matrix given by
 $$P = \begin{bmatrix}
@@ -824,7 +943,7 @@ $$P = \begin{bmatrix}
     %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
 \end{bmatrix}.$$*
 :::
-
+**Solution:**
 The classes and types are as follows:
 
 -   Two closed classes are $C_1 = \{0\}$ and $C_2 = \{2\}$.
@@ -854,6 +973,7 @@ $$\begin{aligned}
 Solving for $u_1$ gives
 $$u_1 =  u^{C_1}_1 = \frac{p_{10}}{1 - p_{11}} = \frac{p_{10}}{p_{10} +  p_{12}}.$$
 
+**Note** 
 Similarly, we have $$\begin{aligned}
     u_0 &= p_{00} \cdot u_0 + p_{01} \cdot  u_1 +  p_{02} \cdot  u_2 \\
     u_1 &= p_{10} \cdot  u_0 + p_{11} \cdot  u_1 + p_{12} \cdot  u_2  \\ 
@@ -877,7 +997,7 @@ system of linear equations:
 $C_2 = \{2\}$. Find the absorption probabilities $u^{C_2}_0, u^{C_2}_1$
 and $u^{C_2}_2$. Comment on these results.*
 :::
-
+**Solution:**
 For the closed class $C_2$, we proceed in the same way as in the closed
 class $C_1$. Let $\mathbf{u}=\mathbf{u}^{C_{2}} = (u_0,u_1,u_2)^T$ be
 the vector of absorption probabilities in the closed class $C_{2}=\{2\}$
@@ -888,6 +1008,7 @@ $u_1 = \frac{p_{12}}{1-  p_{11}} =\frac{p_{12}}{p_{10}+ p_{12}}$. It
 should be emphasised that
 $$\mathbf{u}^{C_1} + \mathbf{u}^{C_2} = \mathbf{1} .$$
 
+**Notes** 
 1.  For any initial state $i$, the sum of the absorption probabilities
     over all closed classes is 1 (as verified in Example
     [ExampleÂ 19](#absorption){reference-type="ref"
@@ -900,12 +1021,11 @@ $$\mathbf{u}^{C_1} + \mathbf{u}^{C_2} = \mathbf{1} .$$
     solution of the above system of linear equations.
 
 ::: {.example}
-*Consider the Markov chain defined in Example
-[ExampleÂ 17](#exampleMC){reference-type="ref" reference="exampleMC"}.
+*Consider the Markov chain defined in Example \@ref(exm:exampleMC).
 Find the absorption probabilities in the closed class $C_1 = \{1\}$ and
 $C_2 = \{4,5\}$.*
 :::
-
+**Solution:**
 Here $C_{1}=\{1\}$ and $C_{2}=\{4,5\}$ are closed classes and
 $0 = \{2,3\}$ is an open class.
 
@@ -929,8 +1049,7 @@ $\mathbf{u}^{C_2} = \mathbf{1} - \mathbf{u}^{C_1} = (0,7/11,6/11,1,1)^T.$
 
 The expected time to absorption can be determined by analysing all
 possibilities occurring in the first step. We again consider the process
-defined in Example [ExampleÂ 18](#eg_absorption){reference-type="ref"
-reference="eg_absorption"} on the set $\{0, 1, 2\}$ with the transition
+defined in Example \@ref(exm:eg_absorption) on the set $\{0, 1, 2\}$ with the transition
 matrix $$P = \begin{bmatrix}
     1 & 0 & 0    \\
     p_{10} & p_{11} & p_{12}   \\
@@ -957,7 +1076,7 @@ v &= 1 + p_{10} \cdot 0 + p_{11} \cdot v  + p_{12} \cdot 0    \\
   &= 1 +  p_{11} \cdot v,\end{aligned}$$ which results in
 $$v = \frac{1}{1 - p_{11}}.$$
 
-::: {#eg_absorption2 .example}
+::: {.example #eg_absorption2}
 *Consider the Markov chain with state space
 $S = \{0,1,2,3\}$ and transition probability matrix given by
 $$P = \begin{bmatrix}
@@ -974,7 +1093,7 @@ time to absorption of the process is given by
 $$v_i  = \mathrm{E}[T |  X_0 = 1 ] , \text{ for } i = 1,2.$$ Calculate
 the absorption probabilities and the mean time to absorption.*
 :::
-
+**Solution:**
 There are 2 closed classes including $C_1= \{ 0 \}$, and $C_2= \{ 3 \}$,
 and one non-closed class $O = \{1,2 \}$. Here,
 $$u_i = u_i^{C_1} = \Pr\{ X_T = 0 | X_0 = i  \} = \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = i), \text{ for } i = 1,2$$
@@ -1042,6 +1161,8 @@ $\boldsymbol{\pi}$ is a row vector):
 ```{=html}
 <!-- -->
 ```
+
+**Notes** 
 1.  For any stationary distribution $\boldsymbol{\pi}$, for all
     $n \ge 1$, $$\boldsymbol{\pi}  P^n  =\boldsymbol{\pi}.$$ Therefore,
     if we take $\boldsymbol{\pi}$ as the initial probability
@@ -1058,7 +1179,7 @@ $\boldsymbol{\pi}$ is a row vector):
     addition, $\pi_j$ also gives **the long run mean fraction of time**
     that the process $\{X_n\}$ is in state $j$.
 
-::: {#exampleStationary .example}
+::: {.example #exampleStationary }
 *A Markov chain $X_0, X_1, \ldots$ on states $\{1,2\}$
 has the following transition matrix $$P = \begin{bmatrix}
     1-a & a   \\
@@ -1086,6 +1207,7 @@ has the following transition matrix $$P = \begin{bmatrix}
 3.  *Show that
     $$\lim_{n \rightarrow \infty} p_{ij}^{(n)} = \pi_j > 0 , \text{ for }j \in \{1,2\}.$$*
 :::
+**Solution:** The solutions can be found from the tutorial.
 
 ### Proportion of Time in Each State {#proportion-of-time-in-each-state .unnumbered}
 
@@ -1121,7 +1243,7 @@ This result is known as Cesaro's lemma.
 
 ::: {#weatherExample2 .example}
 *Recall from
-ExampleÂ [ExampleÂ 9](#weather){reference-type="ref" reference="weather"},
+Example \@ref(exm:weather),
 the simple weather pattern can be classified into three types including
 rainy ($R$), cloudy ($C$) and sunny ($S$). The weather is observed daily
 and can be modelled by the Markov transition matrix
@@ -1145,8 +1267,7 @@ equations can be discarded), together with the condition
 $\sum_{j \in S} \pi_j = 1$.
 
 ::: {.example}
-*For the NCD process in Example
-[ExampleÂ 2](#NCD){reference-type="ref" reference="NCD"}, the Markov
+*For the NCD process in Example \@ref(exm:NCD), the Markov
 chain has the following transition probability matrix
 $$P = \begin{bmatrix}
     1- p & p & 0    \\
@@ -1155,7 +1276,7 @@ $$P = \begin{bmatrix}
 \end{bmatrix}.$$ Find the stationary probability distribution of this
 chain.*
 :::
-
+**Solution:**
 Denote the stationary probability distribution by
 $\boldsymbol{\pi} =  (\pi_1,  \pi_2, \pi_3)$. From
 $\boldsymbol{\pi}  P  =\boldsymbol{\pi}$ and
@@ -1175,6 +1296,7 @@ $\pi_1 +   \pi_2 +  \pi_3 = 1$, one can solve for
 $\pi_1,  \pi_2, \pi_3$:
 $$\pi_1 = \frac{(p-1)^2}{p^2 - p + 1},  \quad \pi_2 = \frac{-p^2 + p}{p^2 - p + 1},  \quad \pi_3 = \frac{p^2}{p^2 - p + 1}.$$
 
+**Note** 
 1.  In the above two examples, it can be shown that
     $$\lim_{n \rightarrow \infty} p_{ij}^{(n)} = \pi_j > 0 , \text{ for }j \in S,$$
     or, in terms of the Markov chain $\{X_n\}$,
@@ -1202,7 +1324,7 @@ one stationary probability distribution.*
 has a unique stationary probability distribution.*
 :::
 
-::: {#rwInfiniteS .example}
+::: {.example #rwInfiniteS }
 *The simple random walks $X_n$ on
 $S = \{\ldots, -2, -1, 0,1,2, \ldots \}$ is defined as
 $$X_n = X_0 + \xi_1 + \xi_2 + \ldots + \xi_n,$$ where the random
@@ -1213,7 +1335,7 @@ It can be checked directly from the equations
 $\boldsymbol{\pi}  P  =\boldsymbol{\pi}$ that there is **no** stationary
 distribution (given as an exercise).*
 :::
-
+**Solution:**
 First we know that the entries of a stationary distribution sum to one.
 Suppose the contrary that there is a stationary distribution
 $\boldsymbol{\pi}$ for the simple random walk. Then by spatial
@@ -1243,10 +1365,10 @@ Most Markov chains in applications are aperiodic.
 
 ::: {.example}
 *Is the NCD system in
-ExampleÂ [ExampleÂ 2](#NCD){reference-type="ref" reference="NCD"}
+Example \@ref(exm:NCD)
 aperiodic?*
 :::
-
+**Solution:**
 The entire state space of the NCD system is a single class, and is
 necessarily closed. Note also that $p_{00} > 0$ (and also $p_{22} > 0$),
 i.e. the state 0 (and state 2) has an arrow back to itself.
@@ -1257,6 +1379,7 @@ length of time).
 Similarly, a return to state 1 is possible in $2,3, \ldots$ steps.
 Therefore, the NCD system is aperiodic.
 
+**Notes** 
 1.  Periodicity is a class property, i.e. all states in one class have
     the same period (or if $i \leftrightarrow j$, then $i$ and $j$ have
     the same period).
@@ -1269,10 +1392,9 @@ Therefore, the NCD system is aperiodic.
 ::: {.example}
 *In the random walk model on a finite state space
 $S = \{0,1,\ldots, N\}$ with absorbing boundaries in
-ExampleÂ [ExampleÂ 12](#simpleRW){reference-type="ref"
-reference="simpleRW"}, determine the period of each state.*
+Example \@ref(exm:simpleRW), determine the period of each state.*
 :::
-
+**Solution:**
 The transition diagram and the transition matrix of the simple random
 walk with absorbing boundaries (states) are given as follows:
 
@@ -1290,10 +1412,9 @@ this state in any length of time).
 ::: {.example}
 *In the random walk model on an infinite state space
 $S = \{\ldots,-2,-1,0,1,2, \ldots \}$ in
-ExampleÂ [ExampleÂ 25](#rwInfiniteS){reference-type="ref"
-reference="rwInfiniteS"}, determine the period of each state.*
+Example \@ref(exm:rwInfiniteS), determine the period of each state.*
 :::
-
+**Solution:**
 The entire state space is a single class. Note also that
 $p^{(2n)}_{ii} > 0$ and $p^{(2n+1)}_{ii} = 0$ for $n = 1,2,\ldots$.
 Therefore each state in the random walk on an infinite set $S$ is
@@ -1308,7 +1429,7 @@ the transition matrix is $$P = \begin{bmatrix}
     1/2 & 0 & 1/2 & 0   \\
 \end{bmatrix}.$$ Determine the period of each state.*
 :::
-
+**Solution:**
 The entire state space is a single class. Note also that
 $p^{(2n)}_{ii} > 0$ and $p^{(2n+1)}_{ii} = 0$ for $n = 1,2,\ldots$.
 Therefore each state in the random walk on an infinite set $S$ is
@@ -1323,15 +1444,14 @@ has the following transition matrix $$P = \begin{bmatrix}
     %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
 \end{bmatrix},$$*
 
-1.  *[\[example1\]]{#example1 label="example1"} Find the stationary
+1.  Find the stationary
     distribution(s) of this Markov chain.*
 
 2.  *Describe the long-term behaviour of the Markov chain. Does the
     distribution of the chain tend to the stationary distribution(s)
-    found in [\[example1\]](#example1){reference-type="ref"
-    reference="example1"}.*
+    found in 1.*
 :::
-
+**Solution:**
 1.  To find the stationary distribution
     $\boldsymbol{\pi} = (\pi_{1},  \pi_{2})$, we need to solve
     $$\left(\pi_{1},  \pi_{2}\right) \begin{bmatrix}
@@ -1364,11 +1484,9 @@ has the following transition matrix $$P = \begin{bmatrix}
     2/3 & 1/3   \\
     %\vdots & \vdots & \vdots  & \vdots \\
     %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-\end{bmatrix},$$ Answer the same questions as given in the Example
-[ExampleÂ 30](#exampleLongTerm){reference-type="ref"
-reference="exampleLongTerm"}*
+\end{bmatrix},$$ Answer the same questions as given in the Example \@ref(exm:exampleLongTerm)*
 :::
-
+**Solution:**
 1.  The process is finite and irreducible, so a unique stationary
     distribution exists. To find the stationary distribution
     $\boldsymbol{\pi} = (\pi_{1},  \pi_{2})$, we need to solve
@@ -1382,8 +1500,7 @@ reference="exampleLongTerm"}*
     gives $\boldsymbol{\pi} = (1/2, 1/2).$
 
 2.  The chain is aperiodic. Therefore, according to the results from
-    ExampleÂ [ExampleÂ 22](#exampleStationary){reference-type="ref"
-    reference="exampleStationary"}, if follows that
+    Example \@ref(exm:exampleStationary), if follows that
     $$\lim_{n \rightarrow \infty} p_{i1}^{(n)} = 1/2 > 0 , \text{ and }  \lim_{n \rightarrow \infty} p_{i2}^{(n)} = 1/2,$$
     which is independent of $i$. This is contrast to the process given
     in ExampleÂ [ExampleÂ 30](#exampleLongTerm){reference-type="ref"
@@ -1537,3 +1654,4 @@ three levels of discount:*
 6.  *Comments on the results obtained. Does this NCD system encourage
     good driving?*
 :::
+
