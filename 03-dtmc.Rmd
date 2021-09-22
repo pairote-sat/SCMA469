@@ -654,7 +654,8 @@ library(pracma)
 stateNames <- c("Rain","Nice","Snow")
 Oz <- matrix(c(.5,.25,.25,.5,0,.5,.25,.25,.5),
              nrow=3, byrow=TRUE)
-row.names(Oz) <- stateNames; colnames(Oz) <- stateNames
+row.names(Oz) <- stateNames; 
+colnames(Oz) <- stateNames
 Oz
 
 
@@ -702,9 +703,11 @@ weatherMatrix <- matrix(data = c(0.70, 0.2, 0.1,
 mcWeather <- new("markovchain", states = weatherStates, byrow = byRow, transitionMatrix = weatherMatrix, name = "Weather")
 
 
-# rmarkovchain: Function to sample from markovchain or markovchainList objects.
+# rmarkovchain: Function to generate a sequence of states from homogeneous or non-homogeneous Markov chains.
 weathersOfDays <- rmarkovchain(n = 365, object = mcWeather, t0 = "sunny")
 weathersOfDays[1:30]
+
+weathersPaths <- as.data.frame(replicate(5,rmarkovchain(n = 365, object = mcWeather, t0 = "sunny") ))
 ```
 
 

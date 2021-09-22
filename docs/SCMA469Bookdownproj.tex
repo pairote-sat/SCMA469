@@ -128,7 +128,7 @@
 
 \title{SCMA469 Actuarial Statistics}
 \author{Pairote Satiracoo}
-\date{2021-09-16}
+\date{2021-09-22}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -154,6 +154,12 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(MASS)}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{intro}{%
 \chapter{Introduction to Stochastic Processes}\label{intro}}
 
@@ -1746,7 +1752,8 @@ End Function
 \NormalTok{stateNames }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Rain"}\NormalTok{,}\StringTok{"Nice"}\NormalTok{,}\StringTok{"Snow"}\NormalTok{)}
 \NormalTok{Oz }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(.}\DecValTok{5}\NormalTok{,.}\DecValTok{25}\NormalTok{,.}\DecValTok{25}\NormalTok{,.}\DecValTok{5}\NormalTok{,}\DecValTok{0}\NormalTok{,.}\DecValTok{5}\NormalTok{,.}\DecValTok{25}\NormalTok{,.}\DecValTok{25}\NormalTok{,.}\DecValTok{5}\NormalTok{),}
              \AttributeTok{nrow=}\DecValTok{3}\NormalTok{, }\AttributeTok{byrow=}\ConstantTok{TRUE}\NormalTok{)}
-\FunctionTok{row.names}\NormalTok{(Oz) }\OtherTok{\textless{}{-}}\NormalTok{ stateNames; }\FunctionTok{colnames}\NormalTok{(Oz) }\OtherTok{\textless{}{-}}\NormalTok{ stateNames}
+\FunctionTok{row.names}\NormalTok{(Oz) }\OtherTok{\textless{}{-}}\NormalTok{ stateNames; }
+\FunctionTok{colnames}\NormalTok{(Oz) }\OtherTok{\textless{}{-}}\NormalTok{ stateNames}
 \NormalTok{Oz}
 \end{Highlighting}
 \end{Shaded}
@@ -1806,7 +1813,7 @@ End Function
 
 We can use R to generate sample paths of a Markov chain. We first load the library \texttt{markovchain} package. See \url{https://cran.r-project.org/web/packages/markovchain/vignettes/an_introduction_to_markovchain_package.pdf} for more details.
 
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KG1hcmtvdmNoYWluKVxud2VhdGhlclN0YXRlcyA8LSBjKFwic3VubnlcIiwgXCJjbG91ZHlcIiwgXCJyYWluXCIpIFxuYnlSb3cgPC0gVFJVRVxud2VhdGhlck1hdHJpeCA8LSBtYXRyaXgoZGF0YSA9IGMoMC43MCwgMC4yLCAwLjEsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLjMsIDAuNCwgMC4zLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4yLCAwLjQ1LCAwLjM1KSwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBieXJvdyA9IGJ5Um93LCBucm93ID0gMywgZGltbmFtZXMgPSBsaXN0KHdlYXRoZXJTdGF0ZXMsIHdlYXRoZXJTdGF0ZXMpKVxuXG5tY1dlYXRoZXIgPC0gbmV3KFwibWFya292Y2hhaW5cIiwgc3RhdGVzID0gd2VhdGhlclN0YXRlcywgYnlyb3cgPSBieVJvdywgdHJhbnNpdGlvbk1hdHJpeCA9IHdlYXRoZXJNYXRyaXgsIG5hbWUgPSBcIldlYXRoZXJcIilcblxuXG4jIHJtYXJrb3ZjaGFpbjogRnVuY3Rpb24gdG8gc2FtcGxlIGZyb20gbWFya292Y2hhaW4gb3IgbWFya292Y2hhaW5MaXN0IG9iamVjdHMuXG53ZWF0aGVyc09mRGF5cyA8LSBybWFya292Y2hhaW4obiA9IDM2NSwgb2JqZWN0ID0gbWNXZWF0aGVyLCB0MCA9IFwic3VubnlcIilcbndlYXRoZXJzT2ZEYXlzWzE6MzBdIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KG1hcmtvdmNoYWluKVxud2VhdGhlclN0YXRlcyA8LSBjKFwic3VubnlcIiwgXCJjbG91ZHlcIiwgXCJyYWluXCIpIFxuYnlSb3cgPC0gVFJVRVxud2VhdGhlck1hdHJpeCA8LSBtYXRyaXgoZGF0YSA9IGMoMC43MCwgMC4yLCAwLjEsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLjMsIDAuNCwgMC4zLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4yLCAwLjQ1LCAwLjM1KSwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBieXJvdyA9IGJ5Um93LCBucm93ID0gMywgZGltbmFtZXMgPSBsaXN0KHdlYXRoZXJTdGF0ZXMsIHdlYXRoZXJTdGF0ZXMpKVxuXG5tY1dlYXRoZXIgPC0gbmV3KFwibWFya292Y2hhaW5cIiwgc3RhdGVzID0gd2VhdGhlclN0YXRlcywgYnlyb3cgPSBieVJvdywgdHJhbnNpdGlvbk1hdHJpeCA9IHdlYXRoZXJNYXRyaXgsIG5hbWUgPSBcIldlYXRoZXJcIilcblxuXG4jIHJtYXJrb3ZjaGFpbjogRnVuY3Rpb24gdG8gZ2VuZXJhdGUgYSBzZXF1ZW5jZSBvZiBzdGF0ZXMgZnJvbSBob21vZ2VuZW91cyBvciBub24taG9tb2dlbmVvdXMgTWFya292IGNoYWlucy5cbndlYXRoZXJzT2ZEYXlzIDwtIHJtYXJrb3ZjaGFpbihuID0gMzY1LCBvYmplY3QgPSBtY1dlYXRoZXIsIHQwID0gXCJzdW5ueVwiKVxud2VhdGhlcnNPZkRheXNbMTozMF1cblxud2VhdGhlcnNQYXRocyA8LSBhcy5kYXRhLmZyYW1lKHJlcGxpY2F0ZSg1LHJtYXJrb3ZjaGFpbihuID0gMzY1LCBvYmplY3QgPSBtY1dlYXRoZXIsIHQwID0gXCJzdW5ueVwiKSApKSJ9
 
 The following user-defined function in Excel can be used to simulate
 random numbers from a discrete distribution.
@@ -3356,6 +3363,832 @@ three levels of discount:}
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
+  A Markov chain \(X_0, X_1, \ldots\) on states \(1, 2, 3\) has the
+  following transition matrix \[P = \begin{bmatrix}
+      0.5 & 0.3 & 0.2    \\
+      0.2 & 0.2 & 0.6  \\
+      0.3 & 0.2 & 0.5    \\
+  \end{bmatrix}.\] The distribution of the initial random variable
+  \(X_0\) is \(\boldsymbol{\mu} = (0.3, 0.3, 0.4)\).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Draw a transition diagram for the chain.
+  \item
+    Determine \(\Pr(X_0 = 1, X_1 = 2, X_2 = 3).\)
+  \item
+    Determine \(\Pr(X_1 = 2, X_2 = 3 | X_0 = 1).\)
+  \item
+    Determine \(\Pr(X_{11} = 2, X_{12} = 3 | X_{10} = 1).\)
+  \item
+    Determine \(\Pr(X_2 = 3 | X_0 = 1).\)
+  \item
+    Determine \(\Pr(X_3 = 3 | X_1 = 1).\)
+  \item
+    Determine \(\Pr(X_2 = 3).\)
+  \item
+    Determine \(\mathrm{E}[X_2]\)
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{Solutions:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The transition diagram for the chain is shown in the figure below:
+  \includegraphics{SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-9-1.pdf}
+\item
+  \(\Pr(X_0 = 1, X_1 = 2, X_2 = 3) = \mu_1 p_{12} p_{23} = (0.3)(0.3)(0.6) = 0.054.\)
+\item
+  \(\Pr(X_1 = 2, X_2 = 3 | X_0 = 1) = p_{12} p_{23} = (0.3)(0.6) = 0.18.\)
+\item
+  From the time homogeneous assumption, it follows that \[\Pr(X_{11} = 2, X_{12} = 3 | X_{10} = 1) = \Pr(X_1 = 2, X_2 = 3 | X_0 = 1) = 0.18.\]
+\item
+  \(\Pr(X_2 = 3 | X_0 = 1) = (P^2)_{13} = 0.38.\)
+\item
+  \(\Pr(X_3 = 3 | X_1 = 1) = \Pr(X_2 = 3 | X_0 = 1) = (P^2)_{13} = 0.38.\)
+\item
+  \(\Pr(X_2 = 3) = (\boldsymbol{\mu}P^2)_3 = 0.424.\)
+\item
+  \(\mathrm{E}[X_2] = \sum_{k=1}^3 k \Pr(X_2 = k) = (1, 2, 3) \cdot (0.343, 0.233, 0.424) = 2.081.\)
+\end{enumerate}
+
+Note that
+
+\begin{verbatim}
+## P^2 
+##  A  3 - dimensional discrete Markov Chain defined by the following states: 
+##  1, 2, 3 
+##  The transition matrix  (by rows)  is defined as follows: 
+##      1    2    3
+## 1 0.37 0.25 0.38
+## 2 0.32 0.22 0.46
+## 3 0.34 0.23 0.43
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  A Markov chain \(X_0, X_1, \ldots\) on states 1,2,3 has the
+  following transition matrix \[P = \begin{bmatrix}
+      0 & 1/2 & 1/2   \\
+      1/3  & 1/3  & 1/3   \\
+      1/2  & 1/2  & 0    \\
+      %\vdots & \vdots & \vdots  & \vdots \\
+      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+  \end{bmatrix}.\]
+  The process starts in states \(X_0 = 1\).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Draw a transition diagram for the chain.
+  \item
+    Determine \(\Pr(X_0 = 1, X_1 = 3, X_2 = 2).\)
+  \item
+    Determine \(\Pr(X_1 = 3, X_2 = 2 | X_0 = 1).\)
+  \item
+    Determine \(\Pr(X_2 = 2 | X_0 = 1).\)
+  \item
+    Determine \(\Pr(X_3 = 2 | X_1 = 1).\)
+  \item
+    Determine \(\Pr(X_2 = 2).\)
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The transition diagram for the chain is shown in the figure below:
+  \includegraphics{SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-11-1.pdf}
+\item
+  \(\Pr(X_0 = 1, X_1 = 3, X_2 = 2) = \mu_1 p_{13} p_{32} = (1)(1/2)(1/2) = 1/4.\)
+\item
+  \(\Pr(X_1 = 3, X_2 = 2 | X_0 = 1) = p_{13} p_{32} = (1/2)(1/2) = 1/4.\)
+\item
+  \(\Pr(X_2 = 2 | X_0 = 1) = (P^2)_{12} = 5/12.\)
+\item
+  \(\Pr(X_3 = 2 | X_1 = 1) = \Pr(X_2 = 2 | X_0 = 1) = (P^2)_{12} = 5/12.\)
+\item
+  \(\Pr(X_2 = 2) = (\boldsymbol{\mu}P^2)_2 = 5/12.\)
+\end{enumerate}
+
+Note that
+
+\begin{verbatim}
+## P^2 
+##  A  3 - dimensional discrete Markov Chain defined by the following states: 
+##  1, 2, 3 
+##  The transition matrix  (by rows)  is defined as follows: 
+##           1         2         3
+## 1 0.4166667 0.4166667 0.1666667
+## 2 0.2777778 0.4444444 0.2777778
+## 3 0.1666667 0.4166667 0.4166667
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  A Markov chain \(X_0, X_1, \ldots\) on sates 1,2 has the following
+  transition matrix \[P = \begin{bmatrix}
+      1-a & a   \\
+      b & 1-b   \\
+      %\vdots & \vdots & \vdots  & \vdots \\
+      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+  \end{bmatrix},\] where \(0 < a,b < 1.\)
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Draw a transition diagram for the chain.
+  \item
+    the distribution of \(X_1\).
+  \item
+    Show that \[P^n = \frac{1}{a+b} \begin{bmatrix}
+        b & a   \\
+        b & a   \\
+        %\vdots & \vdots & \vdots  & \vdots \\
+        %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+    \end{bmatrix} +
+    \frac{(1-a-b)^n}{a+b} \begin{bmatrix}
+        a & -a   \\
+        -b & b   \\
+    \end{bmatrix}.\]
+  \item
+    Given that \(X_0 = 1\), what is the probability that in the long
+    run the system will be in state 1? (Hint: consider
+    \(\lim_{n \rightarrow \infty} \boldsymbol{\mu} P^n\))
+  \item
+    Given that \(X_0 = 1\), what is the probability that in the long
+    run the system will be in state 2?
+  \item
+    Given that \(X_0 = 2\), what is the probability that in the long
+    run the system will be in state 1?
+  \item
+    Given that \(X_0 = 2\), what is the probability that in the long
+    run the system will be in state 2?
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Leave it to the reader.
+\item
+  Denote \(\boldsymbol{\mu} = (\mu_1, \mu_2)\) the initial probability distribution. Then the distribution of \(X_1\) is \(\boldsymbol{\mu}^{(1)} = \boldsymbol{\mu} P = (\mu_1(1-a) + \mu_2 b, \mu_1 a + \mu_2(1-b))\)
+\item
+  We apply eigendecomposition of a matrix. For more details, please follow this link from Wikipedia \href{https://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix}{link}.
+\end{enumerate}
+
+The eigenvalues of \(P\) are \(\lambda_1 = 1\) and \(\lambda_2 = 1 - a -b\) and the corresponding eigenvectors are
+\[v_1 = \begin{bmatrix}
+            1   \\
+            1   \\
+         \end{bmatrix}, \quad
+         v_2 = \begin{bmatrix}
+            -a/b   \\
+            1   \\
+         \end{bmatrix}.
+    \]\\
+Then the transition matrix can be factorised as
+\[P = \begin{bmatrix}
+            1 & -a/b \\
+            1 & 1 \\
+         \end{bmatrix}
+         \begin{bmatrix}
+            1 & 0   \\
+            0 & 1 - a - b   \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & -a/b \\
+            1 & 1 \\
+         \end{bmatrix}^{-1}.
+    \]\\
+Hence \[\begin{aligned}
+      P^n &= \left( \begin{bmatrix}
+            1 & -a/b \\
+            1 & 1 \\
+         \end{bmatrix}
+         \begin{bmatrix}
+            1 & 0   \\
+            0 & (1 - a - b)^n   \\
+        \end{bmatrix} \right)
+        \begin{bmatrix}
+            1 & -a/b \\
+            1 & 1 \\
+         \end{bmatrix}^{-1}  \\
+         &= \begin{bmatrix}
+            1 & -\frac{a}{b}(1 - a - b)^n \\
+            1 & (1 - a - b)^n \\
+         \end{bmatrix} 
+         \left(
+         \frac{1}{1 + a/b}
+         \begin{bmatrix}
+            1 & a/b \\
+            -1 & 1 \\
+         \end{bmatrix}
+         \right)  \\
+         &= \frac{1}{a+b}
+         \begin{bmatrix}
+         b + a(1 - a - b)^n & a - a(1 - a - b)^n \\
+         b - b(1 - a - b)^n & a + b(1 - a - b)^n
+         \end{bmatrix} \\
+         &= \frac{1}{a+b}
+         \begin{bmatrix}
+         b & a \\
+         b & a
+         \end{bmatrix} +
+         \frac{(1 - a - b)^n}{a+b}
+         \begin{bmatrix}
+         a & -a \\
+         -b & b
+         \end{bmatrix}
+         \end{aligned}.
+         \]
+Note that \[\lim_{n \rightarrow \infty} P^n = 
+         \frac{1}{a+b}
+         \begin{bmatrix}
+         b & a \\
+         b & a
+         \end{bmatrix}, \]
+which follows from the facts that \(-1 < 1 -a -b < 1\) and \((1- a-b)^n \rightarrow 0\) as \(n \rightarrow \infty\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  It follows from the above results that in the long run
+  \[ \lim_{n \rightarrow \infty} \Pr(X_n = 1| X_0 = 1) = (\lim_{n \rightarrow \infty} P^n)_{11} = \frac{b}{a+b}. \]
+\item
+  In the long run, we have
+  \[ \lim_{n \rightarrow \infty} \Pr(X_n = 2| X_0 = 1) = (\lim_{n \rightarrow \infty} P^n)_{12} = \frac{a}{a+b}. \]
+\item
+  In the long run, we have
+  \[ \lim_{n \rightarrow \infty} \Pr(X_n = 1| X_0 = 2) = (\lim_{n \rightarrow \infty} P^n)_{21} = \frac{b}{a+b}. \]
+\item
+  In the long run, we have
+  \[ \lim_{n \rightarrow \infty} \Pr(X_n = 2| X_0 = 2) = (\lim_{n \rightarrow \infty} P^n)_{22} = \frac{a}{a+b}. \]
+\end{enumerate}
+
+Furthermore, for any initial distribution \(\boldsymbol{\mu}\), the limiting distribution with this initial distribution is
+\[ \lim_{n \rightarrow \infty} \boldsymbol{\mu} P^n  = (\frac{b}{a+b}, \frac{a}{a+b}).\]
+This gives the long term proportion of the Markov chain, i.e.~the probability of finding the process in state 1 is \(\frac{b}{a+b}\) and in state 2 is \(\frac{a}{a+b}\), irrespective of the stating state.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  Let \(a\) be a constant and \(\xi_1, \xi_2, \ldots\) be a sequence of
+  independent and identically distributed (i.i.d.) random variables.
+  The stochastic process \(\{ X_n\}\) is defined by
+  \[X_0 = a, \quad X_n = X_{n-1} + \xi_n, \, n > 1.\] This process is
+  known as a random walk.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Express the state \(X_n\) in terms of \(X_0\) and the random
+    variables \(\xi_i, i = 1,2 \ldots\).
+  \item
+    Find \(\mathrm{E}[X_n]\) and \(\mathrm{Var}[X_n]\).
+  \item
+    Does the process have the Markov property? Explain.
+  \item
+    Is the process stationary? Explain.
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  From the definition, it follows that
+  \[
+  \begin{aligned}
+  X_0 &= a \\
+  X_1 &= X_0 + \xi_1 = a + \xi_1 \\
+  X_2 &= X_1 + \xi_2 = a + \xi_1 + \xi_2 \\
+      &\vdots \\
+  X_n &= X_{n-1} + \xi_n = a + \sum_{i=1}^n \xi_i, \quad n \ge 1.
+  \end{aligned}
+  \]
+\item
+  Let \(\mu = \mathrm{E}[\xi_i]\) and \(\sigma^2 = \mathrm{Var}[\xi_i]\) denote the mean and variance of the increments \(\xi_i\). Then
+  \[
+  \begin{aligned}  
+  \mathrm{E}[X_n] &= \mathrm{E}\left[a + \sum_{i=1}^n \xi_i\right] = a+ \sum_{i=1}^n \mathrm{E}[\xi_i] = a + n \mu, \\
+  \mathrm{Var}[X_n] &= \mathrm{Var}\left[a + \sum_{i=1}^n \xi_i\right] =  \sum_{i=1}^n \mathrm{Var}[\xi_i] =  n \sigma^2.
+  \end{aligned}
+  \]
+  The last equality follows from the assumption that \(\xi_1, \xi_2, \ldots\) are independent.
+\item
+  The process \(\{X_n\}_{n\ge0}\) has independent increments and , hence, has the Markov
+  property. More details can be found from the lecture note \href{https://pairote-sat.github.io/SCMA469/discrete-time-markov-chains.html}{link}.
+\item
+  The process is \textbf{not} stationary because \(\mathrm{E}[X_n]\) is not constant and \(\mathrm{Var}[X_n]\) also depends on \(n\).
+\item
+  Consider a homogeneous discrete-time Markov chain that describes the
+  daily weather pattern. The weather patterns are classified into 3
+  conditions: R(rainy), C (cloudy) and S(sunny). Based on the daily
+  observations, the following information are given:
+
+  \begin{itemize}
+  \item
+    On any rainy day, the probability that it will rain the next day
+    is 0.7; the probability that tomorrow will be cloudy is 0.2 and
+    the probability that tomorrow will be sunny is 0.1.
+  \item
+    On any cloudy day, the probability that it will rain the next
+    day is 0.5; the probability that tomorrow will be cloudy is 0.35
+    and the probability that tomorrow will be sunny is 0.15.
+  \item
+    On any sunny day, the probability that it will rain the next day
+    is 0.1; the probability that tomorrow will be cloudy is 0.4 and
+    the probability that tomorrow will be sunny is 0.5.
+  \end{itemize}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Draw a transition diagram for the chain and write down a
+    transition matrix.
+  \item
+    Find the probability that tomorrow is cloudy and the day after
+    is rainy, given that it is sunny today.
+  \item
+    Given that today is rainy, find the probability that it will be
+    sunny in two days time.
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The transition matrix \(P\) and the transition diagram are given in the results below :
+\end{enumerate}
+
+\begin{verbatim}
+## P 
+##  A  3 - dimensional discrete Markov Chain defined by the following states: 
+##  R, C, S 
+##  The transition matrix  (by rows)  is defined as follows: 
+##     R    C    S
+## R 0.7 0.20 0.10
+## C 0.5 0.35 0.15
+## S 0.1 0.40 0.50
+\end{verbatim}
+
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  The probability that tomorrow is cloudy and the day after is rainy, given that it is sunny today is
+  \[ \Pr(X_1 = C, X_2 = R | X_0 = S) = (0.4)(0.5) = 0.2.\]
+\item
+  Given that today is rainy, the probability that it will be sunny in two days time is
+  \[ \Pr(X_2 = S | X_0 = R) = (P^2)_{13} = 0.15.\]
+\end{enumerate}
+
+\hypertarget{tutorial-3}{%
+\section{Tutorial 3}\label{tutorial-3}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  A Markov chain \(X_0, X_1, \ldots\) on states 1, 2, 3 with initial
+  distribution \(\boldsymbol{\mu} = (1/4,1/4,1/2)\). It has the
+  following transition matrix \[P = \begin{bmatrix}
+      1/2 & 1/4 & 1/4   \\
+      1/3  & 1/3  & 1/3   \\
+      1/5  & 2/5  & 2/5    \\
+      %\vdots & \vdots & \vdots  & \vdots \\
+      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
+  \end{bmatrix}.\] Compute the following probabilities:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    \(\Pr(X_{11} = 1, X_{12} = 2, X_{13} = 3 | X_{10} = 1).\)
+  \item
+    \(\Pr(X_0 = 3, X_1 = 2 , X_2 = 1).\)
+  \item
+    \(\Pr(X_1 = 3, X_2 = 2 , X_3 = 1).\)
+  \item
+    \(\Pr(X_{1} = 2, X_{3} = 2, X_{5} = 2).\)
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{Solution:}
+
+\begin{verbatim}
+1.  We have  
+\end{verbatim}
+
+\(\Pr(X_{11} = 1, X_{12} = 2, X_{13} = 3 | X_{10} = 1) = p_{11} p_{12} p_{23} = (1/2)(1/4)(1/3) = 1/24.\)
+
+\begin{verbatim}
+2.  We have  
+\end{verbatim}
+
+\(\Pr(X_0 = 3, X_1 = 2, X_2 = 1) = \mu_3 p_{32} p_{21} = (0.5)(2/5)(1/3) = 1/15.\)
+
+\begin{verbatim}
+3.  We have 
+\end{verbatim}
+
+\[\begin{aligned} \Pr(X_1 = 3, X_2 = 2, X_3 = 1) &= 
+\sum_{i=1}^{3} \Pr(X_0 = i) \Pr(X_1 = 3, X_2 = 2, X_3 = 1 | X_0 = i) \\ 
+&= \sum_{i=1}^{3} \mu_i p_{i3} p_{32} p_{21} \\
+&=  \left( \sum_{i=1}^{3} \mu_i p_{i3} \right) p_{32} p_{21}  \\
+&= (\boldsymbol{\mu}P)_3 p_{32} p_{21}\\
+&= (83/240)(2/5)(1/3) \\
+&= 83/1800  =  0.0461111.
+\end{aligned}\]
+
+\begin{verbatim}
+4. We have 
+\end{verbatim}
+
+\[\begin{aligned} \Pr(X_1 = 2, X_3 = 2, X_5 = 2) &= 
+\sum_{i=1}^{3} \Pr(X_0 = i) \Pr(X_1 = 2, X_3 = 2, X_5 = 2 | X_0 = i) \\ 
+&= \sum_{i=1}^{3} \mu_i p_{i2} p^{(2)}_{22} p^{(2)}_{22} \\
+&=  \left( \sum_{i=1}^{3} \mu_i p_{i2} \right) p^{(2)}_{22} p^{(2)}_{22}  \\
+&= (\boldsymbol{\mu}P)_2 p^{(2)}_{22} p^{(2)}_{22}\\
+&= (83/240)(59/180)(59/180) \\
+&= 9356/251805 = 0.0371557.
+\end{aligned}\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  A Markov chain with state space \(S = \{1,2,3,4,5,6\}\) has the
+  following transition matrix: \[P = \begin{bmatrix}
+  1/4 & 0 & 3/4 & 0 & 0 & 0  \\
+  0 & 0 & 0 & 1 & 0 & 0  \\
+  0 & 0 & 1/2 & 0 & 0 & 1/2  \\
+  1/5 & 1/5 & 1/5 & 0 & 1/5 & 1/5   \\
+  0 & 0 & 0 & 0 & 1 & 0  \\
+  1/3 & 0 & 0 & 0 & 0 & 2/3  \\
+  \end{bmatrix}.\]
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Draw a transition diagram.
+  \item
+    Identify the communication classes and classify them as closed
+    or non-closed.
+  \item
+    Is the Markov chain irreducible?
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{Solution:}
+
+\begin{verbatim}
+1. The transition diagram is shown in the figure below:
+\end{verbatim}
+
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+\begin{verbatim}
+2. There are two closed classes 
+\end{verbatim}
+
+\(C^1 = \{1, 3, 6\}\) and \(C^2 = \{5\}\) because
+
+\begin{itemize}
+\item
+  \(p_{55} = 1\) and
+\item
+  \(1 \rightarrow 3 \rightarrow 6 \rightarrow 1\), and hence \(1, 3, 6\) are in the same communication class. In addition, for each \(i \in C^1\), \(\sum_{j \in C^1} p_{ij} = 1\), which implies that escaping from \(C^1\) is impossible. Therefore \(C^1\) is a closed class.
+
+  There is one non-closed class \(O = \{2, 4\}\). This is because \(2 \leftrightarrow 4\) and \(p_{43} >0\).
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    The Markov chain is reducible because it contains more than one communication classes.
+  \end{enumerate}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  For each of the Markov chains whose
+  transition matrix is given below, identify the closed classes and
+  the vector of absorption probabilities associated with each of these
+  closed classes. Assume that the states are labelled \(1,2,3 \ldots\).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    \[\begin{bmatrix}
+            1/6 & 0 & 1/3 & 1/2      \\
+            0 & 1/3 & 2/3 & 0   \\
+        1/2 & 1/2 & 0 & 0     \\    
+        0 & 0 & 1/4 & 3/4     \\
+    \end{bmatrix}.\]
+  \item
+    \[\begin{bmatrix}
+            0 & 1/4 & 3/4 & 0      \\
+            0 & 1/3 & 0 & 2/3   \\
+        1/3 & 0 & 1/3 & 1/3     \\  
+        0 & 0 & 0 & 1     \\
+    \end{bmatrix}.\]
+  \item
+    \[\begin{bmatrix}
+           1/4 & 1/4 & 1/4 & 1/4      \\
+           0 & 3/4 & 1/4 & 0   \\
+           0 & 3/4 & 1/4 & 0   \\
+       0 & 0 & 0 & 1     \\
+         \end{bmatrix}.\]
+  \item
+    \[\begin{bmatrix}
+           0 & 0 & 0 & 1/2  & 0 & 0 & 1/2   \\
+           1/6 & 0 & 1/6 & 0  & 0 & 1/6 & 1/2 \\
+       0 & 0 & 1 & 0 & 0 & 0 & 0    \\ 
+           1/2 & 0 & 0 & 1/2  & 0 & 0 & 0   \\
+       1/4 & 1/4 & 0 & 0  & 0 & 0 & 1/2 \\
+       0 & 1 & 0 & 0 & 0 & 0 & 0    \\ 
+           1/2 & 0 & 0 & 0  & 0 & 0 & 1/2   \\
+         \end{bmatrix}.\]
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{Solution:}
+
+\begin{verbatim}
+1. Every two states communicate, so 
+\end{verbatim}
+
+\(\{1, 2, 3, 4 \}\) is a single closed class (since \(1 \rightarrow 4 \rightarrow 3 \rightarrow 2 \rightarrow 3 \rightarrow 1\)). The absorption probabilities are 1, since each state is in this closed class. The transition diagram is shown in the figure below:
+
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\begin{verbatim}
+2. There are two non-closed classes 
+\end{verbatim}
+
+\(O^1 = \{1, 3\}\) and \(O^2 = \{2\}\) and a closed class
+\(C^1 = \{4\}\). Since we have a single closed class, all absorption probabilities to this closed class \(C^1 = \{4\}\) are equal to 1. The transition diagram is shown in the figure below:
+
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+\begin{verbatim}
+3. There are two closed classes 
+\end{verbatim}
+
+\(C^1 = \{2, 3\}\) and \(C^2 = \{4\}\) and a non-closed class
+\(O^1 = \{1\}\). The transition diagram is shown in the figure below:
+
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+Let
+\(\mathbf{u}=\mathbf{u}^{C_{2}}\) be the vector of absorption
+probabilities in the closed class \(C^2 = \{4\}\). Write
+\(\mathbf{u}= (u_1,u_2,u_3,u_4)^T\) and \(u_4 = 1\) and \(u_2 = u_3 =0\),
+
+From \(\mathbf{u}=P \cdot \mathbf{u}\),
+
+\[\left(\begin{array}{c}u_{1} \\ u_{2} \\  u_{3} \\ u_{4}\end{array}\right)=\begin{bmatrix}
+                1/4 & 1/4 & 1/4 & 1/4      \\
+                0 & 3/4 & 1/4 & 0   \\
+                0 & 3/4 & 1/4 & 0   \\
+            0 & 0 & 0 & 1     \\
+        \end{bmatrix} \left(\begin{array}{c}u_{1} \\ u_{2} \\  u_{3} \\ u_{4}\end{array}\right) \text { gives}\]
+\[ u_1 = \frac{1}{4} u_1 + \frac{1}{4}\] Solving the
+linear system for \(u_1\) yields \(u_1 = 1/3\).
+Hence, the absorption probabilities in the closed class \(C_2\) is
+\[\mathbf{u}= (1/3,0,0,1)^T.\]
+In addition, since there are two closed classes,
+\(\mathbf{u}^{C_1} = \mathbf{1} - \mathbf{u}^{C_2} = (2/3,1,1,0)^T.\)
+
+\begin{verbatim}
+4. There are two closed classes 
+\end{verbatim}
+
+\(C^1 = \{1, 4, 7\}\) and \(C^2 = \{3\}\) and two non-closed classes
+\(O^1 = \{2, 6\}\) and \(O^2 = \{5\}\). The transition diagram is shown in the figure below:
+
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+Let
+\(\mathbf{u}=\mathbf{u}^{C_{2}}\) be the vector of absorption
+probabilities in the closed class \(C^2 = \{3\}\). Write
+\(\mathbf{u}= (u_1,u_2,u_3,\ldots, u_7)^T\) and \(u_3 = 1\) and \(u_1 = u_4 = u_7 =0\),
+
+\[\left(\begin{array}{c}u_{1} \\ u_{2} \\ \vdots \\ u_{7}\end{array}\right)=P\left(\begin{array}{c}u_{1} \\ u_{2} \\ \vdots \\ u_{7}\end{array}\right) \text{ gives}\]
+\[\begin{aligned}
+    u_2 &= \frac{1}{6}  + \frac{1}{6} u_6 \\
+    u_5 &=   \frac{1}{4} u_2\\
+    u_6 &=   u_2.\\   \end{aligned}\]
+Solving the linear system for \(u_2, u_5\) and \(u_6\) yields \(u_2 = 1/5, u_5 = 1/20\) and \(u_6 = 1/5\).
+Hence, the absorption probabilities in the closed class \(C_2\) is
+\[\mathbf{u}= (0,1/5,1,0,1/20,1/5,0)^T.\]
+In addition, since there are two closed classes,
+\(\mathbf{u}^{C_1} = \mathbf{1} - \mathbf{u}^{C_2} = (1,4/5,0,1,19/20,4/5,1)^T.\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  If the Markov chain defined in Question 3 is irreducible,
+  i.e.~it has a unique stationary distribution, then find the
+  stationary distribution of the chain.
+\item
+  Assume that a Markov chain has more than one closed classes (say \(r\)
+  closed classes). The Markov chain can \textbf{have many stationary
+  distributions}. Assume further that within each of these \(r\) closed
+  classes, the associated Markov chain is aperiodic. The followings
+  hold:
+
+  \begin{itemize}
+  \item
+    Within a closed class \(C_1\), let \(P_1\) be a reduction of a
+    matrix \(P\) which is formed by deleting all rows and columns
+    corresponding to states from other classes. Then there exists a
+    unique stationary distribution, denoted by
+    \(\{\pi_j^{(1)}\}_{j \in C_1}.\)
+  \item
+    Similarly, let
+    \(\{\pi_j^{(2)}\}_{j \in C_2}, \ldots, \{\pi_j^{(r)}\}_{j \in C_r}\)
+    be stationary distributions within other classes.
+  \end{itemize}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    Show that for any numbers \(\gamma_1, \gamma_2, \ldots, \gamma_r\)
+    such that \(\sum_{m=1}^r \gamma_m = 1\), the following
+    distribution \(\{ \pi_j \}\) is stationary, where
+  \end{enumerate}
+
+  \begin{equation} 
+    \label{eq:limitdist}
+      \pi_j =
+       \begin{cases}
+          \pi_j^{(k)} \gamma_k & \text{for } j \in C_k, \, k= 1,\ldots, r \\
+          0 & \text{if } j \text{ is in a nonclosed class.}
+        \end{cases}
+      \end{equation}
+  (In particular, any stationary distribution of the Markov chain is of this form.)
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \setcounter{enumii}{1}
+  \item
+    Write down the general form of stationary distributions of the
+    Markov chain in Questions 3.3 and 3.4.
+  \item
+    Now we will focus on limiting distributions. Consider the three
+    following possible cases.
+
+    \begin{enumerate}
+    \def\labelenumiii{\arabic{enumiii}.}
+    \item
+      If \(X_0 = i\) and \(i \in C_k\) for some closed class \(C_k\),
+      then verify that the limiting distribution is defined as in Eqn.\eqref{eq:limitdist} where \(\gamma_k =1\) and
+      \(\gamma_m = 0,\) for \(m \neq k\).
+    \item
+      If \(X_0 = i\) and \(i\) is in a nonclosed class, then verify
+      that the limiting distribution is defined as in
+      Eqn.\eqref{eq:limitdist} where \(\gamma_k = \alpha^{(k)}_i\)
+      for \(k = 1,2,\ldots r\) where \(\alpha^{(k)}_i\) is the
+      probability of absorption in class \(C_k\). More precisely,
+      \[\pi_j =
+       \begin{cases}
+          \pi_j^{(k)} \alpha^{(k)}_i & \text{for } j \in C_k, \, k= 1,\ldots, r \\
+          0 & \text{if } j \text{ is in a nonclosed class.}
+        \end{cases}
+            %\pi_j^{(k)} \gamma_k \text{ for } j \in C_k, \, k= 1,\ldots, r \text { and }
+      \]
+    \item
+      If \(X_0\) is random, then this will leave as extra exercise.
+      (Hint: you may need to apply first step anslysis)
+    \end{enumerate}
+  \end{enumerate}
+\item
+  A no-claims discount system for motor insurance has four levels of
+  discount:
+
+  \begin{longtable}[]{@{}ccccc@{}}
+  \toprule
+  Level & 1 & 2 & 3 & 4 \\
+  \midrule
+  \endhead
+  Discount & 0\% & 10\% & 30\% & 50\% \\
+  \bottomrule
+  \end{longtable}
+
+  The rules for moving between these levels are given as follows:
+
+  \begin{itemize}
+  \item
+    Following a claim-free year, move to the next higher level, or
+    remain at level 4.
+  \item
+    Following a year with one claim, move to the next lower level,
+    or remain at level 1.
+  \item
+    Following a year with two or more claims, move down two levels,
+    or move to level 1 (from level 2), or remain at level 1.
+  \end{itemize}
+
+  A portfolio consists of 10,000 policyholders. Suppose also that the
+  number of claims per year is \(\mathcal{Poisson}(0.1)\).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Calculate \(\Pr[N = 0]\), \(\Pr[N = 1]\), and \(\Pr[N \ge 2]\) for
+    each group.
+  \item
+    Write down the transition probability matrix of this no-claims
+    discount system.
+  \item
+    Find the probability that a policyholder who has the 30\%
+    discount has no discount after 2 years.
+  \item
+    Calculate the expected number of policyholders at each level at
+    times 1 and 2, assuming no exits.
+  \item
+    Calculate the expected number of policyholders at each level
+    once stability has been achieved, assuming no exits.
+  \end{enumerate}
+\item
+  A no-claims discount system for motor insurance has four levels of
+  discount:
+
+  \begin{longtable}[]{@{}ccccc@{}}
+  \toprule
+  Level & 1 & 2 & 3 & 4 \\
+  \midrule
+  \endhead
+  Discount & 0\% & 20\% & 30\% & 50\% \\
+  \bottomrule
+  \end{longtable}
+
+  The rules for moving between these levels are given as follows:
+
+  \begin{itemize}
+  \item
+    For a claim-free year, a policyholder moves to the next higher
+    level, or remains at level 4.
+  \item
+    For every claim in a year, the policyholder moves down a
+    discount level or remains at level 1, for example if the
+    policyholder is in level 4 and has one accident, he/she moves to
+    level 3, and 2 accidents, he/she moves to level 2, and 2 or more
+    accidents to level 1.
+  \end{itemize}
+
+  For a given policyholder, the number of claims each year, \(N\), has a
+  negative binomial distribution with parameters \(k=2\) and \(p = 0.5\).
+
+  Note that a random variable \(N\) has a negative distribution with
+  parameters \(k\) and \(p\), denoted by \(N \sim \dnb\) if its probability
+  mass function is given by
+  \[f_N(n) = \Pr(N = n) = \frac{\Gamma(k+n)}{\Gamma(n+1)\Gamma(k)} p^k (1- p)^n \quad n = 0,1,2,\ldots.\]
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Draw a transition diagram for the chain.
+  \item
+    Write down the transition matrix of this no-claims discount
+    system.
+  \item
+    Find the probability that a policyholder who has the maximum
+    discount level will have 20\% discount after two years.
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{tutorial-2-1}{%
+\section{Tutorial 2}\label{tutorial-2-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
   A Markov chain \(X_0, X_1, \ldots\) on states 1 ,2 ,3 has the
   following transition matrix \[P = \begin{bmatrix}
       0.5 & 0.3 & 0.2    \\
@@ -3506,8 +4339,8 @@ three levels of discount:}
   \end{enumerate}
 \end{enumerate}
 
-\hypertarget{tutorial-3}{%
-\section{Tutorial 3}\label{tutorial-3}}
+\hypertarget{tutorial-3-1}{%
+\section{Tutorial 3}\label{tutorial-3-1}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3700,7 +4533,7 @@ three levels of discount:}
   \end{itemize}
 
   A portfolio consists of 10,000 policyholders. Suppose also that the
-  number of claims per year is \(\vpoisson{0.1}\).
+  number of claims per year is \(\mathcal{Poisson}(0.1)\).
 
   \begin{enumerate}
   \def\labelenumii{\arabic{enumii}.}
@@ -3715,7 +4548,7 @@ three levels of discount:}
     discount has no discount after 2 years.
   \item
     Calculate the expected number of policyholders at each level at
-    times 1 and 2, assuming no exits.
+    times 1 and 2, assuming no exits given that all policyholders start at level 1.
   \item
     Calculate the expected number of policyholders at each level
     once stability has been achieved, assuming no exits.

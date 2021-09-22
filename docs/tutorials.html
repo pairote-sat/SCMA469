@@ -24,7 +24,7 @@
 <meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2021-09-16" />
+<meta name="date" content="2021-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -187,7 +187,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="tutorials.html"><a href="tutorials.html#tutorial-1"><i class="fa fa-check"></i><b>5.1</b> Tutorial 1</a></li>
 <li class="chapter" data-level="5.2" data-path="tutorials.html"><a href="tutorials.html#tutorial-2"><i class="fa fa-check"></i><b>5.2</b> Tutorial 2</a></li>
 <li class="chapter" data-level="5.3" data-path="tutorials.html"><a href="tutorials.html#tutorial-3"><i class="fa fa-check"></i><b>5.3</b> Tutorial 3</a></li>
-<li class="chapter" data-level="5.4" data-path="tutorials.html"><a href="tutorials.html#tutorial-4"><i class="fa fa-check"></i><b>5.4</b> Tutorial 4</a></li>
+<li class="chapter" data-level="5.4" data-path="tutorials.html"><a href="tutorials.html#tutorial-2-1"><i class="fa fa-check"></i><b>5.4</b> Tutorial 2</a></li>
+<li class="chapter" data-level="5.5" data-path="tutorials.html"><a href="tutorials.html#tutorial-3-1"><i class="fa fa-check"></i><b>5.5</b> Tutorial 3</a></li>
+<li class="chapter" data-level="5.6" data-path="tutorials.html"><a href="tutorials.html#tutorial-4"><i class="fa fa-check"></i><b>5.6</b> Tutorial 4</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>6</b> Applications</a>
 <ul>
@@ -531,6 +533,593 @@ modelled by the Markov chain with the transition probability matrix
 <div id="tutorial-2" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Tutorial 2</h2>
 <ol style="list-style-type: decimal">
+<li><p>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states <span class="math inline">\(1, 2, 3\)</span> has the
+following transition matrix <span class="math display">\[P = \begin{bmatrix}
+    0.5 &amp; 0.3 &amp; 0.2    \\
+    0.2 &amp; 0.2 &amp; 0.6  \\
+    0.3 &amp; 0.2 &amp; 0.5    \\
+\end{bmatrix}.\]</span> The distribution of the initial random variable
+<span class="math inline">\(X_0\)</span> is <span class="math inline">\(\boldsymbol{\mu} = (0.3, 0.3, 0.4)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Draw a transition diagram for the chain.</p></li>
+<li><p>Determine <span class="math inline">\(\Pr(X_0 = 1, X_1 = 2, X_2 = 3).\)</span></p></li>
+<li><p>Determine <span class="math inline">\(\Pr(X_1 = 2, X_2 = 3 | X_0 = 1).\)</span></p></li>
+<li><p>Determine <span class="math inline">\(\Pr(X_{11} = 2, X_{12} = 3 | X_{10} = 1).\)</span></p></li>
+<li><p>Determine <span class="math inline">\(\Pr(X_2 = 3 | X_0 = 1).\)</span></p></li>
+<li><p>Determine <span class="math inline">\(\Pr(X_3 = 3 | X_1 = 1).\)</span></p></li>
+<li><p>Determine <span class="math inline">\(\Pr(X_2 = 3).\)</span></p></li>
+<li><p>Determine <span class="math inline">\(\mathrm{E}[X_2]\)</span></p></li>
+</ol></li>
+</ol>
+<p><strong>Solutions:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>The transition diagram for the chain is shown in the figure below:
+<img src="SCMA469Bookdownproj_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p></li>
+<li><p><span class="math inline">\(\Pr(X_0 = 1, X_1 = 2, X_2 = 3) = \mu_1 p_{12} p_{23} = (0.3)(0.3)(0.6) = 0.054.\)</span></p></li>
+<li><p><span class="math inline">\(\Pr(X_1 = 2, X_2 = 3 | X_0 = 1) = p_{12} p_{23} = (0.3)(0.6) = 0.18.\)</span></p></li>
+<li><p>From the time homogeneous assumption, it follows that <span class="math display">\[\Pr(X_{11} = 2, X_{12} = 3 | X_{10} = 1) = \Pr(X_1 = 2, X_2 = 3 | X_0 = 1) = 0.18.\]</span></p></li>
+<li><p><span class="math inline">\(\Pr(X_2 = 3 | X_0 = 1) = (P^2)_{13} = 0.38.\)</span></p></li>
+<li><p><span class="math inline">\(\Pr(X_3 = 3 | X_1 = 1) = \Pr(X_2 = 3 | X_0 = 1) = (P^2)_{13} = 0.38.\)</span></p></li>
+<li><p><span class="math inline">\(\Pr(X_2 = 3) = (\boldsymbol{\mu}P^2)_3 = 0.424.\)</span></p></li>
+<li><p><span class="math inline">\(\mathrm{E}[X_2] = \sum_{k=1}^3 k \Pr(X_2 = k) = (1, 2, 3) \cdot (0.343, 0.233, 0.424) = 2.081.\)</span></p></li>
+</ol>
+<p>Note that</p>
+<pre><code>## P^2 
+##  A  3 - dimensional discrete Markov Chain defined by the following states: 
+##  1, 2, 3 
+##  The transition matrix  (by rows)  is defined as follows: 
+##      1    2    3
+## 1 0.37 0.25 0.38
+## 2 0.32 0.22 0.46
+## 3 0.34 0.23 0.43</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states 1,2,3 has the
+following transition matrix <span class="math display">\[P = \begin{bmatrix}
+    0 &amp; 1/2 &amp; 1/2   \\
+    1/3  &amp; 1/3  &amp; 1/3   \\
+    1/2  &amp; 1/2  &amp; 0    \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span>
+The process starts in states <span class="math inline">\(X_0 = 1\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Draw a transition diagram for the chain.</p></li>
+<li><p>Determine <span class="math inline">\(\Pr(X_0 = 1, X_1 = 3, X_2 = 2).\)</span></p></li>
+<li><p>Determine <span class="math inline">\(\Pr(X_1 = 3, X_2 = 2 | X_0 = 1).\)</span></p></li>
+<li><p>Determine <span class="math inline">\(\Pr(X_2 = 2 | X_0 = 1).\)</span></p></li>
+<li><p>Determine <span class="math inline">\(\Pr(X_3 = 2 | X_1 = 1).\)</span></p></li>
+<li><p>Determine <span class="math inline">\(\Pr(X_2 = 2).\)</span></p></li>
+</ol></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>The transition diagram for the chain is shown in the figure below:
+<img src="SCMA469Bookdownproj_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p></li>
+<li><p><span class="math inline">\(\Pr(X_0 = 1, X_1 = 3, X_2 = 2) = \mu_1 p_{13} p_{32} = (1)(1/2)(1/2) = 1/4.\)</span></p></li>
+<li><p><span class="math inline">\(\Pr(X_1 = 3, X_2 = 2 | X_0 = 1) = p_{13} p_{32} = (1/2)(1/2) = 1/4.\)</span></p></li>
+<li><p><span class="math inline">\(\Pr(X_2 = 2 | X_0 = 1) = (P^2)_{12} = 5/12.\)</span></p></li>
+<li><p><span class="math inline">\(\Pr(X_3 = 2 | X_1 = 1) = \Pr(X_2 = 2 | X_0 = 1) = (P^2)_{12} = 5/12.\)</span></p></li>
+<li><p><span class="math inline">\(\Pr(X_2 = 2) = (\boldsymbol{\mu}P^2)_2 = 5/12.\)</span></p></li>
+</ol>
+<p>Note that</p>
+<pre><code>## P^2 
+##  A  3 - dimensional discrete Markov Chain defined by the following states: 
+##  1, 2, 3 
+##  The transition matrix  (by rows)  is defined as follows: 
+##           1         2         3
+## 1 0.4166667 0.4166667 0.1666667
+## 2 0.2777778 0.4444444 0.2777778
+## 3 0.1666667 0.4166667 0.4166667</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on sates 1,2 has the following
+transition matrix <span class="math display">\[P = \begin{bmatrix}
+    1-a &amp; a   \\
+    b &amp; 1-b   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix},\]</span> where <span class="math inline">\(0 &lt; a,b &lt; 1.\)</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Draw a transition diagram for the chain.</p></li>
+<li><p>the distribution of <span class="math inline">\(X_1\)</span>.</p></li>
+<li><p>Show that <span class="math display">\[P^n = \frac{1}{a+b} \begin{bmatrix}
+    b &amp; a   \\
+    b &amp; a   \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix} +
+\frac{(1-a-b)^n}{a+b} \begin{bmatrix}
+    a &amp; -a   \\
+    -b &amp; b   \\
+\end{bmatrix}.\]</span></p></li>
+<li><p>Given that <span class="math inline">\(X_0 = 1\)</span>, what is the probability that in the long
+run the system will be in state 1? (Hint: consider
+<span class="math inline">\(\lim_{n \rightarrow \infty} \boldsymbol{\mu} P^n\)</span>)</p></li>
+<li><p>Given that <span class="math inline">\(X_0 = 1\)</span>, what is the probability that in the long
+run the system will be in state 2?</p></li>
+<li><p>Given that <span class="math inline">\(X_0 = 2\)</span>, what is the probability that in the long
+run the system will be in state 1?</p></li>
+<li><p>Given that <span class="math inline">\(X_0 = 2\)</span>, what is the probability that in the long
+run the system will be in state 2?</p></li>
+</ol></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Leave it to the reader.</p></li>
+<li><p>Denote <span class="math inline">\(\boldsymbol{\mu} = (\mu_1, \mu_2)\)</span> the initial probability distribution. Then the distribution of <span class="math inline">\(X_1\)</span> is <span class="math inline">\(\boldsymbol{\mu}^{(1)} = \boldsymbol{\mu} P = (\mu_1(1-a) + \mu_2 b, \mu_1 a + \mu_2(1-b))\)</span></p></li>
+<li><p>We apply eigendecomposition of a matrix. For more details, please follow this link from Wikipedia <a href="https://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix">link</a>.</p></li>
+</ol>
+<p>The eigenvalues of <span class="math inline">\(P\)</span> are <span class="math inline">\(\lambda_1 = 1\)</span> and <span class="math inline">\(\lambda_2 = 1 - a -b\)</span> and the corresponding eigenvectors are
+<span class="math display">\[v_1 = \begin{bmatrix}
+            1   \\
+            1   \\
+         \end{bmatrix}, \quad
+         v_2 = \begin{bmatrix}
+            -a/b   \\
+            1   \\
+         \end{bmatrix}.
+    \]</span><br />
+Then the transition matrix can be factorised as
+<span class="math display">\[P = \begin{bmatrix}
+            1 &amp; -a/b \\
+            1 &amp; 1 \\
+         \end{bmatrix}
+         \begin{bmatrix}
+            1 &amp; 0   \\
+            0 &amp; 1 - a - b   \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 &amp; -a/b \\
+            1 &amp; 1 \\
+         \end{bmatrix}^{-1}.
+    \]</span><br />
+Hence <span class="math display">\[\begin{aligned}
+      P^n &amp;= \left( \begin{bmatrix}
+            1 &amp; -a/b \\
+            1 &amp; 1 \\
+         \end{bmatrix}
+         \begin{bmatrix}
+            1 &amp; 0   \\
+            0 &amp; (1 - a - b)^n   \\
+        \end{bmatrix} \right)
+        \begin{bmatrix}
+            1 &amp; -a/b \\
+            1 &amp; 1 \\
+         \end{bmatrix}^{-1}  \\
+         &amp;= \begin{bmatrix}
+            1 &amp; -\frac{a}{b}(1 - a - b)^n \\
+            1 &amp; (1 - a - b)^n \\
+         \end{bmatrix} 
+         \left(
+         \frac{1}{1 + a/b}
+         \begin{bmatrix}
+            1 &amp; a/b \\
+            -1 &amp; 1 \\
+         \end{bmatrix}
+         \right)  \\
+         &amp;= \frac{1}{a+b}
+         \begin{bmatrix}
+         b + a(1 - a - b)^n &amp; a - a(1 - a - b)^n \\
+         b - b(1 - a - b)^n &amp; a + b(1 - a - b)^n
+         \end{bmatrix} \\
+         &amp;= \frac{1}{a+b}
+         \begin{bmatrix}
+         b &amp; a \\
+         b &amp; a
+         \end{bmatrix} +
+         \frac{(1 - a - b)^n}{a+b}
+         \begin{bmatrix}
+         a &amp; -a \\
+         -b &amp; b
+         \end{bmatrix}
+         \end{aligned}.
+         \]</span>
+Note that <span class="math display">\[\lim_{n \rightarrow \infty} P^n = 
+         \frac{1}{a+b}
+         \begin{bmatrix}
+         b &amp; a \\
+         b &amp; a
+         \end{bmatrix}, \]</span>
+which follows from the facts that <span class="math inline">\(-1 &lt; 1 -a -b &lt; 1\)</span> and <span class="math inline">\((1- a-b)^n \rightarrow 0\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>It follows from the above results that in the long run
+<span class="math display">\[ \lim_{n \rightarrow \infty} \Pr(X_n = 1| X_0 = 1) = (\lim_{n \rightarrow \infty} P^n)_{11} = \frac{b}{a+b}. \]</span></p></li>
+<li><p>In the long run, we have
+<span class="math display">\[ \lim_{n \rightarrow \infty} \Pr(X_n = 2| X_0 = 1) = (\lim_{n \rightarrow \infty} P^n)_{12} = \frac{a}{a+b}. \]</span></p></li>
+<li><p>In the long run, we have
+<span class="math display">\[ \lim_{n \rightarrow \infty} \Pr(X_n = 1| X_0 = 2) = (\lim_{n \rightarrow \infty} P^n)_{21} = \frac{b}{a+b}. \]</span></p></li>
+<li><p>In the long run, we have
+<span class="math display">\[ \lim_{n \rightarrow \infty} \Pr(X_n = 2| X_0 = 2) = (\lim_{n \rightarrow \infty} P^n)_{22} = \frac{a}{a+b}. \]</span></p></li>
+</ol>
+<p>Furthermore, for any initial distribution <span class="math inline">\(\boldsymbol{\mu}\)</span>, the limiting distribution with this initial distribution is
+<span class="math display">\[ \lim_{n \rightarrow \infty} \boldsymbol{\mu} P^n  = (\frac{b}{a+b}, \frac{a}{a+b}).\]</span>
+This gives the long term proportion of the Markov chain, i.e. the probability of finding the process in state 1 is <span class="math inline">\(\frac{b}{a+b}\)</span> and in state 2 is <span class="math inline">\(\frac{a}{a+b}\)</span>, irrespective of the stating state.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(a\)</span> be a constant and <span class="math inline">\(\xi_1, \xi_2, \ldots\)</span> be a sequence of
+independent and identically distributed (i.i.d.) random variables.
+The stochastic process <span class="math inline">\(\{ X_n\}\)</span> is defined by
+<span class="math display">\[X_0 = a, \quad X_n = X_{n-1} + \xi_n, \, n &gt; 1.\]</span> This process is
+known as a random walk.</p>
+<ol style="list-style-type: decimal">
+<li><p>Express the state <span class="math inline">\(X_n\)</span> in terms of <span class="math inline">\(X_0\)</span> and the random
+variables <span class="math inline">\(\xi_i, i = 1,2 \ldots\)</span>.</p></li>
+<li><p>Find <span class="math inline">\(\mathrm{E}[X_n]\)</span> and <span class="math inline">\(\mathrm{Var}[X_n]\)</span>.</p></li>
+<li><p>Does the process have the Markov property? Explain.</p></li>
+<li><p>Is the process stationary? Explain.</p></li>
+</ol></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>From the definition, it follows that
+<span class="math display">\[
+\begin{aligned}
+X_0 &amp;= a \\
+X_1 &amp;= X_0 + \xi_1 = a + \xi_1 \\
+X_2 &amp;= X_1 + \xi_2 = a + \xi_1 + \xi_2 \\
+    &amp;\vdots \\
+X_n &amp;= X_{n-1} + \xi_n = a + \sum_{i=1}^n \xi_i, \quad n \ge 1.
+\end{aligned}
+\]</span></p></li>
+<li><p>Let <span class="math inline">\(\mu = \mathrm{E}[\xi_i]\)</span> and <span class="math inline">\(\sigma^2 = \mathrm{Var}[\xi_i]\)</span> denote the mean and variance of the increments <span class="math inline">\(\xi_i\)</span>. Then
+<span class="math display">\[
+\begin{aligned}  
+\mathrm{E}[X_n] &amp;= \mathrm{E}\left[a + \sum_{i=1}^n \xi_i\right] = a+ \sum_{i=1}^n \mathrm{E}[\xi_i] = a + n \mu, \\
+\mathrm{Var}[X_n] &amp;= \mathrm{Var}\left[a + \sum_{i=1}^n \xi_i\right] =  \sum_{i=1}^n \mathrm{Var}[\xi_i] =  n \sigma^2.
+\end{aligned}
+\]</span>
+The last equality follows from the assumption that <span class="math inline">\(\xi_1, \xi_2, \ldots\)</span> are independent.</p></li>
+<li><p>The process <span class="math inline">\(\{X_n\}_{n\ge0}\)</span> has independent increments and , hence, has the Markov
+property. More details can be found from the lecture note <a href="https://pairote-sat.github.io/SCMA469/discrete-time-markov-chains.html">link</a>.</p></li>
+<li><p>The process is <strong>not</strong> stationary because <span class="math inline">\(\mathrm{E}[X_n]\)</span> is not constant and <span class="math inline">\(\mathrm{Var}[X_n]\)</span> also depends on <span class="math inline">\(n\)</span>.</p></li>
+<li><p>Consider a homogeneous discrete-time Markov chain that describes the
+daily weather pattern. The weather patterns are classified into 3
+conditions: R(rainy), C (cloudy) and S(sunny). Based on the daily
+observations, the following information are given:</p>
+<ul>
+<li><p>On any rainy day, the probability that it will rain the next day
+is 0.7; the probability that tomorrow will be cloudy is 0.2 and
+the probability that tomorrow will be sunny is 0.1.</p></li>
+<li><p>On any cloudy day, the probability that it will rain the next
+day is 0.5; the probability that tomorrow will be cloudy is 0.35
+and the probability that tomorrow will be sunny is 0.15.</p></li>
+<li><p>On any sunny day, the probability that it will rain the next day
+is 0.1; the probability that tomorrow will be cloudy is 0.4 and
+the probability that tomorrow will be sunny is 0.5.</p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>Draw a transition diagram for the chain and write down a
+transition matrix.</p></li>
+<li><p>Find the probability that tomorrow is cloudy and the day after
+is rainy, given that it is sunny today.</p></li>
+<li><p>Given that today is rainy, find the probability that it will be
+sunny in two days time.</p></li>
+</ol></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol style="list-style-type: decimal">
+<li>The transition matrix <span class="math inline">\(P\)</span> and the transition diagram are given in the results below :</li>
+</ol>
+<pre><code>## P 
+##  A  3 - dimensional discrete Markov Chain defined by the following states: 
+##  R, C, S 
+##  The transition matrix  (by rows)  is defined as follows: 
+##     R    C    S
+## R 0.7 0.20 0.10
+## C 0.5 0.35 0.15
+## S 0.1 0.40 0.50</code></pre>
+<p><img src="SCMA469Bookdownproj_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>The probability that tomorrow is cloudy and the day after is rainy, given that it is sunny today is
+<span class="math display">\[ \Pr(X_1 = C, X_2 = R | X_0 = S) = (0.4)(0.5) = 0.2.\]</span></p></li>
+<li><p>Given that today is rainy, the probability that it will be sunny in two days time is
+<span class="math display">\[ \Pr(X_2 = S | X_0 = R) = (P^2)_{13} = 0.15.\]</span></p></li>
+</ol>
+</div>
+<div id="tutorial-3" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Tutorial 3</h2>
+<ol style="list-style-type: decimal">
+<li><p>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states 1, 2, 3 with initial
+distribution <span class="math inline">\(\boldsymbol{\mu} = (1/4,1/4,1/2)\)</span>. It has the
+following transition matrix <span class="math display">\[P = \begin{bmatrix}
+    1/2 &amp; 1/4 &amp; 1/4   \\
+    1/3  &amp; 1/3  &amp; 1/3   \\
+    1/5  &amp; 2/5  &amp; 2/5    \\
+    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
+    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
+\end{bmatrix}.\]</span> Compute the following probabilities:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\Pr(X_{11} = 1, X_{12} = 2, X_{13} = 3 | X_{10} = 1).\)</span></p></li>
+<li><p><span class="math inline">\(\Pr(X_0 = 3, X_1 = 2 , X_2 = 1).\)</span></p></li>
+<li><p><span class="math inline">\(\Pr(X_1 = 3, X_2 = 2 , X_3 = 1).\)</span></p></li>
+<li><p><span class="math inline">\(\Pr(X_{1} = 2, X_{3} = 2, X_{5} = 2).\)</span></p></li>
+</ol></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<pre><code>1.  We have  </code></pre>
+<p><span class="math inline">\(\Pr(X_{11} = 1, X_{12} = 2, X_{13} = 3 | X_{10} = 1) = p_{11} p_{12} p_{23} = (1/2)(1/4)(1/3) = 1/24.\)</span></p>
+<pre><code>2.  We have  </code></pre>
+<p><span class="math inline">\(\Pr(X_0 = 3, X_1 = 2, X_2 = 1) = \mu_3 p_{32} p_{21} = (0.5)(2/5)(1/3) = 1/15.\)</span></p>
+<pre><code>3.  We have </code></pre>
+<p><span class="math display">\[\begin{aligned} \Pr(X_1 = 3, X_2 = 2, X_3 = 1) &amp;= 
+\sum_{i=1}^{3} \Pr(X_0 = i) \Pr(X_1 = 3, X_2 = 2, X_3 = 1 | X_0 = i) \\ 
+&amp;= \sum_{i=1}^{3} \mu_i p_{i3} p_{32} p_{21} \\
+&amp;=  \left( \sum_{i=1}^{3} \mu_i p_{i3} \right) p_{32} p_{21}  \\
+&amp;= (\boldsymbol{\mu}P)_3 p_{32} p_{21}\\
+&amp;= (83/240)(2/5)(1/3) \\
+&amp;= 83/1800  =  0.0461111.
+\end{aligned}\]</span></p>
+<pre><code>4. We have </code></pre>
+<p><span class="math display">\[\begin{aligned} \Pr(X_1 = 2, X_3 = 2, X_5 = 2) &amp;= 
+\sum_{i=1}^{3} \Pr(X_0 = i) \Pr(X_1 = 2, X_3 = 2, X_5 = 2 | X_0 = i) \\ 
+&amp;= \sum_{i=1}^{3} \mu_i p_{i2} p^{(2)}_{22} p^{(2)}_{22} \\
+&amp;=  \left( \sum_{i=1}^{3} \mu_i p_{i2} \right) p^{(2)}_{22} p^{(2)}_{22}  \\
+&amp;= (\boldsymbol{\mu}P)_2 p^{(2)}_{22} p^{(2)}_{22}\\
+&amp;= (83/240)(59/180)(59/180) \\
+&amp;= 9356/251805 = 0.0371557.
+\end{aligned}\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>A Markov chain with state space <span class="math inline">\(S = \{1,2,3,4,5,6\}\)</span> has the
+following transition matrix: <span class="math display">\[P = \begin{bmatrix}
+1/4 &amp; 0 &amp; 3/4 &amp; 0 &amp; 0 &amp; 0  \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0  \\
+0 &amp; 0 &amp; 1/2 &amp; 0 &amp; 0 &amp; 1/2  \\
+1/5 &amp; 1/5 &amp; 1/5 &amp; 0 &amp; 1/5 &amp; 1/5   \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0  \\
+1/3 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 2/3  \\
+\end{bmatrix}.\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Draw a transition diagram.</p></li>
+<li><p>Identify the communication classes and classify them as closed
+or non-closed.</p></li>
+<li><p>Is the Markov chain irreducible?</p></li>
+</ol></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<pre><code>1. The transition diagram is shown in the figure below:</code></pre>
+<p><img src="SCMA469Bookdownproj_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<pre><code>2. There are two closed classes </code></pre>
+<p><span class="math inline">\(C^1 = \{1, 3, 6\}\)</span> and <span class="math inline">\(C^2 = \{5\}\)</span> because</p>
+<ul>
+<li><p><span class="math inline">\(p_{55} = 1\)</span> and</p></li>
+<li><p><span class="math inline">\(1 \rightarrow 3 \rightarrow 6 \rightarrow 1\)</span>, and hence <span class="math inline">\(1, 3, 6\)</span> are in the same communication class. In addition, for each <span class="math inline">\(i \in C^1\)</span>, <span class="math inline">\(\sum_{j \in C^1} p_{ij} = 1\)</span>, which implies that escaping from <span class="math inline">\(C^1\)</span> is impossible. Therefore <span class="math inline">\(C^1\)</span> is a closed class.</p>
+<p>There is one non-closed class <span class="math inline">\(O = \{2, 4\}\)</span>. This is because <span class="math inline">\(2 \leftrightarrow 4\)</span> and <span class="math inline">\(p_{43} &gt;0\)</span>.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>The Markov chain is reducible because it contains more than one communication classes.</li>
+</ol></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><p>For each of the Markov chains whose
+transition matrix is given below, identify the closed classes and
+the vector of absorption probabilities associated with each of these
+closed classes. Assume that the states are labelled <span class="math inline">\(1,2,3 \ldots\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math display">\[\begin{bmatrix}
+        1/6 &amp; 0 &amp; 1/3 &amp; 1/2      \\
+        0 &amp; 1/3 &amp; 2/3 &amp; 0   \\
+    1/2 &amp; 1/2 &amp; 0 &amp; 0     \\    
+    0 &amp; 0 &amp; 1/4 &amp; 3/4     \\
+\end{bmatrix}.\]</span></p></li>
+<li><p><span class="math display">\[\begin{bmatrix}
+        0 &amp; 1/4 &amp; 3/4 &amp; 0      \\
+        0 &amp; 1/3 &amp; 0 &amp; 2/3   \\
+    1/3 &amp; 0 &amp; 1/3 &amp; 1/3     \\  
+    0 &amp; 0 &amp; 0 &amp; 1     \\
+\end{bmatrix}.\]</span></p></li>
+<li><p><span class="math display">\[\begin{bmatrix}
+       1/4 &amp; 1/4 &amp; 1/4 &amp; 1/4      \\
+       0 &amp; 3/4 &amp; 1/4 &amp; 0   \\
+       0 &amp; 3/4 &amp; 1/4 &amp; 0   \\
+   0 &amp; 0 &amp; 0 &amp; 1     \\
+     \end{bmatrix}.\]</span></p></li>
+<li><p><span class="math display">\[\begin{bmatrix}
+       0 &amp; 0 &amp; 0 &amp; 1/2  &amp; 0 &amp; 0 &amp; 1/2   \\
+       1/6 &amp; 0 &amp; 1/6 &amp; 0  &amp; 0 &amp; 1/6 &amp; 1/2 \\
+   0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0    \\ 
+       1/2 &amp; 0 &amp; 0 &amp; 1/2  &amp; 0 &amp; 0 &amp; 0   \\
+   1/4 &amp; 1/4 &amp; 0 &amp; 0  &amp; 0 &amp; 0 &amp; 1/2 \\
+   0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0    \\ 
+       1/2 &amp; 0 &amp; 0 &amp; 0  &amp; 0 &amp; 0 &amp; 1/2   \\
+     \end{bmatrix}.\]</span></p></li>
+</ol></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<pre><code>1. Every two states communicate, so </code></pre>
+<p><span class="math inline">\(\{1, 2, 3, 4 \}\)</span> is a single closed class (since <span class="math inline">\(1 \rightarrow 4 \rightarrow 3 \rightarrow 2 \rightarrow 3 \rightarrow 1\)</span>). The absorption probabilities are 1, since each state is in this closed class. The transition diagram is shown in the figure below:</p>
+<p><img src="SCMA469Bookdownproj_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<pre><code>2. There are two non-closed classes </code></pre>
+<p><span class="math inline">\(O^1 = \{1, 3\}\)</span> and <span class="math inline">\(O^2 = \{2\}\)</span> and a closed class
+<span class="math inline">\(C^1 = \{4\}\)</span>. Since we have a single closed class, all absorption probabilities to this closed class <span class="math inline">\(C^1 = \{4\}\)</span> are equal to 1. The transition diagram is shown in the figure below:</p>
+<p><img src="SCMA469Bookdownproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre><code>3. There are two closed classes </code></pre>
+<p><span class="math inline">\(C^1 = \{2, 3\}\)</span> and <span class="math inline">\(C^2 = \{4\}\)</span> and a non-closed class
+<span class="math inline">\(O^1 = \{1\}\)</span>. The transition diagram is shown in the figure below:</p>
+<p><img src="SCMA469Bookdownproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>Let
+<span class="math inline">\(\mathbf{u}=\mathbf{u}^{C_{2}}\)</span> be the vector of absorption
+probabilities in the closed class <span class="math inline">\(C^2 = \{4\}\)</span>. Write
+<span class="math inline">\(\mathbf{u}= (u_1,u_2,u_3,u_4)^T\)</span> and <span class="math inline">\(u_4 = 1\)</span> and <span class="math inline">\(u_2 = u_3 =0\)</span>,</p>
+<p>From <span class="math inline">\(\mathbf{u}=P \cdot \mathbf{u}\)</span>,</p>
+<p><span class="math display">\[\left(\begin{array}{c}u_{1} \\ u_{2} \\  u_{3} \\ u_{4}\end{array}\right)=\begin{bmatrix}
+                1/4 &amp; 1/4 &amp; 1/4 &amp; 1/4      \\
+                0 &amp; 3/4 &amp; 1/4 &amp; 0   \\
+                0 &amp; 3/4 &amp; 1/4 &amp; 0   \\
+            0 &amp; 0 &amp; 0 &amp; 1     \\
+        \end{bmatrix} \left(\begin{array}{c}u_{1} \\ u_{2} \\  u_{3} \\ u_{4}\end{array}\right) \text { gives}\]</span>
+<span class="math display">\[ u_1 = \frac{1}{4} u_1 + \frac{1}{4}\]</span> Solving the
+linear system for <span class="math inline">\(u_1\)</span> yields <span class="math inline">\(u_1 = 1/3\)</span>.
+Hence, the absorption probabilities in the closed class <span class="math inline">\(C_2\)</span> is
+<span class="math display">\[\mathbf{u}= (1/3,0,0,1)^T.\]</span>
+In addition, since there are two closed classes,
+<span class="math inline">\(\mathbf{u}^{C_1} = \mathbf{1} - \mathbf{u}^{C_2} = (2/3,1,1,0)^T.\)</span></p>
+<pre><code>4. There are two closed classes </code></pre>
+<p><span class="math inline">\(C^1 = \{1, 4, 7\}\)</span> and <span class="math inline">\(C^2 = \{3\}\)</span> and two non-closed classes
+<span class="math inline">\(O^1 = \{2, 6\}\)</span> and <span class="math inline">\(O^2 = \{5\}\)</span>. The transition diagram is shown in the figure below:</p>
+<p><img src="SCMA469Bookdownproj_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>Let
+<span class="math inline">\(\mathbf{u}=\mathbf{u}^{C_{2}}\)</span> be the vector of absorption
+probabilities in the closed class <span class="math inline">\(C^2 = \{3\}\)</span>. Write
+<span class="math inline">\(\mathbf{u}= (u_1,u_2,u_3,\ldots, u_7)^T\)</span> and <span class="math inline">\(u_3 = 1\)</span> and <span class="math inline">\(u_1 = u_4 = u_7 =0\)</span>,</p>
+<p><span class="math display">\[\left(\begin{array}{c}u_{1} \\ u_{2} \\ \vdots \\ u_{7}\end{array}\right)=P\left(\begin{array}{c}u_{1} \\ u_{2} \\ \vdots \\ u_{7}\end{array}\right) \text{ gives}\]</span>
+<span class="math display">\[\begin{aligned}
+    u_2 &amp;= \frac{1}{6}  + \frac{1}{6} u_6 \\
+    u_5 &amp;=   \frac{1}{4} u_2\\
+    u_6 &amp;=   u_2.\\   \end{aligned}\]</span>
+Solving the linear system for <span class="math inline">\(u_2, u_5\)</span> and <span class="math inline">\(u_6\)</span> yields <span class="math inline">\(u_2 = 1/5, u_5 = 1/20\)</span> and <span class="math inline">\(u_6 = 1/5\)</span>.
+Hence, the absorption probabilities in the closed class <span class="math inline">\(C_2\)</span> is
+<span class="math display">\[\mathbf{u}= (0,1/5,1,0,1/20,1/5,0)^T.\]</span>
+In addition, since there are two closed classes,
+<span class="math inline">\(\mathbf{u}^{C_1} = \mathbf{1} - \mathbf{u}^{C_2} = (1,4/5,0,1,19/20,4/5,1)^T.\)</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>If the Markov chain defined in Question 3 is irreducible,
+i.e. it has a unique stationary distribution, then find the
+stationary distribution of the chain.</p></li>
+<li><p>Assume that a Markov chain has more than one closed classes (say <span class="math inline">\(r\)</span>
+closed classes). The Markov chain can <strong>have many stationary
+distributions</strong>. Assume further that within each of these <span class="math inline">\(r\)</span> closed
+classes, the associated Markov chain is aperiodic. The followings
+hold:</p>
+<ul>
+<li><p>Within a closed class <span class="math inline">\(C_1\)</span>, let <span class="math inline">\(P_1\)</span> be a reduction of a
+matrix <span class="math inline">\(P\)</span> which is formed by deleting all rows and columns
+corresponding to states from other classes. Then there exists a
+unique stationary distribution, denoted by
+<span class="math inline">\(\{\pi_j^{(1)}\}_{j \in C_1}.\)</span></p></li>
+<li><p>Similarly, let
+<span class="math inline">\(\{\pi_j^{(2)}\}_{j \in C_2}, \ldots, \{\pi_j^{(r)}\}_{j \in C_r}\)</span>
+be stationary distributions within other classes.</p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Show that for any numbers <span class="math inline">\(\gamma_1, \gamma_2, \ldots, \gamma_r\)</span>
+such that <span class="math inline">\(\sum_{m=1}^r \gamma_m = 1\)</span>, the following
+distribution <span class="math inline">\(\{ \pi_j \}\)</span> is stationary, where</li>
+</ol>
+<p><span class="math display" id="eq:limitdist">\[\begin{equation} 
+  \tag{5.1}
+    \pi_j =
+     \begin{cases}
+        \pi_j^{(k)} \gamma_k &amp; \text{for } j \in C_k, \, k= 1,\ldots, r \\
+        0 &amp; \text{if } j \text{ is in a nonclosed class.}
+      \end{cases}
+    \end{equation}\]</span>
+(In particular, any stationary distribution of the Markov chain is of this form.)</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Write down the general form of stationary distributions of the
+Markov chain in Questions 3.3 and 3.4.</p></li>
+<li><p>Now we will focus on limiting distributions. Consider the three
+following possible cases.</p>
+<ol style="list-style-type: decimal">
+<li><p>If <span class="math inline">\(X_0 = i\)</span> and <span class="math inline">\(i \in C_k\)</span> for some closed class <span class="math inline">\(C_k\)</span>,
+then verify that the limiting distribution is defined as in Eqn.<a href="tutorials.html#eq:limitdist">(5.1)</a> where <span class="math inline">\(\gamma_k =1\)</span> and
+<span class="math inline">\(\gamma_m = 0,\)</span> for <span class="math inline">\(m \neq k\)</span>.</p></li>
+<li><p>If <span class="math inline">\(X_0 = i\)</span> and <span class="math inline">\(i\)</span> is in a nonclosed class, then verify
+that the limiting distribution is defined as in
+Eqn.<a href="tutorials.html#eq:limitdist">(5.1)</a> where <span class="math inline">\(\gamma_k = \alpha^{(k)}_i\)</span>
+for <span class="math inline">\(k = 1,2,\ldots r\)</span> where <span class="math inline">\(\alpha^{(k)}_i\)</span> is the
+probability of absorption in class <span class="math inline">\(C_k\)</span>. More precisely,
+<span class="math display">\[\pi_j =
+ \begin{cases}
+    \pi_j^{(k)} \alpha^{(k)}_i &amp; \text{for } j \in C_k, \, k= 1,\ldots, r \\
+    0 &amp; \text{if } j \text{ is in a nonclosed class.}
+  \end{cases}
+      %\pi_j^{(k)} \gamma_k \text{ for } j \in C_k, \, k= 1,\ldots, r \text { and }\]</span></p></li>
+<li><p>If <span class="math inline">\(X_0\)</span> is random, then this will leave as extra exercise.
+(Hint: you may need to apply first step anslysis)</p></li>
+</ol></li>
+</ol></li>
+<li><p>A no-claims discount system for motor insurance has four levels of
+discount:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Level</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Discount</td>
+<td align="center">0%</td>
+<td align="center">10%</td>
+<td align="center">30%</td>
+<td align="center">50%</td>
+</tr>
+</tbody>
+</table>
+<p>The rules for moving between these levels are given as follows:</p>
+<ul>
+<li><p>Following a claim-free year, move to the next higher level, or
+remain at level 4.</p></li>
+<li><p>Following a year with one claim, move to the next lower level,
+or remain at level 1.</p></li>
+<li><p>Following a year with two or more claims, move down two levels,
+or move to level 1 (from level 2), or remain at level 1.</p></li>
+</ul>
+<p>A portfolio consists of 10,000 policyholders. Suppose also that the
+number of claims per year is <span class="math inline">\(\mathcal{Poisson}(0.1)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Calculate <span class="math inline">\(\Pr[N = 0]\)</span>, <span class="math inline">\(\Pr[N = 1]\)</span>, and <span class="math inline">\(\Pr[N \ge 2]\)</span> for
+each group.</p></li>
+<li><p>Write down the transition probability matrix of this no-claims
+discount system.</p></li>
+<li><p>Find the probability that a policyholder who has the 30%
+discount has no discount after 2 years.</p></li>
+<li><p>Calculate the expected number of policyholders at each level at
+times 1 and 2, assuming no exits.</p></li>
+<li><p>Calculate the expected number of policyholders at each level
+once stability has been achieved, assuming no exits.</p></li>
+</ol></li>
+<li><p>A no-claims discount system for motor insurance has four levels of
+discount:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Level</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Discount</td>
+<td align="center">0%</td>
+<td align="center">20%</td>
+<td align="center">30%</td>
+<td align="center">50%</td>
+</tr>
+</tbody>
+</table>
+<p>The rules for moving between these levels are given as follows:</p>
+<ul>
+<li><p>For a claim-free year, a policyholder moves to the next higher
+level, or remains at level 4.</p></li>
+<li><p>For every claim in a year, the policyholder moves down a
+discount level or remains at level 1, for example if the
+policyholder is in level 4 and has one accident, he/she moves to
+level 3, and 2 accidents, he/she moves to level 2, and 2 or more
+accidents to level 1.</p></li>
+</ul>
+<p>For a given policyholder, the number of claims each year, <span class="math inline">\(N\)</span>, has a
+negative binomial distribution with parameters <span class="math inline">\(k=2\)</span> and <span class="math inline">\(p = 0.5\)</span>.</p>
+<p>Note that a random variable <span class="math inline">\(N\)</span> has a negative distribution with
+parameters <span class="math inline">\(k\)</span> and <span class="math inline">\(p\)</span>, denoted by <span class="math inline">\(N \sim \dnb\)</span> if its probability
+mass function is given by
+<span class="math display">\[f_N(n) = \Pr(N = n) = \frac{\Gamma(k+n)}{\Gamma(n+1)\Gamma(k)} p^k (1- p)^n \quad n = 0,1,2,\ldots.\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Draw a transition diagram for the chain.</p></li>
+<li><p>Write down the transition matrix of this no-claims discount
+system.</p></li>
+<li><p>Find the probability that a policyholder who has the maximum
+discount level will have 20% discount after two years.</p></li>
+</ol></li>
+</ol>
+</div>
+<div id="tutorial-2-1" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Tutorial 2</h2>
+<ol style="list-style-type: decimal">
 <li><p>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states 1 ,2 ,3 has the
 following transition matrix <span class="math display">\[P = \begin{bmatrix}
     0.5 &amp; 0.3 &amp; 0.2    \\
@@ -635,8 +1224,8 @@ sunny in two days time.</p></li>
 </ol></li>
 </ol>
 </div>
-<div id="tutorial-3" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Tutorial 3</h2>
+<div id="tutorial-3-1" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Tutorial 3</h2>
 <ol style="list-style-type: decimal">
 <li><p>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states 1, 2, 3 with initial
 distribution <span class="math inline">\(\boldsymbol{\mu} = (1/4,1/4,1/2)\)</span>. It has the
@@ -790,7 +1379,7 @@ or remain at level 1.</p></li>
 or move to level 1 (from level 2), or remain at level 1.</p></li>
 </ul>
 <p>A portfolio consists of 10,000 policyholders. Suppose also that the
-number of claims per year is <span class="math inline">\(\vpoisson{0.1}\)</span>.</p>
+number of claims per year is <span class="math inline">\(\mathcal{Poisson}(0.1)\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><p>Calculate <span class="math inline">\(\Pr[N = 0]\)</span>, <span class="math inline">\(\Pr[N = 1]\)</span>, and <span class="math inline">\(\Pr[N \ge 2]\)</span> for
 each group.</p></li>
@@ -799,7 +1388,7 @@ discount system.</p></li>
 <li><p>Find the probability that a policyholder who has the 30%
 discount has no discount after 2 years.</p></li>
 <li><p>Calculate the expected number of policyholders at each level at
-times 1 and 2, assuming no exits.</p></li>
+times 1 and 2, assuming no exits given that all policyholders start at level 1.</p></li>
 <li><p>Calculate the expected number of policyholders at each level
 once stability has been achieved, assuming no exits.</p></li>
 </ol></li>
@@ -850,8 +1439,8 @@ discount level will have 20% discount after two years.</p></li>
 </ol></li>
 </ol>
 </div>
-<div id="tutorial-4" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Tutorial 4</h2>
+<div id="tutorial-4" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Tutorial 4</h2>
 <ol style="list-style-type: decimal">
 <li><p>Customers arrive in a shop according to a Poisson process of rate
 <span class="math inline">\(\lambda = 4\)</span>. Let <span class="math inline">\(N(t)\)</span> be the number of customers that have
