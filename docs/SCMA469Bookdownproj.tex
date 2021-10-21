@@ -128,7 +128,7 @@
 
 \title{SCMA469 Actuarial Statistics}
 \author{Pairote Satiracoo}
-\date{2021-09-22}
+\date{2021-10-21}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -2682,7 +2682,7 @@ the transition matrix is \[P = \begin{bmatrix}
 \textbf{Solution:}
 The entire state space is a single class. Note also that
 \(p^{(2n)}_{ii} > 0\) and \(p^{(2n+1)}_{ii} = 0\) for \(n = 1,2,\ldots\).
-Therefore each state in the random walk on an infinite set \(S\) is
+Therefore each state in the state space \(S\) is
 periodic with period 2.
 
 \begin{example}
@@ -2954,6 +2954,563 @@ three levels of discount:}
 \item
   \emph{Comments on the results obtained. Does this NCD system encourage
   good driving?}
+\end{enumerate}
+
+\end{example}
+
+\hypertarget{poisson-processes}{%
+\chapter{Poisson processes}\label{poisson-processes}}
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+In this chapter, we will consider a class of stochastic processes,
+namely Poisson processes, that can be used to model the occurrence or
+arrival of events over a continuous time interval. Time domains of such
+processes are continuous and the state space is the set of whole
+numbers.
+
+For instance, consider the number of claims that occur up to time \(t\)
+(denoted by \(N(t) = N_t\)) from a portfolio of health insurance policies
+(or other types of insurance products). Suppose that the average rate of
+occurrence of claims per time unit (e.g.~day or week ) is given by
+\(\lambda\).
+
+Here are some questions of interest:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Suppose that on average 20 claims arrive every day (i.e.
+  \(\lambda = 20\)). What is the probability that more than 100 claims
+  arrive within a week?
+\item
+  What is the expected time until the next claim?
+\end{enumerate}
+
+The model used to model the insurance claims is an example of \textbf{Poisson
+processes}. The following examples can also be modelled by a Poisson
+process:
+
+\begin{itemize}
+\item
+  Claims arrivals at an insurance company,
+\item
+  Telephone calls to a call center,
+\item
+  Accidents occurring on the highway.
+\end{itemize}
+
+\hypertarget{poisson-process}{%
+\section{Poisson process}\label{poisson-process}}
+
+A \textbf{Poisson process} is a special type of counting process. It can be
+represented by a continuous time stochastic process \(\{N(t)\}_{t \ge 0}\)
+which takes values in the non-negative integers. The state space is
+discrete but the time set is continuous. Here \(N(t)\) represents the
+number of events in the interval \((0,t]\).
+
+\hypertarget{counting-process}{%
+\subsection{Counting Process}\label{counting-process}}
+
+A counting process \(\{N(t)\}_{t \ge 0}\) is a collection of non-negative,
+integer-valued random variables such that if \(0 \le s \le t\), then
+\(N(s) \le N(t)\).
+
+Figure~\protect\hyperlink{graphPoisson}{1}
+illustrates a trajectory of the Poisson process. The sample path of a
+Poisson process is a right-continuous step function. There are jumps
+occurring at time \(t_1, t_2, t_3, \ldots\).
+
+We will see that there are several ways to describe a Poisson process.
+One can define it by the number of claims that occur up to time \(t\) or
+the times between those claims when they occur. Main properties of
+Poisson processes will be discussed.
+
+For \(0 \le s < t\), the number of events in the interval \((s, t]\) is
+given by \[N(s,t) = N(t) - N(s).\] For any interval \(I = (s,t]\),
+\[N(I) = N(t) - N(s).\] Therefore, \(N(t) = N(0,t)\).
+
+Formally, an integer-valued process \(\{N(t)\}_{t \ge 0}\) is a \textbf{Poisson
+process} with rate \(\lambda\) (or intensity) if it satisfies the
+following two conditions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  For any \(t\) and \(h> 0\) (\(h\) small), \[\begin{aligned}
+      \Pr(N(t+h) - N(t) = 1)  &= \lambda h + o(h)\\
+      \Pr(N(t+h) - N(t) = 0)  &= 1- \lambda h + o(h)\\    
+      \Pr(N(t+h) - N(t) \ge 2)  &=  o(h)  \end{aligned}\]
+\item
+  For disjoint intervals \(I_1, I_2, \ldots, I_k\), the number of events
+  \(N(I_1), \ldots, N(I_k)\) are independent random variables.
+\end{enumerate}
+
+\textbf{Notes}
+The statement that \(f(h) = o(h)\) as \(h \rightarrow 0\) means
+\(\displaystyle\lim_{h\rightarrow 0} \frac{f(h)}{h} = 0\). Examples are
+\(h^2\), \(h^3\), etc.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The probability that an event occurs during the short time interval
+  from time \(t\) to time \(t + h\) is approximately equal to
+  \(\lambda \, h\) for small \(h\), i.e.
+  \[\Pr[N(t+h) - N(t) = 1] \approx \lambda\, h.\] The parameter
+  \(\lambda\) represents the average rate of occurrence of events (e.g.
+  20 claims (or events) per day).
+\item
+  The properties essentially require that, in a very small interval of
+  length \(h\), we have either a single point (or an occurrence) with
+  probability \(\lambda h\), or no point with probability
+  \(1 - \lambda h\).
+\item
+  Any two of the three statements necessarily imply the third (since
+  the sum of the probability of all possible outcomes is 1).
+\end{enumerate}
+
+\hypertarget{properties-of-poisson-processes}{%
+\section{Properties of Poisson processes}\label{properties-of-poisson-processes}}
+
+In the following example, we show that \(N(t)\) is a Poisson random
+variable with mean \(\lambda t\) . In addition, \(N(t +s) - N(s)\) is a
+Poisson random variable with mean \(\lambda \, t\) , independent of
+anything that has occurred before time \(s\).
+
+\begin{example}
+\protect\hypertarget{exm:unlabeled-div-37}{}\label{exm:unlabeled-div-37}
+
+Show that the process \(N(t)\) is a Poisson random variable with mean
+\(\lambda t\), i.e.~\(N(t) \sim \text{Poisson}(\lambda \, t)\).
+
+\end{example}
+
+\textbf{Solution:}
+
+To show that \(N(t) \sim \text{Poisson}(\lambda t)\), we let
+\[p_j(t) = \Pr(N(t) = j),\]
+which is the probability that there have been exactly \(j\) events by time \(t\).
+
+We simply need to show that
+\[ p_j(t) = \frac{e^{-\lambda t}(\lambda t)^j}{j!}\]
+
+\textbf{Case 1:} For any \(j >0\) and for small positive \(h\), consider the following arguments
+
+\[
+\begin{aligned}
+p_j(t+h) &=  \Pr(N(t+h) = j) \\
+&= \Pr(N(t) = j \text{ and } N(t,t+h) = 0)  \\
+&+ \Pr(N(t) = j \text{ and } N(t,t+h) = 1)  \\
+&+  \Pr(N(t) = j \text{ and } N(t,t+h) \ge 2)  \\
+&= p_j(t)(1 - \lambda h) + p_{j-1}(t)(\lambda h) + o(h)
+\end{aligned}
+\]
+Rearranging the equation and letting \(h \rightarrow 0\), we obtain
+\[ \frac{d p_j(t)}{dt} = -\lambda p_j(t) + \lambda p_{j-1}(t),\]
+with initial condition \(p_j(0) = 0 = \Pr(N(0) = j)\).
+
+\textbf{Case 2:} For \(j = 0\), we can also obtain
+\[ \frac{d p_0(t)}{dt} = -\lambda p_0(t)\,\]
+with initial condition \(p_0(0) = 1 = \Pr(N(0) = 0)\).
+
+We can show that the solution to the initial value problem for both cases is
+\[ p_j(t) = \frac{e^{-\lambda t}(\lambda t)^j}{j!}.\]
+
+\textbf{Note}
+This result explains why it is called the Poisson process, since number
+of events in an interval has a Poisson distribution.
+
+\begin{example}
+\protect\hypertarget{exm:unlabeled-div-38}{}\label{exm:unlabeled-div-38}
+
+Consider a factory where machinery malfunctions happen as a Poisson
+process with rate once per 8 hours. The factory owner wants to estimate
+the probability of one or more failures in a given hour.
+
+\end{example}
+
+The following definition provides an alternative way to characterise the
+Poisson process.
+
+\hypertarget{poisson-process-definition-2}{%
+\section{Poisson process : Definition 2}\label{poisson-process-definition-2}}
+
+A process \(\{N(t)\}_{t \ge 0}\) that satisfies the following properties
+is called a \textbf{Poisson process} with rate (or intensity) \(\lambda > 0\):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(N_0 = 0\).
+\item
+  \textbf{Poisson distribution} For all \(t \ge 0\), \(N(t)\) has as a Poisson
+  process with parameter (mean) \(\lambda \, t\).
+\item
+  \textbf{Independent increments} For \(0 \le q < r \le s< t\), \(N(t) - N(s)\)
+  and \(N(r) - N(q)\) are independent random variables.
+\item
+  \textbf{Stationary increments} For all \(s,t >0\), \(N(t+s) - N(s)\) has the
+  same distribution as \(N_t\), i.e.
+  \[\Pr(N(t+s) - N(s) = n) = \Pr(N(t) = n) = \frac{e^{-\lambda t} (\lambda t)^n}{n!}, \quad \text{ for }  n = 0,1,2,\ldots.\]
+\end{enumerate}
+
+As may be seen from the definition, the increment \(N(t +h) - N(t)\) of
+the Poisson process is independent of past values of the process and has
+a distribution which does not depend on \(t\) (only depends on the length
+of time interval \(h\)). It therefore follows that the Poisson process is
+a process with \textbf{stationary, independent increments} and, in addition,
+\textbf{satisfies the Markov property}.
+
+\begin{example}
+\protect\hypertarget{exm:unlabeled-div-39}{}\label{exm:unlabeled-div-39}
+
+Starting at 9 a.m., customers arrive at a coffee shop according to
+Poisson process at the rate of 10 customers per hour.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Find the probability that more than 30 customers arrive between 11
+  a.m. and 1 p.m.
+\item
+  Find the probability that 30 customers arrive by noon and 50
+  customers by 2 p.m.
+\end{enumerate}
+
+\end{example}
+
+\hypertarget{inter-arrival-times-inter-event-times-or-holding-times}{%
+\section{Inter arrival times (Inter event times or holding times)}\label{inter-arrival-times-inter-event-times-or-holding-times}}
+
+The Poisson process can take only one-unit upward jumps so it can be
+characterised by the time between events. Let \(T_i\) denote the time
+between the \(i\)-th and the \(i+1\)-th events. The times \(T_i\) are referred
+to as \textbf{the time between events, interarrival times or holding times}
+
+\textbf{Notes}
+1. We choose the sample paths of \(N_t\) to be right continuous so that
+
+\begin{verbatim}
+-   $N(t)  = 0$ for $t \in [0, T_0)$
+
+-   $N(t)  = 1$ for $t \in [T_0, T_0 + T_1)$
+
+-   $N(t)  = 2$ for $t \in [T_0 + T_1, T_0 + T_1 + T_2)$, etc.
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \(N(t)\) is constant over intervals of the form \([a,b)\).
+\end{enumerate}
+
+\hypertarget{important-result}{%
+\section*{Important result}\label{important-result}}
+\addcontentsline{toc}{section}{Important result}
+
+\(\{T_i \}_{i \ge 0}\) is a sequence of independent exponential random
+variables, each with parameter \(\lambda\).
+
+\textbf{Solution:}
+For \(t \ge 0\), we have
+\[\Pr(T_0 > t) = \Pr(N(t) = 0) = e^{-\lambda t}.\]
+
+This implies that \(T_0\) has an exponential distribution with mean \(1/\lambda\).
+
+For \(t \ge 0\) and \(s \ge 0\), we have
+\[
+\begin{aligned}
+\Pr(T_0 > s, T_1 > t) &= \int_s^\infty \int_t^\infty f(u,v) \, dv \, du \\
+&= \int_s^\infty \int_t^\infty f_{T_1|u}(v|u) f_{T_0}(u) \, dv \, du \\
+&= \int_s^\infty \left[ \int_t^\infty f_{T_1|u}(v|u)  \, dv  \right] \, f_{T_0}(u) du \\
+&= \int_s^\infty \left[ \int_t^\infty f_{T_1|u}(v|u)  \, dv  \right] \, \lambda e^{-\lambda u} du \\
+&= \int_s^\infty \Pr(T_1 > t| T_0 = u) \, \lambda e^{-\lambda u} du \\
+&= \int_s^\infty \Pr(\text{no events in the interval (u,u+t)}) \, \lambda e^{-\lambda u} du \\
+&= \int_s^\infty e^{-\lambda t } \, \lambda e^{-\lambda u} du \\
+&= e^{-\lambda t } \, \lambda \int_s^\infty  e^{-\lambda u} du \\
+&= e^{-\lambda (t+s) }
+\end{aligned}.
+\]
+Putting \(s = 0\), in the last expression, we obtain
+\[\Pr(T_1 > t)  = e^{-\lambda t}.\]
+Hence, \(T_1\) is exponentially distributed with mean \(1/\lambda\).
+
+Moreover,
+\[
+\begin{aligned}
+\Pr(T_0 > s, T_1 > t) &= e^{-\lambda (t+s) } \\
+&= e^{-\lambda t } e^{-\lambda s } \\
+&= \Pr(T_0 > s) \Pr(T_1 > t)
+\end{aligned}.
+\]
+This implies that \(T_1\) and \(T_2\) are independent.
+
+\textbf{Note}
+A Poisson process is a counting process for which interarrival times are
+independent and identically distributed exponential random variables.
+
+\begin{example}
+\protect\hypertarget{exm:unlabeled-div-40}{}\label{exm:unlabeled-div-40}
+
+In the previous example, the event of malfunctions can be modelled as a
+Poisson process with rate 1/8 failure per hour. Calculate the
+probability that a second failure will happen within one hour of the
+first failure in a day.
+
+\end{example}
+
+\begin{example}
+\protect\hypertarget{exm:unlabeled-div-41}{}\label{exm:unlabeled-div-41}
+
+Consider insurance claims arriving such that they follow a Poisson
+process with rate 5 per day.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Calculate the probability that there will be at least 2 claims
+  reported on a given day.
+\item
+  Calculate the probability that another claim will be reported during
+  the next hour.
+\item
+  Calculate the expected time until the next claim, if there haven't
+  been any claims reported in the last two days.
+\end{enumerate}
+
+\end{example}
+
+\textbf{Solution:}
+
+Following the properties of a Poisson process, the number of reported claims in an interval of \(t\) days has a Poisson distribution with parameter \(\lambda t\), \(\text{Poisson}(\lambda t)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The probability that there will be at least 2 claims
+  reported on a given day is
+  \[
+  \begin{aligned}
+  \Pr(N(t+1) - N(t) \ge 2) &= \Pr(N(1) \ge 2)
+  &= 1 - \frac{e^{-5} 5^0 }{0!} - \frac{e^{-5} 5^1 }{1!} \\
+  &= 1 - 6e^{-5} \\
+  &= 1 - 0.0404\\
+  &= 0.9596
+  \end{aligned}
+  \]
+\item
+  The probability that another claim will be reported during the next hour is the same as the probability that there is at least one claim in the next hour. Therefore,
+\end{enumerate}
+
+\[
+\begin{aligned}
+\Pr(N(t+1/24) - N(t) \ge 1) &= 1 - \Pr(N(1/24) = 0)
+&= 1 - \frac{e^{-5/24} 5^0 }{0!} \\
+&= 1 - 0.8119\\
+&= 0.1881
+\end{aligned}
+\]
+
+Alternatively, the time between claims has an exponential distribution with parameter \(\lambda = 5\). The required probability is
+\[
+\begin{aligned}
+\Pr(T_i \le 1/24) &= 1 - e^{-5/24} \\
+&= 0.1881
+\end{aligned}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  The waiting time has the lack of memory property, so the time before another claim comes in is independent of the time since the last one (i.e.~independent of the fact that there have not been any claims reported in the last two days).
+\end{enumerate}
+
+The expected time until the next claim is
+\[ \text{E}[T_i] = \frac{1}{5} = 0.2 \text{ days}.\]
+
+\hypertarget{superposition-and-thinning-properties}{%
+\section{Superposition and thinning properties}\label{superposition-and-thinning-properties}}
+
+In this section, we consider two other important properties of the
+Poisson process.
+
+\hypertarget{superposition-property}{%
+\subsection*{Superposition property}\label{superposition-property}}
+\addcontentsline{toc}{subsection}{Superposition property}
+
+Let \(N_1(\cdot),N_2(\cdot) , \ldots, N_k(\cdot)\) be \textbf{independent}
+Poisson processes with rate parameters
+\(\lambda_1, \lambda_2, \ldots, \lambda_k\), respectively. Then the
+following statements hold:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The sum of the Poisson process
+  \(N(\cdot) = N_1(\cdot) + N_2(\cdot) + \cdots + N_k(\cdot)\) is also a
+  Poisson process with rate
+  \(\displaystyle \lambda = \sum_{j = 1}^k \lambda_j\).
+\item
+  Given the occurrence of a point of the process \(N(\cdot)\) at time
+  \(t\), it belongs to any given original process \(N_i(\cdot)\) with
+  probability \(p_i = \lambda_i/\lambda\), independent of all others.
+\end{enumerate}
+
+The converse of the superposition property is the splitting property. It
+can be seen that the Poisson process behaves in an intuitive way when
+considering the problem of \textbf{splitting} or \textbf{sampling}.
+
+\hypertarget{splitting-thinning-property}{%
+\subsection*{Splitting (Thinning) property}\label{splitting-thinning-property}}
+\addcontentsline{toc}{subsection}{Splitting (Thinning) property}
+
+Let \(N(\cdot)\) be a Poisson process with rate \(\lambda\). Suppose that
+each arrival of \(N(\cdot)\), which is independent of other arrivals, is
+assigned or marked as a type \(i\) with probability \(p_i\), where
+\(p_1 + \cdots + p_k = 1\). Let \(N_i(\cdot)\) for \(1 \le i \le k\) be the
+number of type \(i\) events in \([0,t]\). Then
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The processes \(N_1(\cdot),N_2(\cdot) , \ldots, N_k(\cdot)\) are
+  \textbf{independent} Poisson processes with rates
+  \(p_1 \lambda, \ldots, p_k \lambda\).
+\item
+  Each processes is called a \textbf{thinned Poisson process}.
+\end{enumerate}
+
+To illustrate the splitting property, let us assume (for explanation
+purpose) that \(k = 2\). Let \(N_1(t)\) denote the number of events of type
+1 by time \(t\) and Let \(N_2(t)\) denote the number of events of type 2.
+Therefore, \(N(t) = N_1(t) + N_2(t)\). The joint probability mass function
+of \((N_1(t), N_2(t))\) is
+
+\begin{example}
+\protect\hypertarget{exm:unlabeled-div-42}{}\label{exm:unlabeled-div-42}
+
+An insurance company has two types of policy, A and B. Reported claims
+under A follow a Poisson process with rate 4 per day. Reported claims
+independently under B follow a Poisson process with rate 6 per day. The
+probability that a claim from A is at least 5,000 THB is 2/5, while that
+from B is 1/3. Calculate the expected number of claims at least 5,000
+THB in the next day.
+
+\end{example}
+
+\begin{example}
+\protect\hypertarget{exm:unlabeled-div-43}{}\label{exm:unlabeled-div-43}
+
+Claims arriving from male happen as a Poisson process with rate 2 per
+day, wile claims arriving from female happen as a Poisson process with
+rate 6 per day.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Calculate the probability that in any given period of 1 week,
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    no claims occur;
+  \item
+    at least 2 claims occur.
+  \end{enumerate}
+\item
+  Calculate the probability that 4 claims from female have happened
+  before 2 claims from male.
+\end{enumerate}
+
+\end{example}
+
+\hypertarget{memorylessness}{%
+\section{Memorylessness}\label{memorylessness}}
+
+The importance of the exponential distribution to the Poisson process
+lies in its unique memoryless property, a topic from probability that
+merits review. To illustrate the memoryless property, let us consider
+the following situation:
+
+\begin{itemize}
+\item
+  Assume that John and Taylor each want to take a bus.
+\item
+  Buses arrive at a bus stop according to a Poisson process with
+  parameter \(\lambda = 1/30\). That is, the times between buses have an
+  exponential distribution, and buses arrive, on average, once every
+  30 minutes.
+\item
+  Unlucky John gets to the bus stop just as a bus pulls out of the
+  station. His waiting time for the next bus is about 30 minutes.
+\item
+  Taylor arrives at the bus stop 10 minutes after John. Remarkably,
+  the time that Taylor waits for a bus also has an exponential
+  distribution with parameter \(\lambda = 1/30\).
+\end{itemize}
+
+Memorylessness means that their waiting time distributions are the same,
+and they will both wait, on average, the same amount of time!
+
+To prove it true, observe that Taylor waits more than \(t\) minutes if and
+only if John waits more than \(t + 10\) minutes, given that a bus does not
+come in the first 10 minutes. Let \(A\) and \(B\) denote John and Taylor's
+waiting times, respectively. John's waiting time is exponentially
+distributed. Hence, \[\begin{aligned}
+    \Pr(B > t) &= \Pr( A > t + 10 | A > 10) = \frac{\Pr(A > t + 10)}{\Pr(A > 10)} \\
+        &= \frac{e^{-(t+10)/30}}{e^{-10/30}} = e^{-t/30}  \\
+        &= \Pr(A > t).\end{aligned}\] from which it follows that \(A\) and
+\(Z\) have the same distribution.
+
+Of course, there is nothing special about \(t = 10\). Memorylessness means
+that regardless of how long you have waited, the distribution of the
+time you still have to wait is the same as the original waiting time.
+
+The exponential distribution is the only continuous distribution that is
+memoryless. (The geometric distribution has the honors for the discrete
+case.) Here is the general statement of the property.
+
+More precisely, a random variable \(X\) is \textbf{memoryless} if, for all
+\(s, t > 0\), \[\Pr(X > s + t|X > s) = \Pr(X > t).\]
+
+\textbf{Notes}
+1. The exponential distribution is the only continuous distribution
+that exhibits this memoryless property, which is also called the
+Markov property.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Furthermore, it may be shown that, if X is a nonnegative continuous
+  random variable having this memoryless property, then the
+  distribution of X must be exponential.
+\item
+  For a discrete random variable, the geometric distribution is the
+  only distribution with this property.
+\end{enumerate}
+
+\begin{example}
+\protect\hypertarget{exm:unlabeled-div-44}{}\label{exm:unlabeled-div-44}
+
+Assume that the amount of time a patient spends in a dentist's office is
+exponentially distributed with mean equal to 40 minutes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Calculate the probability that a patient spends more than 60 minutes
+  in the dentist's office.
+\item
+  Calculate the probability that a patient will spend 60 minutes in
+  the dentist's office given that she has already spent 40 minutes
+  there.
 \end{enumerate}
 
 \end{example}

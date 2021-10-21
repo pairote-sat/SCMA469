@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Poisson processes | SCMA469 Actuarial Statistics</title>
+  <meta name="description" content="Chapter 5 Poisson processes | SCMA469 Actuarial Statistics" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Poisson processes | SCMA469 Actuarial Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Poisson processes | SCMA469 Actuarial Statistics" />
+  
+  
+  
+
+<meta name="author" content="Pairote Satiracoo" />
+
+
+<meta name="date" content="2021-10-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="discrete-time-markov-chains.html"/>
+<link rel="next" href="tutorials.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SCMA469 Actuarial Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Stochastic Processes</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#examples-of-real-world-processes"><i class="fa fa-check"></i><b>1.1</b> Examples of real world processes</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html"><i class="fa fa-check"></i><b>2</b> Review of probability theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#random-variables"><i class="fa fa-check"></i><b>2.1</b> Random variables</a></li>
+<li class="chapter" data-level="2.2" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#probability-distribution"><i class="fa fa-check"></i><b>2.2</b> Probability distribution</a></li>
+<li class="chapter" data-level="2.3" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-probability"><i class="fa fa-check"></i><b>2.3</b> Conditional probability</a></li>
+<li class="chapter" data-level="2.4" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#law-of-total-probability"><i class="fa fa-check"></i><b>2.4</b> Law of total probability</a></li>
+<li class="chapter" data-level="2.5" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation"><i class="fa fa-check"></i><b>2.5</b> Conditional distribution and conditional expectation</a></li>
+<li class="chapter" data-level="2.6" data-path="review-of-probability-theory.html"><a href="review-of-probability-theory.html#central-limit-theorem"><i class="fa fa-check"></i><b>2.6</b> Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stochastic-processes.html"><a href="stochastic-processes.html"><i class="fa fa-check"></i><b>3</b> Stochastic processes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="stochastic-processes.html"><a href="stochastic-processes.html#classification-of-stochastic-processes"><i class="fa fa-check"></i><b>3.1</b> Classification of stochastic processes</a></li>
+<li class="chapter" data-level="3.2" data-path="stochastic-processes.html"><a href="stochastic-processes.html#random-walk-an-introductory-example"><i class="fa fa-check"></i><b>3.2</b> Random walk: an introductory example</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html"><i class="fa fa-check"></i><b>4</b> Discrete-time Markov chains</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#one-step-transition-probabilities"><i class="fa fa-check"></i><b>4.1</b> One-step transition probabilities</a></li>
+<li class="chapter" data-level="4.2" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-chapman-kolmogorov-equation-and-n-step-transition-probabilities"><i class="fa fa-check"></i><b>4.2</b> The Chapman-Kolmogorov equation and <span class="math inline">\(n\)</span>-step transition probabilities</a></li>
+<li class="chapter" data-level="4.3" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#distribution-of-x_n"><i class="fa fa-check"></i><b>4.3</b> Distribution of <span class="math inline">\(X_n\)</span></a></li>
+<li class="chapter" data-level="4.4" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#joint-distribution"><i class="fa fa-check"></i><b>4.4</b> Joint Distribution</a></li>
+<li class="chapter" data-level="4.5" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#random-walk-with-absorbing-and-reflecting-barriers"><i class="fa fa-check"></i><b>4.5</b> Random walk with absorbing and reflecting barrier(s)</a></li>
+<li class="chapter" data-level="4.6" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#an-example-of-nonhomogeneous-markov-chain"><i class="fa fa-check"></i><b>4.6</b> An example of nonhomogeneous Markov chain</a></li>
+<li class="chapter" data-level="4.7" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#simulation"><i class="fa fa-check"></i><b>4.7</b> Simulation</a></li>
+<li class="chapter" data-level="4.8" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#monte-carlo-methods"><i class="fa fa-check"></i><b>4.8</b> Monte Carlo Methods</a></li>
+<li class="chapter" data-level="4.9" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#classification-of-states"><i class="fa fa-check"></i><b>4.9</b> Classification of states</a></li>
+<li class="chapter" data-level="4.10" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#absorption-probabilities-and-expected-time-to-absorption"><i class="fa fa-check"></i><b>4.10</b> Absorption probabilities and expected time to absorption</a></li>
+<li class="chapter" data-level="4.11" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#first-step-analysis"><i class="fa fa-check"></i><b>4.11</b> First step analysis</a></li>
+<li class="chapter" data-level="4.12" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-expected-time-to-absorption"><i class="fa fa-check"></i><b>4.12</b> The expected time to absorption</a></li>
+<li class="chapter" data-level="4.13" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-long-term-distribution-of-a-markov-chain"><i class="fa fa-check"></i><b>4.13</b> The long-term distribution of a Markov chain</a></li>
+<li class="chapter" data-level="4.14" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#stationary-and-limiting-distributions-for-a-single-closed-class"><i class="fa fa-check"></i><b>4.14</b> Stationary and limiting distributions for a single closed class</a>
+<ul>
+<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#stationary-distributions"><i class="fa fa-check"></i>Stationary distributions</a></li>
+<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#proportion-of-time-in-each-state"><i class="fa fa-check"></i>Proportion of Time in Each State</a></li>
+<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#the-method-of-finding-the-stationary-distribution"><i class="fa fa-check"></i>The method of finding the stationary distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.15" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain"><i class="fa fa-check"></i><b>4.15</b> Sufficient conditions for the long-run behaviour of a Markov chain</a></li>
+<li class="chapter" data-level="4.16" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#limiting-distributions"><i class="fa fa-check"></i><b>4.16</b> Limiting distributions</a></li>
+<li class="chapter" data-level="4.17" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#main-result"><i class="fa fa-check"></i><b>4.17</b> Main result</a>
+<ul>
+<li class="chapter" data-level="" data-path="discrete-time-markov-chains.html"><a href="discrete-time-markov-chains.html#applications-of-markov-chains-to-ncd-systems"><i class="fa fa-check"></i>Applications of Markov chains to NCD systems</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="poisson-processes.html"><a href="poisson-processes.html"><i class="fa fa-check"></i><b>5</b> Poisson processes</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="poisson-processes.html"><a href="poisson-processes.html#introduction"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="poisson-processes.html"><a href="poisson-processes.html#poisson-process"><i class="fa fa-check"></i><b>5.2</b> Poisson process</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="poisson-processes.html"><a href="poisson-processes.html#counting-process"><i class="fa fa-check"></i><b>5.2.1</b> Counting Process</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="poisson-processes.html"><a href="poisson-processes.html#properties-of-poisson-processes"><i class="fa fa-check"></i><b>5.3</b> Properties of Poisson processes</a></li>
+<li class="chapter" data-level="5.4" data-path="poisson-processes.html"><a href="poisson-processes.html#poisson-process-definition-2"><i class="fa fa-check"></i><b>5.4</b> Poisson process : Definition 2</a></li>
+<li class="chapter" data-level="5.5" data-path="poisson-processes.html"><a href="poisson-processes.html#inter-arrival-times-inter-event-times-or-holding-times"><i class="fa fa-check"></i><b>5.5</b> Inter arrival times (Inter event times or holding times)</a></li>
+<li class="chapter" data-level="" data-path="poisson-processes.html"><a href="poisson-processes.html#important-result"><i class="fa fa-check"></i>Important result</a></li>
+<li class="chapter" data-level="5.6" data-path="poisson-processes.html"><a href="poisson-processes.html#superposition-and-thinning-properties"><i class="fa fa-check"></i><b>5.6</b> Superposition and thinning properties</a>
+<ul>
+<li class="chapter" data-level="" data-path="poisson-processes.html"><a href="poisson-processes.html#superposition-property"><i class="fa fa-check"></i>Superposition property</a></li>
+<li class="chapter" data-level="" data-path="poisson-processes.html"><a href="poisson-processes.html#splitting-thinning-property"><i class="fa fa-check"></i>Splitting (Thinning) property</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="poisson-processes.html"><a href="poisson-processes.html#memorylessness"><i class="fa fa-check"></i><b>5.7</b> Memorylessness</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="tutorials.html"><a href="tutorials.html"><i class="fa fa-check"></i><b>6</b> Tutorials</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="tutorials.html"><a href="tutorials.html#tutorial-1"><i class="fa fa-check"></i><b>6.1</b> Tutorial 1</a></li>
+<li class="chapter" data-level="6.2" data-path="tutorials.html"><a href="tutorials.html#tutorial-2"><i class="fa fa-check"></i><b>6.2</b> Tutorial 2</a></li>
+<li class="chapter" data-level="6.3" data-path="tutorials.html"><a href="tutorials.html#tutorial-3"><i class="fa fa-check"></i><b>6.3</b> Tutorial 3</a></li>
+<li class="chapter" data-level="6.4" data-path="tutorials.html"><a href="tutorials.html#tutorial-2-1"><i class="fa fa-check"></i><b>6.4</b> Tutorial 2</a></li>
+<li class="chapter" data-level="6.5" data-path="tutorials.html"><a href="tutorials.html#tutorial-3-1"><i class="fa fa-check"></i><b>6.5</b> Tutorial 3</a></li>
+<li class="chapter" data-level="6.6" data-path="tutorials.html"><a href="tutorials.html#tutorial-4"><i class="fa fa-check"></i><b>6.6</b> Tutorial 4</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>7</b> Applications</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="applications.html"><a href="applications.html#datacamp-light"><i class="fa fa-check"></i><b>7.1</b> DataCamp Light</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>8</b> Final words</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="final-words.html"><a href="final-words.html#datacamp-light-1"><i class="fa fa-check"></i><b>8.1</b> DataCamp Light</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SCMA469 Actuarial Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="poisson-processes" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Poisson processes</h1>
+<div id="introduction" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction</h2>
+<p>In this chapter, we will consider a class of stochastic processes,
+namely Poisson processes, that can be used to model the occurrence or
+arrival of events over a continuous time interval. Time domains of such
+processes are continuous and the state space is the set of whole
+numbers.</p>
+<p>For instance, consider the number of claims that occur up to time <span class="math inline">\(t\)</span>
+(denoted by <span class="math inline">\(N(t) = N_t\)</span>) from a portfolio of health insurance policies
+(or other types of insurance products). Suppose that the average rate of
+occurrence of claims per time unit (e.g. day or week ) is given by
+<span class="math inline">\(\lambda\)</span>.</p>
+<p>Here are some questions of interest:</p>
+<ol style="list-style-type: decimal">
+<li><p>Suppose that on average 20 claims arrive every day (i.e.
+<span class="math inline">\(\lambda = 20\)</span>). What is the probability that more than 100 claims
+arrive within a week?</p></li>
+<li><p>What is the expected time until the next claim?</p></li>
+</ol>
+<p>The model used to model the insurance claims is an example of <strong>Poisson
+processes</strong>. The following examples can also be modelled by a Poisson
+process:</p>
+<ul>
+<li><p>Claims arrivals at an insurance company,</p></li>
+<li><p>Telephone calls to a call center,</p></li>
+<li><p>Accidents occurring on the highway.</p></li>
+</ul>
+</div>
+<div id="poisson-process" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Poisson process</h2>
+<p>A <strong>Poisson process</strong> is a special type of counting process. It can be
+represented by a continuous time stochastic process <span class="math inline">\(\{N(t)\}_{t \ge 0}\)</span>
+which takes values in the non-negative integers. The state space is
+discrete but the time set is continuous. Here <span class="math inline">\(N(t)\)</span> represents the
+number of events in the interval <span class="math inline">\((0,t]\)</span>.</p>
+<div id="counting-process" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Counting Process</h3>
+<p>A counting process <span class="math inline">\(\{N(t)\}_{t \ge 0}\)</span> is a collection of non-negative,
+integer-valued random variables such that if <span class="math inline">\(0 \le s \le t\)</span>, then
+<span class="math inline">\(N(s) \le N(t)\)</span>.</p>
+<p>Figure <a href="#graphPoisson" reference-type="ref" reference="graphPoisson">1</a>
+illustrates a trajectory of the Poisson process. The sample path of a
+Poisson process is a right-continuous step function. There are jumps
+occurring at time <span class="math inline">\(t_1, t_2, t_3, \ldots\)</span>.</p>
+<!-- ![ **A trajectory of the Poisson process** -->
+<!-- ](PlotPoissonProcess.eps){#graphPoisson width="50%"} -->
+<p>We will see that there are several ways to describe a Poisson process.
+One can define it by the number of claims that occur up to time <span class="math inline">\(t\)</span> or
+the times between those claims when they occur. Main properties of
+Poisson processes will be discussed.</p>
+<p>For <span class="math inline">\(0 \le s &lt; t\)</span>, the number of events in the interval <span class="math inline">\((s, t]\)</span> is
+given by <span class="math display">\[N(s,t) = N(t) - N(s).\]</span> For any interval <span class="math inline">\(I = (s,t]\)</span>,
+<span class="math display">\[N(I) = N(t) - N(s).\]</span> Therefore, <span class="math inline">\(N(t) = N(0,t)\)</span>.</p>
+<p>Formally, an integer-valued process <span class="math inline">\(\{N(t)\}_{t \ge 0}\)</span> is a <strong>Poisson
+process</strong> with rate <span class="math inline">\(\lambda\)</span> (or intensity) if it satisfies the
+following two conditions:</p>
+<ol style="list-style-type: decimal">
+<li><p>For any <span class="math inline">\(t\)</span> and <span class="math inline">\(h&gt; 0\)</span> (<span class="math inline">\(h\)</span> small), <span class="math display">\[\begin{aligned}
+    \Pr(N(t+h) - N(t) = 1)  &amp;= \lambda h + o(h)\\
+    \Pr(N(t+h) - N(t) = 0)  &amp;= 1- \lambda h + o(h)\\    
+    \Pr(N(t+h) - N(t) \ge 2)  &amp;=  o(h)  \end{aligned}\]</span></p></li>
+<li><p>For disjoint intervals <span class="math inline">\(I_1, I_2, \ldots, I_k\)</span>, the number of events
+<span class="math inline">\(N(I_1), \ldots, N(I_k)\)</span> are independent random variables.</p></li>
+</ol>
+<p><strong>Notes</strong>
+The statement that <span class="math inline">\(f(h) = o(h)\)</span> as <span class="math inline">\(h \rightarrow 0\)</span> means
+<span class="math inline">\(\displaystyle\lim_{h\rightarrow 0} \frac{f(h)}{h} = 0\)</span>. Examples are
+<span class="math inline">\(h^2\)</span>, <span class="math inline">\(h^3\)</span>, etc.</p>
+<ol style="list-style-type: decimal">
+<li><p>The probability that an event occurs during the short time interval
+from time <span class="math inline">\(t\)</span> to time <span class="math inline">\(t + h\)</span> is approximately equal to
+<span class="math inline">\(\lambda \, h\)</span> for small <span class="math inline">\(h\)</span>, i.e.
+<span class="math display">\[\Pr[N(t+h) - N(t) = 1] \approx \lambda\, h.\]</span> The parameter
+<span class="math inline">\(\lambda\)</span> represents the average rate of occurrence of events (e.g.
+20 claims (or events) per day).</p></li>
+<li><p>The properties essentially require that, in a very small interval of
+length <span class="math inline">\(h\)</span>, we have either a single point (or an occurrence) with
+probability <span class="math inline">\(\lambda h\)</span>, or no point with probability
+<span class="math inline">\(1 - \lambda h\)</span>.</p></li>
+<li><p>Any two of the three statements necessarily imply the third (since
+the sum of the probability of all possible outcomes is 1).</p></li>
+</ol>
+</div>
+</div>
+<div id="properties-of-poisson-processes" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Properties of Poisson processes</h2>
+<p>In the following example, we show that <span class="math inline">\(N(t)\)</span> is a Poisson random
+variable with mean <span class="math inline">\(\lambda t\)</span> . In addition, <span class="math inline">\(N(t +s) - N(s)\)</span> is a
+Poisson random variable with mean <span class="math inline">\(\lambda \, t\)</span> , independent of
+anything that has occurred before time <span class="math inline">\(s\)</span>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-37" class="example"><strong>Example 5.1  </strong></span>Show that the process <span class="math inline">\(N(t)\)</span> is a Poisson random variable with mean
+<span class="math inline">\(\lambda t\)</span>, i.e. <span class="math inline">\(N(t) \sim \text{Poisson}(\lambda \, t)\)</span>.</p>
+</div>
+<p><strong>Solution:</strong></p>
+<p>To show that <span class="math inline">\(N(t) \sim \text{Poisson}(\lambda t)\)</span>, we let
+<span class="math display">\[p_j(t) = \Pr(N(t) = j),\]</span>
+which is the probability that there have been exactly <span class="math inline">\(j\)</span> events by time <span class="math inline">\(t\)</span>.</p>
+<p>We simply need to show that
+<span class="math display">\[ p_j(t) = \frac{e^{-\lambda t}(\lambda t)^j}{j!}\]</span></p>
+<p><strong>Case 1:</strong> For any <span class="math inline">\(j &gt;0\)</span> and for small positive <span class="math inline">\(h\)</span>, consider the following arguments</p>
+<p><span class="math display">\[
+\begin{aligned}
+p_j(t+h) &amp;=  \Pr(N(t+h) = j) \\
+&amp;= \Pr(N(t) = j \text{ and } N(t,t+h) = 0)  \\
+&amp;+ \Pr(N(t) = j \text{ and } N(t,t+h) = 1)  \\
+&amp;+  \Pr(N(t) = j \text{ and } N(t,t+h) \ge 2)  \\
+&amp;= p_j(t)(1 - \lambda h) + p_{j-1}(t)(\lambda h) + o(h)
+\end{aligned}
+\]</span>
+Rearranging the equation and letting <span class="math inline">\(h \rightarrow 0\)</span>, we obtain
+<span class="math display">\[ \frac{d p_j(t)}{dt} = -\lambda p_j(t) + \lambda p_{j-1}(t),\]</span>
+with initial condition <span class="math inline">\(p_j(0) = 0 = \Pr(N(0) = j)\)</span>.</p>
+<p><strong>Case 2:</strong> For <span class="math inline">\(j = 0\)</span>, we can also obtain
+<span class="math display">\[ \frac{d p_0(t)}{dt} = -\lambda p_0(t)\,\]</span>
+with initial condition <span class="math inline">\(p_0(0) = 1 = \Pr(N(0) = 0)\)</span>.</p>
+<p>We can show that the solution to the initial value problem for both cases is
+<span class="math display">\[ p_j(t) = \frac{e^{-\lambda t}(\lambda t)^j}{j!}.\]</span></p>
+<p><strong>Note</strong>
+This result explains why it is called the Poisson process, since number
+of events in an interval has a Poisson distribution.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-38" class="example"><strong>Example 5.2  </strong></span>Consider a factory where machinery malfunctions happen as a Poisson
+process with rate once per 8 hours. The factory owner wants to estimate
+the probability of one or more failures in a given hour.</p>
+</div>
+<p>The following definition provides an alternative way to characterise the
+Poisson process.</p>
+</div>
+<div id="poisson-process-definition-2" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Poisson process : Definition 2</h2>
+<p>A process <span class="math inline">\(\{N(t)\}_{t \ge 0}\)</span> that satisfies the following properties
+is called a <strong>Poisson process</strong> with rate (or intensity) <span class="math inline">\(\lambda &gt; 0\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(N_0 = 0\)</span>.</p></li>
+<li><p><strong>Poisson distribution</strong> For all <span class="math inline">\(t \ge 0\)</span>, <span class="math inline">\(N(t)\)</span> has as a Poisson
+process with parameter (mean) <span class="math inline">\(\lambda \, t\)</span>.</p></li>
+<li><p><strong>Independent increments</strong> For <span class="math inline">\(0 \le q &lt; r \le s&lt; t\)</span>, <span class="math inline">\(N(t) - N(s)\)</span>
+and <span class="math inline">\(N(r) - N(q)\)</span> are independent random variables.</p></li>
+<li><p><strong>Stationary increments</strong> For all <span class="math inline">\(s,t &gt;0\)</span>, <span class="math inline">\(N(t+s) - N(s)\)</span> has the
+same distribution as <span class="math inline">\(N_t\)</span>, i.e.
+<span class="math display">\[\Pr(N(t+s) - N(s) = n) = \Pr(N(t) = n) = \frac{e^{-\lambda t} (\lambda t)^n}{n!}, \quad \text{ for }  n = 0,1,2,\ldots.\]</span></p></li>
+</ol>
+<p>As may be seen from the definition, the increment <span class="math inline">\(N(t +h) - N(t)\)</span> of
+the Poisson process is independent of past values of the process and has
+a distribution which does not depend on <span class="math inline">\(t\)</span> (only depends on the length
+of time interval <span class="math inline">\(h\)</span>). It therefore follows that the Poisson process is
+a process with <strong>stationary, independent increments</strong> and, in addition,
+<strong>satisfies the Markov property</strong>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-39" class="example"><strong>Example 5.3  </strong></span>Starting at 9 a.m., customers arrive at a coffee shop according to
+Poisson process at the rate of 10 customers per hour.</p>
+<ol style="list-style-type: decimal">
+<li><p>Find the probability that more than 30 customers arrive between 11
+a.m. and 1 p.m.</p></li>
+<li><p>Find the probability that 30 customers arrive by noon and 50
+customers by 2 p.m.</p></li>
+</ol>
+</div>
+</div>
+<div id="inter-arrival-times-inter-event-times-or-holding-times" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Inter arrival times (Inter event times or holding times)</h2>
+<p>The Poisson process can take only one-unit upward jumps so it can be
+characterised by the time between events. Let <span class="math inline">\(T_i\)</span> denote the time
+between the <span class="math inline">\(i\)</span>-th and the <span class="math inline">\(i+1\)</span>-th events. The times <span class="math inline">\(T_i\)</span> are referred
+to as <strong>the time between events, interarrival times or holding times</strong></p>
+<p><strong>Notes</strong>
+1. We choose the sample paths of <span class="math inline">\(N_t\)</span> to be right continuous so that</p>
+<pre><code>-   $N(t)  = 0$ for $t \in [0, T_0)$
+
+-   $N(t)  = 1$ for $t \in [T_0, T_0 + T_1)$
+
+-   $N(t)  = 2$ for $t \in [T_0 + T_1, T_0 + T_1 + T_2)$, etc.</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><span class="math inline">\(N(t)\)</span> is constant over intervals of the form <span class="math inline">\([a,b)\)</span>.</li>
+</ol>
+</div>
+<div id="important-result" class="section level2 unnumbered">
+<h2>Important result</h2>
+<p><span class="math inline">\(\{T_i \}_{i \ge 0}\)</span> is a sequence of independent exponential random
+variables, each with parameter <span class="math inline">\(\lambda\)</span>.</p>
+<p><strong>Solution:</strong>
+For <span class="math inline">\(t \ge 0\)</span>, we have
+<span class="math display">\[\Pr(T_0 &gt; t) = \Pr(N(t) = 0) = e^{-\lambda t}.\]</span></p>
+<p>This implies that <span class="math inline">\(T_0\)</span> has an exponential distribution with mean <span class="math inline">\(1/\lambda\)</span>.</p>
+<p>For <span class="math inline">\(t \ge 0\)</span> and <span class="math inline">\(s \ge 0\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+\Pr(T_0 &gt; s, T_1 &gt; t) &amp;= \int_s^\infty \int_t^\infty f(u,v) \, dv \, du \\
+&amp;= \int_s^\infty \int_t^\infty f_{T_1|u}(v|u) f_{T_0}(u) \, dv \, du \\
+&amp;= \int_s^\infty \left[ \int_t^\infty f_{T_1|u}(v|u)  \, dv  \right] \, f_{T_0}(u) du \\
+&amp;= \int_s^\infty \left[ \int_t^\infty f_{T_1|u}(v|u)  \, dv  \right] \, \lambda e^{-\lambda u} du \\
+&amp;= \int_s^\infty \Pr(T_1 &gt; t| T_0 = u) \, \lambda e^{-\lambda u} du \\
+&amp;= \int_s^\infty \Pr(\text{no events in the interval (u,u+t)}) \, \lambda e^{-\lambda u} du \\
+&amp;= \int_s^\infty e^{-\lambda t } \, \lambda e^{-\lambda u} du \\
+&amp;= e^{-\lambda t } \, \lambda \int_s^\infty  e^{-\lambda u} du \\
+&amp;= e^{-\lambda (t+s) }
+\end{aligned}.
+\]</span>
+Putting <span class="math inline">\(s = 0\)</span>, in the last expression, we obtain
+<span class="math display">\[\Pr(T_1 &gt; t)  = e^{-\lambda t}.\]</span>
+Hence, <span class="math inline">\(T_1\)</span> is exponentially distributed with mean <span class="math inline">\(1/\lambda\)</span>.</p>
+<p>Moreover,
+<span class="math display">\[
+\begin{aligned}
+\Pr(T_0 &gt; s, T_1 &gt; t) &amp;= e^{-\lambda (t+s) } \\
+&amp;= e^{-\lambda t } e^{-\lambda s } \\
+&amp;= \Pr(T_0 &gt; s) \Pr(T_1 &gt; t)
+\end{aligned}.
+\]</span>
+This implies that <span class="math inline">\(T_1\)</span> and <span class="math inline">\(T_2\)</span> are independent.</p>
+<p><strong>Note</strong>
+A Poisson process is a counting process for which interarrival times are
+independent and identically distributed exponential random variables.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-40" class="example"><strong>Example 5.4  </strong></span>In the previous example, the event of malfunctions can be modelled as a
+Poisson process with rate 1/8 failure per hour. Calculate the
+probability that a second failure will happen within one hour of the
+first failure in a day.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-41" class="example"><strong>Example 5.5  </strong></span>Consider insurance claims arriving such that they follow a Poisson
+process with rate 5 per day.</p>
+<ol style="list-style-type: decimal">
+<li><p>Calculate the probability that there will be at least 2 claims
+reported on a given day.</p></li>
+<li><p>Calculate the probability that another claim will be reported during
+the next hour.</p></li>
+<li><p>Calculate the expected time until the next claim, if there haven’t
+been any claims reported in the last two days.</p></li>
+</ol>
+</div>
+<p><strong>Solution:</strong></p>
+<p>Following the properties of a Poisson process, the number of reported claims in an interval of <span class="math inline">\(t\)</span> days has a Poisson distribution with parameter <span class="math inline">\(\lambda t\)</span>, <span class="math inline">\(\text{Poisson}(\lambda t)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>The probability that there will be at least 2 claims
+reported on a given day is
+<span class="math display">\[
+\begin{aligned}
+\Pr(N(t+1) - N(t) \ge 2) &amp;= \Pr(N(1) \ge 2)
+&amp;= 1 - \frac{e^{-5} 5^0 }{0!} - \frac{e^{-5} 5^1 }{1!} \\
+&amp;= 1 - 6e^{-5} \\
+&amp;= 1 - 0.0404\\
+&amp;= 0.9596
+\end{aligned}
+\]</span></p></li>
+<li><p>The probability that another claim will be reported during the next hour is the same as the probability that there is at least one claim in the next hour. Therefore,</p></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr(N(t+1/24) - N(t) \ge 1) &amp;= 1 - \Pr(N(1/24) = 0)
+&amp;= 1 - \frac{e^{-5/24} 5^0 }{0!} \\
+&amp;= 1 - 0.8119\\
+&amp;= 0.1881
+\end{aligned}
+\]</span></p>
+<p>Alternatively, the time between claims has an exponential distribution with parameter <span class="math inline">\(\lambda = 5\)</span>. The required probability is
+<span class="math display">\[
+\begin{aligned}
+\Pr(T_i \le 1/24) &amp;= 1 - e^{-5/24} \\
+&amp;= 0.1881
+\end{aligned}
+\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>The waiting time has the lack of memory property, so the time before another claim comes in is independent of the time since the last one (i.e. independent of the fact that there have not been any claims reported in the last two days).</li>
+</ol>
+<p>The expected time until the next claim is
+<span class="math display">\[ \text{E}[T_i] = \frac{1}{5} = 0.2 \text{ days}.\]</span></p>
+</div>
+<div id="superposition-and-thinning-properties" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Superposition and thinning properties</h2>
+<p>In this section, we consider two other important properties of the
+Poisson process.</p>
+<div id="superposition-property" class="section level3 unnumbered">
+<h3>Superposition property</h3>
+<p>Let <span class="math inline">\(N_1(\cdot),N_2(\cdot) , \ldots, N_k(\cdot)\)</span> be <strong>independent</strong>
+Poisson processes with rate parameters
+<span class="math inline">\(\lambda_1, \lambda_2, \ldots, \lambda_k\)</span>, respectively. Then the
+following statements hold:</p>
+<ol style="list-style-type: decimal">
+<li><p>The sum of the Poisson process
+<span class="math inline">\(N(\cdot) = N_1(\cdot) + N_2(\cdot) + \cdots + N_k(\cdot)\)</span> is also a
+Poisson process with rate
+<span class="math inline">\(\displaystyle \lambda = \sum_{j = 1}^k \lambda_j\)</span>.</p></li>
+<li><p>Given the occurrence of a point of the process <span class="math inline">\(N(\cdot)\)</span> at time
+<span class="math inline">\(t\)</span>, it belongs to any given original process <span class="math inline">\(N_i(\cdot)\)</span> with
+probability <span class="math inline">\(p_i = \lambda_i/\lambda\)</span>, independent of all others.</p></li>
+</ol>
+<p>The converse of the superposition property is the splitting property. It
+can be seen that the Poisson process behaves in an intuitive way when
+considering the problem of <strong>splitting</strong> or <strong>sampling</strong>.</p>
+</div>
+<div id="splitting-thinning-property" class="section level3 unnumbered">
+<h3>Splitting (Thinning) property</h3>
+<p>Let <span class="math inline">\(N(\cdot)\)</span> be a Poisson process with rate <span class="math inline">\(\lambda\)</span>. Suppose that
+each arrival of <span class="math inline">\(N(\cdot)\)</span>, which is independent of other arrivals, is
+assigned or marked as a type <span class="math inline">\(i\)</span> with probability <span class="math inline">\(p_i\)</span>, where
+<span class="math inline">\(p_1 + \cdots + p_k = 1\)</span>. Let <span class="math inline">\(N_i(\cdot)\)</span> for <span class="math inline">\(1 \le i \le k\)</span> be the
+number of type <span class="math inline">\(i\)</span> events in <span class="math inline">\([0,t]\)</span>. Then</p>
+<ol style="list-style-type: decimal">
+<li><p>The processes <span class="math inline">\(N_1(\cdot),N_2(\cdot) , \ldots, N_k(\cdot)\)</span> are
+<strong>independent</strong> Poisson processes with rates
+<span class="math inline">\(p_1 \lambda, \ldots, p_k \lambda\)</span>.</p></li>
+<li><p>Each processes is called a <strong>thinned Poisson process</strong>.</p></li>
+</ol>
+<p>To illustrate the splitting property, let us assume (for explanation
+purpose) that <span class="math inline">\(k = 2\)</span>. Let <span class="math inline">\(N_1(t)\)</span> denote the number of events of type
+1 by time <span class="math inline">\(t\)</span> and Let <span class="math inline">\(N_2(t)\)</span> denote the number of events of type 2.
+Therefore, <span class="math inline">\(N(t) = N_1(t) + N_2(t)\)</span>. The joint probability mass function
+of <span class="math inline">\((N_1(t), N_2(t))\)</span> is</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-42" class="example"><strong>Example 5.6  </strong></span>An insurance company has two types of policy, A and B. Reported claims
+under A follow a Poisson process with rate 4 per day. Reported claims
+independently under B follow a Poisson process with rate 6 per day. The
+probability that a claim from A is at least 5,000 THB is 2/5, while that
+from B is 1/3. Calculate the expected number of claims at least 5,000
+THB in the next day.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-43" class="example"><strong>Example 5.7  </strong></span>Claims arriving from male happen as a Poisson process with rate 2 per
+day, wile claims arriving from female happen as a Poisson process with
+rate 6 per day.</p>
+<ol style="list-style-type: decimal">
+<li><p>Calculate the probability that in any given period of 1 week,</p>
+<ol style="list-style-type: decimal">
+<li><p>no claims occur;</p></li>
+<li><p>at least 2 claims occur.</p></li>
+</ol></li>
+<li><p>Calculate the probability that 4 claims from female have happened
+before 2 claims from male.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="memorylessness" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Memorylessness</h2>
+<p>The importance of the exponential distribution to the Poisson process
+lies in its unique memoryless property, a topic from probability that
+merits review. To illustrate the memoryless property, let us consider
+the following situation:</p>
+<ul>
+<li><p>Assume that John and Taylor each want to take a bus.</p></li>
+<li><p>Buses arrive at a bus stop according to a Poisson process with
+parameter <span class="math inline">\(\lambda = 1/30\)</span>. That is, the times between buses have an
+exponential distribution, and buses arrive, on average, once every
+30 minutes.</p></li>
+<li><p>Unlucky John gets to the bus stop just as a bus pulls out of the
+station. His waiting time for the next bus is about 30 minutes.</p></li>
+<li><p>Taylor arrives at the bus stop 10 minutes after John. Remarkably,
+the time that Taylor waits for a bus also has an exponential
+distribution with parameter <span class="math inline">\(\lambda = 1/30\)</span>.</p></li>
+</ul>
+<p>Memorylessness means that their waiting time distributions are the same,
+and they will both wait, on average, the same amount of time!</p>
+<p>To prove it true, observe that Taylor waits more than <span class="math inline">\(t\)</span> minutes if and
+only if John waits more than <span class="math inline">\(t + 10\)</span> minutes, given that a bus does not
+come in the first 10 minutes. Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> denote John and Taylor’s
+waiting times, respectively. John’s waiting time is exponentially
+distributed. Hence, <span class="math display">\[\begin{aligned}
+    \Pr(B &gt; t) &amp;= \Pr( A &gt; t + 10 | A &gt; 10) = \frac{\Pr(A &gt; t + 10)}{\Pr(A &gt; 10)} \\
+        &amp;= \frac{e^{-(t+10)/30}}{e^{-10/30}} = e^{-t/30}  \\
+        &amp;= \Pr(A &gt; t).\end{aligned}\]</span> from which it follows that <span class="math inline">\(A\)</span> and
+<span class="math inline">\(Z\)</span> have the same distribution.</p>
+<p>Of course, there is nothing special about <span class="math inline">\(t = 10\)</span>. Memorylessness means
+that regardless of how long you have waited, the distribution of the
+time you still have to wait is the same as the original waiting time.</p>
+<p>The exponential distribution is the only continuous distribution that is
+memoryless. (The geometric distribution has the honors for the discrete
+case.) Here is the general statement of the property.</p>
+<p>More precisely, a random variable <span class="math inline">\(X\)</span> is <strong>memoryless</strong> if, for all
+<span class="math inline">\(s, t &gt; 0\)</span>, <span class="math display">\[\Pr(X &gt; s + t|X &gt; s) = \Pr(X &gt; t).\]</span></p>
+<p><strong>Notes</strong>
+1. The exponential distribution is the only continuous distribution
+that exhibits this memoryless property, which is also called the
+Markov property.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Furthermore, it may be shown that, if X is a nonnegative continuous
+random variable having this memoryless property, then the
+distribution of X must be exponential.</p></li>
+<li><p>For a discrete random variable, the geometric distribution is the
+only distribution with this property.</p></li>
+</ol>
+<div class="example">
+<p><span id="exm:unlabeled-div-44" class="example"><strong>Example 5.8  </strong></span>Assume that the amount of time a patient spends in a dentist’s office is
+exponentially distributed with mean equal to 40 minutes.</p>
+<ol style="list-style-type: decimal">
+<li><p>Calculate the probability that a patient spends more than 60 minutes
+in the dentist’s office.</p></li>
+<li><p>Calculate the probability that a patient will spend 60 minutes in
+the dentist’s office given that she has already spent 40 minutes
+there.</p></li>
+</ol>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="discrete-time-markov-chains.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tutorials.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-Poisson-processes.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/pairote-sat/SCMA469/blob/master/04-Poisson-processes.Rmd",
+"text": null
+},
+"download": ["SCMA469Bookdownproj.pdf", "SCMA469Bookdownproj.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.4.12)  22 SEP 2021 17:52
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.4.12)  21 OCT 2021 13:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1761,34 +1761,41 @@ Overfull \hbox (244.24498pt too wide) in paragraph at lines 1849--1849
 Chapter 5.
 [45
 
-] [46] [47] [48] [49]
+] [46] [47]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[48] [49] [50] [51] [52]
+Chapter 6.
+[53
+
+] [54] [55] [56] [57]
 File: SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file
  (type QTm)
 <use  "SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-9-1.pdf" >
-Overfull \hbox (96.79832pt too wide) in paragraph at lines 3400--3403
+Overfull \hbox (96.79832pt too wide) in paragraph at lines 3957--3960
 []\TU/lmr/m/n/10 The transition diagram for the chain is shown in the figure be
 low: [] 
  []
 
-[50]
+[58]
 File: SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-11-1.pdf Graphic fil
 e (type QTm)
 <use  "SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-11-1.pdf" >
-Overfull \hbox (83.74564pt too wide) in paragraph at lines 3467--3470
+Overfull \hbox (83.74564pt too wide) in paragraph at lines 4024--4027
 []\TU/lmr/m/n/10 The transition diagram for the chain is shown in the figure be
 low: [] 
  []
 
-[51] [52] [53] [54]
+[59] [60] [61] [62]
 File: SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-13-1.pdf Graphic fil
 e (type QTm)
-<use  "SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-13-1.pdf" > [55]
+<use  "SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-13-1.pdf" > [63]
 File: SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-14-1.pdf Graphic fil
 e (type QTm)
 <use  "SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-14-1.pdf" >
 Underfull \vbox (badness 2970) has occurred while \output is active []
 
-[56] [57]
+[64] [65]
 File: SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-15-1.pdf Graphic fil
 e (type QTm)
 <use  "SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-15-1.pdf" >
@@ -1800,52 +1807,52 @@ e (type QTm)
 <use  "SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-17-1.pdf" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[58]
+[66]
 File: SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-18-1.pdf Graphic fil
 e (type QTm)
 <use  "SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-18-1.pdf" >
-Underfull \hbox (badness 1043) in paragraph at lines 3994--3998
+Underfull \hbox (badness 1043) in paragraph at lines 4551--4555
 []\TU/lmr/m/n/10 Let $\OT1/lmr/bx/n/10 u [] u[]$ \TU/lmr/m/n/10 be the vector o
 f absorption probabilities in the closed class $[][] [] [][][]$. Write
  []
 
-[59] [60]
+[67] [68]
 Missing character: There is no   in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no   in font [lmroman10-regular]:mapping=tex-text;!
 
 Underfull \vbox (badness 2564) has occurred while \output is active []
 
-[61]
+[69]
 Missing character: There is no   in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no   in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no   in font [lmroman10-regular]:mapping=tex-text;!
-[62] [63] [64] [65] [66] [67] [68
-
-]
-Chapter 6.
-[69] [70
+[70] [71] [72] [73] [74] [75] [76
 
 ]
 Chapter 7.
+[77] [78
+
+]
+Chapter 8.
 No file SCMA469Bookdownproj.bbl.
-[71]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4771.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4771.
+[79]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5328.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 5328.
 (./SCMA469Bookdownproj.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4771.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 4771.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 5328.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 5328.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4771.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5328.
  ) 
 Here is how much of TeX's memory you used:
- 38492 strings out of 493005
- 735153 string characters out of 6134596
- 944575 words of memory out of 5000000
- 41870 multiletter control sequences out of 15000+600000
+ 38521 strings out of 493005
+ 735696 string characters out of 6134596
+ 946430 words of memory out of 5000000
+ 41899 multiletter control sequences out of 15000+600000
  28170 words of font info for 98 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  75i,15n,73p,10414b,584s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on SCMA469Bookdownproj.pdf (71 pages).
+Output written on SCMA469Bookdownproj.pdf (79 pages).

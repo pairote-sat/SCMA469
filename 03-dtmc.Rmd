@@ -1435,7 +1435,7 @@ the transition matrix is $$P = \begin{bmatrix}
 **Solution:**
 The entire state space is a single class. Note also that
 $p^{(2n)}_{ii} > 0$ and $p^{(2n+1)}_{ii} = 0$ for $n = 1,2,\ldots$.
-Therefore each state in the random walk on an infinite set $S$ is
+Therefore each state in the state space $S$ is
 periodic with period 2.
 
 ::: {#exampleLongTerm .example}
