@@ -1,5 +1,6 @@
 fig:SamplePaths
 fig:FigRW
+fig:graphPoisson
 eq:limitdist
 intro
 examples-of-real-world-processes

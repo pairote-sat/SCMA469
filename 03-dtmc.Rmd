@@ -1223,11 +1223,15 @@ matrix is $P$ and its limiting distribution is $\boldsymbol{\pi}$. Note
 that the limiting distribution for the Markov chain satisfies
 $$\lim_{n \rightarrow \infty}  p^{(n)}_{ij} =  \pi_j.$$
 
-For each state $j$, define indicator random variable $$I_k =
-    \begin{cases*}
-      1, & if $X_k = j$ \\
-      0,  & otherwise,
-    \end{cases*}$$ for $k = 0,1,\ldots$. Hence, the number of times that
+For each state $j$, define indicator random variable $$\begin{aligned}
+I_k &=
+    \begin{cases}
+      1, & \text{if }  X_k = j \\
+      0,  & \text{otherwise},
+    \end{cases}\end{aligned},$$ 
+
+    
+for $k = 0,1,\ldots$. Hence, the number of times that
 the Markov chain visits $j$ in the first $n$ steps is given by
 $\sum_{k =0}^{n-1} I_k$ and the expected long-term proportion of time
 that the chain visits state $j$ given that its initial state is $i$ is

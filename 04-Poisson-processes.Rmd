@@ -48,13 +48,45 @@ A counting process $\{N(t)\}_{t \ge 0}$ is a collection of non-negative,
 integer-valued random variables such that if $0 \le s \le t$, then
 $N(s) \le N(t)$.
 
-Figure [1](#graphPoisson){reference-type="ref" reference="graphPoisson"}
-illustrates a trajectory of the Poisson process. The sample path of a
+Figure \@ref(fig:graphPoisson)
+illustrates a trajectory of the Poisson process. An R code to simulate the trajectory is also given below. The sample path of a
 Poisson process is a right-continuous step function. There are jumps
 occurring at time $t_1, t_2, t_3, \ldots$.
 
 <!-- ![ **A trajectory of the Poisson process** -->
 <!-- ](PlotPoissonProcess.eps){#graphPoisson width="50%"} -->
+
+
+
+```{r graphPoisson, tut = FALSE, echo = TRUE, fig.cap = 'A trajectory of the Poisson process'}
+
+lambda <- 17
+# the length of time horizon for the simulation T_length <- 31
+last_arrival <- 0
+arrival_time <- c()
+inter_arrival <- rexp(1, rate = lambda)
+T_length <- 1
+while (inter_arrival + last_arrival < T_length) { 
+  last_arrival <- inter_arrival + last_arrival 
+  arrival_time <- c(arrival_time,last_arrival) 
+  inter_arrival <- rexp(1, rate = lambda)
+}
+
+
+n <- length(arrival_time)
+counts <- 1:n
+
+plot(arrival_time, counts, pch=16, ylim=c(0, n))
+points(arrival_time, c(0, counts[-n]))
+segments(
+  x0 = c(0, arrival_time[-n]),
+  y0 = c(0, counts[-n]),
+  x1 = arrival_time,
+  y1 = c(0, counts[-n])
+)
+```
+
+
 
 We will see that there are several ways to describe a Poisson process.
 One can define it by the number of claims that occur up to time $t$ or
@@ -125,12 +157,19 @@ $$
 \begin{aligned}
 p_j(t+h) &=  \Pr(N(t+h) = j) \\
 &= \Pr(N(t) = j \text{ and } N(t,t+h) = 0)  \\
-&+ \Pr(N(t) = j \text{ and } N(t,t+h) = 1)  \\
-&+  \Pr(N(t) = j \text{ and } N(t,t+h) \ge 2)  \\
+&+ \Pr(N(t) = j-1 \text{ and } N(t,t+h) = 1)  \\
+&+  \Pr(N(t) < j-1 \text{ and } N(t,t+h) \ge 2)  \\
 &= p_j(t)(1 - \lambda h) + p_{j-1}(t)(\lambda h) + o(h)
 \end{aligned}
 $$
-Rearranging the equation and letting $h \rightarrow 0$, we obtain
+Rearranging the equation and dividing both sides of the equation by $h$ yields
+$$
+\begin{aligned}
+\frac{p_j(t+h) - p_j(t)}{h} &=
+ \lambda  p_j(t) + \lambda p_{j-1}(t) + \frac{o(h)}{h}.
+\end{aligned}
+$$
+Letting $h \rightarrow 0$, we obtain
 $$ \frac{d p_j(t)}{dt} = -\lambda p_j(t) + \lambda p_{j-1}(t),$$
 with initial condition $p_j(0) = 0 = \Pr(N(0) = j)$.
 

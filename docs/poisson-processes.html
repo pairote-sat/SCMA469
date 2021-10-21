@@ -280,12 +280,42 @@ number of events in the interval <span class="math inline">\((0,t]\)</span>.</p>
 <p>A counting process <span class="math inline">\(\{N(t)\}_{t \ge 0}\)</span> is a collection of non-negative,
 integer-valued random variables such that if <span class="math inline">\(0 \le s \le t\)</span>, then
 <span class="math inline">\(N(s) \le N(t)\)</span>.</p>
-<p>Figure <a href="#graphPoisson" reference-type="ref" reference="graphPoisson">1</a>
-illustrates a trajectory of the Poisson process. The sample path of a
+<p>Figure <a href="poisson-processes.html#fig:graphPoisson">5.1</a>
+illustrates a trajectory of the Poisson process. An R code to simulate the trajectory is also given below. The sample path of a
 Poisson process is a right-continuous step function. There are jumps
 occurring at time <span class="math inline">\(t_1, t_2, t_3, \ldots\)</span>.</p>
 <!-- ![ **A trajectory of the Poisson process** -->
 <!-- ](PlotPoissonProcess.eps){#graphPoisson width="50%"} -->
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="poisson-processes.html#cb27-1" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="dv">17</span></span>
+<span id="cb27-2"><a href="poisson-processes.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the length of time horizon for the simulation T_length &lt;- 31</span></span>
+<span id="cb27-3"><a href="poisson-processes.html#cb27-3" aria-hidden="true" tabindex="-1"></a>last_arrival <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-4"><a href="poisson-processes.html#cb27-4" aria-hidden="true" tabindex="-1"></a>arrival_time <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb27-5"><a href="poisson-processes.html#cb27-5" aria-hidden="true" tabindex="-1"></a>inter_arrival <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1</span>, <span class="at">rate =</span> lambda)</span>
+<span id="cb27-6"><a href="poisson-processes.html#cb27-6" aria-hidden="true" tabindex="-1"></a>T_length <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb27-7"><a href="poisson-processes.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (inter_arrival <span class="sc">+</span> last_arrival <span class="sc">&lt;</span> T_length) { </span>
+<span id="cb27-8"><a href="poisson-processes.html#cb27-8" aria-hidden="true" tabindex="-1"></a>  last_arrival <span class="ot">&lt;-</span> inter_arrival <span class="sc">+</span> last_arrival </span>
+<span id="cb27-9"><a href="poisson-processes.html#cb27-9" aria-hidden="true" tabindex="-1"></a>  arrival_time <span class="ot">&lt;-</span> <span class="fu">c</span>(arrival_time,last_arrival) </span>
+<span id="cb27-10"><a href="poisson-processes.html#cb27-10" aria-hidden="true" tabindex="-1"></a>  inter_arrival <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1</span>, <span class="at">rate =</span> lambda)</span>
+<span id="cb27-11"><a href="poisson-processes.html#cb27-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-12"><a href="poisson-processes.html#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="poisson-processes.html#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="poisson-processes.html#cb27-14" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(arrival_time)</span>
+<span id="cb27-15"><a href="poisson-processes.html#cb27-15" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>n</span>
+<span id="cb27-16"><a href="poisson-processes.html#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="poisson-processes.html#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(arrival_time, counts, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, n))</span>
+<span id="cb27-18"><a href="poisson-processes.html#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(arrival_time, <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n]))</span>
+<span id="cb27-19"><a href="poisson-processes.html#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(</span>
+<span id="cb27-20"><a href="poisson-processes.html#cb27-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">x0 =</span> <span class="fu">c</span>(<span class="dv">0</span>, arrival_time[<span class="sc">-</span>n]),</span>
+<span id="cb27-21"><a href="poisson-processes.html#cb27-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">y0 =</span> <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n]),</span>
+<span id="cb27-22"><a href="poisson-processes.html#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> arrival_time,</span>
+<span id="cb27-23"><a href="poisson-processes.html#cb27-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">y1 =</span> <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n])</span>
+<span id="cb27-24"><a href="poisson-processes.html#cb27-24" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span id="fig:graphPoisson"></span>
+<img src="SCMA469Bookdownproj_files/figure-html/graphPoisson-1.png" alt="A trajectory of the Poisson process" width="672" />
+<p class="caption">
+Figure 5.1: A trajectory of the Poisson process
+</p>
+</div>
 <p>We will see that there are several ways to describe a Poisson process.
 One can define it by the number of claims that occur up to time <span class="math inline">\(t\)</span> or
 the times between those claims when they occur. Main properties of
@@ -345,12 +375,19 @@ which is the probability that there have been exactly <span class="math inline">
 \begin{aligned}
 p_j(t+h) &amp;=  \Pr(N(t+h) = j) \\
 &amp;= \Pr(N(t) = j \text{ and } N(t,t+h) = 0)  \\
-&amp;+ \Pr(N(t) = j \text{ and } N(t,t+h) = 1)  \\
-&amp;+  \Pr(N(t) = j \text{ and } N(t,t+h) \ge 2)  \\
+&amp;+ \Pr(N(t) = j-1 \text{ and } N(t,t+h) = 1)  \\
+&amp;+  \Pr(N(t) &lt; j-1 \text{ and } N(t,t+h) \ge 2)  \\
 &amp;= p_j(t)(1 - \lambda h) + p_{j-1}(t)(\lambda h) + o(h)
 \end{aligned}
 \]</span>
-Rearranging the equation and letting <span class="math inline">\(h \rightarrow 0\)</span>, we obtain
+Rearranging the equation and dividing both sides of the equation by <span class="math inline">\(h\)</span> yields
+<span class="math display">\[
+\begin{aligned}
+\frac{p_j(t+h) - p_j(t)}{h} &amp;=
+ \lambda  p_j(t) + \lambda p_{j-1}(t) + \frac{o(h)}{h}.
+\end{aligned}
+\]</span>
+Letting <span class="math inline">\(h \rightarrow 0\)</span>, we obtain
 <span class="math display">\[ \frac{d p_j(t)}{dt} = -\lambda p_j(t) + \lambda p_{j-1}(t),\]</span>
 with initial condition <span class="math inline">\(p_j(0) = 0 = \Pr(N(0) = j)\)</span>.</p>
 <p><strong>Case 2:</strong> For <span class="math inline">\(j = 0\)</span>, we can also obtain

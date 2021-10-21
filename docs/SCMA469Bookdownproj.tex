@@ -2429,11 +2429,14 @@ matrix is \(P\) and its limiting distribution is \(\boldsymbol{\pi}\). Note
 that the limiting distribution for the Markov chain satisfies
 \[\lim_{n \rightarrow \infty}  p^{(n)}_{ij} =  \pi_j.\]
 
-For each state \(j\), define indicator random variable \[I_k =
-    \begin{cases*}
-      1, & if $X_k = j$ \\
-      0,  & otherwise,
-    \end{cases*}\] for \(k = 0,1,\ldots\). Hence, the number of times that
+For each state \(j\), define indicator random variable \[\begin{aligned}
+I_k &=
+    \begin{cases}
+      1, & \text{if }  X_k = j \\
+      0,  & \text{otherwise},
+    \end{cases}\end{aligned},\]
+
+for \(k = 0,1,\ldots\). Hence, the number of times that
 the Markov chain visits \(j\) in the first \(n\) steps is given by
 \(\sum_{k =0}^{n-1} I_k\) and the expected long-term proportion of time
 that the chain visits state \(j\) given that its initial state is \(i\) is
@@ -3017,10 +3020,45 @@ A counting process \(\{N(t)\}_{t \ge 0}\) is a collection of non-negative,
 integer-valued random variables such that if \(0 \le s \le t\), then
 \(N(s) \le N(t)\).
 
-Figure~\protect\hyperlink{graphPoisson}{1}
-illustrates a trajectory of the Poisson process. The sample path of a
+Figure \ref{fig:graphPoisson}
+illustrates a trajectory of the Poisson process. An R code to simulate the trajectory is also given below. The sample path of a
 Poisson process is a right-continuous step function. There are jumps
 occurring at time \(t_1, t_2, t_3, \ldots\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lambda }\OtherTok{\textless{}{-}} \DecValTok{17}
+\CommentTok{\# the length of time horizon for the simulation T\_length \textless{}{-} 31}
+\NormalTok{last\_arrival }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{arrival\_time }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{()}
+\NormalTok{inter\_arrival }\OtherTok{\textless{}{-}} \FunctionTok{rexp}\NormalTok{(}\DecValTok{1}\NormalTok{, }\AttributeTok{rate =}\NormalTok{ lambda)}
+\NormalTok{T\_length }\OtherTok{\textless{}{-}} \DecValTok{1}
+\ControlFlowTok{while}\NormalTok{ (inter\_arrival }\SpecialCharTok{+}\NormalTok{ last\_arrival }\SpecialCharTok{\textless{}}\NormalTok{ T\_length) \{ }
+\NormalTok{  last\_arrival }\OtherTok{\textless{}{-}}\NormalTok{ inter\_arrival }\SpecialCharTok{+}\NormalTok{ last\_arrival }
+\NormalTok{  arrival\_time }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(arrival\_time,last\_arrival) }
+\NormalTok{  inter\_arrival }\OtherTok{\textless{}{-}} \FunctionTok{rexp}\NormalTok{(}\DecValTok{1}\NormalTok{, }\AttributeTok{rate =}\NormalTok{ lambda)}
+\NormalTok{\}}
+
+
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(arrival\_time)}
+\NormalTok{counts }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\NormalTok{n}
+
+\FunctionTok{plot}\NormalTok{(arrival\_time, counts, }\AttributeTok{pch=}\DecValTok{16}\NormalTok{, }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, n))}
+\FunctionTok{points}\NormalTok{(arrival\_time, }\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, counts[}\SpecialCharTok{{-}}\NormalTok{n]))}
+\FunctionTok{segments}\NormalTok{(}
+  \AttributeTok{x0 =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, arrival\_time[}\SpecialCharTok{{-}}\NormalTok{n]),}
+  \AttributeTok{y0 =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, counts[}\SpecialCharTok{{-}}\NormalTok{n]),}
+  \AttributeTok{x1 =}\NormalTok{ arrival\_time,}
+  \AttributeTok{y1 =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, counts[}\SpecialCharTok{{-}}\NormalTok{n])}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/graphPoisson-1.pdf}
+\caption{\label{fig:graphPoisson}A trajectory of the Poisson process}
+\end{figure}
 
 We will see that there are several ways to describe a Poisson process.
 One can define it by the number of claims that occur up to time \(t\) or
@@ -3102,12 +3140,19 @@ We simply need to show that
 \begin{aligned}
 p_j(t+h) &=  \Pr(N(t+h) = j) \\
 &= \Pr(N(t) = j \text{ and } N(t,t+h) = 0)  \\
-&+ \Pr(N(t) = j \text{ and } N(t,t+h) = 1)  \\
-&+  \Pr(N(t) = j \text{ and } N(t,t+h) \ge 2)  \\
+&+ \Pr(N(t) = j-1 \text{ and } N(t,t+h) = 1)  \\
+&+  \Pr(N(t) < j-1 \text{ and } N(t,t+h) \ge 2)  \\
 &= p_j(t)(1 - \lambda h) + p_{j-1}(t)(\lambda h) + o(h)
 \end{aligned}
 \]
-Rearranging the equation and letting \(h \rightarrow 0\), we obtain
+Rearranging the equation and dividing both sides of the equation by \(h\) yields
+\[
+\begin{aligned}
+\frac{p_j(t+h) - p_j(t)}{h} &=
+ \lambda  p_j(t) + \lambda p_{j-1}(t) + \frac{o(h)}{h}.
+\end{aligned}
+\]
+Letting \(h \rightarrow 0\), we obtain
 \[ \frac{d p_j(t)}{dt} = -\lambda p_j(t) + \lambda p_{j-1}(t),\]
 with initial condition \(p_j(0) = 0 = \Pr(N(0) = j)\).
 

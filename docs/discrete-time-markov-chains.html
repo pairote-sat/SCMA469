@@ -1339,11 +1339,13 @@ consider a Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> wh
 matrix is <span class="math inline">\(P\)</span> and its limiting distribution is <span class="math inline">\(\boldsymbol{\pi}\)</span>. Note
 that the limiting distribution for the Markov chain satisfies
 <span class="math display">\[\lim_{n \rightarrow \infty}  p^{(n)}_{ij} =  \pi_j.\]</span></p>
-<p>For each state <span class="math inline">\(j\)</span>, define indicator random variable <span class="math display">\[I_k =
-    \begin{cases*}
-      1, &amp; if $X_k = j$ \\
-      0,  &amp; otherwise,
-    \end{cases*}\]</span> for <span class="math inline">\(k = 0,1,\ldots\)</span>. Hence, the number of times that
+<p>For each state <span class="math inline">\(j\)</span>, define indicator random variable <span class="math display">\[\begin{aligned}
+I_k &amp;=
+    \begin{cases}
+      1, &amp; \text{if }  X_k = j \\
+      0,  &amp; \text{otherwise},
+    \end{cases}\end{aligned},\]</span></p>
+<p>for <span class="math inline">\(k = 0,1,\ldots\)</span>. Hence, the number of times that
 the Markov chain visits <span class="math inline">\(j\)</span> in the first <span class="math inline">\(n\)</span> steps is given by
 <span class="math inline">\(\sum_{k =0}^{n-1} I_k\)</span> and the expected long-term proportion of time
 that the chain visits state <span class="math inline">\(j\)</span> given that its initial state is <span class="math inline">\(i\)</span> is
