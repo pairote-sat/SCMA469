@@ -24,7 +24,7 @@
 <meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2021-10-21" />
+<meta name="date" content="2021-11-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -286,30 +286,30 @@ Poisson process is a right-continuous step function. There are jumps
 occurring at time <span class="math inline">\(t_1, t_2, t_3, \ldots\)</span>.</p>
 <!-- ![ **A trajectory of the Poisson process** -->
 <!-- ](PlotPoissonProcess.eps){#graphPoisson width="50%"} -->
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="poisson-processes.html#cb27-1" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="dv">17</span></span>
-<span id="cb27-2"><a href="poisson-processes.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the length of time horizon for the simulation T_length &lt;- 31</span></span>
-<span id="cb27-3"><a href="poisson-processes.html#cb27-3" aria-hidden="true" tabindex="-1"></a>last_arrival <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb27-4"><a href="poisson-processes.html#cb27-4" aria-hidden="true" tabindex="-1"></a>arrival_time <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb27-5"><a href="poisson-processes.html#cb27-5" aria-hidden="true" tabindex="-1"></a>inter_arrival <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1</span>, <span class="at">rate =</span> lambda)</span>
-<span id="cb27-6"><a href="poisson-processes.html#cb27-6" aria-hidden="true" tabindex="-1"></a>T_length <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb27-7"><a href="poisson-processes.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (inter_arrival <span class="sc">+</span> last_arrival <span class="sc">&lt;</span> T_length) { </span>
-<span id="cb27-8"><a href="poisson-processes.html#cb27-8" aria-hidden="true" tabindex="-1"></a>  last_arrival <span class="ot">&lt;-</span> inter_arrival <span class="sc">+</span> last_arrival </span>
-<span id="cb27-9"><a href="poisson-processes.html#cb27-9" aria-hidden="true" tabindex="-1"></a>  arrival_time <span class="ot">&lt;-</span> <span class="fu">c</span>(arrival_time,last_arrival) </span>
-<span id="cb27-10"><a href="poisson-processes.html#cb27-10" aria-hidden="true" tabindex="-1"></a>  inter_arrival <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1</span>, <span class="at">rate =</span> lambda)</span>
-<span id="cb27-11"><a href="poisson-processes.html#cb27-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb27-12"><a href="poisson-processes.html#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-13"><a href="poisson-processes.html#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-14"><a href="poisson-processes.html#cb27-14" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(arrival_time)</span>
-<span id="cb27-15"><a href="poisson-processes.html#cb27-15" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>n</span>
-<span id="cb27-16"><a href="poisson-processes.html#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-17"><a href="poisson-processes.html#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(arrival_time, counts, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, n))</span>
-<span id="cb27-18"><a href="poisson-processes.html#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(arrival_time, <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n]))</span>
-<span id="cb27-19"><a href="poisson-processes.html#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(</span>
-<span id="cb27-20"><a href="poisson-processes.html#cb27-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">x0 =</span> <span class="fu">c</span>(<span class="dv">0</span>, arrival_time[<span class="sc">-</span>n]),</span>
-<span id="cb27-21"><a href="poisson-processes.html#cb27-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">y0 =</span> <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n]),</span>
-<span id="cb27-22"><a href="poisson-processes.html#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> arrival_time,</span>
-<span id="cb27-23"><a href="poisson-processes.html#cb27-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">y1 =</span> <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n])</span>
-<span id="cb27-24"><a href="poisson-processes.html#cb27-24" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="poisson-processes.html#cb13-1" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="dv">17</span></span>
+<span id="cb13-2"><a href="poisson-processes.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the length of time horizon for the simulation T_length &lt;- 31</span></span>
+<span id="cb13-3"><a href="poisson-processes.html#cb13-3" aria-hidden="true" tabindex="-1"></a>last_arrival <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb13-4"><a href="poisson-processes.html#cb13-4" aria-hidden="true" tabindex="-1"></a>arrival_time <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb13-5"><a href="poisson-processes.html#cb13-5" aria-hidden="true" tabindex="-1"></a>inter_arrival <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1</span>, <span class="at">rate =</span> lambda)</span>
+<span id="cb13-6"><a href="poisson-processes.html#cb13-6" aria-hidden="true" tabindex="-1"></a>T_length <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb13-7"><a href="poisson-processes.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (inter_arrival <span class="sc">+</span> last_arrival <span class="sc">&lt;</span> T_length) { </span>
+<span id="cb13-8"><a href="poisson-processes.html#cb13-8" aria-hidden="true" tabindex="-1"></a>  last_arrival <span class="ot">&lt;-</span> inter_arrival <span class="sc">+</span> last_arrival </span>
+<span id="cb13-9"><a href="poisson-processes.html#cb13-9" aria-hidden="true" tabindex="-1"></a>  arrival_time <span class="ot">&lt;-</span> <span class="fu">c</span>(arrival_time,last_arrival) </span>
+<span id="cb13-10"><a href="poisson-processes.html#cb13-10" aria-hidden="true" tabindex="-1"></a>  inter_arrival <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1</span>, <span class="at">rate =</span> lambda)</span>
+<span id="cb13-11"><a href="poisson-processes.html#cb13-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-12"><a href="poisson-processes.html#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="poisson-processes.html#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="poisson-processes.html#cb13-14" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(arrival_time)</span>
+<span id="cb13-15"><a href="poisson-processes.html#cb13-15" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>n</span>
+<span id="cb13-16"><a href="poisson-processes.html#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="poisson-processes.html#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(arrival_time, counts, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, n))</span>
+<span id="cb13-18"><a href="poisson-processes.html#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(arrival_time, <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n]))</span>
+<span id="cb13-19"><a href="poisson-processes.html#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(</span>
+<span id="cb13-20"><a href="poisson-processes.html#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">x0 =</span> <span class="fu">c</span>(<span class="dv">0</span>, arrival_time[<span class="sc">-</span>n]),</span>
+<span id="cb13-21"><a href="poisson-processes.html#cb13-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">y0 =</span> <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n]),</span>
+<span id="cb13-22"><a href="poisson-processes.html#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> arrival_time,</span>
+<span id="cb13-23"><a href="poisson-processes.html#cb13-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">y1 =</span> <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n])</span>
+<span id="cb13-24"><a href="poisson-processes.html#cb13-24" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure"><span id="fig:graphPoisson"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/graphPoisson-1.png" alt="A trajectory of the Poisson process" width="672" />
 <p class="caption">
@@ -587,6 +587,20 @@ purpose) that <span class="math inline">\(k = 2\)</span>. Let <span class="math 
 1 by time <span class="math inline">\(t\)</span> and Let <span class="math inline">\(N_2(t)\)</span> denote the number of events of type 2.
 Therefore, <span class="math inline">\(N(t) = N_1(t) + N_2(t)\)</span>. The joint probability mass function
 of <span class="math inline">\((N_1(t), N_2(t))\)</span> is</p>
+<p><span class="math display">\[\begin{aligned}
+\Pr(N_1(t) = n_1, N_2(t) = n_2)  
+&amp;=  \Pr(N_1(t) = n_1, N_2(t) = n_2, N(t) = n) \\
+&amp;=  \Pr(N_1(t) = n_1, N_2(t) = n_2 | N(t) = n)  \Pr(N(t) = n) \\
+&amp;=  \Pr(N_1(t) = n_1 | N(t) = n)  \Pr(N(t) = n) \\
+&amp;= \left(\binom{n}{n_1} p^{n_1} ( 1 - p)^{n_2} \right) \left( \frac{e^{-\lambda t} (\lambda t)^{n}}{n!}  \right) \\
+&amp;= \frac{p^{n_1} ( 1 - p)^{n_2}  e^{-\lambda t} (\lambda t)^{n}  }{n_1! n_2!} \\
+&amp;= \frac{p^{n_1} ( 1 - p)^{n_2}  e^{-\lambda t} (\lambda t)^{n}  }{n_1! n_2!} \\
+&amp;= \frac{p^{n_1} ( 1 - p)^{n_2}  e^{-\lambda t (p + (1-p))} (\lambda t)^{n_1 + n_2}  }{n_1! n_2!} \\
+&amp;= \left(  \frac{e^{-\lambda p t}  (\lambda p t)^{n_1}  }{n_1! }   \right)   \left(  \frac{e^{-\lambda (1-p) t}  (\lambda (1-p) t)^{n_2}  }{n_2! }   \right)
+\end{aligned},
+\]</span></p>
+<p>where <span class="math inline">\(n = n_1 + n_2\)</span>, <span class="math inline">\(p_1 = p\)</span> and <span class="math inline">\(p_2 = 1 - p_1 = 1 - p\)</span>. The above argument follows from the following fact. A type 1 event can be regarded as the result of a coin flip whose heads with probability is <span class="math inline">\(p\)</span>. Assume that there are <span class="math inline">\(n\)</span> events (of mixed types 1 and 2) by time <span class="math inline">\(t\)</span>. Then the number of events of type 1 is the number of heads in <span class="math inline">\(n\)</span> i.i.d. coin flips, which has a  with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>.</p>
+<p>Consequently, <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span> are independent Poisson random variables with parameter <span class="math inline">\(\lambda p t\)</span> and <span class="math inline">\(\lambda (1-p) t\)</span>, respectively. In addition, one can show that both processes stationary and independent increments from the original Poisson process.</p>
 <div class="example">
 <p><span id="exm:unlabeled-div-42" class="example"><strong>Example 5.6  </strong></span>An insurance company has two types of policy, A and B. Reported claims
 under A follow a Poisson process with rate 4 per day. Reported claims
@@ -595,6 +609,13 @@ probability that a claim from A is at least 5,000 THB is 2/5, while that
 from B is 1/3. Calculate the expected number of claims at least 5,000
 THB in the next day.</p>
 </div>
+<p><strong>Solution:</strong>
+For type <span class="math inline">\(A\)</span>, <span class="math inline">\(N_A(t) \sim \text{Poisson}(4 t)\)</span>, a claim from type <span class="math inline">\(A\)</span> is at least 5000 with probability of 2/5. By splitting property,
+claims under type <span class="math inline">\(A\)</span> that are at least 5000 arrive as a Poisson process with rate <span class="math inline">\(4 \times 2/5 = 8/5\)</span> per day.</p>
+<p>Similarly, for type <span class="math inline">\(B\)</span>, <span class="math inline">\(N_B(t) \sim \text{Poisson}(6 t)\)</span>, a claim from type <span class="math inline">\(A\)</span> is at least 5000 with probability of 1/3. By splitting property, claims under type <span class="math inline">\(B\)</span> that are at least 5000 arrive as a Poisson process with rate <span class="math inline">\(6 \times 1/3 = 2\)</span> per day.</p>
+<p>By superposition property, the overall claims that are at least 5000 has a Poisson distribution with parameter
+<span class="math display">\[ 8/5 + 2 = 18/5.\]</span>
+The expected number of claims at least 5,000 THB in the next day is 18/5 claims.</p>
 <div class="example">
 <p><span id="exm:unlabeled-div-43" class="example"><strong>Example 5.7  </strong></span>Claims arriving from male happen as a Poisson process with rate 2 per
 day, wile claims arriving from female happen as a Poisson process with
@@ -609,6 +630,27 @@ rate 6 per day.</p>
 before 2 claims from male.</p></li>
 </ol>
 </div>
+<p><strong>Solution:</strong></p>
+<p>By the superposition property, these two processes are equivalent to a single process
+<span class="math display">\[ N(t) = N_m(t) + N_f(t)\]</span>
+of claims with rate $ 2 + 6 = 8$ per day, in which each claim has probability <span class="math inline">\(2/8 = 0.25\)</span> of being from male and <span class="math inline">\(6/8 = 0.75\)</span> of being from female.</p>
+<ol style="list-style-type: decimal">
+<li><p>For any <span class="math inline">\(t\)</span>, <span class="math inline">\(N(t,t+7) = N(t+7) - N(t)\)</span> has a Poisson distribution with mean $ 7  = 56$. In any given period of 1 week,
+<span class="math display">\[ \Pr(\text{no claim}) = e^{-56} \approx 0, \]</span>
+and
+<span class="math display">\[ \Pr(\text{at least two claims}) = 1 - e^{-56}  - (56)e^{-56}  = 1 - (57)e^{-56} \approx 1. \]</span></p></li>
+<li><p>Each claim is independently “male” or “female”. The required event happens if and only if, of the first 5 claims, at least 4 are claims from females. This follows because if the 4th claim from female occurs before or at the 5 claim, then it must have occurred before the 2nd claim from male Therefore, <span class="math inline">\(N_f | 5 \text{ claims} = N_f | N = 5 \sim \mathcal{B}(5, 3/4)\)</span> and
+<span class="math display">\[ 
+\begin{aligned}
+\Pr(N_f \ge 4 | N = 5 ) &amp;= \Pr(N_f = 4 | N = 5 ) + \Pr(N_f =5| N = 5  )  \\
+&amp;= \binom{5}{4}\left( \frac{3}{4} \right)^4 \left( \frac{1}{4} \right) +  \binom{5}{5}\left( \frac{3}{4} \right)^5 = 0.6328.
+\end{aligned}
+\]</span></p></li>
+</ol>
+<p><strong>Note</strong> It should be noted that the probability of getting <span class="math inline">\(k\)</span> successes before the <span class="math inline">\(r\)</span>th failure can be calculated by taking the sum (over <span class="math inline">\(j = 0,1,\ldots, r-1\)</span>) of the probability of <span class="math inline">\(k-1\)</span> successes and <span class="math inline">\(j\)</span> failures followed by a success. This results in
+<span class="math display">\[ \Pr(\text{$k$ successes before the $r$th failure}) = \sum_{j=0}^{r-1}\binom{k+j-1}{j} p^k (1-p)^j. \]</span>
+Applying the formula to the question above,
+<span class="math display">\[ \Pr(\text{$4$ claims from female before the $2$ claims from male}) = \left( \frac{3}{4} \right)^4  + 4 \left( \frac{3}{4} \right)^4 \left( \frac{1}{4} \right) = 0.6328. \]</span></p>
 </div>
 </div>
 <div id="memorylessness" class="section level2" number="5.7">
@@ -647,7 +689,7 @@ time you still have to wait is the same as the original waiting time.</p>
 memoryless. (The geometric distribution has the honors for the discrete
 case.) Here is the general statement of the property.</p>
 <p>More precisely, a random variable <span class="math inline">\(X\)</span> is <strong>memoryless</strong> if, for all
-<span class="math inline">\(s, t &gt; 0\)</span>, <span class="math display">\[\Pr(X &gt; s + t|X &gt; s) = \Pr(X &gt; t).\]</span></p>
+<span class="math display">\[ \Pr(X &gt; s + t|X &gt; s) =  \Pr(X - s &gt; t|X &gt; s) =   \Pr(X &gt; t).\]</span></p>
 <p><strong>Notes</strong>
 1. The exponential distribution is the only continuous distribution
 that exhibits this memoryless property, which is also called the
@@ -670,6 +712,21 @@ the dentist’s office given that she has already spent 40 minutes
 there.</p></li>
 </ol>
 </div>
+<p><strong>Solution:</strong> Let <span class="math inline">\(T\)</span> be the amount of time spending in the dentist office, which is exponentially distributed <span class="math inline">\(\text{Exp}(\lambda)\)</span> with <span class="math inline">\(\lambda = 60\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\Pr( T &gt; 60) = e^{-60 \lambda} = e^{-60 (1/40)} = e^{-1.5} = 0.2231.\)</span></li>
+</ol>
+<p>It should be noted that if <span class="math inline">\(X \sim \text{Exp}(\lambda)\)</span>, then <span class="math inline">\(\Pr(X &gt; x) = e^{- \lambda x}.\)</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>The required probability is
+<span class="math display">\[ \begin{aligned}
+\Pr(T &gt; 60 | T &gt; 40) 
+&amp;= \Pr(T &gt; 40 + 20 | T &gt; 40) \\
+&amp;=  \Pr(T -40 &gt; 20 | T &gt; 40)  \\
+&amp;= \Pr(T &gt; 20) = e^{-20 \lambda} = e^{-0.5} = 0.6065.
+\end{aligned}
+\]</span></li>
+</ol>
 
 </div>
 </div>
