@@ -24,7 +24,7 @@
 <meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2021-11-02" />
+<meta name="date" content="2021-11-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -208,6 +208,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="tutorials.html"><a href="tutorials.html#tutorial-2-1"><i class="fa fa-check"></i><b>6.4</b> Tutorial 2</a></li>
 <li class="chapter" data-level="6.5" data-path="tutorials.html"><a href="tutorials.html#tutorial-3-1"><i class="fa fa-check"></i><b>6.5</b> Tutorial 3</a></li>
 <li class="chapter" data-level="6.6" data-path="tutorials.html"><a href="tutorials.html#tutorial-4"><i class="fa fa-check"></i><b>6.6</b> Tutorial 4</a></li>
+<li class="chapter" data-level="6.7" data-path="tutorials.html"><a href="tutorials.html#tutorial-5"><i class="fa fa-check"></i><b>6.7</b> Tutorial 5</a></li>
+<li class="chapter" data-level="6.8" data-path="tutorials.html"><a href="tutorials.html#tutorial-6"><i class="fa fa-check"></i><b>6.8</b> Tutorial 6</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>7</b> Applications</a>
 <ul>
@@ -1547,6 +1549,220 @@ that six are boys.</p></li>
 <li><p>Find the probability that only boys were born between 6 and 10
 a.m.</p></li>
 </ol></li>
+</ol>
+</div>
+<div id="tutorial-5" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Tutorial 5</h2>
+<ol style="list-style-type: decimal">
+<li><p>Suppose that we observe life <span class="math inline">\(i\)</span> at exact age 74 years and 3 months.
+The observation will continue until the earlier of the life’s 75th
+birthday or death. Assume that the force of mortality equal 0.08.</p>
+<ol style="list-style-type: decimal">
+<li><p>Calculate the probability function of <span class="math inline">\(D_i\)</span>, i.e. calculate
+<span class="math inline">\(\Pr(D_i = 0)\)</span> and <span class="math inline">\(\Pr(D_i = 1)\)</span>.</p></li>
+<li><p>Calculate <span class="math inline">\(\textrm{E}[D_i]\)</span>.</p></li>
+<li><p>Calculate the probability density/mass function of <span class="math inline">\(V_i\)</span> (Hint:
+consider two cases (i) when <span class="math inline">\(v_i &lt; 0.75\)</span> and (ii) when
+<span class="math inline">\(v_i = 0.75\)</span>).</p></li>
+<li><p>Calculate <span class="math inline">\(\textrm{E}[V_i]\)</span>.</p></li>
+</ol></li>
+<li><p>For life <span class="math inline">\(i\)</span>, recall that</p>
+<ul>
+<li><p><span class="math inline">\(x+ a_i\)</span> is the age at which observation
+begins,<span class="math inline">\(\quad 0 \le a_i &lt; 1\)</span>.</p></li>
+<li><p><span class="math inline">\(x+ b_i\)</span> is the age at which observation ends, if life does not
+die, <span class="math inline">\(\quad 0 \le b_i &lt; 1\)</span>.</p></li>
+</ul>
+<p>The terms <span class="math inline">\(a_i\)</span> and <span class="math inline">\(b_i\)</span> are known constants.</p>
+<ol style="list-style-type: decimal">
+<li><p>Show that
+<span class="math inline">\(\displaystyle \textrm{E}[D_i] = \int_0^{b_i - a_i} e^{-\mu t} \mu \, \text{d}t.\)</span></p></li>
+<li><p>Show that
+<span class="math inline">\(\displaystyle \textrm{E}[V_i] = \int_0^{b_i - a_i}t e^{-\mu t} \mu \, \text{d}t + (b_i - a_i) e^{-\mu(b_i - a_i)}.\)</span></p></li>
+</ol></li>
+<li><p>In terms of the probability function of <span class="math inline">\((D_i, V_i)\)</span>,</p>
+<ol style="list-style-type: decimal">
+<li><p>explain why the following expression holds:
+<span class="math display">\[\int_0^{b_i - a_i} e^{-\mu v_i} \mu \, \text{d}v_i + e^{-\mu(b_i - a_i)} = 1.\]</span></p></li>
+<li><p>Differentiating the above expression with respect to <span class="math inline">\(\mu\)</span>, show
+that <span class="math display">\[\textrm{E}[ D_i - \mu V_i] = 0 .\]</span></p></li>
+<li><p>Differentiating the above expression twice with respect to
+<span class="math inline">\(\mu\)</span>, show that <span class="math display">\[\textrm{Var}[D_i - \mu V_i] = \textrm{E}[D_i].\]</span></p></li>
+</ol></li>
+<li><p>Show that
+<span class="math display">\[\textrm{Var}[\hat{\mu}] \rightarrow  \left. \frac{\mu^2}{\textrm{E}[D]} \right\vert_{ \mu = \mu_0 },\]</span>
+and hence
+<span class="math display">\[\textrm{Var}[\hat{\mu}] \rightarrow \left. \frac{\mu}{\textrm{E}[V]} \right\vert_{ \mu = \mu_0 }=  \frac{\mu_0}{E[V]}.\]</span></p></li>
+<li><p>1300 lives aged between 70 and 71 have been observed. We wish to
+calculate the force of mortality over this period.</p>
+<p>Suppose the true value of the force of mortality is 0.12 for lives
+aged between 70 and 71. Calculate the probability that the observed
+force of mortality is greater than 0.15.</p>
+<p>Hint: use the fact that the estimate <span class="math inline">\(\hat{\mu}\)</span> is asymptotically
+normal
+<span class="math display">\[\hat{\mu} \approx \mathcal{N}( \mu_0,   \frac{\mu_0}{E[V]} ).\]</span></p></li>
+<li><p>Consider the following mortality data on ten lives all aged between
+<span class="math inline">\(75\)</span> and <span class="math inline">\(76\)</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Life</th>
+<th align="center"><span class="math inline">\(a_i\)</span></th>
+<th align="center"><span class="math inline">\(b_i\)</span></th>
+<th align="center"><span class="math inline">\(d_i\)</span></th>
+<th align="center"><span class="math inline">\(t_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0.5</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0.75</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">0.1</td>
+<td align="center">0.6</td>
+<td align="center">1</td>
+<td align="center">0.5</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">0.2</td>
+<td align="center">0.7</td>
+<td align="center">1</td>
+<td align="center">0.6</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">0.2</td>
+<td align="center">0.4</td>
+<td align="center">0</td>
+<td align="center">0.4</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">0.5</td>
+<td align="center">0.8</td>
+<td align="center">0</td>
+<td align="center">0.8</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">0.5</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li><p>Using the Markov model, estimate the force of mortality
+<span class="math inline">\(\mu_{75}\)</span> assuming that it is constant from <span class="math inline">\(75\)</span> to <span class="math inline">\(76\)</span>.</p></li>
+<li><p>Estimate the variance of <span class="math inline">\(\hat{\mu}\)</span>.</p></li>
+<li><p>Construct the 95% confidence interval for the force of
+mortality.</p></li>
+<li><p>Estimate <span class="math inline">\(\hat{q}_{75} = {}_{1}\hat{q}_{75}\)</span>, the probability of
+a life aged (75) dying within one year.</p></li>
+<li><p>Use the <span class="math inline">\(\Delta-\)</span>method to estimate the variance of
+<span class="math inline">\(\hat{q}_{75}\)</span>.</p></li>
+</ol></li>
+</ol>
+</div>
+<div id="tutorial-6" class="section level2" number="6.8">
+<h2><span class="header-section-number">6.8</span> Tutorial 6</h2>
+<ol style="list-style-type: decimal">
+<li>Consider the 3-state model of terminal illness for healthy, ill and
+dead states as shown below.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:tikz-ex0"></span>
+<img src="SCMA469Bookdownproj_files/figure-html/tikz-ex0-1.png" alt="The 3-state model of terminal illness" width="672" />
+<p class="caption">
+Figure 6.1: The 3-state model of terminal illness
+</p>
+</div>
+<pre><code>1.  What can you say about </code></pre>
+<p><span class="math inline">\(p_{hh}(t)\)</span> and <span class="math inline">\(p_{\overline{hh}}(t)\)</span>,
+and about <span class="math inline">\(p_{ii}(t)\)</span> and <span class="math inline">\(p_{\overline{ii}}(t)\)</span>?</p>
+<pre><code>2.  Write down the Kolmogorov forward differential equations (FDE)
+    for </code></pre>
+<p><span class="math inline">\(\frac{d}{dt}p_{hh}(t)\)</span>, <span class="math inline">\(\frac{d}{dt}p_{ii}(t)\)</span> and solve
+these equations.</p>
+<pre><code>3.  Write down the Kolmogorov forward differential equations (FDE)
+    for 
+    </code></pre>
+<p><span class="math inline">\(\frac{d}{dt}p_{hi}(t)\)</span>, <span class="math inline">\(\frac{d}{dt}p_{hd}(t)\)</span> and explain
+how to solve these equations.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Consider a model of the
+mortality of two lives (husband and wife) consisting of for states :</li>
+</ol>
+<ul>
+<li><p><span class="math inline">\(b =\)</span> both lives are alive,</p></li>
+<li><p><span class="math inline">\(u =\)</span> husband is alive, but wife is dead,</p></li>
+<li><p><span class="math inline">\(v =\)</span> wife is alive, but husband is dead, and</p></li>
+<li><p><span class="math inline">\(d =\)</span> both are dead.</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:tikz-ex1"></span>
+<img src="SCMA469Bookdownproj_files/figure-html/tikz-ex1-1.png" alt="A model of the mortality of two lives" width="672" />
+<p class="caption">
+Figure 6.2: A model of the mortality of two lives
+</p>
+</div>
+<pre><code>The model is also referred to as the joint life and last survivor
+model. Write down the Kolmogorov equation for</code></pre>
+<p><span class="math inline">\(\frac{d}{dt}p_{bu}(t)\)</span>, <span class="math inline">\(\frac{d}{dt}p_{bv}(t)\)</span> and
+<span class="math inline">\(\frac{d}{dt}p_{bd}(t)\)</span>.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>A group of lives who hold health insurance policies can be
+classified into able (<span class="math inline">\(a\)</span>), ill (<span class="math inline">\(i\)</span>), dead (<span class="math inline">\(d\)</span>) and withdrawn
+(<span class="math inline">\(w\)</span>). The lives can move between state according to the following
+diagram:</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:tikz-ex2"></span>
+<img src="SCMA469Bookdownproj_files/figure-html/tikz-ex2-1.png" alt="A Markov model for health insurance policies" width="672" />
+<p class="caption">
+Figure 6.3: A Markov model for health insurance policies
+</p>
+</div>
+<pre><code>Assuming that all transition rates are constant, write down the
+Kolmogorov forward differential equations (FDE) for</code></pre>
+<p><span class="math inline">\(p_{aa}(t), p_{ai}(t)\)</span> and <span class="math inline">\(p_{aw}(t)\)</span>.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>An actuary wishes to study a model in which states relate to marital
+status comprising of five states, single, married, divorced, widowed
+and dead. Draw the transition diagram that illustrate the possible
+transitions between these five states.ß</li>
 </ol>
 
 </div>

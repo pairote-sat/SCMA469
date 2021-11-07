@@ -1680,3 +1680,224 @@ $\mathbf{u}^{C_1} = \mathbf{1} - \mathbf{u}^{C_2} = (1,4/5,0,1,19/20,4/5,1)^T.$
     3.  Find the probability that only boys were born between 6 and 10
         a.m.
 
+
+## Tutorial 5
+
+
+1.  Suppose that we observe life $i$ at exact age 74 years and 3 months.
+    The observation will continue until the earlier of the life's 75th
+    birthday or death. Assume that the force of mortality equal 0.08.
+
+    1.  Calculate the probability function of $D_i$, i.e. calculate
+        $\Pr(D_i = 0)$ and $\Pr(D_i = 1)$.
+
+    2.  Calculate $\textrm{E}[D_i]$.
+
+    3.  Calculate the probability density/mass function of $V_i$ (Hint:
+        consider two cases (i) when $v_i < 0.75$ and (ii) when
+        $v_i = 0.75$).
+
+    4.  Calculate $\textrm{E}[V_i]$.
+
+2.  For life $i$, recall that
+
+    -   $x+ a_i$ is the age at which observation
+        begins,$\quad 0 \le a_i < 1$.
+
+    -   $x+ b_i$ is the age at which observation ends, if life does not
+        die, $\quad 0 \le b_i < 1$.
+
+    The terms $a_i$ and $b_i$ are known constants.
+
+    1.  Show that
+        $\displaystyle \textrm{E}[D_i] = \int_0^{b_i - a_i} e^{-\mu t}  \mu \, \text{d}t.$
+
+    2.  Show that
+        $\displaystyle \textrm{E}[V_i] = \int_0^{b_i - a_i}t  e^{-\mu t}  \mu \, \text{d}t + (b_i - a_i)  e^{-\mu(b_i - a_i)}.$
+
+3.  In terms of the probability function of $(D_i, V_i)$,
+
+    1.  explain why the following expression holds:
+        $$\int_0^{b_i - a_i} e^{-\mu v_i} \mu \, \text{d}v_i + e^{-\mu(b_i - a_i)} = 1.$$
+
+    2.  Differentiating the above expression with respect to $\mu$, show
+        that $$\textrm{E}[ D_i - \mu V_i] = 0 .$$
+
+    3.  Differentiating the above expression twice with respect to
+        $\mu$, show that $$\textrm{Var}[D_i - \mu V_i] = \textrm{E}[D_i].$$
+
+4.  Show that
+    $$\textrm{Var}[\hat{\mu}] \rightarrow  \left. \frac{\mu^2}{\textrm{E}[D]} \right\vert_{ \mu = \mu_0 },$$
+    and hence
+    $$\textrm{Var}[\hat{\mu}] \rightarrow \left. \frac{\mu}{\textrm{E}[V]} \right\vert_{ \mu = \mu_0 }=  \frac{\mu_0}{E[V]}.$$
+
+5.  1300 lives aged between 70 and 71 have been observed. We wish to
+    calculate the force of mortality over this period.
+
+    Suppose the true value of the force of mortality is 0.12 for lives
+    aged between 70 and 71. Calculate the probability that the observed
+    force of mortality is greater than 0.15.
+
+    Hint: use the fact that the estimate $\hat{\mu}$ is asymptotically
+    normal
+    $$\hat{\mu} \approx \mathcal{N}( \mu_0,   \frac{\mu_0}{E[V]} ).$$
+
+6.  Consider the following mortality data on ten lives all aged between
+    $75$ and $76$.
+
+       Life   $a_i$   $b_i$   $d_i$   $t_i$
+      ------ ------- ------- ------- -------
+        1       0       1       1      0.5
+        2       0       1       1     0.75
+        3       0       1       0       1
+        4       0       1       0       1
+        5       0       1       0       1
+        6      0.1     0.6      1      0.5
+        7      0.2     0.7      1      0.6
+        8      0.2     0.4      0      0.4
+        9      0.5     0.8      0      0.8
+        10     0.5      1       0       1
+
+
+
+    1.  Using the Markov model, estimate the force of mortality
+        $\mu_{75}$ assuming that it is constant from $75$ to $76$.
+
+    2.  Estimate the variance of $\hat{\mu}$.
+
+    3.  Construct the 95% confidence interval for the force of
+        mortality.
+
+    4.  Estimate $\hat{q}_{75} = {}_{1}\hat{q}_{75}$, the probability of
+        a life aged (75) dying within one year.
+
+    5.  Use the $\Delta-$method to estimate the variance of
+        $\hat{q}_{75}$.
+
+## Tutorial 6
+
+1.  
+
+    Consider the 3-state model of terminal illness for healthy, ill and
+    dead states as shown below.
+    
+```{tikz, tikz-ex0, fig.cap = "The 3-state model of terminal illness", fig.ext = 'png', cache=TRUE, echo = FALSE, fig.align = 'center'}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}
+    % place nodes
+    \node[draw, minimum height=1cm,minimum width=3cm] at (0, 0)   (a) {Healthy : h};
+    \node[draw, minimum height=1cm,minimum width=3cm] at (6, 0)   (b) {Ill : i};
+
+    \node[draw, minimum height=1cm,minimum width=3cm] at (3, -2)  (c)     {Dead : d};
+    %\node[draw ] at (5, -2)  (d)     {D};
+
+    % draw edges
+    \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (a) node[xshift =  3cm,yshift=0.3cm] {$\lambda$} -- (b);
+    \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (a) node[xshift =  0.6cm,yshift=-1.2cm] {$\mu$}  -- (c);
+    \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (b) node[xshift =  -0.6cm,yshift=-1.2cm] {$\nu$} -- (c);
+
+    %\draw (0,-3) node[above,near start abs] {Test} -- ++(7,0);
+\end{tikzpicture}
+
+
+```    
+    
+    
+
+    1.  What can you say about 
+    
+$p_{hh}(t)$ and $p_{\overline{hh}}(t)$,
+        and about $p_{ii}(t)$ and $p_{\overline{ii}}(t)$?
+
+    2.  Write down the Kolmogorov forward differential equations (FDE)
+        for 
+
+$\frac{d}{dt}p_{hh}(t)$, $\frac{d}{dt}p_{ii}(t)$ and solve
+        these equations.
+
+    3.  Write down the Kolmogorov forward differential equations (FDE)
+        for 
+        
+$\frac{d}{dt}p_{hi}(t)$, $\frac{d}{dt}p_{hd}(t)$ and explain
+        how to solve these equations.
+
+2.   Consider a model of the
+    mortality of two lives (husband and wife) consisting of for states :
+    
+  -   $b =$ both lives are alive,
+
+  -   $u =$ husband is alive, but wife is dead,
+
+  -   $v =$ wife is alive, but husband is dead, and
+
+  -   $d =$ both are dead.
+
+```{tikz, tikz-ex1, fig.cap = "A model of the mortality of two lives", fig.ext = 'png', cache=TRUE, echo = FALSE, fig.align = 'center'}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt  
+\begin{tikzpicture}
+    % place nodes
+    \node[draw, align = center, text width = 4cm, minimum height=1cm ,minimum width=3cm] at (0, 0)   (a) {State $b$  \\ Both alive};
+    \node[draw, align = center , text width = 4cm,  minimum height=1cm,minimum width=3cm] at (8, 0)   (b) {State $u$  \\ Husband alive, wife dead };
+
+    \node[draw, align = center, text width = 4cm, minimum height=1cm,minimum width=3cm] at (0, -3)   (c) {State $v$  \\Husband dead, wife alive};
+    
+    \node[draw, align = center , text width = 4cm,  minimum height=1cm,minimum width=3cm] at (8, -3)  (d)     {State $d$ \\Both dead};
+    %\node[draw ] at (5, -2)  (d)     {D};
+
+    % draw edges
+    \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (a) node[xshift =  4cm,yshift=0.3cm] {$\alpha_1$} -- (b);
+    \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (a) node[xshift =  0.6cm,yshift=-1.4cm] {$\beta1$}  -- (c);
+    \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (b) node[xshift =  -0.6cm,yshift=-1.4cm] {$\beta2$} -- (d);
+    \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (c) node[xshift =  4cm,yshift=-0.3cm] {$\alpha_2$} -- (d);    
+
+    %\draw (0,-3) node[above,near start abs] {Test} -- ++(7,0);
+\end{tikzpicture}
+```
+
+
+    The model is also referred to as the joint life and last survivor
+    model. Write down the Kolmogorov equation for
+    
+$\frac{d}{dt}p_{bu}(t)$, $\frac{d}{dt}p_{bv}(t)$ and
+    $\frac{d}{dt}p_{bd}(t)$.
+
+3.  A group of lives who hold health insurance policies can be
+    classified into able ($a$), ill ($i$), dead ($d$) and withdrawn
+    ($w$). The lives can move between state according to the following
+    diagram:
+
+```{tikz, tikz-ex2, fig.cap = "A Markov model for health insurance policies", fig.ext = 'png', cache=TRUE, echo = FALSE, fig.align = 'center'}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}
+    % place nodes
+    \node[draw, align = center, text width = 4cm, minimum height=1cm ,minimum width=3cm] at (0, 0)   (a) {Able};
+    \node[draw, align = center , text width = 4cm,  minimum height=1cm,minimum width=3cm] at (8, 0)   (b) {Ill };
+
+    \node[draw, align = center, text width = 4cm, minimum height=1cm,minimum width=3cm] at (0, -3)   (c) {Withdrawn};
+    
+    \node[draw, align = center , text width = 4cm,  minimum height=1cm,minimum width=3cm] at (8, -3)  (d)     {Dead};
+    %\node[draw ] at (5, -2)  (d)     {D};
+
+    % draw edges
+    \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (a) node[xshift =  4cm,yshift=0.3cm] {$\sigma$ (from $a$ to $i$)} -- (b);
+    \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (b) node[xshift =  -4cm,yshift=-0.3cm] {$\rho$ (from $i$ to $a$)} -- (a);
+    \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (a) node[xshift =  0.6cm,yshift=-1.4cm] {$\omega$}  -- (c);
+    \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (b) node[xshift =  -0.6cm,yshift=-1.4cm] {$\nu$} -- (d);
+        \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (a) node[xshift =  4cm,yshift=-1.3cm] {$\mu$} -- (d);
+   % \draw[->,shorten <=2pt,shorten >=2pt,>=stealth] (c) node[xshift =  4cm,yshift=-0.3cm] {$\alpha_2$} -- (d);    
+
+    %\draw (0,-3) node[above,near start abs] {Test} -- ++(7,0);
+\end{tikzpicture}
+```
+
+    Assuming that all transition rates are constant, write down the
+    Kolmogorov forward differential equations (FDE) for
+    
+$p_{aa}(t), p_{ai}(t)$ and $p_{aw}(t)$.
+
+4.  An actuary wishes to study a model in which states relate to marital
+    status comprising of five states, single, married, divorced, widowed
+    and dead. Draw the transition diagram that illustrate the possible
+    transitions between these five states.ß

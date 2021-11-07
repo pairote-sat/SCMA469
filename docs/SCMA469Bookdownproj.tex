@@ -128,7 +128,7 @@
 
 \title{SCMA469 Actuarial Statistics}
 \author{Pairote Satiracoo}
-\date{2021-10-21}
+\date{2021-11-07}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -3437,6 +3437,23 @@ purpose) that \(k = 2\). Let \(N_1(t)\) denote the number of events of type
 Therefore, \(N(t) = N_1(t) + N_2(t)\). The joint probability mass function
 of \((N_1(t), N_2(t))\) is
 
+\[\begin{aligned}
+\Pr(N_1(t) = n_1, N_2(t) = n_2)  
+&=  \Pr(N_1(t) = n_1, N_2(t) = n_2, N(t) = n) \\
+&=  \Pr(N_1(t) = n_1, N_2(t) = n_2 | N(t) = n)  \Pr(N(t) = n) \\
+&=  \Pr(N_1(t) = n_1 | N(t) = n)  \Pr(N(t) = n) \\
+&= \left(\binom{n}{n_1} p^{n_1} ( 1 - p)^{n_2} \right) \left( \frac{e^{-\lambda t} (\lambda t)^{n}}{n!}  \right) \\
+&= \frac{p^{n_1} ( 1 - p)^{n_2}  e^{-\lambda t} (\lambda t)^{n}  }{n_1! n_2!} \\
+&= \frac{p^{n_1} ( 1 - p)^{n_2}  e^{-\lambda t} (\lambda t)^{n}  }{n_1! n_2!} \\
+&= \frac{p^{n_1} ( 1 - p)^{n_2}  e^{-\lambda t (p + (1-p))} (\lambda t)^{n_1 + n_2}  }{n_1! n_2!} \\
+&= \left(  \frac{e^{-\lambda p t}  (\lambda p t)^{n_1}  }{n_1! }   \right)   \left(  \frac{e^{-\lambda (1-p) t}  (\lambda (1-p) t)^{n_2}  }{n_2! }   \right)
+\end{aligned},
+\]
+
+where \(n = n_1 + n_2\), \(p_1 = p\) and \(p_2 = 1 - p_1 = 1 - p\). The above argument follows from the following fact. A type 1 event can be regarded as the result of a coin flip whose heads with probability is \(p\). Assume that there are \(n\) events (of mixed types 1 and 2) by time \(t\). Then the number of events of type 1 is the number of heads in \(n\) i.i.d. coin flips, which has a \textbf{binomial distribution} with parameters \(n\) and \(p\).
+
+Consequently, \(N_1\) and \(N_2\) are independent Poisson random variables with parameter \(\lambda p t\) and \(\lambda (1-p) t\), respectively. In addition, one can show that both processes stationary and independent increments from the original Poisson process.
+
 \begin{example}
 \protect\hypertarget{exm:unlabeled-div-42}{}\label{exm:unlabeled-div-42}
 
@@ -3448,6 +3465,16 @@ from B is 1/3. Calculate the expected number of claims at least 5,000
 THB in the next day.
 
 \end{example}
+
+\textbf{Solution:}
+For type \(A\), \(N_A(t) \sim \text{Poisson}(4 t)\), a claim from type \(A\) is at least 5000 with probability of 2/5. By splitting property,
+claims under type \(A\) that are at least 5000 arrive as a Poisson process with rate \(4 \times 2/5 = 8/5\) per day.
+
+Similarly, for type \(B\), \(N_B(t) \sim \text{Poisson}(6 t)\), a claim from type \(A\) is at least 5000 with probability of 1/3. By splitting property, claims under type \(B\) that are at least 5000 arrive as a Poisson process with rate \(6 \times 1/3 = 2\) per day.
+
+By superposition property, the overall claims that are at least 5000 has a Poisson distribution with parameter
+\[ 8/5 + 2 = 18/5.\]
+The expected number of claims at least 5,000 THB in the next day is 18/5 claims.
 
 \begin{example}
 \protect\hypertarget{exm:unlabeled-div-43}{}\label{exm:unlabeled-div-43}
@@ -3474,6 +3501,34 @@ rate 6 per day.
 \end{enumerate}
 
 \end{example}
+
+\textbf{Solution:}
+
+By the superposition property, these two processes are equivalent to a single process
+\[ N(t) = N_m(t) + N_f(t)\]
+of claims with rate \$ 2 + 6 = 8\$ per day, in which each claim has probability \(2/8 = 0.25\) of being from male and \(6/8 = 0.75\) of being from female.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  For any \(t\), \(N(t,t+7) = N(t+7) - N(t)\) has a Poisson distribution with mean \$ 7 \times 8 = 56\$. In any given period of 1 week,
+  \[ \Pr(\text{no claim}) = e^{-56} \approx 0, \]
+  and
+  \[ \Pr(\text{at least two claims}) = 1 - e^{-56}  - (56)e^{-56}  = 1 - (57)e^{-56} \approx 1. \]
+\item
+  Each claim is independently ``male'' or ``female''. The required event happens if and only if, of the first 5 claims, at least 4 are claims from females. This follows because if the 4th claim from female occurs before or at the 5 claim, then it must have occurred before the 2nd claim from male Therefore, \(N_f | 5 \text{ claims} = N_f | N = 5 \sim \mathcal{B}(5, 3/4)\) and
+  \[ 
+  \begin{aligned}
+  \Pr(N_f \ge 4 | N = 5 ) &= \Pr(N_f = 4 | N = 5 ) + \Pr(N_f =5| N = 5  )  \\
+  &= \binom{5}{4}\left( \frac{3}{4} \right)^4 \left( \frac{1}{4} \right) +  \binom{5}{5}\left( \frac{3}{4} \right)^5 = 0.6328.
+  \end{aligned}
+  \]
+\end{enumerate}
+
+\textbf{Note} It should be noted that the probability of getting \(k\) successes before the \(r\)th failure can be calculated by taking the sum (over \(j = 0,1,\ldots, r-1\)) of the probability of \(k-1\) successes and \(j\) failures followed by a success. This results in
+\[ \Pr(\text{$k$ successes before the $r$th failure}) = \sum_{j=0}^{r-1}\binom{k+j-1}{j} p^k (1-p)^j. \]
+Applying the formula to the question above,
+\[ \Pr(\text{$4$ claims from female before the $2$ claims from male}) = \left( \frac{3}{4} \right)^4  + 4 \left( \frac{3}{4} \right)^4 \left( \frac{1}{4} \right) = 0.6328. \]
 
 \hypertarget{memorylessness}{%
 \section{Memorylessness}\label{memorylessness}}
@@ -3522,7 +3577,7 @@ memoryless. (The geometric distribution has the honors for the discrete
 case.) Here is the general statement of the property.
 
 More precisely, a random variable \(X\) is \textbf{memoryless} if, for all
-\(s, t > 0\), \[\Pr(X > s + t|X > s) = \Pr(X > t).\]
+\[ \Pr(X > s + t|X > s) =  \Pr(X - s > t|X > s) =   \Pr(X > t).\]
 
 \textbf{Notes}
 1. The exponential distribution is the only continuous distribution
@@ -3559,6 +3614,32 @@ exponentially distributed with mean equal to 40 minutes.
 \end{enumerate}
 
 \end{example}
+
+\textbf{Solution:} Let \(T\) be the amount of time spending in the dentist office, which is exponentially distributed \(\text{Exp}(\lambda)\) with \(\lambda = 60\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\Pr( T > 60) = e^{-60 \lambda} = e^{-60 (1/40)} = e^{-1.5} = 0.2231.\)
+\end{enumerate}
+
+It should be noted that if \(X \sim \text{Exp}(\lambda)\), then \(\Pr(X > x) = e^{- \lambda x}.\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  The required probability is
+  \[ \begin{aligned}
+  \Pr(T > 60 | T > 40) 
+  &= \Pr(T > 40 + 20 | T > 40) \\
+  &=  \Pr(T -40 > 20 | T > 40)  \\
+  &= \Pr(T > 20) = e^{-20 \lambda} = e^{-0.5} = 0.6065.
+  \end{aligned}
+  \]
+\end{enumerate}
 
 \hypertarget{tutorials}{%
 \chapter{Tutorials}\label{tutorials}}
@@ -5342,6 +5423,244 @@ In addition, since there are two closed classes,
     Find the probability that only boys were born between 6 and 10
     a.m.
   \end{enumerate}
+\end{enumerate}
+
+\hypertarget{tutorial-5}{%
+\section{Tutorial 5}\label{tutorial-5}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Suppose that we observe life \(i\) at exact age 74 years and 3 months.
+  The observation will continue until the earlier of the life's 75th
+  birthday or death. Assume that the force of mortality equal 0.08.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Calculate the probability function of \(D_i\), i.e.~calculate
+    \(\Pr(D_i = 0)\) and \(\Pr(D_i = 1)\).
+  \item
+    Calculate \(\textrm{E}[D_i]\).
+  \item
+    Calculate the probability density/mass function of \(V_i\) (Hint:
+    consider two cases (i) when \(v_i < 0.75\) and (ii) when
+    \(v_i = 0.75\)).
+  \item
+    Calculate \(\textrm{E}[V_i]\).
+  \end{enumerate}
+\item
+  For life \(i\), recall that
+
+  \begin{itemize}
+  \item
+    \(x+ a_i\) is the age at which observation
+    begins,\(\quad 0 \le a_i < 1\).
+  \item
+    \(x+ b_i\) is the age at which observation ends, if life does not
+    die, \(\quad 0 \le b_i < 1\).
+  \end{itemize}
+
+  The terms \(a_i\) and \(b_i\) are known constants.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Show that
+    \(\displaystyle \textrm{E}[D_i] = \int_0^{b_i - a_i} e^{-\mu t} \mu \, \text{d}t.\)
+  \item
+    Show that
+    \(\displaystyle \textrm{E}[V_i] = \int_0^{b_i - a_i}t e^{-\mu t} \mu \, \text{d}t + (b_i - a_i) e^{-\mu(b_i - a_i)}.\)
+  \end{enumerate}
+\item
+  In terms of the probability function of \((D_i, V_i)\),
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    explain why the following expression holds:
+    \[\int_0^{b_i - a_i} e^{-\mu v_i} \mu \, \text{d}v_i + e^{-\mu(b_i - a_i)} = 1.\]
+  \item
+    Differentiating the above expression with respect to \(\mu\), show
+    that \[\textrm{E}[ D_i - \mu V_i] = 0 .\]
+  \item
+    Differentiating the above expression twice with respect to
+    \(\mu\), show that \[\textrm{Var}[D_i - \mu V_i] = \textrm{E}[D_i].\]
+  \end{enumerate}
+\item
+  Show that
+  \[\textrm{Var}[\hat{\mu}] \rightarrow  \left. \frac{\mu^2}{\textrm{E}[D]} \right\vert_{ \mu = \mu_0 },\]
+  and hence
+  \[\textrm{Var}[\hat{\mu}] \rightarrow \left. \frac{\mu}{\textrm{E}[V]} \right\vert_{ \mu = \mu_0 }=  \frac{\mu_0}{E[V]}.\]
+\item
+  1300 lives aged between 70 and 71 have been observed. We wish to
+  calculate the force of mortality over this period.
+
+  Suppose the true value of the force of mortality is 0.12 for lives
+  aged between 70 and 71. Calculate the probability that the observed
+  force of mortality is greater than 0.15.
+
+  Hint: use the fact that the estimate \(\hat{\mu}\) is asymptotically
+  normal
+  \[\hat{\mu} \approx \mathcal{N}( \mu_0,   \frac{\mu_0}{E[V]} ).\]
+\item
+  Consider the following mortality data on ten lives all aged between
+  \(75\) and \(76\).
+
+  \begin{longtable}[]{@{}ccccc@{}}
+  \toprule
+  Life & \(a_i\) & \(b_i\) & \(d_i\) & \(t_i\) \\
+  \midrule
+  \endhead
+  1 & 0 & 1 & 1 & 0.5 \\
+  2 & 0 & 1 & 1 & 0.75 \\
+  3 & 0 & 1 & 0 & 1 \\
+  4 & 0 & 1 & 0 & 1 \\
+  5 & 0 & 1 & 0 & 1 \\
+  6 & 0.1 & 0.6 & 1 & 0.5 \\
+  7 & 0.2 & 0.7 & 1 & 0.6 \\
+  8 & 0.2 & 0.4 & 0 & 0.4 \\
+  9 & 0.5 & 0.8 & 0 & 0.8 \\
+  10 & 0.5 & 1 & 0 & 1 \\
+  \bottomrule
+  \end{longtable}
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Using the Markov model, estimate the force of mortality
+    \(\mu_{75}\) assuming that it is constant from \(75\) to \(76\).
+  \item
+    Estimate the variance of \(\hat{\mu}\).
+  \item
+    Construct the 95\% confidence interval for the force of
+    mortality.
+  \item
+    Estimate \(\hat{q}_{75} = {}_{1}\hat{q}_{75}\), the probability of
+    a life aged (75) dying within one year.
+  \item
+    Use the \(\Delta-\)method to estimate the variance of
+    \(\hat{q}_{75}\).
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{tutorial-6}{%
+\section{Tutorial 6}\label{tutorial-6}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Consider the 3-state model of terminal illness for healthy, ill and
+  dead states as shown below.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics{SCMA469Bookdownproj_files/figure-latex/tikz-ex0-1} 
+
+}
+
+\caption{The 3-state model of terminal illness}\label{fig:tikz-ex0}
+\end{figure}
+
+\begin{verbatim}
+1.  What can you say about 
+\end{verbatim}
+
+\(p_{hh}(t)\) and \(p_{\overline{hh}}(t)\),
+and about \(p_{ii}(t)\) and \(p_{\overline{ii}}(t)\)?
+
+\begin{verbatim}
+2.  Write down the Kolmogorov forward differential equations (FDE)
+    for 
+\end{verbatim}
+
+\(\frac{d}{dt}p_{hh}(t)\), \(\frac{d}{dt}p_{ii}(t)\) and solve
+these equations.
+
+\begin{verbatim}
+3.  Write down the Kolmogorov forward differential equations (FDE)
+    for 
+    
+\end{verbatim}
+
+\(\frac{d}{dt}p_{hi}(t)\), \(\frac{d}{dt}p_{hd}(t)\) and explain
+how to solve these equations.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Consider a model of the
+  mortality of two lives (husband and wife) consisting of for states :
+\end{enumerate}
+
+\begin{itemize}
+\item
+  \(b =\) both lives are alive,
+\item
+  \(u =\) husband is alive, but wife is dead,
+\item
+  \(v =\) wife is alive, but husband is dead, and
+\item
+  \(d =\) both are dead.
+\end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics{SCMA469Bookdownproj_files/figure-latex/tikz-ex1-1} 
+
+}
+
+\caption{A model of the mortality of two lives}\label{fig:tikz-ex1}
+\end{figure}
+
+\begin{verbatim}
+The model is also referred to as the joint life and last survivor
+model. Write down the Kolmogorov equation for
+\end{verbatim}
+
+\(\frac{d}{dt}p_{bu}(t)\), \(\frac{d}{dt}p_{bv}(t)\) and
+\(\frac{d}{dt}p_{bd}(t)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  A group of lives who hold health insurance policies can be
+  classified into able (\(a\)), ill (\(i\)), dead (\(d\)) and withdrawn
+  (\(w\)). The lives can move between state according to the following
+  diagram:
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics{SCMA469Bookdownproj_files/figure-latex/tikz-ex2-1} 
+
+}
+
+\caption{A Markov model for health insurance policies}\label{fig:tikz-ex2}
+\end{figure}
+
+\begin{verbatim}
+Assuming that all transition rates are constant, write down the
+Kolmogorov forward differential equations (FDE) for
+\end{verbatim}
+
+\(p_{aa}(t), p_{ai}(t)\) and \(p_{aw}(t)\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  An actuary wishes to study a model in which states relate to marital
+  status comprising of five states, single, married, divorced, widowed
+  and dead. Draw the transition diagram that illustrate the possible
+  transitions between these five states.ß
 \end{enumerate}
 
 \hypertarget{applications}{%
