@@ -24,7 +24,7 @@
 <meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2021-11-07" />
+<meta name="date" content="2021-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -205,11 +205,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="tutorials.html"><a href="tutorials.html#tutorial-1"><i class="fa fa-check"></i><b>6.1</b> Tutorial 1</a></li>
 <li class="chapter" data-level="6.2" data-path="tutorials.html"><a href="tutorials.html#tutorial-2"><i class="fa fa-check"></i><b>6.2</b> Tutorial 2</a></li>
 <li class="chapter" data-level="6.3" data-path="tutorials.html"><a href="tutorials.html#tutorial-3"><i class="fa fa-check"></i><b>6.3</b> Tutorial 3</a></li>
-<li class="chapter" data-level="6.4" data-path="tutorials.html"><a href="tutorials.html#tutorial-2-1"><i class="fa fa-check"></i><b>6.4</b> Tutorial 2</a></li>
-<li class="chapter" data-level="6.5" data-path="tutorials.html"><a href="tutorials.html#tutorial-3-1"><i class="fa fa-check"></i><b>6.5</b> Tutorial 3</a></li>
-<li class="chapter" data-level="6.6" data-path="tutorials.html"><a href="tutorials.html#tutorial-4"><i class="fa fa-check"></i><b>6.6</b> Tutorial 4</a></li>
-<li class="chapter" data-level="6.7" data-path="tutorials.html"><a href="tutorials.html#tutorial-5"><i class="fa fa-check"></i><b>6.7</b> Tutorial 5</a></li>
-<li class="chapter" data-level="6.8" data-path="tutorials.html"><a href="tutorials.html#tutorial-6"><i class="fa fa-check"></i><b>6.8</b> Tutorial 6</a></li>
+<li class="chapter" data-level="6.4" data-path="tutorials.html"><a href="tutorials.html#tutorial-4"><i class="fa fa-check"></i><b>6.4</b> Tutorial 4</a></li>
+<li class="chapter" data-level="6.5" data-path="tutorials.html"><a href="tutorials.html#tutorial-5"><i class="fa fa-check"></i><b>6.5</b> Tutorial 5</a></li>
+<li class="chapter" data-level="6.6" data-path="tutorials.html"><a href="tutorials.html#tutorial-6"><i class="fa fa-check"></i><b>6.6</b> Tutorial 6</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>7</b> Applications</a>
 <ul>
@@ -1136,334 +1134,258 @@ system.</p></li>
 discount level will have 20% discount after two years.</p></li>
 </ol></li>
 </ol>
+<!-- ## Tutorial 2 -->
+<!-- 1.  A Markov chain $X_0, X_1, \ldots$ on states 1 ,2 ,3 has the -->
+<!--     following transition matrix $$P = \begin{bmatrix} -->
+<!--         0.5 & 0.3 & 0.2    \\ -->
+<!--         0.2 & 0.2 & 0.6  \\ -->
+<!--         0.3 & 0.2 &  0.5    \\ -->
+<!--         %\vdots & \vdots & \vdots  & \vdots \\ -->
+<!--         %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn} -->
+<!--     \end{bmatrix}.$$ The distribution of the initial random variable -->
+<!--     $X_0$ is $\boldsymbol{\mu} = (0.3,0,3,0.4)$. -->
+<!--     1.  Draw a transition diagram for the chain. -->
+<!--     2.  Determine $\Pr(X_0 = 1, X_1 = 2, X_2 = 3).$ -->
+<!--     3.  Determine $\Pr(X_1 = 2, X_2 = 3 | X_0 = 1).$ -->
+<!--     4.  Determine $\Pr(X_{11} = 2, X_{12} = 3 | X_{10} = 1).$ -->
+<!--     5.  Determine $\Pr(X_2 = 3 | X_0 = 1).$ -->
+<!--     6.  Determine $\Pr(X_3 = 3 | X_1 = 1).$ -->
+<!--     7.  Determine $\Pr(X_2 = 3).$ -->
+<!--     8.  Determine $\mathrm{E}[X_2]$ -->
+<!-- 2.  A Markov chain $X_0, X_1, \ldots$ on states 1 ,2 ,3 has the -->
+<!--     following transition matrix $$P = \begin{bmatrix} -->
+<!--         0 & 1/2 & 1/2   \\ -->
+<!--         1/3  & 1/3  & 1/3   \\ -->
+<!--         1/2  & 1/2  & 0    \\ -->
+<!--         %\vdots & \vdots & \vdots  & \vdots \\ -->
+<!--         %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn} -->
+<!--     \end{bmatrix}.$$ The process starts in states $X_0 = 1$. -->
+<!--     1.  Draw a transition diagram for the chain. -->
+<!--     2.  Determine $\Pr(X_0 = 1, X_1 = 3, X_2 = 2).$ -->
+<!--     3.  Determine $\Pr(X_1 = 3, X_2 = 2 | X_0 = 1).$ -->
+<!--     4.  Determine $\Pr(X_2 = 2 | X_0 = 1).$ -->
+<!--     5.  Determine $\Pr(X_3 = 2 | X_1 = 1).$ -->
+<!--     6.  Determine $\Pr(X_2 = 2).$ -->
+<!-- 3.  A Markov chain $X_0, X_1, \ldots$ on sates 1 ,2 has the following -->
+<!--     transition matrix $$P = \begin{bmatrix} -->
+<!--         1-a & a   \\ -->
+<!--         b & 1-b   \\ -->
+<!--         %\vdots & \vdots & \vdots  & \vdots \\ -->
+<!--         %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn} -->
+<!--     \end{bmatrix},$$ where $0 < a,b < 1.$ -->
+<!--     1.  Draw a transition diagram for the chain. -->
+<!--     2.  the distribution of $X_1$. -->
+<!--     3.  Show that $$P^n = \frac{1}{a+b} \begin{bmatrix} -->
+<!--             b & a   \\ -->
+<!--             b & a   \\ -->
+<!--             %\vdots & \vdots & \vdots  & \vdots \\ -->
+<!--             %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn} -->
+<!--         \end{bmatrix} + -->
+<!--         \frac{(1-a-b)^n}{a+b} \begin{bmatrix} -->
+<!--             a & -a   \\ -->
+<!--             -b & b   \\ -->
+<!--             %\vdots & \vdots & \vdots  & \vdots \\ -->
+<!--             %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn} -->
+<!--         \end{bmatrix}.$$ -->
+<!--     4.  Given that $X_0 = 1$, what is the probability that in the long -->
+<!--         run the system will be in state 1? (Hint: consider -->
+<!--         $\lim_{n \rightarrow \infty} \boldsymbol{\mu} P^n$) -->
+<!--     5.  Given that $X_0 = 1$, what is the probability that in the long -->
+<!--         run the system will be in state 2? -->
+<!--     6.  Given that $X_0 = 2$, what is the probability that in the long -->
+<!--         run the system will be in state 1? -->
+<!--     7.  Given that $X_0 = 2$, what is the probability that in the long -->
+<!--         run the system will be in state 2? -->
+<!-- 4.  Let $a$ be a constant and $\xi_1, \xi_2, \ldots$ be a sequence of -->
+<!--     independent and identically distributed (i.i.d.) random variables. -->
+<!--     The stochastic process $\{ X_n\}$ is defined by -->
+<!--     $$X_0 = a, \quad X_n = X_{n-1} + \xi_n, \, n > 1.$$ This process is -->
+<!--     known as a random walk. -->
+<!--     1.  Express the state $X_n$ in terms of $X_0$ and the random -->
+<!--         variables $\xi_i, i = 1,2 \ldots$. -->
+<!--     2.  Find $\mathrm{E}[X_n]$ and $\mathrm{Var}[X_n]$. -->
+<!--     3.  Does the process have the Markov property? Explain. -->
+<!--     4.  Is the process stationary? Explain. -->
+<!-- 5.  Consider a homogeneous discrete-time Markov chain that describes the -->
+<!--     daily weather pattern. The weather patterns are classified into 3 -->
+<!--     conditions: R(rainy), C (cloudy) and S(sunny). Based on the daily -->
+<!--     observations, the following information are given: -->
+<!--     -   On any rainy day, the probability that it will rain the next day -->
+<!--         is 0.7; the probability that tomorrow will be cloudy is 0.2 and -->
+<!--         the probability that tomorrow will be sunny is 0.1. -->
+<!--     -   On any cloudy day, the probability that it will rain the next -->
+<!--         day is 0.5; the probability that tomorrow will be cloudy is 0.35 -->
+<!--         and the probability that tomorrow will be sunny is 0.15. -->
+<!--     -   On any sunny day, the probability that it will rain the next day -->
+<!--         is 0.1; the probability that tomorrow will be cloudy is 0.4 and -->
+<!--         the probability that tomorrow will be sunny is 0.5. -->
+<!--     1.  Draw a transition diagram for the chain and write down a -->
+<!--         transition matrix. -->
+<!--     2.  Find the probability that tomorrow is cloudy and the day after -->
+<!--         is rainy, given that it is sunny today. -->
+<!--     3.  Given that today is rainy, find the probability that it will be -->
+<!--         sunny in two days time. -->
+<!-- ## Tutorial 3 -->
+<!-- 1.  A Markov chain $X_0, X_1, \ldots$ on states 1, 2, 3 with initial -->
+<!--     distribution $\boldsymbol{\mu} = (1/4,1/4,1/2)$. It has the -->
+<!--     following transition matrix $$P = \begin{bmatrix} -->
+<!--         1/2 & 1/4 & 1/4   \\ -->
+<!--         1/3  & 1/3  & 1/3   \\ -->
+<!--         1/5  & 2/5  & 2/5    \\ -->
+<!--         %\vdots & \vdots & \vdots  & \vdots \\ -->
+<!--         %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn} -->
+<!--     \end{bmatrix}.$$ Compute the following probabilities: -->
+<!--     1.  $\Pr(X_{11} = 1, X_{12} = 2, X_{13} = 3 | X_{10} = 1).$ -->
+<!--     2.  $\Pr(X_0 = 3, X_1 = 2 , X_2 = 1).$ -->
+<!--     3.  $\Pr(X_1 = 3, X_2 = 2 , X_3 = 1).$ -->
+<!--     4.  $\Pr(X_{1} = 2, X_{3} = 2, X_{5} = 2).$ -->
+<!-- 2.  A Markov chain with state space $S = \{1,2,3,4,5,6\}$ has the -->
+<!--     following transition matrix: $$P = \begin{bmatrix} -->
+<!--     1/4 & 0 & 3/4 & 0 & 0 & 0  \\ -->
+<!--     0 & 0 & 0 & 1 & 0 & 0  \\ -->
+<!--     0 & 0 & 1/2 & 0 & 0 & 1/2  \\ -->
+<!--     1/5 & 1/5 & 1/5 & 0 & 1/5 & 1/5   \\ -->
+<!--     0 & 0 & 0 & 0 & 1 & 0  \\ -->
+<!--     1/3 & 0 & 0 & 0 & 0 & 2/3  \\ -->
+<!--         %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn} -->
+<!--     \end{bmatrix}.$$ -->
+<!--     1.  Draw a transition diagram. -->
+<!--     2.  Identify the communication classes and classify them as closed -->
+<!--         or non-closed. -->
+<!--     3.  Is the Markov chain irreducible? -->
+<!-- 3. For each of the Markov chains whose -->
+<!--     transition matrix is given below, identify the closed classes and -->
+<!--     the vector of absorption probabilities associated with each of these -->
+<!--     closed classes. Assume that the states are labelled $1,2,3 \ldots$. -->
+<!--     1.  $$\begin{bmatrix} -->
+<!--                 1/6 & 0 & 1/3 & 1/2      \\ -->
+<!--                 0 & 1/3 & 2/3 & 0   \\ -->
+<!--             1/2 & 1/2 & 0 & 0     \\     -->
+<!--             0 & 0 & 1/4 & 3/4     \\ -->
+<!--         \end{bmatrix}.$$ -->
+<!--     2.  $$\begin{bmatrix} -->
+<!--                 0 & 1/4 & 3/4 & 0      \\ -->
+<!--                 0 & 1/3 & 0 & 2/3   \\ -->
+<!--             1/3 & 0 & 1/3 & 1/3     \\   -->
+<!--             0 & 0 & 0 & 1     \\ -->
+<!--         \end{bmatrix}.$$ -->
+<!--     3.   $$\begin{bmatrix} -->
+<!--                 1/4 & 1/4 & 1/4 & 1/4      \\ -->
+<!--                 0 & 3/4 & 1/4 & 0   \\ -->
+<!--                 0 & 3/4 & 1/4 & 0   \\ -->
+<!--             0 & 0 & 0 & 1     \\ -->
+<!--         \end{bmatrix}.$$ -->
+<!--     4.   $$\begin{bmatrix} -->
+<!--                 0 & 0 & 0 & 1/2  & 0 & 0 & 1/2   \\ -->
+<!--                 1/6 & 0 & 1/6 & 0  & 0 & 1/6 & 1/2 \\ -->
+<!--             0 & 0 & 1 & 0 & 0 & 0 & 0    \\  -->
+<!--                 1/2 & 0 & 0 & 1/2  & 0 & 0 & 0   \\ -->
+<!--             1/4 & 1/4 & 0 & 0  & 0 & 0 & 1/2 \\ -->
+<!--             0 & 1 & 0 & 0 & 0 & 0 & 0    \\  -->
+<!--                 1/2 & 0 & 0 & 0  & 0 & 0 & 1/2   \\ -->
+<!--         \end{bmatrix}.$$ -->
+<!-- 4.  If the Markov chain defined in Question 3 is irreducible, -->
+<!--     i.e. it has a unique stationary distribution, then find the -->
+<!--     stationary distribution of the chain. -->
+<!-- 5.  Assume that a Markov chain has more than one closed classes (say $r$ -->
+<!--     closed classes). The Markov chain can **have many stationary -->
+<!--     distributions**. Assume further that within each of these $r$ closed -->
+<!--     classes, the associated Markov chain is aperiodic. The followings -->
+<!--     hold: -->
+<!--     -   Within a closed class $C_1$, let $P_1$ be a reduction of a -->
+<!--         matrix $P$ which is formed by deleting all rows and columns -->
+<!--         corresponding to states from other classes. Then there exists a -->
+<!--         unique stationary distribution, denoted by -->
+<!--         $\{\pi_j^{(1)}\}_{j \in C_1}.$ -->
+<!--     -   Similarly, let -->
+<!--         $\{\pi_j^{(2)}\}_{j \in C_2}, \ldots, \{\pi_j^{(r)}\}_{j \in C_r}$ -->
+<!--         be stationary distributions within other classes. -->
+<!--     1.  Show that for any numbers $\gamma_1, \gamma_2, \ldots, \gamma_r$ -->
+<!--         such that $\sum_{m=1}^r \gamma_m = 1$, the following -->
+<!--         distribution $\{ \pi_j \}$ is stationary, where -->
+<!--       \begin{equation}  -->
+<!--       (\#eq:limitdist) -->
+<!--         \pi_j = -->
+<!--          \begin{cases} -->
+<!--             \pi_j^{(k)} \gamma_k & \text{for } j \in C_k, \, k= 1,\ldots, r \\ -->
+<!--             0 & \text{if } j \text{ is in a nonclosed class.} -->
+<!--           \end{cases} -->
+<!--         \end{equation} -->
+<!--         (In particular, any stationary distribution of the Markov chain is of this form.) -->
+<!--     2.  Write down the general form of stationary distributions of the -->
+<!--         Markov chain in Questions 3.3 and 3.4. -->
+<!--     3.  Now we will focus on limiting distributions. Consider the three -->
+<!--         following possible cases. -->
+<!--         1.  If $X_0 =  i$ and $i \in C_k$ for some closed class $C_k$, -->
+<!--             then verify that the limiting distribution is defined as in Eqn.\@ref(eq:limitdist) where $\gamma_k =1$ and -->
+<!--             $\gamma_m = 0,$ for $m \neq k$. -->
+<!--         2.  If $X_0 =  i$ and $i$ is in a nonclosed class, then verify -->
+<!--             that the limiting distribution is defined as in -->
+<!--             Eqn.\@ref(eq:limitdist) where $\gamma_k =  \alpha^{(k)}_i$ -->
+<!--             for $k = 1,2,\ldots r$ where $\alpha^{(k)}_i$ is the -->
+<!--             probability of absorption in class $C_k$. More precisely, -->
+<!--             $$\pi_j = -->
+<!--              \begin{cases} -->
+<!--                 \pi_j^{(k)} \alpha^{(k)}_i & \text{for } j \in C_k, \, k= 1,\ldots, r \\ -->
+<!--                 0 & \text{if } j \text{ is in a nonclosed class.} -->
+<!--               \end{cases} -->
+<!--                   %\pi_j^{(k)} \gamma_k \text{ for } j \in C_k, \, k= 1,\ldots, r \text { and }$$ -->
+<!--         3.  If $X_0$ is random, then this will leave as extra exercise. -->
+<!--             (Hint: you may need to apply first step anslysis) -->
+<!-- 6.  A no-claims discount system for motor insurance has four levels of -->
+<!--     discount: -->
+<!--         Level     1     2     3     4 -->
+<!--       ---------- ---- ----- ----- ----- -->
+<!--        Discount   0%   10%   30%   50% -->
+<!--     The rules for moving between these levels are given as follows: -->
+<!--     -   Following a claim-free year, move to the next higher level, or -->
+<!--         remain at level 4. -->
+<!--     -   Following a year with one claim, move to the next lower level, -->
+<!--         or remain at level 1. -->
+<!--     -   Following a year with two or more claims, move down two levels, -->
+<!--         or move to level 1 (from level 2), or remain at level 1. -->
+<!--     A portfolio consists of 10,000 policyholders. Suppose also that the -->
+<!--     number of claims per year is $\mathcal{Poisson}(0.1)$. -->
+<!--     1.  Calculate $\Pr[N = 0]$, $\Pr[N = 1]$, and $\Pr[N \ge 2]$ for -->
+<!--         each group. -->
+<!--     2.  Write down the transition probability matrix of this no-claims -->
+<!--         discount system. -->
+<!--     3.  Find the probability that a policyholder who has the 30% -->
+<!--         discount has no discount after 2 years. -->
+<!--     4.  Calculate the expected number of policyholders at each level at -->
+<!--         times 1 and 2, assuming no exits given that all policyholders start at level 1. -->
+<!--     5.  Calculate the expected number of policyholders at each level -->
+<!--         once stability has been achieved, assuming no exits. -->
+<!-- 7.  A no-claims discount system for motor insurance has four levels of -->
+<!--     discount: -->
+<!--         Level     1     2     3     4 -->
+<!--       ---------- ---- ----- ----- ----- -->
+<!--        Discount   0%   20%   30%   50% -->
+<!--     The rules for moving between these levels are given as follows: -->
+<!--     -   For a claim-free year, a policyholder moves to the next higher -->
+<!--         level, or remains at level 4. -->
+<!--     -   For every claim in a year, the policyholder moves down a -->
+<!--         discount level or remains at level 1, for example if the -->
+<!--         policyholder is in level 4 and has one accident, he/she moves to -->
+<!--         level 3, and 2 accidents, he/she moves to level 2, and 2 or more -->
+<!--         accidents to level 1. -->
+<!--     For a given policyholder, the number of claims each year, $N$, has a -->
+<!--     negative binomial distribution with parameters $k=2$ and $p = 0.5$. -->
+<!--     Note that a random variable $N$ has a negative distribution with -->
+<!--     parameters $k$ and $p$, denoted by $N \sim \dnb$ if its probability -->
+<!--     mass function is given by -->
+<!--     $$f_N(n) = \Pr(N = n) = \frac{\Gamma(k+n)}{\Gamma(n+1)\Gamma(k)} p^k (1- p)^n \quad n = 0,1,2,\ldots.$$ -->
+<!--     1.  Draw a transition diagram for the chain. -->
+<!--     2.  Write down the transition matrix of this no-claims discount -->
+<!--         system. -->
+<!--     3.  Find the probability that a policyholder who has the maximum -->
+<!--         discount level will have 20% discount after two years. -->
 </div>
-<div id="tutorial-2-1" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Tutorial 2</h2>
-<ol style="list-style-type: decimal">
-<li><p>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states 1 ,2 ,3 has the
-following transition matrix <span class="math display">\[P = \begin{bmatrix}
-    0.5 &amp; 0.3 &amp; 0.2    \\
-    0.2 &amp; 0.2 &amp; 0.6  \\
-    0.3 &amp; 0.2 &amp;  0.5    \\
-    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
-    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
-\end{bmatrix}.\]</span> The distribution of the initial random variable
-<span class="math inline">\(X_0\)</span> is <span class="math inline">\(\boldsymbol{\mu} = (0.3,0,3,0.4)\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li><p>Draw a transition diagram for the chain.</p></li>
-<li><p>Determine <span class="math inline">\(\Pr(X_0 = 1, X_1 = 2, X_2 = 3).\)</span></p></li>
-<li><p>Determine <span class="math inline">\(\Pr(X_1 = 2, X_2 = 3 | X_0 = 1).\)</span></p></li>
-<li><p>Determine <span class="math inline">\(\Pr(X_{11} = 2, X_{12} = 3 | X_{10} = 1).\)</span></p></li>
-<li><p>Determine <span class="math inline">\(\Pr(X_2 = 3 | X_0 = 1).\)</span></p></li>
-<li><p>Determine <span class="math inline">\(\Pr(X_3 = 3 | X_1 = 1).\)</span></p></li>
-<li><p>Determine <span class="math inline">\(\Pr(X_2 = 3).\)</span></p></li>
-<li><p>Determine <span class="math inline">\(\mathrm{E}[X_2]\)</span></p></li>
-</ol></li>
-<li><p>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states 1 ,2 ,3 has the
-following transition matrix <span class="math display">\[P = \begin{bmatrix}
-    0 &amp; 1/2 &amp; 1/2   \\
-    1/3  &amp; 1/3  &amp; 1/3   \\
-    1/2  &amp; 1/2  &amp; 0    \\
-    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
-    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
-\end{bmatrix}.\]</span> The process starts in states <span class="math inline">\(X_0 = 1\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li><p>Draw a transition diagram for the chain.</p></li>
-<li><p>Determine <span class="math inline">\(\Pr(X_0 = 1, X_1 = 3, X_2 = 2).\)</span></p></li>
-<li><p>Determine <span class="math inline">\(\Pr(X_1 = 3, X_2 = 2 | X_0 = 1).\)</span></p></li>
-<li><p>Determine <span class="math inline">\(\Pr(X_2 = 2 | X_0 = 1).\)</span></p></li>
-<li><p>Determine <span class="math inline">\(\Pr(X_3 = 2 | X_1 = 1).\)</span></p></li>
-<li><p>Determine <span class="math inline">\(\Pr(X_2 = 2).\)</span></p></li>
-</ol></li>
-<li><p>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on sates 1 ,2 has the following
-transition matrix <span class="math display">\[P = \begin{bmatrix}
-    1-a &amp; a   \\
-    b &amp; 1-b   \\
-    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
-    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
-\end{bmatrix},\]</span> where <span class="math inline">\(0 &lt; a,b &lt; 1.\)</span></p>
-<ol style="list-style-type: decimal">
-<li><p>Draw a transition diagram for the chain.</p></li>
-<li><p>the distribution of <span class="math inline">\(X_1\)</span>.</p></li>
-<li><p>Show that <span class="math display">\[P^n = \frac{1}{a+b} \begin{bmatrix}
-    b &amp; a   \\
-    b &amp; a   \\
-    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
-    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
-\end{bmatrix} +
-\frac{(1-a-b)^n}{a+b} \begin{bmatrix}
-    a &amp; -a   \\
-    -b &amp; b   \\
-    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
-    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
-\end{bmatrix}.\]</span></p></li>
-<li><p>Given that <span class="math inline">\(X_0 = 1\)</span>, what is the probability that in the long
-run the system will be in state 1? (Hint: consider
-<span class="math inline">\(\lim_{n \rightarrow \infty} \boldsymbol{\mu} P^n\)</span>)</p></li>
-<li><p>Given that <span class="math inline">\(X_0 = 1\)</span>, what is the probability that in the long
-run the system will be in state 2?</p></li>
-<li><p>Given that <span class="math inline">\(X_0 = 2\)</span>, what is the probability that in the long
-run the system will be in state 1?</p></li>
-<li><p>Given that <span class="math inline">\(X_0 = 2\)</span>, what is the probability that in the long
-run the system will be in state 2?</p></li>
-</ol></li>
-<li><p>Let <span class="math inline">\(a\)</span> be a constant and <span class="math inline">\(\xi_1, \xi_2, \ldots\)</span> be a sequence of
-independent and identically distributed (i.i.d.) random variables.
-The stochastic process <span class="math inline">\(\{ X_n\}\)</span> is defined by
-<span class="math display">\[X_0 = a, \quad X_n = X_{n-1} + \xi_n, \, n &gt; 1.\]</span> This process is
-known as a random walk.</p>
-<ol style="list-style-type: decimal">
-<li><p>Express the state <span class="math inline">\(X_n\)</span> in terms of <span class="math inline">\(X_0\)</span> and the random
-variables <span class="math inline">\(\xi_i, i = 1,2 \ldots\)</span>.</p></li>
-<li><p>Find <span class="math inline">\(\mathrm{E}[X_n]\)</span> and <span class="math inline">\(\mathrm{Var}[X_n]\)</span>.</p></li>
-<li><p>Does the process have the Markov property? Explain.</p></li>
-<li><p>Is the process stationary? Explain.</p></li>
-</ol></li>
-<li><p>Consider a homogeneous discrete-time Markov chain that describes the
-daily weather pattern. The weather patterns are classified into 3
-conditions: R(rainy), C (cloudy) and S(sunny). Based on the daily
-observations, the following information are given:</p>
-<ul>
-<li><p>On any rainy day, the probability that it will rain the next day
-is 0.7; the probability that tomorrow will be cloudy is 0.2 and
-the probability that tomorrow will be sunny is 0.1.</p></li>
-<li><p>On any cloudy day, the probability that it will rain the next
-day is 0.5; the probability that tomorrow will be cloudy is 0.35
-and the probability that tomorrow will be sunny is 0.15.</p></li>
-<li><p>On any sunny day, the probability that it will rain the next day
-is 0.1; the probability that tomorrow will be cloudy is 0.4 and
-the probability that tomorrow will be sunny is 0.5.</p></li>
-</ul>
-<ol style="list-style-type: decimal">
-<li><p>Draw a transition diagram for the chain and write down a
-transition matrix.</p></li>
-<li><p>Find the probability that tomorrow is cloudy and the day after
-is rainy, given that it is sunny today.</p></li>
-<li><p>Given that today is rainy, find the probability that it will be
-sunny in two days time.</p></li>
-</ol></li>
-</ol>
-</div>
-<div id="tutorial-3-1" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Tutorial 3</h2>
-<ol style="list-style-type: decimal">
-<li><p>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states 1, 2, 3 with initial
-distribution <span class="math inline">\(\boldsymbol{\mu} = (1/4,1/4,1/2)\)</span>. It has the
-following transition matrix <span class="math display">\[P = \begin{bmatrix}
-    1/2 &amp; 1/4 &amp; 1/4   \\
-    1/3  &amp; 1/3  &amp; 1/3   \\
-    1/5  &amp; 2/5  &amp; 2/5    \\
-    %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
-    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
-\end{bmatrix}.\]</span> Compute the following probabilities:</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\Pr(X_{11} = 1, X_{12} = 2, X_{13} = 3 | X_{10} = 1).\)</span></p></li>
-<li><p><span class="math inline">\(\Pr(X_0 = 3, X_1 = 2 , X_2 = 1).\)</span></p></li>
-<li><p><span class="math inline">\(\Pr(X_1 = 3, X_2 = 2 , X_3 = 1).\)</span></p></li>
-<li><p><span class="math inline">\(\Pr(X_{1} = 2, X_{3} = 2, X_{5} = 2).\)</span></p></li>
-</ol></li>
-<li><p>A Markov chain with state space <span class="math inline">\(S = \{1,2,3,4,5,6\}\)</span> has the
-following transition matrix: <span class="math display">\[P = \begin{bmatrix}
-1/4 &amp; 0 &amp; 3/4 &amp; 0 &amp; 0 &amp; 0  \\
-0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0  \\
-0 &amp; 0 &amp; 1/2 &amp; 0 &amp; 0 &amp; 1/2  \\
-1/5 &amp; 1/5 &amp; 1/5 &amp; 0 &amp; 1/5 &amp; 1/5   \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0  \\
-1/3 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 2/3  \\
-    %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
-\end{bmatrix}.\]</span></p>
-<ol style="list-style-type: decimal">
-<li><p>Draw a transition diagram.</p></li>
-<li><p>Identify the communication classes and classify them as closed
-or non-closed.</p></li>
-<li><p>Is the Markov chain irreducible?</p></li>
-</ol></li>
-<li><p>For each of the Markov chains whose
-transition matrix is given below, identify the closed classes and
-the vector of absorption probabilities associated with each of these
-closed classes. Assume that the states are labelled <span class="math inline">\(1,2,3 \ldots\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math display">\[\begin{bmatrix}
-        1/6 &amp; 0 &amp; 1/3 &amp; 1/2      \\
-        0 &amp; 1/3 &amp; 2/3 &amp; 0   \\
-    1/2 &amp; 1/2 &amp; 0 &amp; 0     \\    
-    0 &amp; 0 &amp; 1/4 &amp; 3/4     \\
-\end{bmatrix}.\]</span></p></li>
-<li><p><span class="math display">\[\begin{bmatrix}
-        0 &amp; 1/4 &amp; 3/4 &amp; 0      \\
-        0 &amp; 1/3 &amp; 0 &amp; 2/3   \\
-    1/3 &amp; 0 &amp; 1/3 &amp; 1/3     \\  
-    0 &amp; 0 &amp; 0 &amp; 1     \\
-\end{bmatrix}.\]</span></p></li>
-<li><p><span class="math display">\[\begin{bmatrix}
-       1/4 &amp; 1/4 &amp; 1/4 &amp; 1/4      \\
-       0 &amp; 3/4 &amp; 1/4 &amp; 0   \\
-       0 &amp; 3/4 &amp; 1/4 &amp; 0   \\
-   0 &amp; 0 &amp; 0 &amp; 1     \\
-     \end{bmatrix}.\]</span></p></li>
-<li><p><span class="math display">\[\begin{bmatrix}
-       0 &amp; 0 &amp; 0 &amp; 1/2  &amp; 0 &amp; 0 &amp; 1/2   \\
-       1/6 &amp; 0 &amp; 1/6 &amp; 0  &amp; 0 &amp; 1/6 &amp; 1/2 \\
-   0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0    \\ 
-       1/2 &amp; 0 &amp; 0 &amp; 1/2  &amp; 0 &amp; 0 &amp; 0   \\
-   1/4 &amp; 1/4 &amp; 0 &amp; 0  &amp; 0 &amp; 0 &amp; 1/2 \\
-   0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0    \\ 
-       1/2 &amp; 0 &amp; 0 &amp; 0  &amp; 0 &amp; 0 &amp; 1/2   \\
-     \end{bmatrix}.\]</span></p></li>
-</ol></li>
-<li><p>If the Markov chain defined in Question 3 is irreducible,
-i.e. it has a unique stationary distribution, then find the
-stationary distribution of the chain.</p></li>
-<li><p>Assume that a Markov chain has more than one closed classes (say <span class="math inline">\(r\)</span>
-closed classes). The Markov chain can <strong>have many stationary
-distributions</strong>. Assume further that within each of these <span class="math inline">\(r\)</span> closed
-classes, the associated Markov chain is aperiodic. The followings
-hold:</p>
-<ul>
-<li><p>Within a closed class <span class="math inline">\(C_1\)</span>, let <span class="math inline">\(P_1\)</span> be a reduction of a
-matrix <span class="math inline">\(P\)</span> which is formed by deleting all rows and columns
-corresponding to states from other classes. Then there exists a
-unique stationary distribution, denoted by
-<span class="math inline">\(\{\pi_j^{(1)}\}_{j \in C_1}.\)</span></p></li>
-<li><p>Similarly, let
-<span class="math inline">\(\{\pi_j^{(2)}\}_{j \in C_2}, \ldots, \{\pi_j^{(r)}\}_{j \in C_r}\)</span>
-be stationary distributions within other classes.</p></li>
-</ul>
-<ol style="list-style-type: decimal">
-<li>Show that for any numbers <span class="math inline">\(\gamma_1, \gamma_2, \ldots, \gamma_r\)</span>
-such that <span class="math inline">\(\sum_{m=1}^r \gamma_m = 1\)</span>, the following
-distribution <span class="math inline">\(\{ \pi_j \}\)</span> is stationary, where</li>
-</ol>
-<p><span class="math display" id="eq:limitdist">\[\begin{equation} 
-  \tag{6.1}
-    \pi_j =
-     \begin{cases}
-        \pi_j^{(k)} \gamma_k &amp; \text{for } j \in C_k, \, k= 1,\ldots, r \\
-        0 &amp; \text{if } j \text{ is in a nonclosed class.}
-      \end{cases}
-    \end{equation}\]</span>
-(In particular, any stationary distribution of the Markov chain is of this form.)</p>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Write down the general form of stationary distributions of the
-Markov chain in Questions 3.3 and 3.4.</p></li>
-<li><p>Now we will focus on limiting distributions. Consider the three
-following possible cases.</p>
-<ol style="list-style-type: decimal">
-<li><p>If <span class="math inline">\(X_0 = i\)</span> and <span class="math inline">\(i \in C_k\)</span> for some closed class <span class="math inline">\(C_k\)</span>,
-then verify that the limiting distribution is defined as in Eqn.<a href="tutorials.html#eq:limitdist">(6.1)</a> where <span class="math inline">\(\gamma_k =1\)</span> and
-<span class="math inline">\(\gamma_m = 0,\)</span> for <span class="math inline">\(m \neq k\)</span>.</p></li>
-<li><p>If <span class="math inline">\(X_0 = i\)</span> and <span class="math inline">\(i\)</span> is in a nonclosed class, then verify
-that the limiting distribution is defined as in
-Eqn.<a href="tutorials.html#eq:limitdist">(6.1)</a> where <span class="math inline">\(\gamma_k = \alpha^{(k)}_i\)</span>
-for <span class="math inline">\(k = 1,2,\ldots r\)</span> where <span class="math inline">\(\alpha^{(k)}_i\)</span> is the
-probability of absorption in class <span class="math inline">\(C_k\)</span>. More precisely,
-<span class="math display">\[\pi_j =
- \begin{cases}
-    \pi_j^{(k)} \alpha^{(k)}_i &amp; \text{for } j \in C_k, \, k= 1,\ldots, r \\
-    0 &amp; \text{if } j \text{ is in a nonclosed class.}
-  \end{cases}
-      %\pi_j^{(k)} \gamma_k \text{ for } j \in C_k, \, k= 1,\ldots, r \text { and }\]</span></p></li>
-<li><p>If <span class="math inline">\(X_0\)</span> is random, then this will leave as extra exercise.
-(Hint: you may need to apply first step anslysis)</p></li>
-</ol></li>
-</ol></li>
-<li><p>A no-claims discount system for motor insurance has four levels of
-discount:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Level</th>
-<th align="center">1</th>
-<th align="center">2</th>
-<th align="center">3</th>
-<th align="center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">Discount</td>
-<td align="center">0%</td>
-<td align="center">10%</td>
-<td align="center">30%</td>
-<td align="center">50%</td>
-</tr>
-</tbody>
-</table>
-<p>The rules for moving between these levels are given as follows:</p>
-<ul>
-<li><p>Following a claim-free year, move to the next higher level, or
-remain at level 4.</p></li>
-<li><p>Following a year with one claim, move to the next lower level,
-or remain at level 1.</p></li>
-<li><p>Following a year with two or more claims, move down two levels,
-or move to level 1 (from level 2), or remain at level 1.</p></li>
-</ul>
-<p>A portfolio consists of 10,000 policyholders. Suppose also that the
-number of claims per year is <span class="math inline">\(\mathcal{Poisson}(0.1)\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li><p>Calculate <span class="math inline">\(\Pr[N = 0]\)</span>, <span class="math inline">\(\Pr[N = 1]\)</span>, and <span class="math inline">\(\Pr[N \ge 2]\)</span> for
-each group.</p></li>
-<li><p>Write down the transition probability matrix of this no-claims
-discount system.</p></li>
-<li><p>Find the probability that a policyholder who has the 30%
-discount has no discount after 2 years.</p></li>
-<li><p>Calculate the expected number of policyholders at each level at
-times 1 and 2, assuming no exits given that all policyholders start at level 1.</p></li>
-<li><p>Calculate the expected number of policyholders at each level
-once stability has been achieved, assuming no exits.</p></li>
-</ol></li>
-<li><p>A no-claims discount system for motor insurance has four levels of
-discount:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Level</th>
-<th align="center">1</th>
-<th align="center">2</th>
-<th align="center">3</th>
-<th align="center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">Discount</td>
-<td align="center">0%</td>
-<td align="center">20%</td>
-<td align="center">30%</td>
-<td align="center">50%</td>
-</tr>
-</tbody>
-</table>
-<p>The rules for moving between these levels are given as follows:</p>
-<ul>
-<li><p>For a claim-free year, a policyholder moves to the next higher
-level, or remains at level 4.</p></li>
-<li><p>For every claim in a year, the policyholder moves down a
-discount level or remains at level 1, for example if the
-policyholder is in level 4 and has one accident, he/she moves to
-level 3, and 2 accidents, he/she moves to level 2, and 2 or more
-accidents to level 1.</p></li>
-</ul>
-<p>For a given policyholder, the number of claims each year, <span class="math inline">\(N\)</span>, has a
-negative binomial distribution with parameters <span class="math inline">\(k=2\)</span> and <span class="math inline">\(p = 0.5\)</span>.</p>
-<p>Note that a random variable <span class="math inline">\(N\)</span> has a negative distribution with
-parameters <span class="math inline">\(k\)</span> and <span class="math inline">\(p\)</span>, denoted by <span class="math inline">\(N \sim \dnb\)</span> if its probability
-mass function is given by
-<span class="math display">\[f_N(n) = \Pr(N = n) = \frac{\Gamma(k+n)}{\Gamma(n+1)\Gamma(k)} p^k (1- p)^n \quad n = 0,1,2,\ldots.\]</span></p>
-<ol style="list-style-type: decimal">
-<li><p>Draw a transition diagram for the chain.</p></li>
-<li><p>Write down the transition matrix of this no-claims discount
-system.</p></li>
-<li><p>Find the probability that a policyholder who has the maximum
-discount level will have 20% discount after two years.</p></li>
-</ol></li>
-</ol>
-</div>
-<div id="tutorial-4" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Tutorial 4</h2>
+<div id="tutorial-4" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Tutorial 4</h2>
 <ol style="list-style-type: decimal">
 <li><p>Customers arrive in a shop according to a Poisson process of rate
-<span class="math inline">\(\lambda = 4\)</span>. Let <span class="math inline">\(N(t)\)</span> be the number of customers that have
+<span class="math inline">\(\lambda = 2\)</span>. Let <span class="math inline">\(N(t)\)</span> be the number of customers that have
 arrived up to time <span class="math inline">\(t\)</span>. Determine the following probabilities,
 conditional probabilities and expectations.</p>
 <ol style="list-style-type: decimal">
@@ -1551,8 +1473,8 @@ a.m.</p></li>
 </ol></li>
 </ol>
 </div>
-<div id="tutorial-5" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Tutorial 5</h2>
+<div id="tutorial-5" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Tutorial 5</h2>
 <ol style="list-style-type: decimal">
 <li><p>Suppose that we observe life <span class="math inline">\(i\)</span> at exact age 74 years and 3 months.
 The observation will continue until the earlier of the life’s 75th
@@ -1699,8 +1621,8 @@ a life aged (75) dying within one year.</p></li>
 </ol></li>
 </ol>
 </div>
-<div id="tutorial-6" class="section level2" number="6.8">
-<h2><span class="header-section-number">6.8</span> Tutorial 6</h2>
+<div id="tutorial-6" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Tutorial 6</h2>
 <ol style="list-style-type: decimal">
 <li>Consider the 3-state model of terminal illness for healthy, ill and
 dead states as shown below.</li>
