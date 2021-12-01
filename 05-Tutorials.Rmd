@@ -1625,7 +1625,7 @@ $\mathbf{u}^{C_1} = \mathbf{1} - \mathbf{u}^{C_2} = (1,4/5,0,1,19/20,4/5,1)^T.$
 
     4.  If every 5th customer receives a discount voucher, calculate the
         distribution of the times between these vouchers being given
-        out? What is the probability that a time longer
+        out? What is the probability that a time longer than 5 minutes will pass between one voucher being given out and the next?
 
 5.  You have a bird table in your garden which attracts tailorbirds and
     pigeons. Tailorbirds arrive according to a Poisson process with rate
@@ -1680,6 +1680,308 @@ $\mathbf{u}^{C_1} = \mathbf{1} - \mathbf{u}^{C_2} = (1,4/5,0,1,19/20,4/5,1)^T.$
     3.  Find the probability that only boys were born between 6 and 10
         a.m.
 
+ **Solution:**
+
+
+```{r, echo = FALSE}
+lambda <- 2
+n1 <- 2
+t1 <- 1
+
+n4 <- 1
+t4 <- 1
+
+n2 <- 4
+t2 <- 2
+
+n3 <- 6
+t3 <- 3
+```
+
+
+1. Customers arrive in a shop according to a Poisson process of rate
+    $\lambda = 2$. Let $N(t)$ be the number of customers that have
+    arrived up to time $t$. It follows that $N(t)$ has a Poisson distribution with parameter $\lambda t$. In addition, $N(t +s) - N(s)$ is a
+Poisson random variable with mean $\lambda \, t$ , independent of
+anything that has occurred before time $s$.
+
+    1.  $\Pr(N(`r t1`) = `r n1`) = \frac{\exp(-(`r lambda`)(`r t1`))((`r lambda`)(`r t1`))^{`r n1`}  }{(`r n1`!)} = `r dpois(n1,lambda = lambda*t1)`$.
+
+    2.  $$\begin{aligned}
+    \Pr(N(1) = 2 \text{ and } N(3) = 6) &= 
+    \Pr(N(1) = 2 \text{ and } N(3) - N(1) = 4)\\
+    &= 
+    \Pr(N(1) = 2) \Pr(N(3) - N(1) = 4)\\
+    &= \frac{\exp(-(`r lambda`)(`r t1`))((`r lambda`)(`r t1`))^{`r n1`}  }{(`r n1`!)} \frac{\exp(-(`r lambda`)(`r t2`))((`r lambda`)(`r t2`))^{`r n2`}  }{(`r n2`!)} = (`r dpois(n1,lambda = lambda*t1)`)(`r dpois(n2,lambda = lambda*t2)`) \\
+    &= `r dpois(n1,lambda = lambda*t1)* dpois(n2,lambda = lambda*t2)`.
+    \end{aligned}$$
+    Here we have used the fact that $N(3) - N(1)$ and $N(1)$ are independent. 
+    
+    3.  $$\begin{aligned}
+    \Pr(N(1) = 2 | N(3) = 6) &= 
+    \frac{\Pr(N(1) = 2 \text{ and } N(3) = 6)}{\Pr(N(3) = 6)} \\ 
+    \frac{`r dpois(n1,lambda = lambda*t1)* dpois(n2,lambda = lambda*t2)`}{ \frac{\exp(-(`r lambda`)(`r t3`))((`r lambda`)(`r t3`))^{`r n3`}  }{(`r n3`!)}  } \\
+    &= `r (dpois(n1,lambda = lambda*t1)* dpois(n2,lambda = lambda*t2)/dpois(n3,lambda = lambda*t3) )`.
+    \end{aligned}$$
+    
+    4.  $$\begin{aligned}
+    \Pr(N(3) = 6 | N(1) = 2) 
+    &= \Pr(N(3)-N(1) = 4 | N(1) = 2) \\
+    &= \Pr(N(3)-N(1) = 4) 
+    \frac{\exp(-(`r lambda`)(`r t2`))((`r lambda`)(`r t2`))^{`r n2`}  }{(`r n2`!)} = `r dpois(n2,lambda = lambda*t2)`.
+    \end{aligned}$$
+    Here we have used the fact that $N(3) - N(1)$ and $N(1)$ are independent. 
+
+    5.  $$\begin{aligned}
+    \Pr(N(1) \le 2) &= `r ppois(2,lambda = lambda*t1)`.
+    \end{aligned}$$
+
+    6.  $$\begin{aligned}
+    \Pr(N(1) = 1 \text{ and } N(2) = 3) &= 
+    \Pr(N(1) = 1 \text{ and } N(2) - N(1) = 2)\\
+    &= 
+    \Pr(N(1) = 1) \Pr(N(2) - N(1) = 2)\\
+    &= \frac{\exp(-(`r lambda`)(`r t4`))((`r lambda`)(`r t4`))^{`r n4`}  }{(`r n4`!)}\frac{\exp(-(`r lambda`)(`r t1`))((`r lambda`)(`r t1`))^{`r n1`}  }{(`r n1`!)}  = (`r dpois(n4,lambda = lambda*t4)`)(`r dpois(n1,lambda = lambda*t1)`) \\
+    &= `r dpois(n1,lambda = lambda*t1)* dpois(n4,lambda = lambda*t4)`.
+    \end{aligned}$$
+    Here we have used the fact that $N(2) - N(1)$ and $N(1)$ are independent. 
+
+    7.  $$\begin{aligned}
+    \Pr(N(1) \ge 2 | N(1) \ge 1) 
+    &= \frac{\Pr(N(1) \ge 2 \text{ and } N(1) \ge 1)}{\Pr(N(1) \ge 1)}  \\
+     &= \frac{\Pr(N(1) \ge 2)}{\Pr(N(1) \ge 1)}  \\
+     &= \frac{1 - \Pr(N(1) \le 1)}{1- \Pr(N(1) = 0)}  \\
+     &= \frac{`r ppois(1,lambda = lambda*t1, lower.tail = FALSE)`}{`r ppois(0,lambda = lambda*t1, lower.tail = FALSE)`} \\
+     &= `r ppois(1,lambda = lambda*t1, lower.tail = FALSE)* ppois(0,lambda = lambda*t1, lower.tail = FALSE)`.
+    \end{aligned}$$
+
+    8.  $$\begin{aligned}
+    \mathrm{E}[N(2)] = 4.
+    \end{aligned}$$
+
+    9.  $$\begin{aligned}
+    \mathrm{E}[N(1)^2] = 
+     \mathrm{Var}[N(1)] +  (\mathrm{E}[N(1)])^2 = 6.
+    \end{aligned}$$
+
+    10. $$\begin{aligned}
+    \mathrm{E}[N(1)N(2)] &=
+    \mathrm{E}[N(1)\cdot (N(1) + (N(2) - N(1))] \\
+    &=
+    \mathrm{E}[N(1)^2] + \mathrm{E}[ (N(1) \cdot (N(2) - N(1))] \\
+    &=
+    \mathrm{E}[N(1)^2] + \mathrm{E}[ N(1)] \cdot \mathrm{E}[N(2) - N(1)] \\
+    &= 6 + (2)(2) = 10.
+    \end{aligned}$$
+    Here we have used the fact that $N(2) - N(1)$ and $N(1)$ are independent. 
+
+
+2. Let $N(t)$ be the number of customers that have arrived up to time $t$.
+
+```{r, echo = FALSE}
+lambda2 <- 4
+n12 <- 1
+t12 <- 1/2
+
+n22 <- 4
+t22 <- 2
+```
+
+
+$$\begin{aligned}
+    \Pr(N(1/2) = 1 \text{ and } N(5/2) = 5) &= 
+    \Pr(N(1/2) = 1 \text{ and } N(5/2) - N(1/2) = 4)\\
+    &= 
+    \Pr(N(1/2) = 1) \Pr(N(5/2) - N(1/2) = 4)\\
+    &= \frac{\exp(-(`r lambda2`)(`r t12`))((`r lambda2`)(`r t12`))^{`r n12`}  }{(`r n12`!)} \frac{\exp(-(`r lambda2`)(`r t22`))((`r lambda2`)(`r t22`))^{`r n22`}  }{(`r n22`!)} = (`r dpois(n12,lambda = lambda2*t12)`)(`r dpois(n22,lambda = lambda2*t22)`) \\
+    &= `r dpois(n12,lambda = lambda2*t12)* dpois(n22,lambda = lambda2*t22)`.
+    \end{aligned}$$
+    Here we have used the fact that $N(5/2) - N(1/2)$ and $N(1/2)$ are independent. 
+
+
+3. Let $X(t)$ be the number of defects of cable of length $t$. We have $X(t) \sim \text{Poisson}(\lambda \, t).$
+
+```{r, echo=FALSE}
+lambda3 <- 0.1
+n13 <- 0
+t13 <- 2
+
+n23 <- 0
+t23 <- 1
+```
+
+
+        1. We have 
+        
+$$\Pr(X(`r t13`) = `r n13`) = \frac{\exp(-(`r lambda3`)(`r t13`))((`r lambda3`)(`r t13`))^{`r n13`}  }{(`r n13`!)} = `r dpois(n13,lambda = lambda3*t13)`.$$
+        2. Using the independent of $X(2)$ and $X(3)  - X(2)$, this implies that the conditional probability is the same as the unconditional probability. Therefore, we have 
+        
+$$
+\begin{aligned}
+\Pr(X(3)  - X(2)= `r n23`|X(2)= `r n13`) 
+&= \Pr(X(3)  - X(2)= `r n23`)  \\
+&= \frac{\exp(-(`r lambda3`)(`r t23`))((`r lambda3`)(`r t23`))^{`r n23`}  }{(`r n23`!)} \\
+&= `r dpois(n23,lambda = lambda3*t23)`.
+\end{aligned}
+$$
+4.  Again, let $N(t)$ be the number of customers that have arrived up to time $t$. We have $N(t) \sim \text{Poisson}(\lambda \, t)$ with $\lambda = 2$. 
+
+```{r, echo = FALSE}
+lambda4 <- 2
+pm <- 1/3
+pf <- 1 - 1/3
+
+n14 <- 0
+t14 <- 5
+
+n24 <- 9
+t24 <- 5
+
+n34 <- 4
+t34 <- 5
+
+
+
+```
+
+        1.  $\Pr(N(`r t14`) = `r n14`) = \frac{\exp(-(`r lambda4`)(`r t14`))((`r lambda4`)(`r t14`))^{`r n14`}  }{(`r n14`!)} = `r dpois(n14,lambda = lambda4*t14)`$.
+        
+        2. The 10th customer will arrive after 11:00 am but before 11:05 am is the same as saying that at least 10 customers arrive in 5 minutes between 11:00-11:15 am. 
+        
+$$\begin{aligned}
+    \Pr(N(t,t+5) \ge 10) &= 1 - \Pr(N(t,t+5) \le 9) \\
+    &= 
+    1- `r ppois(9,lambda = lambda4*t24)` \\
+    &= `r 1- ppois(9,lambda = lambda4*t24)`.
+    \end{aligned}$$
+    
+        3.  Given that a third of customers are men, the probability that a customer is male is 1/3, which is indendent of everything else. By splitting theorem, the "male" and the "female" processes are independent Poisson process with rates 
+        
+$$\lambda_m = (`r pm`)(`r lambda4`) = `r pm*lambda4`, \quad \lambda_f = (`r pf`)(`r lambda4`) = `r pf*lambda4`. $$
+
+It follows that the required probability can be founded as follows:
+
+$$
+\begin{aligned}
+\Pr(N_m(`r t34`) \ge `r n34` | N_f(5) \ge 5 ) 
+&= \Pr(N_m(`r t34`) \ge `r n34`) \\
+&= 1 - \Pr(N_m(`r t34`) \le `r (n34 - 1)`) \\
+&= `r 1-  ppois(n34 - 1,lambda = pm*lambda4*t34)`.
+\end{aligned}
+$$
+        4. Each interarrival time has exponential distribution  $\text{Exp}(`r lambda4`)$. The sum of 5 independent exponentially distribution random variables, denoted by $Z$, has gamma distribution $\mathcal{G}(5,`r lambda4`)$ 
+The probability that a time longer than 5 minutes will pass between one voucher being given out and the next is 
+$$ \Pr(Z > 5) = \Pr(N(5) \le 4) = `r ppois(4,lambda = lambda4*t34)`.$$
+
+Here we use $N(5) \sim \text{Poisson}(5\times 2)$. Alternatively, the following command in R produces the required result `pgamma(5, shape = 5, rate = 2, lower.tail = FALSE)`.
+
+5. The solutions are given as follows:
+
+        1. The sum of two independent Poisson processes is also a Poisson process with rate 
+$\lambda_1 + \lambda_2$. Then the first event of this process (i.e. the time that the first bird arrives) occurs at random time having $\text{Exp}(\lambda_1 + \lambda_2)$ distribution.
+
+        2. According to the superposition theorem, the probability that this bird is a tailorbird is 
+
+$$ \frac{\lambda_1}{\lambda_1 + \lambda_2}. $$
+
+        3. The process is homogeneous in time, i.e. only the lenght of the  interval matters. So the distribution of the number of birds in the time interval 
+        
+$[t_1, t_2)$ is a Poisson distribution with parameter  $(\lambda_1 + \lambda_2)(t_2 - t_1).$ 
+
+        4. The required probability is
+        
+$$\Pr(\text{TB},\text{TB},\text{TB},\text{P}) = p^3(1-p),$$
+where $p = \frac{\lambda_1}{\lambda_1 + \lambda_2}$, which is the probability that a bird is a tailorbird.
+
+6. $X$ and $Y$ are independent Poisson distributed random variables with paramers $\lambda_X$ and $\lambda_Y$. The conditional distribution of $X$ given $N = X + Y = n$ is
+
+$$
+\begin{aligned}
+\Pr(X = k | N = n)
+&= \Pr(X = k | X + Y = n) \\
+&= \Pr(X = k, Y = n - k | X + Y = n) \\
+&= \frac{\left( \frac{e^{-\lambda_X}\lambda_X^k}{k!} \right) \times \left( \frac{e^{-\lambda_Y}\lambda_Y^{n-k}}{(n - k)!} \right)}{\left( \frac{e^{-(\lambda_X + \lambda_Y)}(\lambda_X + \lambda_Y)^n}{n!} \right)  } \\
+&= \frac{n!}{k!(n - k)!} \left(\frac{\lambda_X}{\lambda_X + \lambda_Y}\right)^k \left(\frac{\lambda_Y}{\lambda_X + \lambda_Y}\right)^{n-k}.
+\end{aligned}
+$$
+Hence this conditional distribution is a bionomial distribution with parameters $n$ and $\frac{\lambda_X}{\lambda_X + \lambda_Y}$.
+
+7. Let $N(t)$ be the number of accidents occurring on the highway and $N_S(t)$ be the process of speeding-related accidents.
+
+```{r, echo = FALSE}
+lambda7 <- 20
+ps <- 1/4
+
+t17 <- 1
+n17 <- 10
+```
+
+
+        1.  
+$$\Pr(N_S(`r t17`) = `r n17`) = \frac{\exp(-(`r (lambda7)`)(`r ps`))((`r lambda7`)(`r ps`))^{`r n17`}  }{(`r n17`!)} = `r dpois(n17,lambda = lambda7*ps)`.$$
+ 
+ 
+        2. The probability that at least one accident occurs tomorrow is 
+$$ 1 - e^{-20/7} = `r 1 - exp(-20/7)`.$$
+        3. There are $n = 60$ accidents occurring in four weeks ($t= 4$ weeks). The number of accidents involve speeding $N_S$ in $[0,t]$ has a binomial distribution with parameters $n$ and $p = 1/4$.
+ 
+        The required probability is 
+$$
+\begin{aligned} 
+\Pr(N_S(4) < 30 | N(4) = 60) &= \sum_{k = 0}^{29} \binom{60}{k} \left(\frac{1}{4} \right)^k \left(\frac{3}{4} \right)^{60-k} \\
+&= `r pbinom(29,60,1/4)`. 
+\end{aligned}
+$$
+        The probability above can be calculated using the following command in R `pbinom(29,60,1/4)`.
+
+
+8. Let $X_1, X_2, \ldots$$ be an i.i.d. sequence where $X_i$ is the number of claims filed after the $i$th flood. Let $T$ denote the total number of claims filed. Then
+$$ T = X_1 + X_2 + \ldots X_{N_t},$$
+where $N_t$ is the number of severe floods that occur by time $t$.
+Using results for random sums of random variables,
+$$ \text{E}(T) = \text{E}(N_t)\text{E}(X_1) = (4t)(60) = 240t,$$
+and 
+$$\begin{aligned} 
+\text{Var}(T) &= \text{Var}(X_1)\text{E}(N_t) + [\text{E}(X_1)]^2 \text{Var}(N_t) = (60)(4t)  + (60)^2(4t) \\
+&= 14640t,
+\end{aligned}
+$$
+and, hence, $SD(T) = \sqrt{14640t}$.
+
+Note that the distribution of $T$ is said to have a compound Poisson distribution. For more details about how to compute $\text{E}(T)$ and $\text{Var}(T)$, please refer to the following website: https://pairote-sat.github.io/SCMA470/collective-risk-model.html#compound-poisson-distributions.
+
+
+9. Let $(N_t)_{t\ge0}, (M_t)_{t\ge0}$ and $(F_t)_{t\ge0}$ denote the overall birth, male, and female processes, respectively.
+
+        1. Male births form a Poisson process with parameter 
+        
+$$\lambda \cdot p = 3(0.52) = `r 3*0.52`.$$
+The number of male births on an 8-hour shift $M_8$ has a Poisson distribution with expectation
+$$ E(M_8) = \lambda \cdot p \cdot 8 = `r 3*0.52*8`. $$
+and standard deviation
+$$ SD(M_8) = \sqrt{`r 3*0.52*8`} = `r sqrt(3*0.52*8)`. $$
+
+        2. Conditional on there being five births in a given interval,the number of boys in that interval has a binomial distribution with parameters 
+        
+$n = 10$ and $p = 0.52$. The desired probability is
+
+$$ \frac{10!}{6!4!}(0.52)^6(1- 0.52)^4 = `r dbinom(6,10,0.52)` $$        
+        
+
+    3. The required probability is 
+    
+$$ \Pr(M_4 > 0, F_4 > 0).$$ 
+
+By independence, 
+
+$$
+\begin{aligned}
+ \Pr(M_4 > 0, F_4 = 0) &= 
+ \Pr(M_4 > 0)\Pr(F_4 = 0) \\
+ &= (1 - e^{-3(0.52)(4)})(e^{-3(1-0.52)(4)}) \\
+ &= `r (1 - exp(-3*(0.52)*(4)))*(exp(-3*(1-0.52)*(4)))`.
+\end{aligned}
+$$
 
 ## Tutorial 5
 
@@ -1901,3 +2203,203 @@ $p_{aa}(t), p_{ai}(t)$ and $p_{aw}(t)$.
     status comprising of five states, single, married, divorced, widowed
     and dead. Draw the transition diagram that illustrate the possible
     transitions between these five states.ß
+
+
+## Solutions:
+
+1. The transition rate matrix $Q$ of this Markov model is
+$$
+Q = \begin{bmatrix}
+    -(\lambda + \mu) & \lambda & \mu   \\
+    0 & -\nu & \nu   \\
+    0 & 0 & 0\end{bmatrix}.
+$$ 
+    1. Return to the healthy state and ill states is impossible. Therefore
+
+$$p_{hh}(t) = p_{\overline{hh}}(t) \text{ and }
+        p_{ii}(t)  = p_{\overline{ii}}(t).$$
+
+    2. The Kolmogorov forward differential equations (FDE) for 
+
+$p_{hh}(t)$ is
+
+
+
+$$
+\begin{align}
+\frac{d}{dt}p_{hh}(t) &= p_{hh}(t) q_{hh} + p_{hi}(t) q_{ih} + p_{hd}(t) q_{dh}  \\
+&= -(\lambda + \mu) p_{hh}(t)  + (0) p_{hi}(t) + (0) p_{hd}(t)  \\
+&= -(\lambda + \mu) p_{hh}(t).  
+\end{align}
+$$
+
+The solution to the differential equation together with the initial condition $p_{hh}(0) = 1$ is
+$$ p_{hh}(t) = e^{-(\lambda + \mu)t}.$$
+
+Similarly, we obtain
+
+$$
+\begin{align}
+\frac{d}{dt}p_{ii}(t) &= p_{ii}(t) q_{ii} \\
+&= -\nu \, p_{ii}(t).  
+\end{align}
+$$
+
+Solving the differential equation with $p_{ii}(0) = 1$ is
+$$ p_{ii}(t) = e^{-\nu \, t}.$$
+
+    3. The Kolmogorov forward differential equations (FDE) for 
+    
+$p_{hi}(t)$  and $p_{hd}(t)$are given as follows:
+
+
+\begin{align}
+\frac{d}{dt}p_{hi}(t) &= p_{hh}(t) q_{hi} + p_{hi}(t) q_{ii} + p_{hd}(t) q_{di}  \quad (1) \\
+&= \lambda p_{hh}(t)  -\nu p_{hi}(t)  + (0) p_{hd}(t)   \\
+&= \lambda p_{hh}(t)  -\nu p_{hi}(t) \\
+
+\frac{d}{dt}p_{hd}(t) &= p_{hh}(t) q_{hd} + p_{hi}(t) q_{id} + p_{hd}(t) q_{dd}  \quad (2) \\
+&= \mu p_{hh}(t)  + \nu p_{hi}(t)  + (0) p_{hd}(t)   \\
+&= \mu p_{hh}(t)  +\nu p_{hi}(t). \\
+\end{align}
+
+
+    To solve the first equation, we substitute 
+    
+$p_{hh}(t)$ by $e^{-(\lambda + \mu)t}$ into the equation, which reduces to
+
+$$ \frac{d}{dt}p_{hi}(t) + \nu p_{hi}(t)  =\lambda e^{-(\lambda + \mu)t}.$$
+    This differential equation is linear with the initial condition $p_{hi}(0) = 0$ and , hence, can be solved by a general method.
+    
+    In order to solve for 
+    
+$p_{hd}(t)$ in Eq. (2), we note that both $p_{hh}(t)$ and $p_{hi}(t)$ are known so we can solve the equation for $p_{hd}(t)$ as well.
+
+2. The transition rate matrix $Q$ is
+
+$$P = \begin{bmatrix}
+    -(\alpha_1 + \beta_1) & \alpha_1 & \beta_1 & 0   \\
+    0 & -( \beta_2) & 0 &  \beta_2   \\
+    0 & 0 & -\alpha_2  & \alpha_2 \\
+    0 & 0 & 0  & 0 \\
+\end{bmatrix}.$$
+Then, the Kolmogorov forward differential equations (FDE) for $p_{bb}(t), p_{bu}(t), p_{bv}(t)$ and $p_{bd}(t)$ are given as follows:
+
+
+\begin{align}
+\frac{d}{dt}p_{bb}(t) &= p_{bb}(t) q_{bb} + p_{bu}(t) q_{ub} + p_{bv}(t) q_{vb} + p_{bd}(t) q_{db} \\
+&=  -(\alpha_1 + \beta_1) p_{bb}(t)  + (0) p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
+&= -(\alpha_1 + \beta_1) p_{bb}(t) \\
+
+\frac{d}{dt}p_{bu}(t) &= p_{bb}(t) q_{bu} + p_{bu}(t) q_{uu} + p_{bv}(t) q_{vu} + p_{bd}(t) q_{du} \\
+&=  \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
+&= \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  \\
+
+\frac{d}{dt}p_{bv}(t) &= p_{bb}(t) q_{bv} + p_{bu}(t) q_{uv} + p_{bv}(t) q_{vv} + p_{bd}(t) q_{dv} \\
+&=  \beta_1  p_{bb}(t)  + (0) p_{bu}(t)  - \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
+&=  \beta_1  p_{bb}(t)   - \alpha_2 p_{bv}(t)  \\
+
+\frac{d}{dt}p_{bd}(t) &= p_{bb}(t) q_{bd} + p_{bu}(t) q_{ud} + p_{bv}(t) q_{vd} + p_{bd}(t) q_{dd} \\
+&=  (0)  p_{bb}(t)  + \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
+&=   \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t).   \\
+\end{align}
+
+Note that 
+
+$$ \frac{d}{dt}(p_{bb}(t) + p_{bu}(t) + p_{bv}(t) + p_{bd}(t)) = 0,$$
+which implies that
+$$ p_{bb}(t) + p_{bu}(t) + p_{bv}(t) + p_{bd}(t) = \text{constant} = 1.$$
+
+3. The transition rate matrix $Q$ is
+
+$$P = \begin{bmatrix}
+    -(\sigma + \omega + \mu) & \sigma & \omega & \mu   \\
+    \rho & -(\rho + \mu) & 0 & \mu   \\
+    0 & 0 & 0  & 0 \\
+    0 & 0 & 0  & 0 \\
+\end{bmatrix}.$$
+Then, the Kolmogorov forward differential equations (FDE) for $p_{aa}(t), p_{ai}(t)$ and $p_{aw}(t)$ are given as follows:
+
+
+
+
+\begin{aligned}
+\frac{d}{dt}p_{aa}(t) &= p_{aa}(t) q_{aa} + p_{ai}(t) q_{ia} + p_{aw}(t) q_{wa} + p_{ad}(t) q_{da} \\
+&= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) + (0)p_{aw}(t)  + (0)p_{ad}(t) \\
+&= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) \\
+
+\frac{d}{dt}p_{ai}(t) 
+&= p_{aa}(t) q_{ai} + p_{ai}(t) q_{ii} + p_{aw}(t) q_{wi} + p_{ad}(t) q_{di} \\
+&= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t) + (0)p_{aw}(t)  + (0) p_{ad}(t)  \\
+&= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t)  \\
+
+\frac{d}{dt}p_{aw}(t) &= \omega p_{aa}(t).
+\end{aligned}
+
+
+
+4. The transition diagram for a model of maritial status is illusrated in the figure below:
+
+
+
+
+```{tikz, tikz-ex4, fig.cap = "The 5-state model of maritial status", fig.ext = 'png', cache=TRUE, echo = FALSE, fig.align = 'center'}  
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,427); %set diagram left start at 0, and has height of 427
+
+%Shape: Rectangle [id:dp6461073533685131] 
+\draw   (227.57,172.47) -- (375.67,172.47) -- (375.67,253.67) -- (227.57,253.67) -- cycle ;
+%Straight Lines [id:da9206552550981602] 
+\draw    (220.25,81.07) -- (333.2,81.02) ;
+\draw [shift={(336.2,81.02)}, rotate = 179.98] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da16336977884683224] 
+\draw    (285.22,166.5) -- (354.2,130.2) ;
+\draw [shift={(282.57,167.9)}, rotate = 332.24] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Shape: Rectangle [id:dp6701645831587428] 
+\draw   (449.23,172.97) -- (597.33,172.97) -- (597.33,254.17) -- (449.23,254.17) -- cycle ;
+%Shape: Rectangle [id:dp5857755229985386] 
+\draw   (340.23,316.97) -- (488.33,316.97) -- (488.33,398.17) -- (340.23,398.17) -- cycle ;
+%Straight Lines [id:da26767212610765867] 
+\draw    (296.25,257.07) -- (379.97,310.39) ;
+\draw [shift={(382.5,312)}, rotate = 212.49] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da34728994666942503] 
+\draw    (544.2,262.2) -- (451.18,308.66) ;
+\draw [shift={(448.5,310)}, rotate = 333.46] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Shape: Rectangle [id:dp25119530308999494] 
+\draw   (60.23,45.8) -- (208.33,45.8) -- (208.33,127) -- (60.23,127) -- cycle ;
+%Shape: Rectangle [id:dp8206799773891564] 
+\draw   (350.23,45.8) -- (498.33,45.8) -- (498.33,127) -- (350.23,127) -- cycle ;
+%Straight Lines [id:da8215218831616011] 
+\draw    (320.57,170.9) -- (389.54,134.6) ;
+\draw [shift={(392.2,133.2)}, rotate = 152.24] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da5350122361200116] 
+\draw    (513.57,168.9) -- (463.65,133.93) ;
+\draw [shift={(461.2,132.2)}, rotate = 35.02] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da6340135825191284] 
+\draw    (556.09,165.2) -- (502.2,128.2) ;
+\draw [shift={(558.57,166.9)}, rotate = 214.47] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da5287278510414446] 
+\draw    (102.2,131.2) -- (330.43,369.83) ;
+\draw [shift={(332.5,372)}, rotate = 226.28] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+%Straight Lines [id:da9728100220503939] 
+\draw    (417.2,137.2) -- (416.21,309.2) ;
+\draw [shift={(416.2,312.2)}, rotate = 270.33] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+
+% Text Node
+\draw (301.62,213.07) node   [align=left] {Widowed};
+% Text Node
+\draw (523.28,213.57) node   [align=left] {Divorced};
+% Text Node
+\draw (414.28,357.57) node   [align=left] {Dead};
+% Text Node
+\draw (134.28,86.4) node   [align=left] {Single};
+% Text Node
+\draw (424.28,86.4) node   [align=left] {Married};
+
+
+\end{tikzpicture}
+
+```

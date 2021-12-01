@@ -24,7 +24,7 @@
 <meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2021-11-23" />
+<meta name="date" content="2021-12-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -208,6 +208,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="tutorials.html"><a href="tutorials.html#tutorial-4"><i class="fa fa-check"></i><b>6.4</b> Tutorial 4</a></li>
 <li class="chapter" data-level="6.5" data-path="tutorials.html"><a href="tutorials.html#tutorial-5"><i class="fa fa-check"></i><b>6.5</b> Tutorial 5</a></li>
 <li class="chapter" data-level="6.6" data-path="tutorials.html"><a href="tutorials.html#tutorial-6"><i class="fa fa-check"></i><b>6.6</b> Tutorial 6</a></li>
+<li class="chapter" data-level="6.7" data-path="tutorials.html"><a href="tutorials.html#solutions"><i class="fa fa-check"></i><b>6.7</b> Solutions:</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>7</b> Applications</a>
 <ul>
@@ -1425,7 +1426,7 @@ in a 5 minute period more than 3 men arrive given more than 4
 women arrive.</p></li>
 <li><p>If every 5th customer receives a discount voucher, calculate the
 distribution of the times between these vouchers being given
-out? What is the probability that a time longer</p></li>
+out? What is the probability that a time longer than 5 minutes will pass between one voucher being given out and the next?</p></li>
 </ol></li>
 <li><p>You have a bird table in your garden which attracts tailorbirds and
 pigeons. Tailorbirds arrive according to a Poisson process with rate
@@ -1472,6 +1473,207 @@ that six are boys.</p></li>
 a.m.</p></li>
 </ol></li>
 </ol>
+<p><strong>Solution:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Customers arrive in a shop according to a Poisson process of rate
+<span class="math inline">\(\lambda = 2\)</span>. Let <span class="math inline">\(N(t)\)</span> be the number of customers that have
+arrived up to time <span class="math inline">\(t\)</span>. It follows that <span class="math inline">\(N(t)\)</span> has a Poisson distribution with parameter <span class="math inline">\(\lambda t\)</span>. In addition, <span class="math inline">\(N(t +s) - N(s)\)</span> is a
+Poisson random variable with mean <span class="math inline">\(\lambda \, t\)</span> , independent of
+anything that has occurred before time <span class="math inline">\(s\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\Pr(N(1) = 2) = \frac{\exp(-(2)(1))((2)(1))^{2} }{(2!)} = 0.2706706\)</span>.</p></li>
+<li><p><span class="math display">\[\begin{aligned}
+ \Pr(N(1) = 2 \text{ and } N(3) = 6) &amp;= 
+ \Pr(N(1) = 2 \text{ and } N(3) - N(1) = 4)\\
+ &amp;= 
+ \Pr(N(1) = 2) \Pr(N(3) - N(1) = 4)\\
+ &amp;= \frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)} \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = (0.2706706)(0.1953668) \\
+ &amp;= 0.05288.
+ \end{aligned}\]</span>
+Here we have used the fact that <span class="math inline">\(N(3) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p></li>
+<li><p><span class="math display">\[\begin{aligned}
+ \Pr(N(1) = 2 | N(3) = 6) &amp;= 
+ \frac{\Pr(N(1) = 2 \text{ and } N(3) = 6)}{\Pr(N(3) = 6)} \\ 
+ \frac{0.05288}{ \frac{\exp(-(2)(3))((2)(3))^{6}  }{(6!)}  } \\
+ &amp;= 0.3292181.
+ \end{aligned}\]</span></p></li>
+<li><p><span class="math display">\[\begin{aligned}
+ \Pr(N(3) = 6 | N(1) = 2) 
+ &amp;= \Pr(N(3)-N(1) = 4 | N(1) = 2) \\
+ &amp;= \Pr(N(3)-N(1) = 4) 
+ \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = 0.1953668.
+ \end{aligned}\]</span>
+Here we have used the fact that <span class="math inline">\(N(3) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p></li>
+<li><p><span class="math display">\[\begin{aligned}
+ \Pr(N(1) \le 2) &amp;= 0.6766764.
+ \end{aligned}\]</span></p></li>
+<li><p><span class="math display">\[\begin{aligned}
+ \Pr(N(1) = 1 \text{ and } N(2) = 3) &amp;= 
+ \Pr(N(1) = 1 \text{ and } N(2) - N(1) = 2)\\
+ &amp;= 
+ \Pr(N(1) = 1) \Pr(N(2) - N(1) = 2)\\
+ &amp;= \frac{\exp(-(2)(1))((2)(1))^{1}  }{(1!)}\frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)}  = (0.2706706)(0.2706706) \\
+ &amp;= 0.0732626.
+ \end{aligned}\]</span>
+Here we have used the fact that <span class="math inline">\(N(2) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p></li>
+<li><p><span class="math display">\[\begin{aligned}
+ \Pr(N(1) \ge 2 | N(1) \ge 1) 
+ &amp;= \frac{\Pr(N(1) \ge 2 \text{ and } N(1) \ge 1)}{\Pr(N(1) \ge 1)}  \\
+  &amp;= \frac{\Pr(N(1) \ge 2)}{\Pr(N(1) \ge 1)}  \\
+  &amp;= \frac{1 - \Pr(N(1) \le 1)}{1- \Pr(N(1) = 0)}  \\
+  &amp;= \frac{0.5939942}{0.8646647} \\
+  &amp;= 0.5136058.
+ \end{aligned}\]</span></p></li>
+<li><p><span class="math display">\[\begin{aligned}
+ \mathrm{E}[N(2)] = 4.
+ \end{aligned}\]</span></p></li>
+<li><p><span class="math display">\[\begin{aligned}
+ \mathrm{E}[N(1)^2] = 
+  \mathrm{Var}[N(1)] +  (\mathrm{E}[N(1)])^2 = 6.
+ \end{aligned}\]</span></p></li>
+<li><p><span class="math display">\[\begin{aligned}
+ \mathrm{E}[N(1)N(2)] &amp;=
+ \mathrm{E}[N(1)\cdot (N(1) + (N(2) - N(1))] \\
+ &amp;=
+ \mathrm{E}[N(1)^2] + \mathrm{E}[ (N(1) \cdot (N(2) - N(1))] \\
+ &amp;=
+ \mathrm{E}[N(1)^2] + \mathrm{E}[ N(1)] \cdot \mathrm{E}[N(2) - N(1)] \\
+ &amp;= 6 + (2)(2) = 10.
+ \end{aligned}\]</span>
+Here we have used the fact that <span class="math inline">\(N(2) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p></li>
+</ol></li>
+<li><p>Let <span class="math inline">\(N(t)\)</span> be the number of customers that have arrived up to time <span class="math inline">\(t\)</span>.</p></li>
+</ol>
+<p><span class="math display">\[\begin{aligned}
+    \Pr(N(1/2) = 1 \text{ and } N(5/2) = 5) &amp;= 
+    \Pr(N(1/2) = 1 \text{ and } N(5/2) - N(1/2) = 4)\\
+    &amp;= 
+    \Pr(N(1/2) = 1) \Pr(N(5/2) - N(1/2) = 4)\\
+    &amp;= \frac{\exp(-(4)(0.5))((4)(0.5))^{1}  }{(1!)} \frac{\exp(-(4)(2))((4)(2))^{4}  }{(4!)} = (0.2706706)(0.0572523) \\
+    &amp;= 0.0154965.
+    \end{aligned}\]</span>
+Here we have used the fact that <span class="math inline">\(N(5/2) - N(1/2)\)</span> and <span class="math inline">\(N(1/2)\)</span> are independent.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(X(t)\)</span> be the number of defects of cable of length <span class="math inline">\(t\)</span>. We have <span class="math inline">\(X(t) \sim \text{Poisson}(\lambda \, t).\)</span></p>
+<pre><code> 1. We have </code></pre></li>
+</ol>
+<p><span class="math display">\[\Pr(X(2) = 0) = \frac{\exp(-(0.1)(2))((0.1)(2))^{0}  }{(0!)} = 0.8187308.\]</span>
+2. Using the independent of <span class="math inline">\(X(2)\)</span> and <span class="math inline">\(X(3) - X(2)\)</span>, this implies that the conditional probability is the same as the unconditional probability. Therefore, we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr(X(3)  - X(2)= 0|X(2)= 0) 
+&amp;= \Pr(X(3)  - X(2)= 0)  \\
+&amp;= \frac{\exp(-(0.1)(1))((0.1)(1))^{0}  }{(0!)} \\
+&amp;= 0.9048374.
+\end{aligned}
+\]</span>
+4. Again, let <span class="math inline">\(N(t)\)</span> be the number of customers that have arrived up to time <span class="math inline">\(t\)</span>. We have <span class="math inline">\(N(t) \sim \text{Poisson}(\lambda \, t)\)</span> with <span class="math inline">\(\lambda = 2\)</span>.</p>
+<pre><code>    1.  $\Pr(N(5) = 0) = \frac{\exp(-(2)(5))((2)(5))^{0}  }{(0!)} = 4.539993\times 10^{-5}$.
+    
+    2. The 10th customer will arrive after 11:00 am but before 11:05 am is the same as saying that at least 10 customers arrive in 5 minutes between 11:00-11:15 am. 
+    </code></pre>
+<p><span class="math display">\[\begin{aligned}
+    \Pr(N(t,t+5) \ge 10) &amp;= 1 - \Pr(N(t,t+5) \le 9) \\
+    &amp;= 
+    1- 0.4579297 \\
+    &amp;= 0.5420703.
+    \end{aligned}\]</span></p>
+<pre><code>    3.  Given that a third of customers are men, the probability that a customer is male is 1/3, which is indendent of everything else. By splitting theorem, the &quot;male&quot; and the &quot;female&quot; processes are independent Poisson process with rates 
+    </code></pre>
+<p><span class="math display">\[\lambda_m = (0.3333333)(2) = 0.6666667, \quad \lambda_f = (0.6666667)(2) = 1.3333333. \]</span></p>
+<p>It follows that the required probability can be founded as follows:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr(N_m(5) \ge 4 | N_f(5) \ge 5 ) 
+&amp;= \Pr(N_m(5) \ge 4) \\
+&amp;= 1 - \Pr(N_m(5) \le 3) \\
+&amp;= 0.427014.
+\end{aligned}
+\]</span>
+4. Each interarrival time has exponential distribution <span class="math inline">\(\text{Exp}(2)\)</span>. The sum of 5 independent exponentially distribution random variables, denoted by <span class="math inline">\(Z\)</span>, has gamma distribution <span class="math inline">\(\mathcal{G}(5,2)\)</span>
+The probability that a time longer than 5 minutes will pass between one voucher being given out and the next is
+<span class="math display">\[ \Pr(Z &gt; 5) = \Pr(N(5) \le 4) = 0.0292527.\]</span></p>
+<p>Here we use <span class="math inline">\(N(5) \sim \text{Poisson}(5\times 2)\)</span>. Alternatively, the following command in R produces the required result <code>pgamma(5, shape = 5, rate = 2, lower.tail = FALSE)</code>.</p>
+<ol start="5" style="list-style-type: decimal">
+<li><p>The solutions are given as follows:</p>
+<pre><code> 1. The sum of two independent Poisson processes is also a Poisson process with rate </code></pre>
+<p><span class="math inline">\(\lambda_1 + \lambda_2\)</span>. Then the first event of this process (i.e. the time that the first bird arrives) occurs at random time having <span class="math inline">\(\text{Exp}(\lambda_1 + \lambda_2)\)</span> distribution.</p>
+<pre><code> 2. According to the superposition theorem, the probability that this bird is a tailorbird is </code></pre></li>
+</ol>
+<p><span class="math display">\[ \frac{\lambda_1}{\lambda_1 + \lambda_2}. \]</span></p>
+<pre><code>    3. The process is homogeneous in time, i.e. only the lenght of the  interval matters. So the distribution of the number of birds in the time interval 
+    </code></pre>
+<p><span class="math inline">\([t_1, t_2)\)</span> is a Poisson distribution with parameter <span class="math inline">\((\lambda_1 + \lambda_2)(t_2 - t_1).\)</span></p>
+<pre><code>    4. The required probability is
+    </code></pre>
+<p><span class="math display">\[\Pr(\text{TB},\text{TB},\text{TB},\text{P}) = p^3(1-p),\]</span>
+where <span class="math inline">\(p = \frac{\lambda_1}{\lambda_1 + \lambda_2}\)</span>, which is the probability that a bird is a tailorbird.</p>
+<ol start="6" style="list-style-type: decimal">
+<li><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent Poisson distributed random variables with paramers <span class="math inline">\(\lambda_X\)</span> and <span class="math inline">\(\lambda_Y\)</span>. The conditional distribution of <span class="math inline">\(X\)</span> given <span class="math inline">\(N = X + Y = n\)</span> is</li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr(X = k | N = n)
+&amp;= \Pr(X = k | X + Y = n) \\
+&amp;= \Pr(X = k, Y = n - k | X + Y = n) \\
+&amp;= \frac{\left( \frac{e^{-\lambda_X}\lambda_X^k}{k!} \right) \times \left( \frac{e^{-\lambda_Y}\lambda_Y^{n-k}}{(n - k)!} \right)}{\left( \frac{e^{-(\lambda_X + \lambda_Y)}(\lambda_X + \lambda_Y)^n}{n!} \right)  } \\
+&amp;= \frac{n!}{k!(n - k)!} \left(\frac{\lambda_X}{\lambda_X + \lambda_Y}\right)^k \left(\frac{\lambda_Y}{\lambda_X + \lambda_Y}\right)^{n-k}.
+\end{aligned}
+\]</span>
+Hence this conditional distribution is a bionomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(\frac{\lambda_X}{\lambda_X + \lambda_Y}\)</span>.</p>
+<ol start="7" style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(N(t)\)</span> be the number of accidents occurring on the highway and <span class="math inline">\(N_S(t)\)</span> be the process of speeding-related accidents.</p>
+<pre><code> 1.  </code></pre>
+<p><span class="math display">\[\Pr(N_S(1) = 10) = \frac{\exp(-(20)(0.25))((20)(0.25))^{10}  }{(10!)} = 0.0181328.\]</span></p>
+<pre><code> 2. The probability that at least one accident occurs tomorrow is </code></pre>
+<p><span class="math display">\[ 1 - e^{-20/7} = 0.9425674.\]</span>
+3. There are <span class="math inline">\(n = 60\)</span> accidents occurring in four weeks (<span class="math inline">\(t= 4\)</span> weeks). The number of accidents involve speeding <span class="math inline">\(N_S\)</span> in <span class="math inline">\([0,t]\)</span> has a binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p = 1/4\)</span>.</p>
+<pre><code> The required probability is </code></pre>
+<p><span class="math display">\[
+\begin{aligned} 
+\Pr(N_S(4) &lt; 30 | N(4) = 60) &amp;= \sum_{k = 0}^{29} \binom{60}{k} \left(\frac{1}{4} \right)^k \left(\frac{3}{4} \right)^{60-k} \\
+&amp;= 0.9999733. 
+\end{aligned}
+\]</span>
+The probability above can be calculated using the following command in R <code>pbinom(29,60,1/4)</code>.</p></li>
+<li><p>Let <span class="math inline">\(X_1, X_2, \ldots\)</span>$ be an i.i.d. sequence where <span class="math inline">\(X_i\)</span> is the number of claims filed after the <span class="math inline">\(i\)</span>th flood. Let <span class="math inline">\(T\)</span> denote the total number of claims filed. Then
+<span class="math display">\[ T = X_1 + X_2 + \ldots X_{N_t},\]</span>
+where <span class="math inline">\(N_t\)</span> is the number of severe floods that occur by time <span class="math inline">\(t\)</span>.
+Using results for random sums of random variables,
+<span class="math display">\[ \text{E}(T) = \text{E}(N_t)\text{E}(X_1) = (4t)(60) = 240t,\]</span>
+and
+<span class="math display">\[\begin{aligned} 
+\text{Var}(T) &amp;= \text{Var}(X_1)\text{E}(N_t) + [\text{E}(X_1)]^2 \text{Var}(N_t) = (60)(4t)  + (60)^2(4t) \\
+&amp;= 14640t,
+\end{aligned}
+\]</span>
+and, hence, <span class="math inline">\(SD(T) = \sqrt{14640t}\)</span>.</p></li>
+</ol>
+<p>Note that the distribution of <span class="math inline">\(T\)</span> is said to have a compound Poisson distribution. For more details about how to compute <span class="math inline">\(\text{E}(T)\)</span> and <span class="math inline">\(\text{Var}(T)\)</span>, please refer to the following website: <a href="https://pairote-sat.github.io/SCMA470/collective-risk-model.html#compound-poisson-distributions" class="uri">https://pairote-sat.github.io/SCMA470/collective-risk-model.html#compound-poisson-distributions</a>.</p>
+<ol start="9" style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\((N_t)_{t\ge0}, (M_t)_{t\ge0}\)</span> and <span class="math inline">\((F_t)_{t\ge0}\)</span> denote the overall birth, male, and female processes, respectively.</p>
+<pre><code> 1. Male births form a Poisson process with parameter </code></pre></li>
+</ol>
+<p><span class="math display">\[\lambda \cdot p = 3(0.52) = 1.56.\]</span>
+The number of male births on an 8-hour shift <span class="math inline">\(M_8\)</span> has a Poisson distribution with expectation
+<span class="math display">\[ E(M_8) = \lambda \cdot p \cdot 8 = 12.48. \]</span>
+and standard deviation
+<span class="math display">\[ SD(M_8) = \sqrt{12.48} = 3.5327043. \]</span></p>
+<pre><code>    2. Conditional on there being five births in a given interval,the number of boys in that interval has a binomial distribution with parameters 
+    </code></pre>
+<p><span class="math inline">\(n = 10\)</span> and <span class="math inline">\(p = 0.52\)</span>. The desired probability is</p>
+<p><span class="math display">\[ \frac{10!}{6!4!}(0.52)^6(1- 0.52)^4 = 0.2203963 \]</span></p>
+<pre><code>3. The required probability is </code></pre>
+<p><span class="math display">\[ \Pr(M_4 &gt; 0, F_4 &gt; 0).\]</span></p>
+<p>By independence,</p>
+<p><span class="math display">\[
+\begin{aligned}
+ \Pr(M_4 &gt; 0, F_4 = 0) &amp;= 
+ \Pr(M_4 &gt; 0)\Pr(F_4 = 0) \\
+ &amp;= (1 - e^{-3(0.52)(4)})(e^{-3(1-0.52)(4)}) \\
+ &amp;= 0.003145.
+\end{aligned}
+\]</span></p>
 </div>
 <div id="tutorial-5" class="section level2" number="6.5">
 <h2><span class="header-section-number">6.5</span> Tutorial 5</h2>
@@ -1686,6 +1888,122 @@ status comprising of five states, single, married, divorced, widowed
 and dead. Draw the transition diagram that illustrate the possible
 transitions between these five states.ß</li>
 </ol>
+</div>
+<div id="solutions" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Solutions:</h2>
+<ol style="list-style-type: decimal">
+<li>The transition rate matrix <span class="math inline">\(Q\)</span> of this Markov model is
+<span class="math display">\[
+Q = \begin{bmatrix}
+ -(\lambda + \mu) &amp; \lambda &amp; \mu   \\
+ 0 &amp; -\nu &amp; \nu   \\
+ 0 &amp; 0 &amp; 0\end{bmatrix}.
+\]</span>
+<ol style="list-style-type: decimal">
+<li>Return to the healthy state and ill states is impossible. Therefore</li>
+</ol></li>
+</ol>
+<p><span class="math display">\[p_{hh}(t) = p_{\overline{hh}}(t) \text{ and }
+        p_{ii}(t)  = p_{\overline{ii}}(t).\]</span></p>
+<pre><code>2. The Kolmogorov forward differential equations (FDE) for </code></pre>
+<p><span class="math inline">\(p_{hh}(t)\)</span> is</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{d}{dt}p_{hh}(t) &amp;= p_{hh}(t) q_{hh} + p_{hi}(t) q_{ih} + p_{hd}(t) q_{dh}  \\
+&amp;= -(\lambda + \mu) p_{hh}(t)  + (0) p_{hi}(t) + (0) p_{hd}(t)  \\
+&amp;= -(\lambda + \mu) p_{hh}(t).  
+\end{align}
+\]</span></p>
+<p>The solution to the differential equation together with the initial condition <span class="math inline">\(p_{hh}(0) = 1\)</span> is
+<span class="math display">\[ p_{hh}(t) = e^{-(\lambda + \mu)t}.\]</span></p>
+<p>Similarly, we obtain</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{d}{dt}p_{ii}(t) &amp;= p_{ii}(t) q_{ii} \\
+&amp;= -\nu \, p_{ii}(t).  
+\end{align}
+\]</span></p>
+<p>Solving the differential equation with <span class="math inline">\(p_{ii}(0) = 1\)</span> is
+<span class="math display">\[ p_{ii}(t) = e^{-\nu \, t}.\]</span></p>
+<pre><code>3. The Kolmogorov forward differential equations (FDE) for </code></pre>
+<p><span class="math inline">\(p_{hi}(t)\)</span> and <span class="math inline">\(p_{hd}(t)\)</span>are given as follows:</p>
+<p><span class="math display">\[\begin{align}
+\frac{d}{dt}p_{hi}(t) &amp;= p_{hh}(t) q_{hi} + p_{hi}(t) q_{ii} + p_{hd}(t) q_{di}  \quad (1) \\
+&amp;= \lambda p_{hh}(t)  -\nu p_{hi}(t)  + (0) p_{hd}(t)   \\
+&amp;= \lambda p_{hh}(t)  -\nu p_{hi}(t) \\
+
+\frac{d}{dt}p_{hd}(t) &amp;= p_{hh}(t) q_{hd} + p_{hi}(t) q_{id} + p_{hd}(t) q_{dd}  \quad (2) \\
+&amp;= \mu p_{hh}(t)  + \nu p_{hi}(t)  + (0) p_{hd}(t)   \\
+&amp;= \mu p_{hh}(t)  +\nu p_{hi}(t). \\
+\end{align}\]</span></p>
+<pre><code>To solve the first equation, we substitute </code></pre>
+<p><span class="math inline">\(p_{hh}(t)\)</span> by <span class="math inline">\(e^{-(\lambda + \mu)t}\)</span> into the equation, which reduces to</p>
+<p><span class="math display">\[ \frac{d}{dt}p_{hi}(t) + \nu p_{hi}(t)  =\lambda e^{-(\lambda + \mu)t}.\]</span>
+This differential equation is linear with the initial condition <span class="math inline">\(p_{hi}(0) = 0\)</span> and , hence, can be solved by a general method.</p>
+<pre><code>In order to solve for </code></pre>
+<p><span class="math inline">\(p_{hd}(t)\)</span> in Eq. (2), we note that both <span class="math inline">\(p_{hh}(t)\)</span> and <span class="math inline">\(p_{hi}(t)\)</span> are known so we can solve the equation for <span class="math inline">\(p_{hd}(t)\)</span> as well.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>The transition rate matrix <span class="math inline">\(Q\)</span> is</li>
+</ol>
+<p><span class="math display">\[P = \begin{bmatrix}
+    -(\alpha_1 + \beta_1) &amp; \alpha_1 &amp; \beta_1 &amp; 0   \\
+    0 &amp; -( \beta_2) &amp; 0 &amp;  \beta_2   \\
+    0 &amp; 0 &amp; -\alpha_2  &amp; \alpha_2 \\
+    0 &amp; 0 &amp; 0  &amp; 0 \\
+\end{bmatrix}.\]</span>
+Then, the Kolmogorov forward differential equations (FDE) for <span class="math inline">\(p_{bb}(t), p_{bu}(t), p_{bv}(t)\)</span> and <span class="math inline">\(p_{bd}(t)\)</span> are given as follows:</p>
+<p><span class="math display">\[\begin{align}
+\frac{d}{dt}p_{bb}(t) &amp;= p_{bb}(t) q_{bb} + p_{bu}(t) q_{ub} + p_{bv}(t) q_{vb} + p_{bd}(t) q_{db} \\
+&amp;=  -(\alpha_1 + \beta_1) p_{bb}(t)  + (0) p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
+&amp;= -(\alpha_1 + \beta_1) p_{bb}(t) \\
+
+\frac{d}{dt}p_{bu}(t) &amp;= p_{bb}(t) q_{bu} + p_{bu}(t) q_{uu} + p_{bv}(t) q_{vu} + p_{bd}(t) q_{du} \\
+&amp;=  \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
+&amp;= \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  \\
+
+\frac{d}{dt}p_{bv}(t) &amp;= p_{bb}(t) q_{bv} + p_{bu}(t) q_{uv} + p_{bv}(t) q_{vv} + p_{bd}(t) q_{dv} \\
+&amp;=  \beta_1  p_{bb}(t)  + (0) p_{bu}(t)  - \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
+&amp;=  \beta_1  p_{bb}(t)   - \alpha_2 p_{bv}(t)  \\
+
+\frac{d}{dt}p_{bd}(t) &amp;= p_{bb}(t) q_{bd} + p_{bu}(t) q_{ud} + p_{bv}(t) q_{vd} + p_{bd}(t) q_{dd} \\
+&amp;=  (0)  p_{bb}(t)  + \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
+&amp;=   \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t).   \\
+\end{align}\]</span></p>
+<p>Note that</p>
+<p><span class="math display">\[ \frac{d}{dt}(p_{bb}(t) + p_{bu}(t) + p_{bv}(t) + p_{bd}(t)) = 0,\]</span>
+which implies that
+<span class="math display">\[ p_{bb}(t) + p_{bu}(t) + p_{bv}(t) + p_{bd}(t) = \text{constant} = 1.\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>The transition rate matrix <span class="math inline">\(Q\)</span> is</li>
+</ol>
+<p><span class="math display">\[P = \begin{bmatrix}
+    -(\sigma + \omega + \mu) &amp; \sigma &amp; \omega &amp; \mu   \\
+    \rho &amp; -(\rho + \mu) &amp; 0 &amp; \mu   \\
+    0 &amp; 0 &amp; 0  &amp; 0 \\
+    0 &amp; 0 &amp; 0  &amp; 0 \\
+\end{bmatrix}.\]</span>
+Then, the Kolmogorov forward differential equations (FDE) for <span class="math inline">\(p_{aa}(t), p_{ai}(t)\)</span> and <span class="math inline">\(p_{aw}(t)\)</span> are given as follows:</p>
+<span class="math display">\[\begin{aligned}
+\frac{d}{dt}p_{aa}(t) &amp;= p_{aa}(t) q_{aa} + p_{ai}(t) q_{ia} + p_{aw}(t) q_{wa} + p_{ad}(t) q_{da} \\
+&amp;= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) + (0)p_{aw}(t)  + (0)p_{ad}(t) \\
+&amp;= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) \\
+
+\frac{d}{dt}p_{ai}(t) 
+&amp;= p_{aa}(t) q_{ai} + p_{ai}(t) q_{ii} + p_{aw}(t) q_{wi} + p_{ad}(t) q_{di} \\
+&amp;= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t) + (0)p_{aw}(t)  + (0) p_{ad}(t)  \\
+&amp;= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t)  \\
+
+\frac{d}{dt}p_{aw}(t) &amp;= \omega p_{aa}(t).
+\end{aligned}\]</span>
+<ol start="4" style="list-style-type: decimal">
+<li>The transition diagram for a model of maritial status is illusrated in the figure below:</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:tikz-ex4"></span>
+<img src="SCMA469Bookdownproj_files/figure-html/tikz-ex4-1.png" alt="The 5-state model of maritial status" width="672" />
+<p class="caption">
+Figure 6.4: The 5-state model of maritial status
+</p>
+</div>
 
 </div>
 </div>

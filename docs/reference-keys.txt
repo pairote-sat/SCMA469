@@ -61,6 +61,7 @@ eq:limitdist
 fig:tikz-ex0
 fig:tikz-ex1
 fig:tikz-ex2
+fig:tikz-ex4
 intro
 examples-of-real-world-processes
 review-of-probability-theory
@@ -107,6 +108,7 @@ tutorial-3
 tutorial-4
 tutorial-5
 tutorial-6
+solutions
 applications
 datacamp-light
 final-words

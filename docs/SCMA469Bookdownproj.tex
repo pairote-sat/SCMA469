@@ -128,7 +128,7 @@
 
 \title{SCMA469 Actuarial Statistics}
 \author{Pairote Satiracoo}
-\date{2021-11-07}
+\date{2021-12-01}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -4866,424 +4866,6 @@ In addition, since there are two closed classes,
   \end{enumerate}
 \end{enumerate}
 
-\hypertarget{tutorial-2-1}{%
-\section{Tutorial 2}\label{tutorial-2-1}}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  A Markov chain \(X_0, X_1, \ldots\) on states 1 ,2 ,3 has the
-  following transition matrix \[P = \begin{bmatrix}
-      0.5 & 0.3 & 0.2    \\
-      0.2 & 0.2 & 0.6  \\
-      0.3 & 0.2 &  0.5    \\
-      %\vdots & \vdots & \vdots  & \vdots \\
-      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-  \end{bmatrix}.\] The distribution of the initial random variable
-  \(X_0\) is \(\boldsymbol{\mu} = (0.3,0,3,0.4)\).
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \item
-    Draw a transition diagram for the chain.
-  \item
-    Determine \(\Pr(X_0 = 1, X_1 = 2, X_2 = 3).\)
-  \item
-    Determine \(\Pr(X_1 = 2, X_2 = 3 | X_0 = 1).\)
-  \item
-    Determine \(\Pr(X_{11} = 2, X_{12} = 3 | X_{10} = 1).\)
-  \item
-    Determine \(\Pr(X_2 = 3 | X_0 = 1).\)
-  \item
-    Determine \(\Pr(X_3 = 3 | X_1 = 1).\)
-  \item
-    Determine \(\Pr(X_2 = 3).\)
-  \item
-    Determine \(\mathrm{E}[X_2]\)
-  \end{enumerate}
-\item
-  A Markov chain \(X_0, X_1, \ldots\) on states 1 ,2 ,3 has the
-  following transition matrix \[P = \begin{bmatrix}
-      0 & 1/2 & 1/2   \\
-      1/3  & 1/3  & 1/3   \\
-      1/2  & 1/2  & 0    \\
-      %\vdots & \vdots & \vdots  & \vdots \\
-      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-  \end{bmatrix}.\] The process starts in states \(X_0 = 1\).
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \item
-    Draw a transition diagram for the chain.
-  \item
-    Determine \(\Pr(X_0 = 1, X_1 = 3, X_2 = 2).\)
-  \item
-    Determine \(\Pr(X_1 = 3, X_2 = 2 | X_0 = 1).\)
-  \item
-    Determine \(\Pr(X_2 = 2 | X_0 = 1).\)
-  \item
-    Determine \(\Pr(X_3 = 2 | X_1 = 1).\)
-  \item
-    Determine \(\Pr(X_2 = 2).\)
-  \end{enumerate}
-\item
-  A Markov chain \(X_0, X_1, \ldots\) on sates 1 ,2~has the following
-  transition matrix \[P = \begin{bmatrix}
-      1-a & a   \\
-      b & 1-b   \\
-      %\vdots & \vdots & \vdots  & \vdots \\
-      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-  \end{bmatrix},\] where \(0 < a,b < 1.\)
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \item
-    Draw a transition diagram for the chain.
-  \item
-    the distribution of \(X_1\).
-  \item
-    Show that \[P^n = \frac{1}{a+b} \begin{bmatrix}
-        b & a   \\
-        b & a   \\
-        %\vdots & \vdots & \vdots  & \vdots \\
-        %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-    \end{bmatrix} +
-    \frac{(1-a-b)^n}{a+b} \begin{bmatrix}
-        a & -a   \\
-        -b & b   \\
-        %\vdots & \vdots & \vdots  & \vdots \\
-        %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-    \end{bmatrix}.\]
-  \item
-    Given that \(X_0 = 1\), what is the probability that in the long
-    run the system will be in state 1? (Hint: consider
-    \(\lim_{n \rightarrow \infty} \boldsymbol{\mu} P^n\))
-  \item
-    Given that \(X_0 = 1\), what is the probability that in the long
-    run the system will be in state 2?
-  \item
-    Given that \(X_0 = 2\), what is the probability that in the long
-    run the system will be in state 1?
-  \item
-    Given that \(X_0 = 2\), what is the probability that in the long
-    run the system will be in state 2?
-  \end{enumerate}
-\item
-  Let \(a\) be a constant and \(\xi_1, \xi_2, \ldots\) be a sequence of
-  independent and identically distributed (i.i.d.) random variables.
-  The stochastic process \(\{ X_n\}\) is defined by
-  \[X_0 = a, \quad X_n = X_{n-1} + \xi_n, \, n > 1.\] This process is
-  known as a random walk.
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \item
-    Express the state \(X_n\) in terms of \(X_0\) and the random
-    variables \(\xi_i, i = 1,2 \ldots\).
-  \item
-    Find \(\mathrm{E}[X_n]\) and \(\mathrm{Var}[X_n]\).
-  \item
-    Does the process have the Markov property? Explain.
-  \item
-    Is the process stationary? Explain.
-  \end{enumerate}
-\item
-  Consider a homogeneous discrete-time Markov chain that describes the
-  daily weather pattern. The weather patterns are classified into 3
-  conditions: R(rainy), C (cloudy) and S(sunny). Based on the daily
-  observations, the following information are given:
-
-  \begin{itemize}
-  \item
-    On any rainy day, the probability that it will rain the next day
-    is 0.7; the probability that tomorrow will be cloudy is 0.2 and
-    the probability that tomorrow will be sunny is 0.1.
-  \item
-    On any cloudy day, the probability that it will rain the next
-    day is 0.5; the probability that tomorrow will be cloudy is 0.35
-    and the probability that tomorrow will be sunny is 0.15.
-  \item
-    On any sunny day, the probability that it will rain the next day
-    is 0.1; the probability that tomorrow will be cloudy is 0.4 and
-    the probability that tomorrow will be sunny is 0.5.
-  \end{itemize}
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \item
-    Draw a transition diagram for the chain and write down a
-    transition matrix.
-  \item
-    Find the probability that tomorrow is cloudy and the day after
-    is rainy, given that it is sunny today.
-  \item
-    Given that today is rainy, find the probability that it will be
-    sunny in two days time.
-  \end{enumerate}
-\end{enumerate}
-
-\hypertarget{tutorial-3-1}{%
-\section{Tutorial 3}\label{tutorial-3-1}}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  A Markov chain \(X_0, X_1, \ldots\) on states 1, 2, 3 with initial
-  distribution \(\boldsymbol{\mu} = (1/4,1/4,1/2)\). It has the
-  following transition matrix \[P = \begin{bmatrix}
-      1/2 & 1/4 & 1/4   \\
-      1/3  & 1/3  & 1/3   \\
-      1/5  & 2/5  & 2/5    \\
-      %\vdots & \vdots & \vdots  & \vdots \\
-      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-  \end{bmatrix}.\] Compute the following probabilities:
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \item
-    \(\Pr(X_{11} = 1, X_{12} = 2, X_{13} = 3 | X_{10} = 1).\)
-  \item
-    \(\Pr(X_0 = 3, X_1 = 2 , X_2 = 1).\)
-  \item
-    \(\Pr(X_1 = 3, X_2 = 2 , X_3 = 1).\)
-  \item
-    \(\Pr(X_{1} = 2, X_{3} = 2, X_{5} = 2).\)
-  \end{enumerate}
-\item
-  A Markov chain with state space \(S = \{1,2,3,4,5,6\}\) has the
-  following transition matrix: \[P = \begin{bmatrix}
-  1/4 & 0 & 3/4 & 0 & 0 & 0  \\
-  0 & 0 & 0 & 1 & 0 & 0  \\
-  0 & 0 & 1/2 & 0 & 0 & 1/2  \\
-  1/5 & 1/5 & 1/5 & 0 & 1/5 & 1/5   \\
-  0 & 0 & 0 & 0 & 1 & 0  \\
-  1/3 & 0 & 0 & 0 & 0 & 2/3  \\
-      %p_{d1} & p_{d2} & p_{d3} & \dots  & p_{dn}
-  \end{bmatrix}.\]
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \item
-    Draw a transition diagram.
-  \item
-    Identify the communication classes and classify them as closed
-    or non-closed.
-  \item
-    Is the Markov chain irreducible?
-  \end{enumerate}
-\item
-  For each of the Markov chains whose
-  transition matrix is given below, identify the closed classes and
-  the vector of absorption probabilities associated with each of these
-  closed classes. Assume that the states are labelled \(1,2,3 \ldots\).
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \item
-    \[\begin{bmatrix}
-            1/6 & 0 & 1/3 & 1/2      \\
-            0 & 1/3 & 2/3 & 0   \\
-        1/2 & 1/2 & 0 & 0     \\    
-        0 & 0 & 1/4 & 3/4     \\
-    \end{bmatrix}.\]
-  \item
-    \[\begin{bmatrix}
-            0 & 1/4 & 3/4 & 0      \\
-            0 & 1/3 & 0 & 2/3   \\
-        1/3 & 0 & 1/3 & 1/3     \\  
-        0 & 0 & 0 & 1     \\
-    \end{bmatrix}.\]
-  \item
-    \[\begin{bmatrix}
-           1/4 & 1/4 & 1/4 & 1/4      \\
-           0 & 3/4 & 1/4 & 0   \\
-           0 & 3/4 & 1/4 & 0   \\
-       0 & 0 & 0 & 1     \\
-         \end{bmatrix}.\]
-  \item
-    \[\begin{bmatrix}
-           0 & 0 & 0 & 1/2  & 0 & 0 & 1/2   \\
-           1/6 & 0 & 1/6 & 0  & 0 & 1/6 & 1/2 \\
-       0 & 0 & 1 & 0 & 0 & 0 & 0    \\ 
-           1/2 & 0 & 0 & 1/2  & 0 & 0 & 0   \\
-       1/4 & 1/4 & 0 & 0  & 0 & 0 & 1/2 \\
-       0 & 1 & 0 & 0 & 0 & 0 & 0    \\ 
-           1/2 & 0 & 0 & 0  & 0 & 0 & 1/2   \\
-         \end{bmatrix}.\]
-  \end{enumerate}
-\item
-  If the Markov chain defined in Question 3 is irreducible,
-  i.e.~it has a unique stationary distribution, then find the
-  stationary distribution of the chain.
-\item
-  Assume that a Markov chain has more than one closed classes (say \(r\)
-  closed classes). The Markov chain can \textbf{have many stationary
-  distributions}. Assume further that within each of these \(r\) closed
-  classes, the associated Markov chain is aperiodic. The followings
-  hold:
-
-  \begin{itemize}
-  \item
-    Within a closed class \(C_1\), let \(P_1\) be a reduction of a
-    matrix \(P\) which is formed by deleting all rows and columns
-    corresponding to states from other classes. Then there exists a
-    unique stationary distribution, denoted by
-    \(\{\pi_j^{(1)}\}_{j \in C_1}.\)
-  \item
-    Similarly, let
-    \(\{\pi_j^{(2)}\}_{j \in C_2}, \ldots, \{\pi_j^{(r)}\}_{j \in C_r}\)
-    be stationary distributions within other classes.
-  \end{itemize}
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \tightlist
-  \item
-    Show that for any numbers \(\gamma_1, \gamma_2, \ldots, \gamma_r\)
-    such that \(\sum_{m=1}^r \gamma_m = 1\), the following
-    distribution \(\{ \pi_j \}\) is stationary, where
-  \end{enumerate}
-
-  \begin{equation} 
-    \label{eq:limitdist}
-      \pi_j =
-       \begin{cases}
-          \pi_j^{(k)} \gamma_k & \text{for } j \in C_k, \, k= 1,\ldots, r \\
-          0 & \text{if } j \text{ is in a nonclosed class.}
-        \end{cases}
-      \end{equation}
-  (In particular, any stationary distribution of the Markov chain is of this form.)
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \setcounter{enumii}{1}
-  \item
-    Write down the general form of stationary distributions of the
-    Markov chain in Questions 3.3 and 3.4.
-  \item
-    Now we will focus on limiting distributions. Consider the three
-    following possible cases.
-
-    \begin{enumerate}
-    \def\labelenumiii{\arabic{enumiii}.}
-    \item
-      If \(X_0 = i\) and \(i \in C_k\) for some closed class \(C_k\),
-      then verify that the limiting distribution is defined as in Eqn.\eqref{eq:limitdist} where \(\gamma_k =1\) and
-      \(\gamma_m = 0,\) for \(m \neq k\).
-    \item
-      If \(X_0 = i\) and \(i\) is in a nonclosed class, then verify
-      that the limiting distribution is defined as in
-      Eqn.\eqref{eq:limitdist} where \(\gamma_k = \alpha^{(k)}_i\)
-      for \(k = 1,2,\ldots r\) where \(\alpha^{(k)}_i\) is the
-      probability of absorption in class \(C_k\). More precisely,
-      \[\pi_j =
-       \begin{cases}
-          \pi_j^{(k)} \alpha^{(k)}_i & \text{for } j \in C_k, \, k= 1,\ldots, r \\
-          0 & \text{if } j \text{ is in a nonclosed class.}
-        \end{cases}
-            %\pi_j^{(k)} \gamma_k \text{ for } j \in C_k, \, k= 1,\ldots, r \text { and }
-      \]
-    \item
-      If \(X_0\) is random, then this will leave as extra exercise.
-      (Hint: you may need to apply first step anslysis)
-    \end{enumerate}
-  \end{enumerate}
-\item
-  A no-claims discount system for motor insurance has four levels of
-  discount:
-
-  \begin{longtable}[]{@{}ccccc@{}}
-  \toprule
-  Level & 1 & 2 & 3 & 4 \\
-  \midrule
-  \endhead
-  Discount & 0\% & 10\% & 30\% & 50\% \\
-  \bottomrule
-  \end{longtable}
-
-  The rules for moving between these levels are given as follows:
-
-  \begin{itemize}
-  \item
-    Following a claim-free year, move to the next higher level, or
-    remain at level 4.
-  \item
-    Following a year with one claim, move to the next lower level,
-    or remain at level 1.
-  \item
-    Following a year with two or more claims, move down two levels,
-    or move to level 1 (from level 2), or remain at level 1.
-  \end{itemize}
-
-  A portfolio consists of 10,000 policyholders. Suppose also that the
-  number of claims per year is \(\mathcal{Poisson}(0.1)\).
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \item
-    Calculate \(\Pr[N = 0]\), \(\Pr[N = 1]\), and \(\Pr[N \ge 2]\) for
-    each group.
-  \item
-    Write down the transition probability matrix of this no-claims
-    discount system.
-  \item
-    Find the probability that a policyholder who has the 30\%
-    discount has no discount after 2 years.
-  \item
-    Calculate the expected number of policyholders at each level at
-    times 1 and 2, assuming no exits given that all policyholders start at level 1.
-  \item
-    Calculate the expected number of policyholders at each level
-    once stability has been achieved, assuming no exits.
-  \end{enumerate}
-\item
-  A no-claims discount system for motor insurance has four levels of
-  discount:
-
-  \begin{longtable}[]{@{}ccccc@{}}
-  \toprule
-  Level & 1 & 2 & 3 & 4 \\
-  \midrule
-  \endhead
-  Discount & 0\% & 20\% & 30\% & 50\% \\
-  \bottomrule
-  \end{longtable}
-
-  The rules for moving between these levels are given as follows:
-
-  \begin{itemize}
-  \item
-    For a claim-free year, a policyholder moves to the next higher
-    level, or remains at level 4.
-  \item
-    For every claim in a year, the policyholder moves down a
-    discount level or remains at level 1, for example if the
-    policyholder is in level 4 and has one accident, he/she moves to
-    level 3, and 2 accidents, he/she moves to level 2, and 2 or more
-    accidents to level 1.
-  \end{itemize}
-
-  For a given policyholder, the number of claims each year, \(N\), has a
-  negative binomial distribution with parameters \(k=2\) and \(p = 0.5\).
-
-  Note that a random variable \(N\) has a negative distribution with
-  parameters \(k\) and \(p\), denoted by \(N \sim \dnb\) if its probability
-  mass function is given by
-  \[f_N(n) = \Pr(N = n) = \frac{\Gamma(k+n)}{\Gamma(n+1)\Gamma(k)} p^k (1- p)^n \quad n = 0,1,2,\ldots.\]
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \item
-    Draw a transition diagram for the chain.
-  \item
-    Write down the transition matrix of this no-claims discount
-    system.
-  \item
-    Find the probability that a policyholder who has the maximum
-    discount level will have 20\% discount after two years.
-  \end{enumerate}
-\end{enumerate}
-
 \hypertarget{tutorial-4}{%
 \section{Tutorial 4}\label{tutorial-4}}
 
@@ -5291,7 +4873,7 @@ In addition, since there are two closed classes,
 \def\labelenumi{\arabic{enumi}.}
 \item
   Customers arrive in a shop according to a Poisson process of rate
-  \(\lambda = 4\). Let \(N(t)\) be the number of customers that have
+  \(\lambda = 2\). Let \(N(t)\) be the number of customers that have
   arrived up to time \(t\). Determine the following probabilities,
   conditional probabilities and expectations.
 
@@ -5356,7 +4938,7 @@ In addition, since there are two closed classes,
   \item
     If every 5th customer receives a discount voucher, calculate the
     distribution of the times between these vouchers being given
-    out? What is the probability that a time longer
+    out? What is the probability that a time longer than 5 minutes will pass between one voucher being given out and the next?
   \end{enumerate}
 \item
   You have a bird table in your garden which attracts tailorbirds and
@@ -5424,6 +5006,308 @@ In addition, since there are two closed classes,
     a.m.
   \end{enumerate}
 \end{enumerate}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Customers arrive in a shop according to a Poisson process of rate
+  \(\lambda = 2\). Let \(N(t)\) be the number of customers that have
+  arrived up to time \(t\). It follows that \(N(t)\) has a Poisson distribution with parameter \(\lambda t\). In addition, \(N(t +s) - N(s)\) is a
+  Poisson random variable with mean \(\lambda \, t\) , independent of
+  anything that has occurred before time \(s\).
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    \(\Pr(N(1) = 2) = \frac{\exp(-(2)(1))((2)(1))^{2} }{(2!)} = 0.2706706\).
+  \item
+    \[\begin{aligned}
+     \Pr(N(1) = 2 \text{ and } N(3) = 6) &= 
+     \Pr(N(1) = 2 \text{ and } N(3) - N(1) = 4)\\
+     &= 
+     \Pr(N(1) = 2) \Pr(N(3) - N(1) = 4)\\
+     &= \frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)} \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = (0.2706706)(0.1953668) \\
+     &= 0.05288.
+     \end{aligned}\]
+    Here we have used the fact that \(N(3) - N(1)\) and \(N(1)\) are independent.
+  \item
+    \[\begin{aligned}
+     \Pr(N(1) = 2 | N(3) = 6) &= 
+     \frac{\Pr(N(1) = 2 \text{ and } N(3) = 6)}{\Pr(N(3) = 6)} \\ 
+     \frac{0.05288}{ \frac{\exp(-(2)(3))((2)(3))^{6}  }{(6!)}  } \\
+     &= 0.3292181.
+     \end{aligned}\]
+  \item
+    \[\begin{aligned}
+     \Pr(N(3) = 6 | N(1) = 2) 
+     &= \Pr(N(3)-N(1) = 4 | N(1) = 2) \\
+     &= \Pr(N(3)-N(1) = 4) 
+     \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = 0.1953668.
+     \end{aligned}\]
+    Here we have used the fact that \(N(3) - N(1)\) and \(N(1)\) are independent.
+  \item
+    \[\begin{aligned}
+     \Pr(N(1) \le 2) &= 0.6766764.
+     \end{aligned}\]
+  \item
+    \[\begin{aligned}
+     \Pr(N(1) = 1 \text{ and } N(2) = 3) &= 
+     \Pr(N(1) = 1 \text{ and } N(2) - N(1) = 2)\\
+     &= 
+     \Pr(N(1) = 1) \Pr(N(2) - N(1) = 2)\\
+     &= \frac{\exp(-(2)(1))((2)(1))^{1}  }{(1!)}\frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)}  = (0.2706706)(0.2706706) \\
+     &= 0.0732626.
+     \end{aligned}\]
+    Here we have used the fact that \(N(2) - N(1)\) and \(N(1)\) are independent.
+  \item
+    \[\begin{aligned}
+     \Pr(N(1) \ge 2 | N(1) \ge 1) 
+     &= \frac{\Pr(N(1) \ge 2 \text{ and } N(1) \ge 1)}{\Pr(N(1) \ge 1)}  \\
+      &= \frac{\Pr(N(1) \ge 2)}{\Pr(N(1) \ge 1)}  \\
+      &= \frac{1 - \Pr(N(1) \le 1)}{1- \Pr(N(1) = 0)}  \\
+      &= \frac{0.5939942}{0.8646647} \\
+      &= 0.5136058.
+     \end{aligned}\]
+  \item
+    \[\begin{aligned}
+     \mathrm{E}[N(2)] = 4.
+     \end{aligned}\]
+  \item
+    \[\begin{aligned}
+     \mathrm{E}[N(1)^2] = 
+      \mathrm{Var}[N(1)] +  (\mathrm{E}[N(1)])^2 = 6.
+     \end{aligned}\]
+  \item
+    \[\begin{aligned}
+     \mathrm{E}[N(1)N(2)] &=
+     \mathrm{E}[N(1)\cdot (N(1) + (N(2) - N(1))] \\
+     &=
+     \mathrm{E}[N(1)^2] + \mathrm{E}[ (N(1) \cdot (N(2) - N(1))] \\
+     &=
+     \mathrm{E}[N(1)^2] + \mathrm{E}[ N(1)] \cdot \mathrm{E}[N(2) - N(1)] \\
+     &= 6 + (2)(2) = 10.
+     \end{aligned}\]
+    Here we have used the fact that \(N(2) - N(1)\) and \(N(1)\) are independent.
+  \end{enumerate}
+\item
+  Let \(N(t)\) be the number of customers that have arrived up to time \(t\).
+\end{enumerate}
+
+\[\begin{aligned}
+    \Pr(N(1/2) = 1 \text{ and } N(5/2) = 5) &= 
+    \Pr(N(1/2) = 1 \text{ and } N(5/2) - N(1/2) = 4)\\
+    &= 
+    \Pr(N(1/2) = 1) \Pr(N(5/2) - N(1/2) = 4)\\
+    &= \frac{\exp(-(4)(0.5))((4)(0.5))^{1}  }{(1!)} \frac{\exp(-(4)(2))((4)(2))^{4}  }{(4!)} = (0.2706706)(0.0572523) \\
+    &= 0.0154965.
+    \end{aligned}\]
+Here we have used the fact that \(N(5/2) - N(1/2)\) and \(N(1/2)\) are independent.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Let \(X(t)\) be the number of defects of cable of length \(t\). We have \(X(t) \sim \text{Poisson}(\lambda \, t).\)
+
+\begin{verbatim}
+ 1. We have 
+\end{verbatim}
+\end{enumerate}
+
+\[\Pr(X(2) = 0) = \frac{\exp(-(0.1)(2))((0.1)(2))^{0}  }{(0!)} = 0.8187308.\]
+2. Using the independent of \(X(2)\) and \(X(3) - X(2)\), this implies that the conditional probability is the same as the unconditional probability. Therefore, we have
+
+\[
+\begin{aligned}
+\Pr(X(3)  - X(2)= 0|X(2)= 0) 
+&= \Pr(X(3)  - X(2)= 0)  \\
+&= \frac{\exp(-(0.1)(1))((0.1)(1))^{0}  }{(0!)} \\
+&= 0.9048374.
+\end{aligned}
+\]
+4. Again, let \(N(t)\) be the number of customers that have arrived up to time \(t\). We have \(N(t) \sim \text{Poisson}(\lambda \, t)\) with \(\lambda = 2\).
+
+\begin{verbatim}
+    1.  $\Pr(N(5) = 0) = \frac{\exp(-(2)(5))((2)(5))^{0}  }{(0!)} = \ensuremath{4.539993\times 10^{-5}}$.
+    
+    2. The 10th customer will arrive after 11:00 am but before 11:05 am is the same as saying that at least 10 customers arrive in 5 minutes between 11:00-11:15 am. 
+    
+\end{verbatim}
+
+\[\begin{aligned}
+    \Pr(N(t,t+5) \ge 10) &= 1 - \Pr(N(t,t+5) \le 9) \\
+    &= 
+    1- 0.4579297 \\
+    &= 0.5420703.
+    \end{aligned}\]
+
+\begin{verbatim}
+    3.  Given that a third of customers are men, the probability that a customer is male is 1/3, which is indendent of everything else. By splitting theorem, the "male" and the "female" processes are independent Poisson process with rates 
+    
+\end{verbatim}
+
+\[\lambda_m = (0.3333333)(2) = 0.6666667, \quad \lambda_f = (0.6666667)(2) = 1.3333333. \]
+
+It follows that the required probability can be founded as follows:
+
+\[
+\begin{aligned}
+\Pr(N_m(5) \ge 4 | N_f(5) \ge 5 ) 
+&= \Pr(N_m(5) \ge 4) \\
+&= 1 - \Pr(N_m(5) \le 3) \\
+&= 0.427014.
+\end{aligned}
+\]
+4. Each interarrival time has exponential distribution \(\text{Exp}(2)\). The sum of 5 independent exponentially distribution random variables, denoted by \(Z\), has gamma distribution \(\mathcal{G}(5,2)\)
+The probability that a time longer than 5 minutes will pass between one voucher being given out and the next is
+\[ \Pr(Z > 5) = \Pr(N(5) \le 4) = 0.0292527.\]
+
+Here we use \(N(5) \sim \text{Poisson}(5\times 2)\). Alternatively, the following command in R produces the required result \texttt{pgamma(5,\ shape\ =\ 5,\ rate\ =\ 2,\ lower.tail\ =\ FALSE)}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  The solutions are given as follows:
+
+\begin{verbatim}
+ 1. The sum of two independent Poisson processes is also a Poisson process with rate 
+\end{verbatim}
+
+  \(\lambda_1 + \lambda_2\). Then the first event of this process (i.e.~the time that the first bird arrives) occurs at random time having \(\text{Exp}(\lambda_1 + \lambda_2)\) distribution.
+
+\begin{verbatim}
+ 2. According to the superposition theorem, the probability that this bird is a tailorbird is 
+\end{verbatim}
+\end{enumerate}
+
+\[ \frac{\lambda_1}{\lambda_1 + \lambda_2}. \]
+
+\begin{verbatim}
+    3. The process is homogeneous in time, i.e. only the lenght of the  interval matters. So the distribution of the number of birds in the time interval 
+    
+\end{verbatim}
+
+\([t_1, t_2)\) is a Poisson distribution with parameter \((\lambda_1 + \lambda_2)(t_2 - t_1).\)
+
+\begin{verbatim}
+    4. The required probability is
+    
+\end{verbatim}
+
+\[\Pr(\text{TB},\text{TB},\text{TB},\text{P}) = p^3(1-p),\]
+where \(p = \frac{\lambda_1}{\lambda_1 + \lambda_2}\), which is the probability that a bird is a tailorbird.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  \(X\) and \(Y\) are independent Poisson distributed random variables with paramers \(\lambda_X\) and \(\lambda_Y\). The conditional distribution of \(X\) given \(N = X + Y = n\) is
+\end{enumerate}
+
+\[
+\begin{aligned}
+\Pr(X = k | N = n)
+&= \Pr(X = k | X + Y = n) \\
+&= \Pr(X = k, Y = n - k | X + Y = n) \\
+&= \frac{\left( \frac{e^{-\lambda_X}\lambda_X^k}{k!} \right) \times \left( \frac{e^{-\lambda_Y}\lambda_Y^{n-k}}{(n - k)!} \right)}{\left( \frac{e^{-(\lambda_X + \lambda_Y)}(\lambda_X + \lambda_Y)^n}{n!} \right)  } \\
+&= \frac{n!}{k!(n - k)!} \left(\frac{\lambda_X}{\lambda_X + \lambda_Y}\right)^k \left(\frac{\lambda_Y}{\lambda_X + \lambda_Y}\right)^{n-k}.
+\end{aligned}
+\]
+Hence this conditional distribution is a bionomial distribution with parameters \(n\) and \(\frac{\lambda_X}{\lambda_X + \lambda_Y}\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\item
+  Let \(N(t)\) be the number of accidents occurring on the highway and \(N_S(t)\) be the process of speeding-related accidents.
+
+\begin{verbatim}
+ 1.  
+\end{verbatim}
+
+  \[\Pr(N_S(1) = 10) = \frac{\exp(-(20)(0.25))((20)(0.25))^{10}  }{(10!)} = 0.0181328.\]
+
+\begin{verbatim}
+ 2. The probability that at least one accident occurs tomorrow is 
+\end{verbatim}
+
+  \[ 1 - e^{-20/7} = 0.9425674.\]
+  3. There are \(n = 60\) accidents occurring in four weeks (\(t= 4\) weeks). The number of accidents involve speeding \(N_S\) in \([0,t]\) has a binomial distribution with parameters \(n\) and \(p = 1/4\).
+
+\begin{verbatim}
+ The required probability is 
+\end{verbatim}
+
+  \[
+  \begin{aligned} 
+  \Pr(N_S(4) < 30 | N(4) = 60) &= \sum_{k = 0}^{29} \binom{60}{k} \left(\frac{1}{4} \right)^k \left(\frac{3}{4} \right)^{60-k} \\
+  &= 0.9999733. 
+  \end{aligned}
+  \]
+  The probability above can be calculated using the following command in R \texttt{pbinom(29,60,1/4)}.
+\item
+  Let \(X_1, X_2, \ldots\)\$ be an i.i.d. sequence where \(X_i\) is the number of claims filed after the \(i\)th flood. Let \(T\) denote the total number of claims filed. Then
+  \[ T = X_1 + X_2 + \ldots X_{N_t},\]
+  where \(N_t\) is the number of severe floods that occur by time \(t\).
+  Using results for random sums of random variables,
+  \[ \text{E}(T) = \text{E}(N_t)\text{E}(X_1) = (4t)(60) = 240t,\]
+  and
+  \[\begin{aligned} 
+  \text{Var}(T) &= \text{Var}(X_1)\text{E}(N_t) + [\text{E}(X_1)]^2 \text{Var}(N_t) = (60)(4t)  + (60)^2(4t) \\
+  &= 14640t,
+  \end{aligned}
+  \]
+  and, hence, \(SD(T) = \sqrt{14640t}\).
+\end{enumerate}
+
+Note that the distribution of \(T\) is said to have a compound Poisson distribution. For more details about how to compute \(\text{E}(T)\) and \(\text{Var}(T)\), please refer to the following website: \url{https://pairote-sat.github.io/SCMA470/collective-risk-model.html\#compound-poisson-distributions}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\item
+  Let \((N_t)_{t\ge0}, (M_t)_{t\ge0}\) and \((F_t)_{t\ge0}\) denote the overall birth, male, and female processes, respectively.
+
+\begin{verbatim}
+ 1. Male births form a Poisson process with parameter 
+\end{verbatim}
+\end{enumerate}
+
+\[\lambda \cdot p = 3(0.52) = 1.56.\]
+The number of male births on an 8-hour shift \(M_8\) has a Poisson distribution with expectation
+\[ E(M_8) = \lambda \cdot p \cdot 8 = 12.48. \]
+and standard deviation
+\[ SD(M_8) = \sqrt{12.48} = 3.5327043. \]
+
+\begin{verbatim}
+    2. Conditional on there being five births in a given interval,the number of boys in that interval has a binomial distribution with parameters 
+    
+\end{verbatim}
+
+\(n = 10\) and \(p = 0.52\). The desired probability is
+
+\[ \frac{10!}{6!4!}(0.52)^6(1- 0.52)^4 = 0.2203963 \]
+
+\begin{verbatim}
+3. The required probability is 
+\end{verbatim}
+
+\[ \Pr(M_4 > 0, F_4 > 0).\]
+
+By independence,
+
+\[
+\begin{aligned}
+ \Pr(M_4 > 0, F_4 = 0) &= 
+ \Pr(M_4 > 0)\Pr(F_4 = 0) \\
+ &= (1 - e^{-3(0.52)(4)})(e^{-3(1-0.52)(4)}) \\
+ &= 0.003145.
+\end{aligned}
+\]
 
 \hypertarget{tutorial-5}{%
 \section{Tutorial 5}\label{tutorial-5}}
