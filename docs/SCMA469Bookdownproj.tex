@@ -128,7 +128,7 @@
 
 \title{SCMA469 Actuarial Statistics}
 \author{Pairote Satiracoo}
-\date{2021-12-01}
+\date{2021-12-02}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -3805,25 +3805,46 @@ It should be noted that if \(X \sim \text{Exp}(\lambda)\), then \(\Pr(X > x) = e
     X_4 = 98, X_8 = 96 |X_1 = 99)  =  12  p^{2}(1-p)^{5} .\]
   \item
     The variable \(X_5\) can take the values from
-    \(95, 97, 99, 101, 103, 105\). In particular, \[\begin{aligned}
-        \Pr(X_5 &= 95) = {5 \choose 0} p^0 (1-p)^5 =  1 
-    p^0 (1-p)^5    \\
-        \Pr(X_5 &= 97) = {5 \choose 1} p^1 (1-p)^4 = 5 
-        p^1 (1-p)^4\\
-        \Pr(X_5 &= 99) = {5 \choose 2} p^2 (1-p)^3 = 10 
-        p^2 (1-p)^3\\
-        &\vdots \\
-        \Pr(X_5 &= 105) = {5 \choose 5} p^5 (1-p)^0 = 1 
-        p^5 (1-p)^0 \end{aligned}\]
+    \(95, 97, 99, 101, 103, 105\). In particular,
+  \end{enumerate}
+\end{enumerate}
 
-    Therefore, \(\mathrm{E}[X_5] =  95 \cdot \left( 1 p^0 (1-p)^5 \right) + 97 \cdot \left(5 p^1 (1-p)^4 \right) + 99 \cdot \left(10 p^2 (1-p)^3 \right) + \cdots + 105 \cdot \left( 1  p^5 (1-p)^0 \right) = 95 + 10*x.\)
-    Alternatively, \[\begin{aligned}
+\[\begin{aligned}
+            \Pr(X_5 &= 95) = {5 \choose 0} p^0 (1-p)^5 =  1 
+        p^0 (1-p)^5    \\
+            \Pr(X_5 &= 97) = {5 \choose 1} p^1 (1-p)^4 = 5 
+            p^1 (1-p)^4\\
+            \Pr(X_5 &= 99) = {5 \choose 2} p^2 (1-p)^3 = 10 
+            p^2 (1-p)^3\\
+            &\vdots \\
+            \Pr(X_5 &= 105) = {5 \choose 5} p^5 (1-p)^0 = 1 
+            p^5 (1-p)^0 \end{aligned}\]
+
+\begin{verbatim}
+    Therefore, $\mathrm{E}[X_5] = 
+     95 \cdot \left( 1 
+    p^0 (1-p)^5 \right)
+    + 97 \cdot \left(5 
+    p^1 (1-p)^4 \right)
+    + 99 \cdot \left(10 
+    p^2 (1-p)^3 \right)
+    + \cdots
+    + 105 \cdot \left( 1 
+        p^5 (1-p)^0 \right) = 95 + 10*x.$
+  Alternatively, 
+  
+\end{verbatim}
+
+\[\begin{aligned}
       E\left[X_{5}\right] &=E\left[100+\sum_{i=1}^{5} Z_{i}\right] \\
       &= 100+5 \cdot E\left[Z_{i}\right]  \\
       &=100+ 5 (2 p-1)  \\
       &=95 + 10p\end{aligned}\]
-    where \(E\left[Z_{i}\right] = p-q = p - (1 - p) = 2p -1.\)
-  \end{enumerate}
+where \(E\left[Z_{i}\right] = p-q = p - (1 - p) = 2p -1.\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
 \item
   For each event,
 
@@ -3985,60 +4006,64 @@ It should be noted that if \(X \sim \text{Exp}(\lambda)\), then \(\Pr(X > x) = e
   \bottomrule
   \end{longtable}
 
-  We note that \[\begin{aligned}
-  X_{n+1} &=\operatorname{max}\left\{Z_{1}, Z_{2}, \ldots, Z_{n+1}\right\} \\
-  &=\operatorname{max}\left\{X_{n}, Z_{n+1}\right\}
-  \end{aligned}\] Consider the transition probabilities
-
-  \[\begin{aligned}
-  P\left(X_{n+1} = j \mid X_{n}=i \right) &= P\left(\max \left\{X_{n}, Z_{n+1}\right\}=j \mid X_{n}=i\right) \\
-  &=P\left(\max \left\{i, Z_{n+1}\right\}=j \mid X_{n}=i\right)
-  \end{aligned}\]
-
-  \textbf{Case 1:} If \(i=1\), then \[\max \left\{1, Z_{n+1}\right\}= 
-  \begin{cases}
-  1  & \text{w.p. } 0.2 \\
-  2 & \text{w.p. } 0.3 \\
-  3  & \text{w.p. } 0.4 \\
-  4  & \text{w.p. } 0.1 \\
-  \end{cases}\]
-
-  \textbf{Case 2:} If \(i=2\), then \[\max \left\{2, Z_{n+1}\right\}= 
-  \begin{cases}
-  1  & \text{w.p. } 0 \\
-  2 & \text{w.p. } 0.5 \quad (\text{i.e. } z_{n+1} = 1 \text{ or } 2  )\\
-  3  & \text{w.p. } 0.4 \\
-  4  & \text{w.p. } 0.1 \\
-  \end{cases}\]
-
-  \textbf{Case 3:} If \(i=3\), then \[\max \left\{3, Z_{n+1}\right\}= 
-  \begin{cases}
-  1  & \text{w.p. } 0 \\
-  2 & \text{w.p. } 0 \\
-  3  & \text{w.p. } 0.9 \\
-  4  & \text{w.p. } 0.1 \\
-  \end{cases}\]
-
-  \textbf{Case 4:} If \(i=4\), then \[\max \left\{4, Z_{n+1}\right\}= 
-  \begin{cases}
-  1  & \text{w.p. } 0 \\
-  2 & \text{w.p. } 0 \\
-  3  & \text{w.p. } 0 \\
-  4  & \text{w.p. } 1 \\
-  \end{cases}\] The transition probability matrix is then
-
-  \[P = 
-  \begin{bmatrix}
-  0.2 & 0.3 & 0.4 & 0.1 \\
-  0 & 0.5 & 0.4 & 0.1 \\
-  0 & 0 & 0.9 & 0.1 \\
-  0 & 0 & 0 & 0.1 \\
-  \end{bmatrix}.\] Clearly the sequence \(X_0, X_1, X_2,\ldots\) can be
-  modelled by the Markov chain with the transition probability matrix
-  \(P\). Moreover, given the most recent value \(X_n\), its future value
-  \(X_{n+1}\) is independent of the past history
-  \(X_0, X_1, \ldots, X_{n-1}\).
+  We note that
 \end{enumerate}
+
+\[\begin{aligned}
+    X_{n+1} &=\operatorname{max}\left\{Z_{1}, Z_{2}, \ldots, Z_{n+1}\right\} \\
+    &=\operatorname{max}\left\{X_{n}, Z_{n+1}\right\}
+    \end{aligned}\] Consider the transition probabilities
+
+\begin{verbatim}
+$$\begin{aligned}
+P\left(X_{n+1} = j \mid X_{n}=i \right) &= P\left(\max \left\{X_{n}, Z_{n+1}\right\}=j \mid X_{n}=i\right) \\
+&=P\left(\max \left\{i, Z_{n+1}\right\}=j \mid X_{n}=i\right)
+\end{aligned}$$
+
+**Case 1:** If $i=1$, then $$\max \left\{1, Z_{n+1}\right\}= 
+\begin{cases}
+1  & \text{w.p. } 0.2 \\
+2 & \text{w.p. } 0.3 \\
+3  & \text{w.p. } 0.4 \\
+4  & \text{w.p. } 0.1 \\
+\end{cases}$$
+
+**Case 2:** If $i=2$, then $$\max \left\{2, Z_{n+1}\right\}= 
+\begin{cases}
+1  & \text{w.p. } 0 \\
+2 & \text{w.p. } 0.5 \quad (\text{i.e. } z_{n+1} = 1 \text{ or } 2  )\\
+3  & \text{w.p. } 0.4 \\
+4  & \text{w.p. } 0.1 \\
+\end{cases}$$
+
+**Case 3:** If $i=3$, then $$\max \left\{3, Z_{n+1}\right\}= 
+\begin{cases}
+1  & \text{w.p. } 0 \\
+2 & \text{w.p. } 0 \\
+3  & \text{w.p. } 0.9 \\
+4  & \text{w.p. } 0.1 \\
+\end{cases}$$
+
+**Case 4:** If $i=4$, then $$\max \left\{4, Z_{n+1}\right\}= 
+\begin{cases}
+1  & \text{w.p. } 0 \\
+2 & \text{w.p. } 0 \\
+3  & \text{w.p. } 0 \\
+4  & \text{w.p. } 1 \\
+\end{cases}$$ The transition probability matrix is then
+
+$$P = 
+\begin{bmatrix}
+0.2 & 0.3 & 0.4 & 0.1 \\
+0 & 0.5 & 0.4 & 0.1 \\
+0 & 0 & 0.9 & 0.1 \\
+0 & 0 & 0 & 0.1 \\
+\end{bmatrix}.$$ Clearly the sequence $X_0, X_1, X_2,\ldots$ can be
+modelled by the Markov chain with the transition probability matrix
+$P$. Moreover, given the most recent value $X_n$, its future value
+$X_{n+1}$ is independent of the past history
+$X_0, X_1, \ldots, X_{n-1}$.
+\end{verbatim}
 
 \hypertarget{tutorial-2}{%
 \section{Tutorial 2}\label{tutorial-2}}
@@ -4255,7 +4280,9 @@ Then the transition matrix can be factorised as
             1 & 1 \\
          \end{bmatrix}^{-1}.
     \]\\
-Hence \[\begin{aligned}
+Hence
+
+\[\begin{aligned}
       P^n &= \left( \begin{bmatrix}
             1 & -a/b \\
             1 & 1 \\
@@ -5023,74 +5050,113 @@ In addition, since there are two closed classes,
   \item
     \(\Pr(N(1) = 2) = \frac{\exp(-(2)(1))((2)(1))^{2} }{(2!)} = 0.2706706\).
   \item
-    \[\begin{aligned}
-     \Pr(N(1) = 2 \text{ and } N(3) = 6) &= 
-     \Pr(N(1) = 2 \text{ and } N(3) - N(1) = 4)\\
-     &= 
-     \Pr(N(1) = 2) \Pr(N(3) - N(1) = 4)\\
-     &= \frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)} \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = (0.2706706)(0.1953668) \\
-     &= 0.05288.
-     \end{aligned}\]
-    Here we have used the fact that \(N(3) - N(1)\) and \(N(1)\) are independent.
-  \item
-    \[\begin{aligned}
-     \Pr(N(1) = 2 | N(3) = 6) &= 
-     \frac{\Pr(N(1) = 2 \text{ and } N(3) = 6)}{\Pr(N(3) = 6)} \\ 
-     \frac{0.05288}{ \frac{\exp(-(2)(3))((2)(3))^{6}  }{(6!)}  } \\
-     &= 0.3292181.
-     \end{aligned}\]
-  \item
-    \[\begin{aligned}
-     \Pr(N(3) = 6 | N(1) = 2) 
-     &= \Pr(N(3)-N(1) = 4 | N(1) = 2) \\
-     &= \Pr(N(3)-N(1) = 4) 
-     \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = 0.1953668.
-     \end{aligned}\]
-    Here we have used the fact that \(N(3) - N(1)\) and \(N(1)\) are independent.
-  \item
-    \[\begin{aligned}
-     \Pr(N(1) \le 2) &= 0.6766764.
-     \end{aligned}\]
-  \item
-    \[\begin{aligned}
-     \Pr(N(1) = 1 \text{ and } N(2) = 3) &= 
-     \Pr(N(1) = 1 \text{ and } N(2) - N(1) = 2)\\
-     &= 
-     \Pr(N(1) = 1) \Pr(N(2) - N(1) = 2)\\
-     &= \frac{\exp(-(2)(1))((2)(1))^{1}  }{(1!)}\frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)}  = (0.2706706)(0.2706706) \\
-     &= 0.0732626.
-     \end{aligned}\]
-    Here we have used the fact that \(N(2) - N(1)\) and \(N(1)\) are independent.
-  \item
-    \[\begin{aligned}
-     \Pr(N(1) \ge 2 | N(1) \ge 1) 
-     &= \frac{\Pr(N(1) \ge 2 \text{ and } N(1) \ge 1)}{\Pr(N(1) \ge 1)}  \\
-      &= \frac{\Pr(N(1) \ge 2)}{\Pr(N(1) \ge 1)}  \\
-      &= \frac{1 - \Pr(N(1) \le 1)}{1- \Pr(N(1) = 0)}  \\
-      &= \frac{0.5939942}{0.8646647} \\
-      &= 0.5136058.
-     \end{aligned}\]
-  \item
-    \[\begin{aligned}
-     \mathrm{E}[N(2)] = 4.
-     \end{aligned}\]
-  \item
-    \[\begin{aligned}
-     \mathrm{E}[N(1)^2] = 
-      \mathrm{Var}[N(1)] +  (\mathrm{E}[N(1)])^2 = 6.
-     \end{aligned}\]
-  \item
-    \[\begin{aligned}
-     \mathrm{E}[N(1)N(2)] &=
-     \mathrm{E}[N(1)\cdot (N(1) + (N(2) - N(1))] \\
-     &=
-     \mathrm{E}[N(1)^2] + \mathrm{E}[ (N(1) \cdot (N(2) - N(1))] \\
-     &=
-     \mathrm{E}[N(1)^2] + \mathrm{E}[ N(1)] \cdot \mathrm{E}[N(2) - N(1)] \\
-     &= 6 + (2)(2) = 10.
-     \end{aligned}\]
-    Here we have used the fact that \(N(2) - N(1)\) and \(N(1)\) are independent.
   \end{enumerate}
+\end{enumerate}
+
+\[\begin{aligned}
+    \Pr(N(1) = 2 \text{ and } N(3) = 6) &= 
+    \Pr(N(1) = 2 \text{ and } N(3) - N(1) = 4)\\
+    &= 
+    \Pr(N(1) = 2) \Pr(N(3) - N(1) = 4)\\
+    &= \frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)} \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = (0.2706706)(0.1953668) \\
+    &= 0.05288.
+    \end{aligned}\]
+Here we have used the fact that \(N(3) - N(1)\) and \(N(1)\) are independent.
+
+\begin{verbatim}
+3.  
+\end{verbatim}
+
+\[\begin{aligned}
+    \Pr(N(1) = 2 | N(3) = 6) &= 
+    \frac{\Pr(N(1) = 2 \text{ and } N(3) = 6)}{\Pr(N(3) = 6)} \\ 
+    \frac{0.05288}{ \frac{\exp(-(2)(3))((2)(3))^{6}  }{(6!)}  } \\
+    &= 0.3292181.
+    \end{aligned}\]
+
+\begin{verbatim}
+4.  
+\end{verbatim}
+
+\[\begin{aligned}
+    \Pr(N(3) = 6 | N(1) = 2) 
+    &= \Pr(N(3)-N(1) = 4 | N(1) = 2) \\
+    &= \Pr(N(3)-N(1) = 4) 
+    \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = 0.1953668.
+    \end{aligned}\]
+Here we have used the fact that \(N(3) - N(1)\) and \(N(1)\) are independent.
+
+\begin{verbatim}
+5.  
+\end{verbatim}
+
+\[\begin{aligned}
+    \Pr(N(1) \le 2) &= 0.6766764.
+    \end{aligned}\]
+
+\begin{verbatim}
+6.  
+\end{verbatim}
+
+\[\begin{aligned}
+    \Pr(N(1) = 1 \text{ and } N(2) = 3) &= 
+    \Pr(N(1) = 1 \text{ and } N(2) - N(1) = 2)\\
+    &= 
+    \Pr(N(1) = 1) \Pr(N(2) - N(1) = 2)\\
+    &= \frac{\exp(-(2)(1))((2)(1))^{1}  }{(1!)}\frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)}  = (0.2706706)(0.2706706) \\
+    &= 0.0732626.
+    \end{aligned}\]
+Here we have used the fact that \(N(2) - N(1)\) and \(N(1)\) are independent.
+
+\begin{verbatim}
+7.  
+\end{verbatim}
+
+\[\begin{aligned}
+    \Pr(N(1) \ge 2 | N(1) \ge 1) 
+    &= \frac{\Pr(N(1) \ge 2 \text{ and } N(1) \ge 1)}{\Pr(N(1) \ge 1)}  \\
+     &= \frac{\Pr(N(1) \ge 2)}{\Pr(N(1) \ge 1)}  \\
+     &= \frac{1 - \Pr(N(1) \le 1)}{1- \Pr(N(1) = 0)}  \\
+     &= \frac{0.5939942}{0.8646647} \\
+     &= 0.5136058.
+    \end{aligned}\]
+
+\begin{verbatim}
+8.  
+\end{verbatim}
+
+\[\begin{aligned}
+    \mathrm{E}[N(2)] = 4.
+    \end{aligned}\]
+
+\begin{verbatim}
+9.  
+\end{verbatim}
+
+\[\begin{aligned}
+    \mathrm{E}[N(1)^2] = 
+     \mathrm{Var}[N(1)] +  (\mathrm{E}[N(1)])^2 = 6.
+    \end{aligned}\]
+
+\begin{verbatim}
+10. 
+\end{verbatim}
+
+\[\begin{aligned}
+    \mathrm{E}[N(1)N(2)] &=
+    \mathrm{E}[N(1)\cdot (N(1) + (N(2) - N(1))] \\
+    &=
+    \mathrm{E}[N(1)^2] + \mathrm{E}[ (N(1) \cdot (N(2) - N(1))] \\
+    &=
+    \mathrm{E}[N(1)^2] + \mathrm{E}[ N(1)] \cdot \mathrm{E}[N(2) - N(1)] \\
+    &= 6 + (2)(2) = 10.
+    \end{aligned}\]
+Here we have used the fact that \(N(2) - N(1)\) and \(N(1)\) are independent.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
 \item
   Let \(N(t)\) be the number of customers that have arrived up to time \(t\).
 \end{enumerate}
@@ -5440,12 +5506,9 @@ By independence,
 \end{enumerate}
 
 \begin{figure}
-
-{\centering \includegraphics{SCMA469Bookdownproj_files/figure-latex/tikz-ex0-1} 
-
-}
-
-\caption{The 3-state model of terminal illness}\label{fig:tikz-ex0}
+\centering
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/tikz-ex0-1.png}
+\caption{\label{fig:tikz-ex0}The 3-state model of terminal illness}
 \end{figure}
 
 \begin{verbatim}
@@ -5493,12 +5556,9 @@ how to solve these equations.
 \end{itemize}
 
 \begin{figure}
-
-{\centering \includegraphics{SCMA469Bookdownproj_files/figure-latex/tikz-ex1-1} 
-
-}
-
-\caption{A model of the mortality of two lives}\label{fig:tikz-ex1}
+\centering
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/tikz-ex1-1.png}
+\caption{\label{fig:tikz-ex1}A model of the mortality of two lives}
 \end{figure}
 
 \begin{verbatim}
@@ -5521,12 +5581,9 @@ model. Write down the Kolmogorov equation for
 \end{enumerate}
 
 \begin{figure}
-
-{\centering \includegraphics{SCMA469Bookdownproj_files/figure-latex/tikz-ex2-1} 
-
-}
-
-\caption{A Markov model for health insurance policies}\label{fig:tikz-ex2}
+\centering
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/tikz-ex2-1.png}
+\caption{\label{fig:tikz-ex2}A Markov model for health insurance policies}
 \end{figure}
 
 \begin{verbatim}
@@ -5544,8 +5601,166 @@ Kolmogorov forward differential equations (FDE) for
   An actuary wishes to study a model in which states relate to marital
   status comprising of five states, single, married, divorced, widowed
   and dead. Draw the transition diagram that illustrate the possible
-  transitions between these five states.ß
+  transitions between these five states.
 \end{enumerate}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The transition rate matrix \(Q\) of this Markov model is
+  \[
+    Q = \begin{bmatrix}
+    -(\lambda + \mu) & \lambda & \mu   \\
+    0 & -\nu & \nu   \\
+    0 & 0 & 0\end{bmatrix}.
+  \]
+  1. Return to the healthy state and ill states is impossible. Therefore
+\end{enumerate}
+
+\[p_{hh}(t) = p_{\overline{hh}}(t) \text{ and }
+  p_{ii}(t)  = p_{\overline{ii}}(t).\]
+
+\begin{verbatim}
+2. The Kolmogorov forward differential equations (FDE) for 
+\end{verbatim}
+
+\(p_{hh}(t)\) is
+
+\[
+    \begin{aligned}
+  \frac{d}{dt}p_{hh}(t) &= p_{hh}(t) q_{hh} + p_{hi}(t) q_{ih} + p_{hd}(t) q_{dh}  \\
+  &= -(\lambda + \mu) p_{hh}(t)  + (0) p_{hi}(t) + (0) p_{hd}(t)  \\
+  &= -(\lambda + \mu) p_{hh}(t).  
+  \end{aligned}
+\]
+
+\begin{verbatim}
+The solution to the differential equation together with the initial condition $p_{hh}(0) = 1$ is
+\end{verbatim}
+
+\[ p_{hh}(t) = e^{-(\lambda + \mu)t}.\]
+
+\begin{verbatim}
+Similarly, we obtain
+\end{verbatim}
+
+\[
+    \begin{aligned}
+  \frac{d}{dt}p_{ii}(t) &= p_{ii}(t) q_{ii} \\
+  &= -\nu \, p_{ii}(t).  
+  \end{aligned}
+\]
+
+\begin{verbatim}
+Solving the differential equation with $p_{ii}(0) = 1$ is
+\end{verbatim}
+
+\[ p_{ii}(t) = e^{-\nu \, t}.\]
+
+\begin{verbatim}
+3. The Kolmogorov forward differential equations (FDE) for 
+\end{verbatim}
+
+\(p_{hi}(t)\) and \(p_{hd}(t)\)are given as follows:
+
+\[\begin{aligned}
+  \frac{d}{dt}p_{hi}(t) &= p_{hh}(t) q_{hi} + p_{hi}(t) q_{ii} + p_{hd}(t) q_{di}  \quad (1) \\
+  &= \lambda p_{hh}(t)  -\nu p_{hi}(t)  + (0) p_{hd}(t)   \\
+  &= \lambda p_{hh}(t)  -\nu p_{hi}(t) \\
+  \frac{d}{dt}p_{hd}(t) &= p_{hh}(t) q_{hd} + p_{hi}(t) q_{id} + p_{hd}(t) q_{dd}  \quad (2) \\
+  &= \mu p_{hh}(t)  + \nu p_{hi}(t)  + (0) p_{hd}(t)   \\
+  &= \mu p_{hh}(t)  +\nu p_{hi}(t). \\
+  \end{aligned}
+\]
+
+\begin{verbatim}
+To solve the first equation, we substitute 
+\end{verbatim}
+
+\(p_{hh}(t)\) by \(e^{-(\lambda + \mu)t}\) into the equation, which reduces to
+
+\[ \frac{d}{dt}p_{hi}(t) + \nu p_{hi}(t)  =\lambda e^{-(\lambda + \mu)t}.\]
+This differential equation is linear with the initial condition \(p_{hi}(0) = 0\) and , hence, can be solved by a general method.
+
+In order to solve for
+
+\(p_{hd}(t)\) in Eq. (2), we note that both \(p_{hh}(t)\) and \(p_{hi}(t)\) are known so we can solve the equation for \(p_{hd}(t)\) as well.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  The transition rate matrix \(Q\) is
+\end{enumerate}
+
+\[P = \begin{bmatrix}
+  -(\alpha_1 + \beta_1) & \alpha_1 & \beta_1 & 0   \\
+  0 & -( \beta_2) & 0 &  \beta_2   \\
+  0 & 0 & -\alpha_2  & \alpha_2 \\
+  0 & 0 & 0  & 0 \\
+\end{bmatrix}.\]
+Then, the Kolmogorov forward differential equations (FDE) for \(p_{bb}(t), p_{bu}(t), p_{bv}(t)\) and \(p_{bd}(t)\) are given as follows:
+
+\[
+    \begin{aligned}
+  \frac{d}{dt}p_{bb}(t) &= p_{bb}(t) q_{bb} + p_{bu}(t) q_{ub} + p_{bv}(t) q_{vb} + p_{bd}(t) q_{db} \\
+  &=  -(\alpha_1 + \beta_1) p_{bb}(t)  + (0) p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
+  &= -(\alpha_1 + \beta_1) p_{bb}(t) \\
+  \frac{d}{dt}p_{bu}(t) &= p_{bb}(t) q_{bu} + p_{bu}(t) q_{uu} + p_{bv}(t) q_{vu} + p_{bd}(t) q_{du} \\
+  &=  \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
+  &= \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  \\
+  \frac{d}{dt}p_{bv}(t) &= p_{bb}(t) q_{bv} + p_{bu}(t) q_{uv} + p_{bv}(t) q_{vv} + p_{bd}(t) q_{dv} \\
+  &=  \beta_1  p_{bb}(t)  + (0) p_{bu}(t)  - \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
+  &=  \beta_1  p_{bb}(t)   - \alpha_2 p_{bv}(t)  \\
+  \frac{d}{dt}p_{bd}(t) &= p_{bb}(t) q_{bd} + p_{bu}(t) q_{ud} + p_{bv}(t) q_{vd} + p_{bd}(t) q_{dd} \\
+  &=  (0)  p_{bb}(t)  + \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
+  &=   \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t).   \\
+  \end{aligned}\]
+
+\begin{verbatim}
+Note that 
+\end{verbatim}
+
+\[ \frac{d}{dt}(p_{bb}(t) + p_{bu}(t) + p_{bv}(t) + p_{bd}(t)) = 0,\]
+which implies that
+\[ p_{bb}(t) + p_{bu}(t) + p_{bv}(t) + p_{bd}(t) = \text{constant} = 1.\]
+
+\begin{verbatim}
+3. The transition rate matrix $Q$ is
+\end{verbatim}
+
+\[P = \begin{bmatrix}
+  -(\sigma + \omega + \mu) & \sigma & \omega & \mu   \\
+  \rho & -(\rho + \mu) & 0 & \mu   \\
+  0 & 0 & 0  & 0 \\
+  0 & 0 & 0  & 0 \\
+\end{bmatrix}.\]
+Then, the Kolmogorov forward differential equations (FDE) for \(p_{aa}(t), p_{ai}(t)\) and \(p_{aw}(t)\) are given as follows:
+
+\[\begin{aligned}
+  \frac{d}{dt}p_{aa}(t) &= p_{aa}(t) q_{aa} + p_{ai}(t) q_{ia} + p_{aw}(t) q_{wa} + p_{ad}(t) q_{da} \\
+  &= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) + (0)p_{aw}(t)  + (0)p_{ad}(t) \\
+  &= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) \\
+  \frac{d}{dt}p_{ai}(t) 
+  &= p_{aa}(t) q_{ai} + p_{ai}(t) q_{ii} + p_{aw}(t) q_{wi} + p_{ad}(t) q_{di} \\
+  &= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t) + (0)p_{aw}(t)  + (0) p_{ad}(t)  \\
+  &= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t)  \\
+  \frac{d}{dt}p_{aw}(t) &= \omega p_{aa}(t).
+\end{aligned}\]
+
+\begin{verbatim}
+4. The transition diagram for a model of maritial status is illusrated in the figure below:
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/tikz-ex6-1.png}
+\caption{\label{fig:tikz-ex6}The 5-state model of maritial status}
+\end{figure}
 
 \hypertarget{applications}{%
 \chapter{Applications}\label{applications}}

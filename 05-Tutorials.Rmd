@@ -135,7 +135,9 @@
         X_4 = 98, X_8 = 96 |X_1 = 99)  =  12  p^{2}(1-p)^{5} .$$
 
     5.  The variable $X_5$ can take the values from
-        $95, 97, 99, 101, 103, 105$. In particular, $$\begin{aligned}
+        $95, 97, 99, 101, 103, 105$. In particular, 
+        
+$$\begin{aligned}
             \Pr(X_5 &= 95) = {5 \choose 0} p^0 (1-p)^5 =  1 
         p^0 (1-p)^5    \\
             \Pr(X_5 &= 97) = {5 \choose 1} p^1 (1-p)^4 = 5 
@@ -156,7 +158,9 @@
         + \cdots
         + 105 \cdot \left( 1 
             p^5 (1-p)^0 \right) = 95 + 10*x.$
-      Alternatively, $$\begin{aligned}
+      Alternatively, 
+      
+$$\begin{aligned}
       E\left[X_{5}\right] &=E\left[100+\sum_{i=1}^{5} Z_{i}\right] \\
       &= 100+5 \cdot E\left[Z_{i}\right]  \\
       &=100+ 5 (2 p-1)  \\
@@ -301,7 +305,9 @@
       -------------- ----- ----- ----- -----
       $P(Z_i = i)$   0.2   0.3   0.4   0.1
 
-    We note that $$\begin{aligned}
+    We note that 
+    
+$$\begin{aligned}
     X_{n+1} &=\operatorname{max}\left\{Z_{1}, Z_{2}, \ldots, Z_{n+1}\right\} \\
     &=\operatorname{max}\left\{X_{n}, Z_{n+1}\right\}
     \end{aligned}$$ Consider the transition probabilities
@@ -574,7 +580,9 @@ P^2
             1 & 1 \\
          \end{bmatrix}^{-1}.
     $$  
-  Hence $$\begin{aligned}
+  Hence 
+  
+$$\begin{aligned}
       P^n &= \left( \begin{bmatrix}
             1 & -a/b \\
             1 & 1 \\
@@ -1707,7 +1715,9 @@ anything that has occurred before time $s$.
 
     1.  $\Pr(N(`r t1`) = `r n1`) = \frac{\exp(-(`r lambda`)(`r t1`))((`r lambda`)(`r t1`))^{`r n1`}  }{(`r n1`!)} = `r dpois(n1,lambda = lambda*t1)`$.
 
-    2.  $$\begin{aligned}
+    2.  
+    
+$$\begin{aligned}
     \Pr(N(1) = 2 \text{ and } N(3) = 6) &= 
     \Pr(N(1) = 2 \text{ and } N(3) - N(1) = 4)\\
     &= 
@@ -1717,14 +1727,18 @@ anything that has occurred before time $s$.
     \end{aligned}$$
     Here we have used the fact that $N(3) - N(1)$ and $N(1)$ are independent. 
     
-    3.  $$\begin{aligned}
+    3.  
+
+$$\begin{aligned}
     \Pr(N(1) = 2 | N(3) = 6) &= 
     \frac{\Pr(N(1) = 2 \text{ and } N(3) = 6)}{\Pr(N(3) = 6)} \\ 
     \frac{`r dpois(n1,lambda = lambda*t1)* dpois(n2,lambda = lambda*t2)`}{ \frac{\exp(-(`r lambda`)(`r t3`))((`r lambda`)(`r t3`))^{`r n3`}  }{(`r n3`!)}  } \\
     &= `r (dpois(n1,lambda = lambda*t1)* dpois(n2,lambda = lambda*t2)/dpois(n3,lambda = lambda*t3) )`.
     \end{aligned}$$
     
-    4.  $$\begin{aligned}
+    4.  
+    
+$$\begin{aligned}
     \Pr(N(3) = 6 | N(1) = 2) 
     &= \Pr(N(3)-N(1) = 4 | N(1) = 2) \\
     &= \Pr(N(3)-N(1) = 4) 
@@ -1732,11 +1746,15 @@ anything that has occurred before time $s$.
     \end{aligned}$$
     Here we have used the fact that $N(3) - N(1)$ and $N(1)$ are independent. 
 
-    5.  $$\begin{aligned}
+    5.  
+    
+$$\begin{aligned}
     \Pr(N(1) \le 2) &= `r ppois(2,lambda = lambda*t1)`.
     \end{aligned}$$
 
-    6.  $$\begin{aligned}
+    6.  
+    
+$$\begin{aligned}
     \Pr(N(1) = 1 \text{ and } N(2) = 3) &= 
     \Pr(N(1) = 1 \text{ and } N(2) - N(1) = 2)\\
     &= 
@@ -1746,7 +1764,9 @@ anything that has occurred before time $s$.
     \end{aligned}$$
     Here we have used the fact that $N(2) - N(1)$ and $N(1)$ are independent. 
 
-    7.  $$\begin{aligned}
+    7.  
+    
+$$\begin{aligned}
     \Pr(N(1) \ge 2 | N(1) \ge 1) 
     &= \frac{\Pr(N(1) \ge 2 \text{ and } N(1) \ge 1)}{\Pr(N(1) \ge 1)}  \\
      &= \frac{\Pr(N(1) \ge 2)}{\Pr(N(1) \ge 1)}  \\
@@ -1755,16 +1775,22 @@ anything that has occurred before time $s$.
      &= `r ppois(1,lambda = lambda*t1, lower.tail = FALSE)* ppois(0,lambda = lambda*t1, lower.tail = FALSE)`.
     \end{aligned}$$
 
-    8.  $$\begin{aligned}
+    8.  
+    
+$$\begin{aligned}
     \mathrm{E}[N(2)] = 4.
     \end{aligned}$$
 
-    9.  $$\begin{aligned}
+    9.  
+    
+$$\begin{aligned}
     \mathrm{E}[N(1)^2] = 
      \mathrm{Var}[N(1)] +  (\mathrm{E}[N(1)])^2 = 6.
     \end{aligned}$$
 
-    10. $$\begin{aligned}
+    10. 
+    
+$$\begin{aligned}
     \mathrm{E}[N(1)N(2)] &=
     \mathrm{E}[N(1)\cdot (N(1) + (N(2) - N(1))] \\
     &=
@@ -2082,9 +2108,9 @@ $$
 
     Consider the 3-state model of terminal illness for healthy, ill and
     dead states as shown below.
-    
-```{tikz, tikz-ex0, fig.cap = "The 3-state model of terminal illness", fig.ext = 'png', cache=TRUE, echo = FALSE, fig.align = 'center'}
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+```{tikz, tikz-ex0, fig.cap = "The 3-state model of terminal illness", fig.ext = 'png', cache=TRUE, echo = FALSE}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}
     % place nodes
@@ -2101,10 +2127,8 @@ $$
 
     %\draw (0,-3) node[above,near start abs] {Test} -- ++(7,0);
 \end{tikzpicture}
+```
 
-
-```    
-    
     
 
     1.  What can you say about 
@@ -2135,7 +2159,7 @@ $\frac{d}{dt}p_{hi}(t)$, $\frac{d}{dt}p_{hd}(t)$ and explain
 
   -   $d =$ both are dead.
 
-```{tikz, tikz-ex1, fig.cap = "A model of the mortality of two lives", fig.ext = 'png', cache=TRUE, echo = FALSE, fig.align = 'center'}
+```{tikz, tikz-ex1, fig.cap = "A model of the mortality of two lives", fig.ext = 'png', cache=TRUE, echo = FALSE}
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt  
 \begin{tikzpicture}
     % place nodes
@@ -2169,7 +2193,7 @@ $\frac{d}{dt}p_{bu}(t)$, $\frac{d}{dt}p_{bv}(t)$ and
     ($w$). The lives can move between state according to the following
     diagram:
 
-```{tikz, tikz-ex2, fig.cap = "A Markov model for health insurance policies", fig.ext = 'png', cache=TRUE, echo = FALSE, fig.align = 'center'}
+```{tikz, tikz-ex2, fig.cap = "A Markov model for health insurance policies", fig.ext = 'png', cache=TRUE, echo = FALSE}
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
 \begin{tikzpicture}
@@ -2202,148 +2226,141 @@ $p_{aa}(t), p_{ai}(t)$ and $p_{aw}(t)$.
 4.  An actuary wishes to study a model in which states relate to marital
     status comprising of five states, single, married, divorced, widowed
     and dead. Draw the transition diagram that illustrate the possible
-    transitions between these five states.ß
+    transitions between these five states.
 
-
-## Solutions:
-
-1. The transition rate matrix $Q$ of this Markov model is
+**Solution:**
+  
+  1. The transition rate matrix $Q$ of this Markov model is
 $$
-Q = \begin{bmatrix}
-    -(\lambda + \mu) & \lambda & \mu   \\
-    0 & -\nu & \nu   \\
-    0 & 0 & 0\end{bmatrix}.
+  Q = \begin{bmatrix}
+  -(\lambda + \mu) & \lambda & \mu   \\
+  0 & -\nu & \nu   \\
+  0 & 0 & 0\end{bmatrix}.
 $$ 
     1. Return to the healthy state and ill states is impossible. Therefore
-
-$$p_{hh}(t) = p_{\overline{hh}}(t) \text{ and }
-        p_{ii}(t)  = p_{\overline{ii}}(t).$$
-
+  
+  $$p_{hh}(t) = p_{\overline{hh}}(t) \text{ and }
+  p_{ii}(t)  = p_{\overline{ii}}(t).$$
+    
     2. The Kolmogorov forward differential equations (FDE) for 
-
-$p_{hh}(t)$ is
-
-
-
+  
+  $p_{hh}(t)$ is
+  
+  
+  
 $$
-\begin{align}
-\frac{d}{dt}p_{hh}(t) &= p_{hh}(t) q_{hh} + p_{hi}(t) q_{ih} + p_{hd}(t) q_{dh}  \\
-&= -(\lambda + \mu) p_{hh}(t)  + (0) p_{hi}(t) + (0) p_{hd}(t)  \\
-&= -(\lambda + \mu) p_{hh}(t).  
-\end{align}
+    \begin{aligned}
+  \frac{d}{dt}p_{hh}(t) &= p_{hh}(t) q_{hh} + p_{hi}(t) q_{ih} + p_{hd}(t) q_{dh}  \\
+  &= -(\lambda + \mu) p_{hh}(t)  + (0) p_{hi}(t) + (0) p_{hd}(t)  \\
+  &= -(\lambda + \mu) p_{hh}(t).  
+  \end{aligned}
 $$
-
-The solution to the differential equation together with the initial condition $p_{hh}(0) = 1$ is
+    
+    The solution to the differential equation together with the initial condition $p_{hh}(0) = 1$ is
 $$ p_{hh}(t) = e^{-(\lambda + \mu)t}.$$
-
-Similarly, we obtain
-
+    
+    Similarly, we obtain
+  
 $$
-\begin{align}
-\frac{d}{dt}p_{ii}(t) &= p_{ii}(t) q_{ii} \\
-&= -\nu \, p_{ii}(t).  
-\end{align}
+    \begin{aligned}
+  \frac{d}{dt}p_{ii}(t) &= p_{ii}(t) q_{ii} \\
+  &= -\nu \, p_{ii}(t).  
+  \end{aligned}
 $$
-
-Solving the differential equation with $p_{ii}(0) = 1$ is
+    
+    Solving the differential equation with $p_{ii}(0) = 1$ is
 $$ p_{ii}(t) = e^{-\nu \, t}.$$
-
+    
     3. The Kolmogorov forward differential equations (FDE) for 
+  
+  $p_{hi}(t)$  and $p_{hd}(t)$are given as follows:
     
-$p_{hi}(t)$  and $p_{hd}(t)$are given as follows:
-
-
-\begin{align}
-\frac{d}{dt}p_{hi}(t) &= p_{hh}(t) q_{hi} + p_{hi}(t) q_{ii} + p_{hd}(t) q_{di}  \quad (1) \\
-&= \lambda p_{hh}(t)  -\nu p_{hi}(t)  + (0) p_{hd}(t)   \\
-&= \lambda p_{hh}(t)  -\nu p_{hi}(t) \\
-
-\frac{d}{dt}p_{hd}(t) &= p_{hh}(t) q_{hd} + p_{hi}(t) q_{id} + p_{hd}(t) q_{dd}  \quad (2) \\
-&= \mu p_{hh}(t)  + \nu p_{hi}(t)  + (0) p_{hd}(t)   \\
-&= \mu p_{hh}(t)  +\nu p_{hi}(t). \\
-\end{align}
-
-
+$$\begin{aligned}
+  \frac{d}{dt}p_{hi}(t) &= p_{hh}(t) q_{hi} + p_{hi}(t) q_{ii} + p_{hd}(t) q_{di}  \quad (1) \\
+  &= \lambda p_{hh}(t)  -\nu p_{hi}(t)  + (0) p_{hd}(t)   \\
+  &= \lambda p_{hh}(t)  -\nu p_{hi}(t) \\
+  \frac{d}{dt}p_{hd}(t) &= p_{hh}(t) q_{hd} + p_{hi}(t) q_{id} + p_{hd}(t) q_{dd}  \quad (2) \\
+  &= \mu p_{hh}(t)  + \nu p_{hi}(t)  + (0) p_{hd}(t)   \\
+  &= \mu p_{hh}(t)  +\nu p_{hi}(t). \\
+  \end{aligned}
+$$
+    
     To solve the first equation, we substitute 
-    
+  
 $p_{hh}(t)$ by $e^{-(\lambda + \mu)t}$ into the equation, which reduces to
-
+  
 $$ \frac{d}{dt}p_{hi}(t) + \nu p_{hi}(t)  =\lambda e^{-(\lambda + \mu)t}.$$
     This differential equation is linear with the initial condition $p_{hi}(0) = 0$ and , hence, can be solved by a general method.
-    
-    In order to solve for 
-    
-$p_{hd}(t)$ in Eq. (2), we note that both $p_{hh}(t)$ and $p_{hi}(t)$ are known so we can solve the equation for $p_{hd}(t)$ as well.
+  
+  In order to solve for 
+  
+$p_{hd}(t)$ in Eq. (2), we note that both $p_{hh}(t)$ and $p_{hi}(t)$ are known so we can solve the equation for $p_{hd}(t)$ as well. 
 
-2. The transition rate matrix $Q$ is
 
+  2. The transition rate matrix $Q$ is
+  
 $$P = \begin{bmatrix}
-    -(\alpha_1 + \beta_1) & \alpha_1 & \beta_1 & 0   \\
-    0 & -( \beta_2) & 0 &  \beta_2   \\
-    0 & 0 & -\alpha_2  & \alpha_2 \\
-    0 & 0 & 0  & 0 \\
+  -(\alpha_1 + \beta_1) & \alpha_1 & \beta_1 & 0   \\
+  0 & -( \beta_2) & 0 &  \beta_2   \\
+  0 & 0 & -\alpha_2  & \alpha_2 \\
+  0 & 0 & 0  & 0 \\
 \end{bmatrix}.$$
-Then, the Kolmogorov forward differential equations (FDE) for $p_{bb}(t), p_{bu}(t), p_{bv}(t)$ and $p_{bd}(t)$ are given as follows:
-
-
-\begin{align}
-\frac{d}{dt}p_{bb}(t) &= p_{bb}(t) q_{bb} + p_{bu}(t) q_{ub} + p_{bv}(t) q_{vb} + p_{bd}(t) q_{db} \\
-&=  -(\alpha_1 + \beta_1) p_{bb}(t)  + (0) p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
-&= -(\alpha_1 + \beta_1) p_{bb}(t) \\
-
-\frac{d}{dt}p_{bu}(t) &= p_{bb}(t) q_{bu} + p_{bu}(t) q_{uu} + p_{bv}(t) q_{vu} + p_{bd}(t) q_{du} \\
-&=  \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
-&= \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  \\
-
-\frac{d}{dt}p_{bv}(t) &= p_{bb}(t) q_{bv} + p_{bu}(t) q_{uv} + p_{bv}(t) q_{vv} + p_{bd}(t) q_{dv} \\
-&=  \beta_1  p_{bb}(t)  + (0) p_{bu}(t)  - \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
-&=  \beta_1  p_{bb}(t)   - \alpha_2 p_{bv}(t)  \\
-
-\frac{d}{dt}p_{bd}(t) &= p_{bb}(t) q_{bd} + p_{bu}(t) q_{ud} + p_{bv}(t) q_{vd} + p_{bd}(t) q_{dd} \\
-&=  (0)  p_{bb}(t)  + \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
-&=   \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t).   \\
-\end{align}
-
-Note that 
-
+    Then, the Kolmogorov forward differential equations (FDE) for $p_{bb}(t), p_{bu}(t), p_{bv}(t)$ and $p_{bd}(t)$ are given as follows:
+    
+$$
+    \begin{aligned}
+  \frac{d}{dt}p_{bb}(t) &= p_{bb}(t) q_{bb} + p_{bu}(t) q_{ub} + p_{bv}(t) q_{vb} + p_{bd}(t) q_{db} \\
+  &=  -(\alpha_1 + \beta_1) p_{bb}(t)  + (0) p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
+  &= -(\alpha_1 + \beta_1) p_{bb}(t) \\
+  \frac{d}{dt}p_{bu}(t) &= p_{bb}(t) q_{bu} + p_{bu}(t) q_{uu} + p_{bv}(t) q_{vu} + p_{bd}(t) q_{du} \\
+  &=  \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
+  &= \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  \\
+  \frac{d}{dt}p_{bv}(t) &= p_{bb}(t) q_{bv} + p_{bu}(t) q_{uv} + p_{bv}(t) q_{vv} + p_{bd}(t) q_{dv} \\
+  &=  \beta_1  p_{bb}(t)  + (0) p_{bu}(t)  - \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
+  &=  \beta_1  p_{bb}(t)   - \alpha_2 p_{bv}(t)  \\
+  \frac{d}{dt}p_{bd}(t) &= p_{bb}(t) q_{bd} + p_{bu}(t) q_{ud} + p_{bv}(t) q_{vd} + p_{bd}(t) q_{dd} \\
+  &=  (0)  p_{bb}(t)  + \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
+  &=   \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t).   \\
+  \end{aligned}$$
+    
+    Note that 
+  
 $$ \frac{d}{dt}(p_{bb}(t) + p_{bu}(t) + p_{bv}(t) + p_{bd}(t)) = 0,$$
-which implies that
+    which implies that
 $$ p_{bb}(t) + p_{bu}(t) + p_{bv}(t) + p_{bd}(t) = \text{constant} = 1.$$
-
-3. The transition rate matrix $Q$ is
-
+    
+    3. The transition rate matrix $Q$ is
+  
 $$P = \begin{bmatrix}
-    -(\sigma + \omega + \mu) & \sigma & \omega & \mu   \\
-    \rho & -(\rho + \mu) & 0 & \mu   \\
-    0 & 0 & 0  & 0 \\
-    0 & 0 & 0  & 0 \\
+  -(\sigma + \omega + \mu) & \sigma & \omega & \mu   \\
+  \rho & -(\rho + \mu) & 0 & \mu   \\
+  0 & 0 & 0  & 0 \\
+  0 & 0 & 0  & 0 \\
 \end{bmatrix}.$$
-Then, the Kolmogorov forward differential equations (FDE) for $p_{aa}(t), p_{ai}(t)$ and $p_{aw}(t)$ are given as follows:
+    Then, the Kolmogorov forward differential equations (FDE) for $p_{aa}(t), p_{ai}(t)$ and $p_{aw}(t)$ are given as follows:
+    
+    
+    
+$$\begin{aligned}
+  \frac{d}{dt}p_{aa}(t) &= p_{aa}(t) q_{aa} + p_{ai}(t) q_{ia} + p_{aw}(t) q_{wa} + p_{ad}(t) q_{da} \\
+  &= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) + (0)p_{aw}(t)  + (0)p_{ad}(t) \\
+  &= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) \\
+  \frac{d}{dt}p_{ai}(t) 
+  &= p_{aa}(t) q_{ai} + p_{ai}(t) q_{ii} + p_{aw}(t) q_{wi} + p_{ad}(t) q_{di} \\
+  &= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t) + (0)p_{aw}(t)  + (0) p_{ad}(t)  \\
+  &= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t)  \\
+  \frac{d}{dt}p_{aw}(t) &= \omega p_{aa}(t).
+\end{aligned}$$
+    
+    
+    4. The transition diagram for a model of maritial status is illusrated in the figure below:
+    
+    
+    
+
+```{tikz, tikz-ex6, fig.cap = "The 5-state model of maritial status", fig.ext = 'png', cache=TRUE, echo = FALSE}
 
 
-
-
-\begin{aligned}
-\frac{d}{dt}p_{aa}(t) &= p_{aa}(t) q_{aa} + p_{ai}(t) q_{ia} + p_{aw}(t) q_{wa} + p_{ad}(t) q_{da} \\
-&= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) + (0)p_{aw}(t)  + (0)p_{ad}(t) \\
-&= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) \\
-
-\frac{d}{dt}p_{ai}(t) 
-&= p_{aa}(t) q_{ai} + p_{ai}(t) q_{ii} + p_{aw}(t) q_{wi} + p_{ad}(t) q_{di} \\
-&= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t) + (0)p_{aw}(t)  + (0) p_{ad}(t)  \\
-&= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t)  \\
-
-\frac{d}{dt}p_{aw}(t) &= \omega p_{aa}(t).
-\end{aligned}
-
-
-
-4. The transition diagram for a model of maritial status is illusrated in the figure below:
-
-
-
-
-```{tikz, tikz-ex4, fig.cap = "The 5-state model of maritial status", fig.ext = 'png', cache=TRUE, echo = FALSE, fig.align = 'center'}  
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
@@ -2399,7 +2416,5 @@ Then, the Kolmogorov forward differential equations (FDE) for $p_{aa}(t), p_{ai}
 % Text Node
 \draw (424.28,86.4) node   [align=left] {Married};
 
-
 \end{tikzpicture}
-
 ```

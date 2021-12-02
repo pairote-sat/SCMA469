@@ -24,7 +24,7 @@
 <meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2021-12-01" />
+<meta name="date" content="2021-12-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -208,7 +208,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="tutorials.html"><a href="tutorials.html#tutorial-4"><i class="fa fa-check"></i><b>6.4</b> Tutorial 4</a></li>
 <li class="chapter" data-level="6.5" data-path="tutorials.html"><a href="tutorials.html#tutorial-5"><i class="fa fa-check"></i><b>6.5</b> Tutorial 5</a></li>
 <li class="chapter" data-level="6.6" data-path="tutorials.html"><a href="tutorials.html#tutorial-6"><i class="fa fa-check"></i><b>6.6</b> Tutorial 6</a></li>
-<li class="chapter" data-level="6.7" data-path="tutorials.html"><a href="tutorials.html#solutions"><i class="fa fa-check"></i><b>6.7</b> Solutions:</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>7</b> Applications</a>
 <ul>
@@ -355,24 +354,38 @@ X_4 = 98, X_8 = 96 |X_1 = 99, X_0 = 100)
 = \Pr(
 X_4 = 98, X_8 = 96 |X_1 = 99)  =  12  p^{2}(1-p)^{5} .\]</span></p></li>
 <li><p>The variable <span class="math inline">\(X_5\)</span> can take the values from
-<span class="math inline">\(95, 97, 99, 101, 103, 105\)</span>. In particular, <span class="math display">\[\begin{aligned}
-    \Pr(X_5 &amp;= 95) = {5 \choose 0} p^0 (1-p)^5 =  1 
-p^0 (1-p)^5    \\
-    \Pr(X_5 &amp;= 97) = {5 \choose 1} p^1 (1-p)^4 = 5 
-    p^1 (1-p)^4\\
-    \Pr(X_5 &amp;= 99) = {5 \choose 2} p^2 (1-p)^3 = 10 
-    p^2 (1-p)^3\\
-    &amp;\vdots \\
-    \Pr(X_5 &amp;= 105) = {5 \choose 5} p^5 (1-p)^0 = 1 
-    p^5 (1-p)^0 \end{aligned}\]</span></p>
-<p>Therefore, <span class="math inline">\(\mathrm{E}[X_5] =  95 \cdot \left( 1 p^0 (1-p)^5 \right) + 97 \cdot \left(5 p^1 (1-p)^4 \right) + 99 \cdot \left(10 p^2 (1-p)^3 \right) + \cdots + 105 \cdot \left( 1  p^5 (1-p)^0 \right) = 95 + 10*x.\)</span>
-Alternatively, <span class="math display">\[\begin{aligned}
-  E\left[X_{5}\right] &amp;=E\left[100+\sum_{i=1}^{5} Z_{i}\right] \\
-  &amp;= 100+5 \cdot E\left[Z_{i}\right]  \\
-  &amp;=100+ 5 (2 p-1)  \\
-  &amp;=95 + 10p\end{aligned}\]</span>
-where <span class="math inline">\(E\left[Z_{i}\right] = p-q = p - (1 - p) = 2p -1.\)</span></p></li>
+<span class="math inline">\(95, 97, 99, 101, 103, 105\)</span>. In particular,</p></li>
 </ol></li>
+</ol>
+<p><span class="math display">\[\begin{aligned}
+            \Pr(X_5 &amp;= 95) = {5 \choose 0} p^0 (1-p)^5 =  1 
+        p^0 (1-p)^5    \\
+            \Pr(X_5 &amp;= 97) = {5 \choose 1} p^1 (1-p)^4 = 5 
+            p^1 (1-p)^4\\
+            \Pr(X_5 &amp;= 99) = {5 \choose 2} p^2 (1-p)^3 = 10 
+            p^2 (1-p)^3\\
+            &amp;\vdots \\
+            \Pr(X_5 &amp;= 105) = {5 \choose 5} p^5 (1-p)^0 = 1 
+            p^5 (1-p)^0 \end{aligned}\]</span></p>
+<pre><code>    Therefore, $\mathrm{E}[X_5] = 
+     95 \cdot \left( 1 
+    p^0 (1-p)^5 \right)
+    + 97 \cdot \left(5 
+    p^1 (1-p)^4 \right)
+    + 99 \cdot \left(10 
+    p^2 (1-p)^3 \right)
+    + \cdots
+    + 105 \cdot \left( 1 
+        p^5 (1-p)^0 \right) = 95 + 10*x.$
+  Alternatively, 
+  </code></pre>
+<p><span class="math display">\[\begin{aligned}
+      E\left[X_{5}\right] &amp;=E\left[100+\sum_{i=1}^{5} Z_{i}\right] \\
+      &amp;= 100+5 \cdot E\left[Z_{i}\right]  \\
+      &amp;=100+ 5 (2 p-1)  \\
+      &amp;=95 + 10p\end{aligned}\]</span>
+where <span class="math inline">\(E\left[Z_{i}\right] = p-q = p - (1 - p) = 2p -1.\)</span></p>
+<ol start="4" style="list-style-type: decimal">
 <li><p>For each event,</p>
 <ul>
 <li><p>Identify a stochastic process <span class="math inline">\(\{ X_t : t \in T\}\)</span> and describe
@@ -500,54 +513,60 @@ to date. Explain how this may be modelled by a Markov chain.
 </tr>
 </tbody>
 </table>
-<p>We note that <span class="math display">\[\begin{aligned}
-X_{n+1} &amp;=\operatorname{max}\left\{Z_{1}, Z_{2}, \ldots, Z_{n+1}\right\} \\
-&amp;=\operatorname{max}\left\{X_{n}, Z_{n+1}\right\}
-\end{aligned}\]</span> Consider the transition probabilities</p>
+<p>We note that</p></li>
+</ol>
 <p><span class="math display">\[\begin{aligned}
+    X_{n+1} &amp;=\operatorname{max}\left\{Z_{1}, Z_{2}, \ldots, Z_{n+1}\right\} \\
+    &amp;=\operatorname{max}\left\{X_{n}, Z_{n+1}\right\}
+    \end{aligned}\]</span> Consider the transition probabilities</p>
+<pre><code>$$\begin{aligned}
 P\left(X_{n+1} = j \mid X_{n}=i \right) &amp;= P\left(\max \left\{X_{n}, Z_{n+1}\right\}=j \mid X_{n}=i\right) \\
 &amp;=P\left(\max \left\{i, Z_{n+1}\right\}=j \mid X_{n}=i\right)
-\end{aligned}\]</span></p>
-<p><strong>Case 1:</strong> If <span class="math inline">\(i=1\)</span>, then <span class="math display">\[\max \left\{1, Z_{n+1}\right\}= 
+\end{aligned}$$
+
+**Case 1:** If $i=1$, then $$\max \left\{1, Z_{n+1}\right\}= 
 \begin{cases}
 1  &amp; \text{w.p. } 0.2 \\
 2 &amp; \text{w.p. } 0.3 \\
 3  &amp; \text{w.p. } 0.4 \\
 4  &amp; \text{w.p. } 0.1 \\
-\end{cases}\]</span></p>
-<p><strong>Case 2:</strong> If <span class="math inline">\(i=2\)</span>, then <span class="math display">\[\max \left\{2, Z_{n+1}\right\}= 
+\end{cases}$$
+
+**Case 2:** If $i=2$, then $$\max \left\{2, Z_{n+1}\right\}= 
 \begin{cases}
 1  &amp; \text{w.p. } 0 \\
 2 &amp; \text{w.p. } 0.5 \quad (\text{i.e. } z_{n+1} = 1 \text{ or } 2  )\\
 3  &amp; \text{w.p. } 0.4 \\
 4  &amp; \text{w.p. } 0.1 \\
-\end{cases}\]</span></p>
-<p><strong>Case 3:</strong> If <span class="math inline">\(i=3\)</span>, then <span class="math display">\[\max \left\{3, Z_{n+1}\right\}= 
+\end{cases}$$
+
+**Case 3:** If $i=3$, then $$\max \left\{3, Z_{n+1}\right\}= 
 \begin{cases}
 1  &amp; \text{w.p. } 0 \\
 2 &amp; \text{w.p. } 0 \\
 3  &amp; \text{w.p. } 0.9 \\
 4  &amp; \text{w.p. } 0.1 \\
-\end{cases}\]</span></p>
-<p><strong>Case 4:</strong> If <span class="math inline">\(i=4\)</span>, then <span class="math display">\[\max \left\{4, Z_{n+1}\right\}= 
+\end{cases}$$
+
+**Case 4:** If $i=4$, then $$\max \left\{4, Z_{n+1}\right\}= 
 \begin{cases}
 1  &amp; \text{w.p. } 0 \\
 2 &amp; \text{w.p. } 0 \\
 3  &amp; \text{w.p. } 0 \\
 4  &amp; \text{w.p. } 1 \\
-\end{cases}\]</span> The transition probability matrix is then</p>
-<p><span class="math display">\[P = 
+\end{cases}$$ The transition probability matrix is then
+
+$$P = 
 \begin{bmatrix}
 0.2 &amp; 0.3 &amp; 0.4 &amp; 0.1 \\
 0 &amp; 0.5 &amp; 0.4 &amp; 0.1 \\
 0 &amp; 0 &amp; 0.9 &amp; 0.1 \\
 0 &amp; 0 &amp; 0 &amp; 0.1 \\
-\end{bmatrix}.\]</span> Clearly the sequence <span class="math inline">\(X_0, X_1, X_2,\ldots\)</span> can be
+\end{bmatrix}.$$ Clearly the sequence $X_0, X_1, X_2,\ldots$ can be
 modelled by the Markov chain with the transition probability matrix
-<span class="math inline">\(P\)</span>. Moreover, given the most recent value <span class="math inline">\(X_n\)</span>, its future value
-<span class="math inline">\(X_{n+1}\)</span> is independent of the past history
-<span class="math inline">\(X_0, X_1, \ldots, X_{n-1}\)</span>.</p></li>
-</ol>
+$P$. Moreover, given the most recent value $X_n$, its future value
+$X_{n+1}$ is independent of the past history
+$X_0, X_1, \ldots, X_{n-1}$.</code></pre>
 </div>
 <div id="tutorial-2" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Tutorial 2</h2>
@@ -691,7 +710,8 @@ Then the transition matrix can be factorised as
             1 &amp; 1 \\
          \end{bmatrix}^{-1}.
     \]</span><br />
-Hence <span class="math display">\[\begin{aligned}
+Hence</p>
+<p><span class="math display">\[\begin{aligned}
       P^n &amp;= \left( \begin{bmatrix}
             1 &amp; -a/b \\
             1 &amp; 1 \\
@@ -1482,67 +1502,78 @@ Poisson random variable with mean <span class="math inline">\(\lambda \, t\)</sp
 anything that has occurred before time <span class="math inline">\(s\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\Pr(N(1) = 2) = \frac{\exp(-(2)(1))((2)(1))^{2} }{(2!)} = 0.2706706\)</span>.</p></li>
-<li><p><span class="math display">\[\begin{aligned}
- \Pr(N(1) = 2 \text{ and } N(3) = 6) &amp;= 
- \Pr(N(1) = 2 \text{ and } N(3) - N(1) = 4)\\
- &amp;= 
- \Pr(N(1) = 2) \Pr(N(3) - N(1) = 4)\\
- &amp;= \frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)} \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = (0.2706706)(0.1953668) \\
- &amp;= 0.05288.
- \end{aligned}\]</span>
-Here we have used the fact that <span class="math inline">\(N(3) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p></li>
-<li><p><span class="math display">\[\begin{aligned}
- \Pr(N(1) = 2 | N(3) = 6) &amp;= 
- \frac{\Pr(N(1) = 2 \text{ and } N(3) = 6)}{\Pr(N(3) = 6)} \\ 
- \frac{0.05288}{ \frac{\exp(-(2)(3))((2)(3))^{6}  }{(6!)}  } \\
- &amp;= 0.3292181.
- \end{aligned}\]</span></p></li>
-<li><p><span class="math display">\[\begin{aligned}
- \Pr(N(3) = 6 | N(1) = 2) 
- &amp;= \Pr(N(3)-N(1) = 4 | N(1) = 2) \\
- &amp;= \Pr(N(3)-N(1) = 4) 
- \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = 0.1953668.
- \end{aligned}\]</span>
-Here we have used the fact that <span class="math inline">\(N(3) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p></li>
-<li><p><span class="math display">\[\begin{aligned}
- \Pr(N(1) \le 2) &amp;= 0.6766764.
- \end{aligned}\]</span></p></li>
-<li><p><span class="math display">\[\begin{aligned}
- \Pr(N(1) = 1 \text{ and } N(2) = 3) &amp;= 
- \Pr(N(1) = 1 \text{ and } N(2) - N(1) = 2)\\
- &amp;= 
- \Pr(N(1) = 1) \Pr(N(2) - N(1) = 2)\\
- &amp;= \frac{\exp(-(2)(1))((2)(1))^{1}  }{(1!)}\frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)}  = (0.2706706)(0.2706706) \\
- &amp;= 0.0732626.
- \end{aligned}\]</span>
-Here we have used the fact that <span class="math inline">\(N(2) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p></li>
-<li><p><span class="math display">\[\begin{aligned}
- \Pr(N(1) \ge 2 | N(1) \ge 1) 
- &amp;= \frac{\Pr(N(1) \ge 2 \text{ and } N(1) \ge 1)}{\Pr(N(1) \ge 1)}  \\
-  &amp;= \frac{\Pr(N(1) \ge 2)}{\Pr(N(1) \ge 1)}  \\
-  &amp;= \frac{1 - \Pr(N(1) \le 1)}{1- \Pr(N(1) = 0)}  \\
-  &amp;= \frac{0.5939942}{0.8646647} \\
-  &amp;= 0.5136058.
- \end{aligned}\]</span></p></li>
-<li><p><span class="math display">\[\begin{aligned}
- \mathrm{E}[N(2)] = 4.
- \end{aligned}\]</span></p></li>
-<li><p><span class="math display">\[\begin{aligned}
- \mathrm{E}[N(1)^2] = 
-  \mathrm{Var}[N(1)] +  (\mathrm{E}[N(1)])^2 = 6.
- \end{aligned}\]</span></p></li>
-<li><p><span class="math display">\[\begin{aligned}
- \mathrm{E}[N(1)N(2)] &amp;=
- \mathrm{E}[N(1)\cdot (N(1) + (N(2) - N(1))] \\
- &amp;=
- \mathrm{E}[N(1)^2] + \mathrm{E}[ (N(1) \cdot (N(2) - N(1))] \\
- &amp;=
- \mathrm{E}[N(1)^2] + \mathrm{E}[ N(1)] \cdot \mathrm{E}[N(2) - N(1)] \\
- &amp;= 6 + (2)(2) = 10.
- \end{aligned}\]</span>
-Here we have used the fact that <span class="math inline">\(N(2) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p></li>
+<li></li>
 </ol></li>
-<li><p>Let <span class="math inline">\(N(t)\)</span> be the number of customers that have arrived up to time <span class="math inline">\(t\)</span>.</p></li>
+</ol>
+<p><span class="math display">\[\begin{aligned}
+    \Pr(N(1) = 2 \text{ and } N(3) = 6) &amp;= 
+    \Pr(N(1) = 2 \text{ and } N(3) - N(1) = 4)\\
+    &amp;= 
+    \Pr(N(1) = 2) \Pr(N(3) - N(1) = 4)\\
+    &amp;= \frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)} \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = (0.2706706)(0.1953668) \\
+    &amp;= 0.05288.
+    \end{aligned}\]</span>
+Here we have used the fact that <span class="math inline">\(N(3) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p>
+<pre><code>3.  </code></pre>
+<p><span class="math display">\[\begin{aligned}
+    \Pr(N(1) = 2 | N(3) = 6) &amp;= 
+    \frac{\Pr(N(1) = 2 \text{ and } N(3) = 6)}{\Pr(N(3) = 6)} \\ 
+    \frac{0.05288}{ \frac{\exp(-(2)(3))((2)(3))^{6}  }{(6!)}  } \\
+    &amp;= 0.3292181.
+    \end{aligned}\]</span></p>
+<pre><code>4.  </code></pre>
+<p><span class="math display">\[\begin{aligned}
+    \Pr(N(3) = 6 | N(1) = 2) 
+    &amp;= \Pr(N(3)-N(1) = 4 | N(1) = 2) \\
+    &amp;= \Pr(N(3)-N(1) = 4) 
+    \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = 0.1953668.
+    \end{aligned}\]</span>
+Here we have used the fact that <span class="math inline">\(N(3) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p>
+<pre><code>5.  </code></pre>
+<p><span class="math display">\[\begin{aligned}
+    \Pr(N(1) \le 2) &amp;= 0.6766764.
+    \end{aligned}\]</span></p>
+<pre><code>6.  </code></pre>
+<p><span class="math display">\[\begin{aligned}
+    \Pr(N(1) = 1 \text{ and } N(2) = 3) &amp;= 
+    \Pr(N(1) = 1 \text{ and } N(2) - N(1) = 2)\\
+    &amp;= 
+    \Pr(N(1) = 1) \Pr(N(2) - N(1) = 2)\\
+    &amp;= \frac{\exp(-(2)(1))((2)(1))^{1}  }{(1!)}\frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)}  = (0.2706706)(0.2706706) \\
+    &amp;= 0.0732626.
+    \end{aligned}\]</span>
+Here we have used the fact that <span class="math inline">\(N(2) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p>
+<pre><code>7.  </code></pre>
+<p><span class="math display">\[\begin{aligned}
+    \Pr(N(1) \ge 2 | N(1) \ge 1) 
+    &amp;= \frac{\Pr(N(1) \ge 2 \text{ and } N(1) \ge 1)}{\Pr(N(1) \ge 1)}  \\
+     &amp;= \frac{\Pr(N(1) \ge 2)}{\Pr(N(1) \ge 1)}  \\
+     &amp;= \frac{1 - \Pr(N(1) \le 1)}{1- \Pr(N(1) = 0)}  \\
+     &amp;= \frac{0.5939942}{0.8646647} \\
+     &amp;= 0.5136058.
+    \end{aligned}\]</span></p>
+<pre><code>8.  </code></pre>
+<p><span class="math display">\[\begin{aligned}
+    \mathrm{E}[N(2)] = 4.
+    \end{aligned}\]</span></p>
+<pre><code>9.  </code></pre>
+<p><span class="math display">\[\begin{aligned}
+    \mathrm{E}[N(1)^2] = 
+     \mathrm{Var}[N(1)] +  (\mathrm{E}[N(1)])^2 = 6.
+    \end{aligned}\]</span></p>
+<pre><code>10. </code></pre>
+<p><span class="math display">\[\begin{aligned}
+    \mathrm{E}[N(1)N(2)] &amp;=
+    \mathrm{E}[N(1)\cdot (N(1) + (N(2) - N(1))] \\
+    &amp;=
+    \mathrm{E}[N(1)^2] + \mathrm{E}[ (N(1) \cdot (N(2) - N(1))] \\
+    &amp;=
+    \mathrm{E}[N(1)^2] + \mathrm{E}[ N(1)] \cdot \mathrm{E}[N(2) - N(1)] \\
+    &amp;= 6 + (2)(2) = 10.
+    \end{aligned}\]</span>
+Here we have used the fact that <span class="math inline">\(N(2) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(N(t)\)</span> be the number of customers that have arrived up to time <span class="math inline">\(t\)</span>.</li>
 </ol>
 <p><span class="math display">\[\begin{aligned}
     \Pr(N(1/2) = 1 \text{ and } N(5/2) = 5) &amp;= 
@@ -1829,7 +1860,7 @@ a life aged (75) dying within one year.</p></li>
 <li>Consider the 3-state model of terminal illness for healthy, ill and
 dead states as shown below.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:tikz-ex0"></span>
+<div class="figure"><span id="fig:tikz-ex0"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex0-1.png" alt="The 3-state model of terminal illness" width="672" />
 <p class="caption">
 Figure 6.1: The 3-state model of terminal illness
@@ -1857,7 +1888,7 @@ mortality of two lives (husband and wife) consisting of for states :</li>
 <li><p><span class="math inline">\(v =\)</span> wife is alive, but husband is dead, and</p></li>
 <li><p><span class="math inline">\(d =\)</span> both are dead.</p></li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:tikz-ex1"></span>
+<div class="figure"><span id="fig:tikz-ex1"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex1-1.png" alt="A model of the mortality of two lives" width="672" />
 <p class="caption">
 Figure 6.2: A model of the mortality of two lives
@@ -1873,7 +1904,7 @@ classified into able (<span class="math inline">\(a\)</span>), ill (<span class=
 (<span class="math inline">\(w\)</span>). The lives can move between state according to the following
 diagram:</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:tikz-ex2"></span>
+<div class="figure"><span id="fig:tikz-ex2"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex2-1.png" alt="A Markov model for health insurance policies" width="672" />
 <p class="caption">
 Figure 6.3: A Markov model for health insurance policies
@@ -1886,120 +1917,108 @@ Kolmogorov forward differential equations (FDE) for</code></pre>
 <li>An actuary wishes to study a model in which states relate to marital
 status comprising of five states, single, married, divorced, widowed
 and dead. Draw the transition diagram that illustrate the possible
-transitions between these five states.ß</li>
+transitions between these five states.</li>
 </ol>
-</div>
-<div id="solutions" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Solutions:</h2>
+<p><strong>Solution:</strong></p>
 <ol style="list-style-type: decimal">
 <li>The transition rate matrix <span class="math inline">\(Q\)</span> of this Markov model is
 <span class="math display">\[
-Q = \begin{bmatrix}
- -(\lambda + \mu) &amp; \lambda &amp; \mu   \\
- 0 &amp; -\nu &amp; \nu   \\
- 0 &amp; 0 &amp; 0\end{bmatrix}.
+  Q = \begin{bmatrix}
+  -(\lambda + \mu) &amp; \lambda &amp; \mu   \\
+  0 &amp; -\nu &amp; \nu   \\
+  0 &amp; 0 &amp; 0\end{bmatrix}.
 \]</span>
-<ol style="list-style-type: decimal">
-<li>Return to the healthy state and ill states is impossible. Therefore</li>
-</ol></li>
+1. Return to the healthy state and ill states is impossible. Therefore</li>
 </ol>
 <p><span class="math display">\[p_{hh}(t) = p_{\overline{hh}}(t) \text{ and }
-        p_{ii}(t)  = p_{\overline{ii}}(t).\]</span></p>
+  p_{ii}(t)  = p_{\overline{ii}}(t).\]</span></p>
 <pre><code>2. The Kolmogorov forward differential equations (FDE) for </code></pre>
 <p><span class="math inline">\(p_{hh}(t)\)</span> is</p>
 <p><span class="math display">\[
-\begin{align}
-\frac{d}{dt}p_{hh}(t) &amp;= p_{hh}(t) q_{hh} + p_{hi}(t) q_{ih} + p_{hd}(t) q_{dh}  \\
-&amp;= -(\lambda + \mu) p_{hh}(t)  + (0) p_{hi}(t) + (0) p_{hd}(t)  \\
-&amp;= -(\lambda + \mu) p_{hh}(t).  
-\end{align}
+    \begin{aligned}
+  \frac{d}{dt}p_{hh}(t) &amp;= p_{hh}(t) q_{hh} + p_{hi}(t) q_{ih} + p_{hd}(t) q_{dh}  \\
+  &amp;= -(\lambda + \mu) p_{hh}(t)  + (0) p_{hi}(t) + (0) p_{hd}(t)  \\
+  &amp;= -(\lambda + \mu) p_{hh}(t).  
+  \end{aligned}
 \]</span></p>
-<p>The solution to the differential equation together with the initial condition <span class="math inline">\(p_{hh}(0) = 1\)</span> is
-<span class="math display">\[ p_{hh}(t) = e^{-(\lambda + \mu)t}.\]</span></p>
-<p>Similarly, we obtain</p>
+<pre><code>The solution to the differential equation together with the initial condition $p_{hh}(0) = 1$ is</code></pre>
+<p><span class="math display">\[ p_{hh}(t) = e^{-(\lambda + \mu)t}.\]</span></p>
+<pre><code>Similarly, we obtain</code></pre>
 <p><span class="math display">\[
-\begin{align}
-\frac{d}{dt}p_{ii}(t) &amp;= p_{ii}(t) q_{ii} \\
-&amp;= -\nu \, p_{ii}(t).  
-\end{align}
+    \begin{aligned}
+  \frac{d}{dt}p_{ii}(t) &amp;= p_{ii}(t) q_{ii} \\
+  &amp;= -\nu \, p_{ii}(t).  
+  \end{aligned}
 \]</span></p>
-<p>Solving the differential equation with <span class="math inline">\(p_{ii}(0) = 1\)</span> is
-<span class="math display">\[ p_{ii}(t) = e^{-\nu \, t}.\]</span></p>
+<pre><code>Solving the differential equation with $p_{ii}(0) = 1$ is</code></pre>
+<p><span class="math display">\[ p_{ii}(t) = e^{-\nu \, t}.\]</span></p>
 <pre><code>3. The Kolmogorov forward differential equations (FDE) for </code></pre>
 <p><span class="math inline">\(p_{hi}(t)\)</span> and <span class="math inline">\(p_{hd}(t)\)</span>are given as follows:</p>
-<p><span class="math display">\[\begin{align}
-\frac{d}{dt}p_{hi}(t) &amp;= p_{hh}(t) q_{hi} + p_{hi}(t) q_{ii} + p_{hd}(t) q_{di}  \quad (1) \\
-&amp;= \lambda p_{hh}(t)  -\nu p_{hi}(t)  + (0) p_{hd}(t)   \\
-&amp;= \lambda p_{hh}(t)  -\nu p_{hi}(t) \\
-
-\frac{d}{dt}p_{hd}(t) &amp;= p_{hh}(t) q_{hd} + p_{hi}(t) q_{id} + p_{hd}(t) q_{dd}  \quad (2) \\
-&amp;= \mu p_{hh}(t)  + \nu p_{hi}(t)  + (0) p_{hd}(t)   \\
-&amp;= \mu p_{hh}(t)  +\nu p_{hi}(t). \\
-\end{align}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+  \frac{d}{dt}p_{hi}(t) &amp;= p_{hh}(t) q_{hi} + p_{hi}(t) q_{ii} + p_{hd}(t) q_{di}  \quad (1) \\
+  &amp;= \lambda p_{hh}(t)  -\nu p_{hi}(t)  + (0) p_{hd}(t)   \\
+  &amp;= \lambda p_{hh}(t)  -\nu p_{hi}(t) \\
+  \frac{d}{dt}p_{hd}(t) &amp;= p_{hh}(t) q_{hd} + p_{hi}(t) q_{id} + p_{hd}(t) q_{dd}  \quad (2) \\
+  &amp;= \mu p_{hh}(t)  + \nu p_{hi}(t)  + (0) p_{hd}(t)   \\
+  &amp;= \mu p_{hh}(t)  +\nu p_{hi}(t). \\
+  \end{aligned}
+\]</span></p>
 <pre><code>To solve the first equation, we substitute </code></pre>
 <p><span class="math inline">\(p_{hh}(t)\)</span> by <span class="math inline">\(e^{-(\lambda + \mu)t}\)</span> into the equation, which reduces to</p>
 <p><span class="math display">\[ \frac{d}{dt}p_{hi}(t) + \nu p_{hi}(t)  =\lambda e^{-(\lambda + \mu)t}.\]</span>
 This differential equation is linear with the initial condition <span class="math inline">\(p_{hi}(0) = 0\)</span> and , hence, can be solved by a general method.</p>
-<pre><code>In order to solve for </code></pre>
+<p>In order to solve for</p>
 <p><span class="math inline">\(p_{hd}(t)\)</span> in Eq. (2), we note that both <span class="math inline">\(p_{hh}(t)\)</span> and <span class="math inline">\(p_{hi}(t)\)</span> are known so we can solve the equation for <span class="math inline">\(p_{hd}(t)\)</span> as well.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>The transition rate matrix <span class="math inline">\(Q\)</span> is</li>
 </ol>
 <p><span class="math display">\[P = \begin{bmatrix}
-    -(\alpha_1 + \beta_1) &amp; \alpha_1 &amp; \beta_1 &amp; 0   \\
-    0 &amp; -( \beta_2) &amp; 0 &amp;  \beta_2   \\
-    0 &amp; 0 &amp; -\alpha_2  &amp; \alpha_2 \\
-    0 &amp; 0 &amp; 0  &amp; 0 \\
+  -(\alpha_1 + \beta_1) &amp; \alpha_1 &amp; \beta_1 &amp; 0   \\
+  0 &amp; -( \beta_2) &amp; 0 &amp;  \beta_2   \\
+  0 &amp; 0 &amp; -\alpha_2  &amp; \alpha_2 \\
+  0 &amp; 0 &amp; 0  &amp; 0 \\
 \end{bmatrix}.\]</span>
 Then, the Kolmogorov forward differential equations (FDE) for <span class="math inline">\(p_{bb}(t), p_{bu}(t), p_{bv}(t)\)</span> and <span class="math inline">\(p_{bd}(t)\)</span> are given as follows:</p>
-<p><span class="math display">\[\begin{align}
-\frac{d}{dt}p_{bb}(t) &amp;= p_{bb}(t) q_{bb} + p_{bu}(t) q_{ub} + p_{bv}(t) q_{vb} + p_{bd}(t) q_{db} \\
-&amp;=  -(\alpha_1 + \beta_1) p_{bb}(t)  + (0) p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
-&amp;= -(\alpha_1 + \beta_1) p_{bb}(t) \\
-
-\frac{d}{dt}p_{bu}(t) &amp;= p_{bb}(t) q_{bu} + p_{bu}(t) q_{uu} + p_{bv}(t) q_{vu} + p_{bd}(t) q_{du} \\
-&amp;=  \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
-&amp;= \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  \\
-
-\frac{d}{dt}p_{bv}(t) &amp;= p_{bb}(t) q_{bv} + p_{bu}(t) q_{uv} + p_{bv}(t) q_{vv} + p_{bd}(t) q_{dv} \\
-&amp;=  \beta_1  p_{bb}(t)  + (0) p_{bu}(t)  - \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
-&amp;=  \beta_1  p_{bb}(t)   - \alpha_2 p_{bv}(t)  \\
-
-\frac{d}{dt}p_{bd}(t) &amp;= p_{bb}(t) q_{bd} + p_{bu}(t) q_{ud} + p_{bv}(t) q_{vd} + p_{bd}(t) q_{dd} \\
-&amp;=  (0)  p_{bb}(t)  + \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
-&amp;=   \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t).   \\
-\end{align}\]</span></p>
-<p>Note that</p>
+<p><span class="math display">\[
+    \begin{aligned}
+  \frac{d}{dt}p_{bb}(t) &amp;= p_{bb}(t) q_{bb} + p_{bu}(t) q_{ub} + p_{bv}(t) q_{vb} + p_{bd}(t) q_{db} \\
+  &amp;=  -(\alpha_1 + \beta_1) p_{bb}(t)  + (0) p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
+  &amp;= -(\alpha_1 + \beta_1) p_{bb}(t) \\
+  \frac{d}{dt}p_{bu}(t) &amp;= p_{bb}(t) q_{bu} + p_{bu}(t) q_{uu} + p_{bv}(t) q_{vu} + p_{bd}(t) q_{du} \\
+  &amp;=  \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  + (0) p_{bv}(t) + (0) p_{bd}(t)    \\
+  &amp;= \alpha_1  p_{bb}(t)  - \beta_2 p_{bu}(t)  \\
+  \frac{d}{dt}p_{bv}(t) &amp;= p_{bb}(t) q_{bv} + p_{bu}(t) q_{uv} + p_{bv}(t) q_{vv} + p_{bd}(t) q_{dv} \\
+  &amp;=  \beta_1  p_{bb}(t)  + (0) p_{bu}(t)  - \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
+  &amp;=  \beta_1  p_{bb}(t)   - \alpha_2 p_{bv}(t)  \\
+  \frac{d}{dt}p_{bd}(t) &amp;= p_{bb}(t) q_{bd} + p_{bu}(t) q_{ud} + p_{bv}(t) q_{vd} + p_{bd}(t) q_{dd} \\
+  &amp;=  (0)  p_{bb}(t)  + \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t) + (0) p_{bd}(t)    \\
+  &amp;=   \beta_2 p_{bu}(t)  + \alpha_2 p_{bv}(t).   \\
+  \end{aligned}\]</span></p>
+<pre><code>Note that </code></pre>
 <p><span class="math display">\[ \frac{d}{dt}(p_{bb}(t) + p_{bu}(t) + p_{bv}(t) + p_{bd}(t)) = 0,\]</span>
 which implies that
 <span class="math display">\[ p_{bb}(t) + p_{bu}(t) + p_{bv}(t) + p_{bd}(t) = \text{constant} = 1.\]</span></p>
-<ol start="3" style="list-style-type: decimal">
-<li>The transition rate matrix <span class="math inline">\(Q\)</span> is</li>
-</ol>
+<pre><code>3. The transition rate matrix $Q$ is</code></pre>
 <p><span class="math display">\[P = \begin{bmatrix}
-    -(\sigma + \omega + \mu) &amp; \sigma &amp; \omega &amp; \mu   \\
-    \rho &amp; -(\rho + \mu) &amp; 0 &amp; \mu   \\
-    0 &amp; 0 &amp; 0  &amp; 0 \\
-    0 &amp; 0 &amp; 0  &amp; 0 \\
+  -(\sigma + \omega + \mu) &amp; \sigma &amp; \omega &amp; \mu   \\
+  \rho &amp; -(\rho + \mu) &amp; 0 &amp; \mu   \\
+  0 &amp; 0 &amp; 0  &amp; 0 \\
+  0 &amp; 0 &amp; 0  &amp; 0 \\
 \end{bmatrix}.\]</span>
 Then, the Kolmogorov forward differential equations (FDE) for <span class="math inline">\(p_{aa}(t), p_{ai}(t)\)</span> and <span class="math inline">\(p_{aw}(t)\)</span> are given as follows:</p>
-<span class="math display">\[\begin{aligned}
-\frac{d}{dt}p_{aa}(t) &amp;= p_{aa}(t) q_{aa} + p_{ai}(t) q_{ia} + p_{aw}(t) q_{wa} + p_{ad}(t) q_{da} \\
-&amp;= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) + (0)p_{aw}(t)  + (0)p_{ad}(t) \\
-&amp;= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) \\
-
-\frac{d}{dt}p_{ai}(t) 
-&amp;= p_{aa}(t) q_{ai} + p_{ai}(t) q_{ii} + p_{aw}(t) q_{wi} + p_{ad}(t) q_{di} \\
-&amp;= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t) + (0)p_{aw}(t)  + (0) p_{ad}(t)  \\
-&amp;= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t)  \\
-
-\frac{d}{dt}p_{aw}(t) &amp;= \omega p_{aa}(t).
-\end{aligned}\]</span>
-<ol start="4" style="list-style-type: decimal">
-<li>The transition diagram for a model of maritial status is illusrated in the figure below:</li>
-</ol>
-<div class="figure" style="text-align: center"><span id="fig:tikz-ex4"></span>
-<img src="SCMA469Bookdownproj_files/figure-html/tikz-ex4-1.png" alt="The 5-state model of maritial status" width="672" />
+<p><span class="math display">\[\begin{aligned}
+  \frac{d}{dt}p_{aa}(t) &amp;= p_{aa}(t) q_{aa} + p_{ai}(t) q_{ia} + p_{aw}(t) q_{wa} + p_{ad}(t) q_{da} \\
+  &amp;= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) + (0)p_{aw}(t)  + (0)p_{ad}(t) \\
+  &amp;= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) \\
+  \frac{d}{dt}p_{ai}(t) 
+  &amp;= p_{aa}(t) q_{ai} + p_{ai}(t) q_{ii} + p_{aw}(t) q_{wi} + p_{ad}(t) q_{di} \\
+  &amp;= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t) + (0)p_{aw}(t)  + (0) p_{ad}(t)  \\
+  &amp;= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t)  \\
+  \frac{d}{dt}p_{aw}(t) &amp;= \omega p_{aa}(t).
+\end{aligned}\]</span></p>
+<pre><code>4. The transition diagram for a model of maritial status is illusrated in the figure below:</code></pre>
+<div class="figure"><span id="fig:tikz-ex6"></span>
+<img src="SCMA469Bookdownproj_files/figure-html/tikz-ex6-1.png" alt="The 5-state model of maritial status" width="672" />
 <p class="caption">
 Figure 6.4: The 5-state model of maritial status
 </p>
