@@ -5494,6 +5494,226 @@ By independence,
   \end{enumerate}
 \end{enumerate}
 
+\textbf{Solutions}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    In this question, \(a_i = 0.25, b_i = 1\) and \(V_i\) is a random variable taking the values between 0 and 0.75. Moreover, \(V_i\) has a mixed distribution with a probability mass at 0.75.
+  \end{enumerate}
+
+  We know that
+\end{enumerate}
+
+\[ {}_{t}p_{x} = \exp\left( - \int_0^t  \mu_{x+s} \, ds \right) = \exp(-\mu t) =  \exp(-0.08 t).\]
+
+Now
+
+\[
+  \begin{aligned}
+\Pr(D_i = 0) &= {}_{0.75}p_{74.25}  \\
+&= \exp(-0.08(0.75) ) = 0.9417645 \\
+\Pr(D_i = 1) &= 1 - {}_{0.75}p_{74}  \\
+&= 1 - \exp(-0.08(0.75) ) = 0.0582355
+\end{aligned}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+\end{enumerate}
+
+\[\text{E}[D_i] = (0)(0.9417645) + (1)(0.0582355) = 0.0582355.\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  The probability density/mass function of
+\end{enumerate}
+
+\(V_i\) is
+
+\[
+  \begin{aligned}
+f(v_i) &=
+  \begin{cases}
+{}_{v_i}p_{74.25} \mu_{74.25 + v_i} & ; v_i < 0.75\\
+{}_{0.75}p_{74.25} &; v_i = 0.75
+\end{cases}
+\end{aligned}
+\]
+
+Hence,
+
+\[
+  \begin{aligned}
+f(v_i) &=
+  \begin{cases}
+\exp(-0.08(0.75) )\times 0.08 & ; v_i < 0.75\\
+0.9417645 &; v_i = 0.75
+\end{cases}
+\end{aligned}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+\end{enumerate}
+
+\[\text{E}[V_i] = \int_0^{0.75} t \exp(-0.08\,t) \times 0.08 \, dt + (0.9417645)(0.75).\]
+
+Using integration by parts, the integral becomes:
+
+\[
+  \begin{aligned}
+(-t \exp(-0.08 t))|_0^{0.75} + \int_0^{0.75} \exp(-0.08 t) \, dt = 0.0216.
+\end{aligned}
+\]
+
+This gives
+
+\[\text{E}[V_i] = 0.0216 + (0.9417645)(0.75) = 0.7279234.\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Similar to the previous question, we have that \(D_i\) is the random varialbe taking two possible values 0 and 1. Hence
+\end{enumerate}
+
+\[\text{E}[D_i] =  1 \times \int_0^{b_i - a_i}  {}_{t}p_{x + a_i} \mu_{x + a_i + t} \, dt .\]
+
+Assuming a constant transtition intensity \(\mu\) results in
+
+\[\text{E}[D_i] =  1 \times \int_0^{b_i - a_i}  \exp(-\mu t) \mu \, dt .\]
+
+Similarly,
+
+\[
+  \begin{aligned}
+\text{E}[V_i] &=  \int_0^{b_i - a_i} \Pr(\text{life dies at time } t) \cdot t \, dt + (b_i - a_i)\cdot \Pr(\text{life survives}) \\
+&= \int_0^{b_i - a_i}  \left(\exp(-\mu t) \mu \right)  \cdot t \, dt + (b_i - a_i)\cdot \exp(-\mu (b_i - a_i))
+\end{aligned}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    The expression
+  \end{enumerate}
+\end{enumerate}
+
+\[\int_0^{b_i - a_i} e^{-\mu v_i} \mu \, \text{d}v_i + e^{-\mu(b_i - a_i)} = 1.\]
+
+holds because we simply integrate/sum the probability function of
+
+\((D_i, V_i)\) over all possible events.
+
+\begin{verbatim}
+2. Differentiating the above expression with respect to 
+\end{verbatim}
+
+\(\mu\) results in
+
+\[\begin{aligned}
+0 &= \frac{d}{d \mu} \left( \int_0^{b_i - a_i} e^{-\mu v_i} \mu \, \text{d}v_i + e^{-\mu(b_i - a_i)}  \right) \\
+&=   \int_0^{b_i - a_i} \frac{d}{d \mu} \left( e^{-\mu v_i} \mu \, \text{d}v_i\right) + \frac{d}{d \mu} e^{-\mu(b_i - a_i)}   \\
+&=   - \int_0^{b_i - a_i}   \mu v_i e^{-\mu v_i}  \, \text{d}v_i + \int_0^{b_i - a_i}  e^{-\mu v_i}  \, \text{d}v_i  - (b_i - a_i) e^{-\mu(b_i - a_i)}
+\end{aligned}.\]
+
+This simplifies to
+
+\[\textrm{E}[ D_i - \mu V_i] = 0 .\]
+3. We proceed in the same way as in the previous question.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Using the Cramer-Rao lower bound which states as follows:
+\end{enumerate}
+
+\[\text{Var}[\tilde{\mu}] = -\frac{1}{\text{E}[\frac{d^2}{d\mu^2}\log L(\mu)]},\]
+
+where \(L(\mu)\) is the likelihood function. In this case,
+
+\[L(\mu) = \mu^d \exp(-\mu v)\]
+and hence
+\[\text{Var}[\tilde{\mu}] = -\frac{1}{\text{E}[-\frac{D}{\mu^2}]} = \frac{\mu^2}{\text{E}[D]}.\]
+
+Using the previous result:
+
+\[\textrm{E}[ D_i - \mu V_i] = 0 .\]
+
+This implies that
+\[\text{Var}[\tilde{\mu}] =  \frac{\mu^2}{\text{E}[D]} = \frac{\mu}{\text{E}[V]}\bigg|_{\mu = \mu_0} = \frac{\mu_0}{\text{E}[V]}.\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  As in Question 2, the expected waiting time for the \(i\)th life with the force of mortality of 0.12 is
+\end{enumerate}
+
+\[
+  \begin{aligned}
+\text{E}[V_i]
+&= \int_0^{b_i - a_i}  \left(\exp(-\mu t) \mu \right)  \cdot t \, dt + (b_i - a_i)\cdot \exp(-\mu (b_i - a_i)) \\
+&= \int_0^{b_i - a_i}  \left(0.12 t \exp(-0.12 t)  \right)   \, dt + 1\cdot \exp(-0.12\cdot 1)\\
+&= -\exp(-0.12) + \frac{1}{0.12}(1 - \exp(-0.12)) + \exp(-0.12) \\
+&=0.9423297.
+\end{aligned}
+\]
+
+Hence, the total waiting time is
+
+\[\text{E}[V] = 1300 \cdot \text{E}[V_i] = 1225.0286022\]
+
+From the asymptotic properties of the maximum likelihood estimate,
+
+\[\tilde{\mu} \sim \mathcal{N}(\mu, \frac{\mu}{\text{E}[V]}) = \mathcal{N}(0.12, \frac{0.12}{1225.0286022}) = \mathcal{N}(0.12,0.0098973^2)\]
+
+Therefore,
+
+\[\begin{aligned}
+\Pr(\tilde{\mu} > 0.15) &=
+  1 - \Pr(\tilde{\mu} \le 0.15) \\
+&= 1 - \Pr(\frac{\tilde{\mu} - 0.12 }{0.0098973} \le \frac{0.15 - 0.12   }{0.0098973}) \\
+&= 1 - \Pr(Z \le \frac{0.15 - 0.12   }{0.0098973}) \\
+&= 1 - \Phi(\frac{0.15-0.12}{0.0098973}) \\
+&= 1 - \Phi(3.0311243) \\
+&= 1- 0.9987818 \\
+&= 0.0012182,
+\end{aligned}
+\]
+where \(\Phi\) is the cumulative density function of the standard normal.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Similar to the lecture handout.
+\end{enumerate}
+
 \hypertarget{tutorial-6}{%
 \section{Tutorial 6}\label{tutorial-6}}
 

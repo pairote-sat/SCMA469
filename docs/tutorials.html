@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Tutorials | SCMA469 Actuarial Statistics</title>
   <meta name="description" content="Chapter 6 Tutorials | SCMA469 Actuarial Statistics" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Tutorials | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
@@ -33,9 +33,8 @@
   
 <link rel="prev" href="poisson-processes.html"/>
 <link rel="next" href="applications.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -43,6 +42,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -1853,6 +1853,137 @@ a life aged (75) dying within one year.</p></li>
 <span class="math inline">\(\hat{q}_{75}\)</span>.</p></li>
 </ol></li>
 </ol>
+<p><strong>Solutions</strong></p>
+<ol style="list-style-type: decimal">
+<li><ol style="list-style-type: decimal">
+<li>In this question, <span class="math inline">\(a_i = 0.25, b_i = 1\)</span> and <span class="math inline">\(V_i\)</span> is a random variable taking the values between 0 and 0.75. Moreover, <span class="math inline">\(V_i\)</span> has a mixed distribution with a probability mass at 0.75.</li>
+</ol>
+We know that</li>
+</ol>
+<p><span class="math display">\[ {}_{t}p_{x} = \exp\left( - \int_0^t  \mu_{x+s} \, ds \right) = \exp(-\mu t) =  \exp(-0.08 t).\]</span></p>
+<p>Now</p>
+<p><span class="math display">\[
+  \begin{aligned}
+\Pr(D_i = 0) &amp;= {}_{0.75}p_{74.25}  \\
+&amp;= \exp(-0.08(0.75) ) = 0.9417645 \\
+\Pr(D_i = 1) &amp;= 1 - {}_{0.75}p_{74}  \\
+&amp;= 1 - \exp(-0.08(0.75) ) = 0.0582355
+\end{aligned}
+\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[\text{E}[D_i] = (0)(0.9417645) + (1)(0.0582355) = 0.0582355.\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>The probability density/mass function of</li>
+</ol>
+<p><span class="math inline">\(V_i\)</span> is</p>
+<p><span class="math display">\[
+  \begin{aligned}
+f(v_i) &amp;=
+  \begin{cases}
+{}_{v_i}p_{74.25} \mu_{74.25 + v_i} &amp; ; v_i &lt; 0.75\\
+{}_{0.75}p_{74.25} &amp;; v_i = 0.75
+\end{cases}
+\end{aligned}
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+  \begin{aligned}
+f(v_i) &amp;=
+  \begin{cases}
+\exp(-0.08(0.75) )\times 0.08 &amp; ; v_i &lt; 0.75\\
+0.9417645 &amp;; v_i = 0.75
+\end{cases}
+\end{aligned}
+\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[\text{E}[V_i] = \int_0^{0.75} t \exp(-0.08\,t) \times 0.08 \, dt + (0.9417645)(0.75).\]</span></p>
+<p>Using integration by parts, the integral becomes:</p>
+<p><span class="math display">\[
+  \begin{aligned}
+(-t \exp(-0.08 t))|_0^{0.75} + \int_0^{0.75} \exp(-0.08 t) \, dt = 0.0216.
+\end{aligned}
+\]</span></p>
+<p>This gives</p>
+<p><span class="math display">\[\text{E}[V_i] = 0.0216 + (0.9417645)(0.75) = 0.7279234.\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Similar to the previous question, we have that <span class="math inline">\(D_i\)</span> is the random varialbe taking two possible values 0 and 1. Hence</li>
+</ol>
+<p><span class="math display">\[\text{E}[D_i] =  1 \times \int_0^{b_i - a_i}  {}_{t}p_{x + a_i} \mu_{x + a_i + t} \, dt .\]</span></p>
+<p>Assuming a constant transtition intensity <span class="math inline">\(\mu\)</span> results in</p>
+<p><span class="math display">\[\text{E}[D_i] =  1 \times \int_0^{b_i - a_i}  \exp(-\mu t) \mu \, dt .\]</span></p>
+<p>Similarly,</p>
+<p><span class="math display">\[
+  \begin{aligned}
+\text{E}[V_i] &amp;=  \int_0^{b_i - a_i} \Pr(\text{life dies at time } t) \cdot t \, dt + (b_i - a_i)\cdot \Pr(\text{life survives}) \\
+&amp;= \int_0^{b_i - a_i}  \left(\exp(-\mu t) \mu \right)  \cdot t \, dt + (b_i - a_i)\cdot \exp(-\mu (b_i - a_i))
+\end{aligned}
+\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li><ol style="list-style-type: decimal">
+<li>The expression</li>
+</ol></li>
+</ol>
+<p><span class="math display">\[\int_0^{b_i - a_i} e^{-\mu v_i} \mu \, \text{d}v_i + e^{-\mu(b_i - a_i)} = 1.\]</span></p>
+<p>holds because we simply integrate/sum the probability function of</p>
+<p><span class="math inline">\((D_i, V_i)\)</span> over all possible events.</p>
+<pre><code>2. Differentiating the above expression with respect to </code></pre>
+<p><span class="math inline">\(\mu\)</span> results in</p>
+<p><span class="math display">\[\begin{aligned}
+0 &amp;= \frac{d}{d \mu} \left( \int_0^{b_i - a_i} e^{-\mu v_i} \mu \, \text{d}v_i + e^{-\mu(b_i - a_i)}  \right) \\
+&amp;=   \int_0^{b_i - a_i} \frac{d}{d \mu} \left( e^{-\mu v_i} \mu \, \text{d}v_i\right) + \frac{d}{d \mu} e^{-\mu(b_i - a_i)}   \\
+&amp;=   - \int_0^{b_i - a_i}   \mu v_i e^{-\mu v_i}  \, \text{d}v_i + \int_0^{b_i - a_i}  e^{-\mu v_i}  \, \text{d}v_i  - (b_i - a_i) e^{-\mu(b_i - a_i)}
+\end{aligned}.\]</span></p>
+<p>This simplifies to</p>
+<p><span class="math display">\[\textrm{E}[ D_i - \mu V_i] = 0 .\]</span>
+3. We proceed in the same way as in the previous question.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Using the Cramer-Rao lower bound which states as follows:</li>
+</ol>
+<p><span class="math display">\[\text{Var}[\tilde{\mu}] = -\frac{1}{\text{E}[\frac{d^2}{d\mu^2}\log L(\mu)]},\]</span></p>
+<p>where <span class="math inline">\(L(\mu)\)</span> is the likelihood function. In this case,</p>
+<p><span class="math display">\[L(\mu) = \mu^d \exp(-\mu v)\]</span>
+and hence
+<span class="math display">\[\text{Var}[\tilde{\mu}] = -\frac{1}{\text{E}[-\frac{D}{\mu^2}]} = \frac{\mu^2}{\text{E}[D]}.\]</span></p>
+<p>Using the previous result:</p>
+<p><span class="math display">\[\textrm{E}[ D_i - \mu V_i] = 0 .\]</span></p>
+<p>This implies that
+<span class="math display">\[\text{Var}[\tilde{\mu}] =  \frac{\mu^2}{\text{E}[D]} = \frac{\mu}{\text{E}[V]}\bigg|_{\mu = \mu_0} = \frac{\mu_0}{\text{E}[V]}.\]</span></p>
+<ol start="5" style="list-style-type: decimal">
+<li>As in Question 2, the expected waiting time for the <span class="math inline">\(i\)</span>th life with the force of mortality of 0.12 is</li>
+</ol>
+<p><span class="math display">\[
+  \begin{aligned}
+\text{E}[V_i]
+&amp;= \int_0^{b_i - a_i}  \left(\exp(-\mu t) \mu \right)  \cdot t \, dt + (b_i - a_i)\cdot \exp(-\mu (b_i - a_i)) \\
+&amp;= \int_0^{b_i - a_i}  \left(0.12 t \exp(-0.12 t)  \right)   \, dt + 1\cdot \exp(-0.12\cdot 1)\\
+&amp;= -\exp(-0.12) + \frac{1}{0.12}(1 - \exp(-0.12)) + \exp(-0.12) \\
+&amp;=0.9423297.
+\end{aligned}
+\]</span></p>
+<p>Hence, the total waiting time is</p>
+<p><span class="math display">\[\text{E}[V] = 1300 \cdot \text{E}[V_i] = 1225.0286022\]</span></p>
+<p>From the asymptotic properties of the maximum likelihood estimate,</p>
+<p><span class="math display">\[\tilde{\mu} \sim \mathcal{N}(\mu, \frac{\mu}{\text{E}[V]}) = \mathcal{N}(0.12, \frac{0.12}{1225.0286022}) = \mathcal{N}(0.12,0.0098973^2)\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[\begin{aligned}
+\Pr(\tilde{\mu} &gt; 0.15) &amp;=
+  1 - \Pr(\tilde{\mu} \le 0.15) \\
+&amp;= 1 - \Pr(\frac{\tilde{\mu} - 0.12 }{0.0098973} \le \frac{0.15 - 0.12   }{0.0098973}) \\
+&amp;= 1 - \Pr(Z \le \frac{0.15 - 0.12   }{0.0098973}) \\
+&amp;= 1 - \Phi(\frac{0.15-0.12}{0.0098973}) \\
+&amp;= 1 - \Phi(3.0311243) \\
+&amp;= 1- 0.9987818 \\
+&amp;= 0.0012182,
+\end{aligned}
+\]</span>
+where <span class="math inline">\(\Phi\)</span> is the cumulative density function of the standard normal.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>Similar to the lecture handout.</li>
+</ol>
 </div>
 <div id="tutorial-6" class="section level2" number="6.6">
 <h2><span class="header-section-number">6.6</span> Tutorial 6</h2>
@@ -1860,7 +1991,7 @@ a life aged (75) dying within one year.</p></li>
 <li>Consider the 3-state model of terminal illness for healthy, ill and
 dead states as shown below.</li>
 </ol>
-<div class="figure"><span style="display:block;" id="fig:tikz-ex0"></span>
+<div class="figure"><span id="fig:tikz-ex0"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex0-1.png" alt="The 3-state model of terminal illness" width="672" />
 <p class="caption">
 Figure 6.1: The 3-state model of terminal illness
@@ -1888,7 +2019,7 @@ mortality of two lives (husband and wife) consisting of for states :</li>
 <li><p><span class="math inline">\(v =\)</span> wife is alive, but husband is dead, and</p></li>
 <li><p><span class="math inline">\(d =\)</span> both are dead.</p></li>
 </ul>
-<div class="figure"><span style="display:block;" id="fig:tikz-ex1"></span>
+<div class="figure"><span id="fig:tikz-ex1"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex1-1.png" alt="A model of the mortality of two lives" width="672" />
 <p class="caption">
 Figure 6.2: A model of the mortality of two lives
@@ -1904,7 +2035,7 @@ classified into able (<span class="math inline">\(a\)</span>), ill (<span class=
 (<span class="math inline">\(w\)</span>). The lives can move between state according to the following
 diagram:</li>
 </ol>
-<div class="figure"><span style="display:block;" id="fig:tikz-ex2"></span>
+<div class="figure"><span id="fig:tikz-ex2"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex2-1.png" alt="A Markov model for health insurance policies" width="672" />
 <p class="caption">
 Figure 6.3: A Markov model for health insurance policies
@@ -2017,7 +2148,7 @@ Then, the Kolmogorov forward differential equations (FDE) for <span class="math 
   \frac{d}{dt}p_{aw}(t) &amp;= \omega p_{aa}(t).
 \end{aligned}\]</span></p>
 <pre><code>4. The transition diagram for a model of maritial status is illusrated in the figure below:</code></pre>
-<div class="figure"><span style="display:block;" id="fig:tikz-ex6"></span>
+<div class="figure"><span id="fig:tikz-ex6"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex6-1.png" alt="The 5-state model of maritial status" width="672" />
 <p class="caption">
 Figure 6.4: The 5-state model of maritial status
@@ -2036,6 +2167,7 @@ Figure 6.4: The 5-state model of maritial status
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -2075,10 +2207,6 @@ gitbook.start({
 "text": null
 },
 "download": ["SCMA469Bookdownproj.pdf", "SCMA469Bookdownproj.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "subsection"
 }
