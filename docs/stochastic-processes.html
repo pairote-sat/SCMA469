@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Stochastic processes | SCMA469 Actuarial Statistics</title>
   <meta name="description" content="Chapter 3 Stochastic processes | SCMA469 Actuarial Statistics" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Stochastic processes | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="review-of-probability-theory.html"/>
 <link rel="next" href="discrete-time-markov-chains.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -315,7 +315,7 @@ has an infinite number of outcomes known as <strong>stochastic realisations or
 sample paths</strong>. A <strong>sample path</strong> is then just the sequence of a
 particular set of experiments. Graphs of some stochastic realisations of
 the simple random walk with <span class="math inline">\(p = 0.5\)</span> and <span class="math inline">\(a = 100\)</span> are shown in Figure <a href="stochastic-processes.html#fig:FigRW">3.1</a>.</p>
-<div class="figure"><span id="fig:FigRW"></span>
+<div class="figure"><span style="display:block;" id="fig:FigRW"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/FigRW-1.png" alt="Some stochastic realisations of the simple random walk" width="672" />
 <p class="caption">
 Figure 3.1: Some stochastic realisations of the simple random walk
@@ -438,7 +438,6 @@ Hence, <span class="math display">\[\begin{aligned}
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -478,6 +477,10 @@ gitbook.start({
 "text": null
 },
 "download": ["SCMA469Bookdownproj.pdf", "SCMA469Bookdownproj.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Poisson processes | SCMA469 Actuarial Statistics</title>
   <meta name="description" content="Chapter 5 Poisson processes | SCMA469 Actuarial Statistics" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Poisson processes | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="discrete-time-markov-chains.html"/>
 <link rel="next" href="tutorials.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -310,7 +310,7 @@ occurring at time <span class="math inline">\(t_1, t_2, t_3, \ldots\)</span>.</p
 <span id="cb27-22"><a href="poisson-processes.html#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> arrival_time,</span>
 <span id="cb27-23"><a href="poisson-processes.html#cb27-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">y1 =</span> <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n])</span>
 <span id="cb27-24"><a href="poisson-processes.html#cb27-24" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<div class="figure"><span id="fig:graphPoisson"></span>
+<div class="figure"><span style="display:block;" id="fig:graphPoisson"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/graphPoisson-1.png" alt="A trajectory of the Poisson process" width="672" />
 <p class="caption">
 Figure 5.1: A trajectory of the Poisson process
@@ -740,7 +740,6 @@ there.</p></li>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -780,6 +779,10 @@ gitbook.start({
 "text": null
 },
 "download": ["SCMA469Bookdownproj.pdf", "SCMA469Bookdownproj.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
