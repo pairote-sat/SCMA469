@@ -1113,6 +1113,41 @@ $\mathbf{u}^{C_1} = \mathbf{1} - \mathbf{u}^{C_2} = (1,4/5,0,1,19/20,4/5,1)^T.$
     i.e. it has a unique stationary distribution, then find the
     stationary distribution of the chain.
 
+**Solution:** 
+
+The only irreducible Markov chain is 3.1.
+
+Denote the stationary probability distribution by
+$\boldsymbol{\pi} =  (\pi_1,  \pi_2, \pi_3, \pi_4)$.
+
+
+To find the stationary distribution, we simply solve the linear
+equations $\boldsymbol{\pi}  P  =\boldsymbol{\pi}$ (note that one of the
+equations can be discarded), together with the condition
+$\sum_{j \in S} \pi_j = 1$.
+
+
+By discarding the third quation, we obtain
+
+$\pi_1 +   \pi_2 +  \pi_3 + \pi_4  = 1$,
+$$(\pi_1,  \pi_2, \pi_3, \pi_4)  \begin{bmatrix}
+                1/6 & 0 & 1/3 & 1/2      \\
+                0 & 1/3 & 2/3 & 0   \\
+            1/2 & 1/2 & 0 & 0     \\    
+            0 & 0 & 1/4 & 3/4     \\
+        \end{bmatrix} =  (\pi_1,  \pi_2, \pi_3, \pi_4),$$ which is equivalent to
+$$\begin{aligned}
+(1/6)\pi_1 + (1/2)\pi_3 &= \pi_1 \\
+(1/3)\pi_2 + (1/2)\pi_3 &= \pi_2 \\
+(1/2)\pi_1 + (3/4)\pi_4 &= \pi_4 \\
+\pi_1 +   \pi_2 +  \pi_3 + \pi_4&= 1 \end{aligned}$$
+
+Solving the above system of linear equations, we obtain
+$\pi_1,  \pi_2, \pi_3$:
+$$\pi_1 = \frac{12}{71},  \quad \pi_2 = \frac{15}{71},  \quad \pi_3 = \frac{20}{71}, \quad \pi_4 = \frac{24}{71}.$$
+
+
+
 5.  Assume that a Markov chain has more than one closed classes (say $r$
     closed classes). The Markov chain can **have many stationary
     distributions**. Assume further that within each of these $r$ closed
@@ -1168,6 +1203,54 @@ $\mathbf{u}^{C_1} = \mathbf{1} - \mathbf{u}^{C_2} = (1,4/5,0,1,19/20,4/5,1)^T.$
 
         3.  If $X_0$ is random, then this will leave as extra exercise.
             (Hint: you may need to apply first step anslysis)
+
+
+**Solution:** 
+
+1. We will illustrate the results of this question by using the Markov chain given in Question 3.3.
+
+We know that $C_1 = \{2,3\}$ and $C_2 = \{4\}$ are closed and $\{1\}$ is non-closed. Both $\{2,3\}$ and $\{4\}$ are aperiodic.
+
+The stationary distribution within the class $C_1$, denoted by
+$\boldsymbol{\pi}^{(1)} =  (\pi_1,  \pi_2 )$ can be obtained from solving
+$\pi_1 +   \pi_2  = 1$,
+$$(\pi_1,  \pi_2)  
+\begin{bmatrix}
+    3/4 & 1/4    \\
+    3/4 & 1/4    \\
+\end{bmatrix} =  (\pi_1,  \pi_2).$$ 
+
+Therefore, $\boldsymbol{\pi}^{(1)} =  (3/4,  1/4 )$.
+
+Similarly, the stationary distribution within the class $C_2 = \{4\}$ is $\boldsymbol{\pi}^{(2)} =  (1)$.
+
+It is now easy to verify that for for any numbers $\gamma_1 + \gamma_2 = 1$, the following probability distribution is stationary:
+
+$$\boldsymbol{\pi} = (0, (3/4)\gamma_1, (1/4)\gamma_1, \gamma_2).$$
+
+    2. In particular, the general form of a stationary distribution is of this form: 
+    
+$$\boldsymbol{\pi} = (0, (3/4)\gamma_1, (1/4)\gamma_1, \gamma_2).$$
+
+It should be emphasised that the above results confirm that the Markov chain  have many stationary distributions.
+
+    3. Again using the Markov chain given in Question 3.3, we have that 
+
+* If either $X_0 = 2$ or $X_0 = 3$ (i.e. the Markov chain initially starts in the closed class $C_1 = \{2,3\}$), (with the aid of computer software) the limiting distribution is 
+$$\mu = (0,3/4,1/4,0).$$
+
+* If $X_0 = 4$ (i.e. the Markov chain initially starts in the closed class $C_2 = \{4\}$), (with the aid of computer software) the limiting distribution is 
+$$\mu = (0,0,0,1).$$
+
+* If $X_0 = 1$ (i.e. the Markov chain initially starts in the closed class $C_2 = \{4\}$), (with the aid of computer software) the limiting distribution is 
+
+$$\mu = (0, (3/4)\alpha_1^{(1)}, (1/4)\alpha_1^{(1)}, \alpha_1^{(2)}),$$
+where $\alpha_1^{(1)} = 2/3$ and $\alpha_1^{(2)} = 1/3$ is the probability of absorption in classes $C_1$ and $C_2$, respectivel. 
+
+Hence, $$\mu = (0, 1/2, 1/6, 1/3).$$
+
+* If $X_0$ is random, one approach is to use the first step analysis to calculate the limiting distribution. This will leave as extra exercise.
+
 
 6.  A no-claims discount system for motor insurance has four levels of
     discount:
@@ -1227,7 +1310,7 @@ $\mathbf{u}^{C_1} = \mathbf{1} - \mathbf{u}^{C_2} = (1,4/5,0,1,19/20,4/5,1)^T.$
     negative binomial distribution with parameters $k=2$ and $p = 0.5$.
 
     Note that a random variable $N$ has a negative distribution with
-    parameters $k$ and $p$, denoted by $N \sim \dnb$ if its probability
+    parameters $k$ and $p$, denoted by $N \sim \mathcal{NB}(k, p)$ if its probability
     mass function is given by
     $$f_N(n) = \Pr(N = n) = \frac{\Gamma(k+n)}{\Gamma(n+1)\Gamma(k)} p^k (1- p)^n \quad n = 0,1,2,\ldots.$$
 
@@ -1240,7 +1323,75 @@ $\mathbf{u}^{C_1} = \mathbf{1} - \mathbf{u}^{C_2} = (1,4/5,0,1,19/20,4/5,1)^T.$
         discount level will have 20% discount after two years.
 
 
+**Solution:**
 
+For a given policyholder, the number of claims each year, $N$, has a
+    negative binomial distribution with parameters $k=2$ and $p = 0.5$. Therefore,
+
+$$\begin{aligned}
+p_n = \Pr(N = n) &= \frac{\Gamma(k+n)}{\Gamma(n+1)\Gamma(k)} p^k (1- p)^n \\   
+&= \frac{\Gamma(n+2)}{\Gamma(n+1)\Gamma(2)} 0.5^2 (1- 0.5)^n \\
+&= (n+1)0.5^{n+2}    \quad n = 0,1,2,\ldots.
+\end{aligned}$$
+Therefore,
+
+* $p_0 = `r (1)*0.5^(2)`$
+* $p_1 = `r (1+1)*0.5^(1+2)`$
+* $p_2 = `r (2+1)*0.5^(2+2)`$
+
+
+
+
+```{r Q7, echo = FALSE}
+library(markovchain)
+p0 = (1)*0.5^(2)
+p1 = (1+1)*0.5^(1+2)
+p2 = (2+1)*0.5^(2+2)
+
+stateNames <- c(1,2,3,4)
+transMat <- matrix(c(
+             1- p0 ,  p0 , 0 , 0      ,
+             1- p0 , 0 ,  p0 , 0   ,
+             1- p0 - p1 ,  p1 , 0 ,  p0   ,
+             1- p0 - p1 - p2 ,  p2 ,  p1 ,  p0 
+  ),
+             nrow=4, byrow=TRUE)
+row.names(transMat) <- stateNames 
+colnames(transMat) <- stateNames
+
+dtmcA <- new("markovchain",
+             transitionMatrix = transMat,
+             states = as.character(stateNames),
+             name = "P")
+P <- dtmcA
+```
+
+    1. The transition diagram is shown in the figure below:
+
+```{r, echo = FALSE}
+library(MASS)
+plot(dtmcA, package="diagram", self.cex = 0.7,  box.prop = 0.5, arr.length=0.2)
+```
+
+
+
+    2. The transition matrix is 
+    
+```{r}
+P
+```
+which can be obtained from 
+
+$$ P = \begin{bmatrix}
+                1 - p_0 & p_0 & 0 & 0      \\
+                1 - p_0 & 0 & p_0 & 0   \\
+            1 - p_0 - p_1 & p_1 & 0 & p_0     \\    
+            1 - p_0 - p_1 -p2 & p_2 & p_1 & p_0     \\
+        \end{bmatrix}.$$
+
+    3. The required probability is
+    
+$$ \Pr(X_2 = 2 | X_0 = 4) = (P^2)_{42} = `r transitionProbability(P^2,4, 2)`.$$
 
 
 <!-- ## Tutorial 2 -->
@@ -2591,3 +2742,180 @@ $$\begin{aligned}
 
 \end{tikzpicture}
 ```
+
+
+
+
+## Tutorial 7
+
+<!-- CT4201004 -->
+**Questions are modified from the past CT4 exams from IFoA.**
+
+1. For each of the following processes:
+
+* counting process;
+* general random walk;
+* Poisson process;
+* Markov jump chain;
+* Geometric Brownian motion.
+    1. State whether the state space is discrete, continuous or can be either.
+    2. State whether the time set is discrete, continuous, or can be either.
+    
+Here the stochastic process $\{X_n: n = 0, 1, 2, \ldots\}$ is  known as a general random walk if it satisfies
+$$X_n = X_0 + \sum_{i=1}^n Z_i, $$
+where $X_0$ is independent of i.i.d. random variables $Z_1,Z_2, \ldots$.
+
+
+**Solution:**
+
+Process | State Space | Time Set
+:-: | :-: | :-: 
+counting process | Discrete |  Discrete
+general random walk | Discrete or continuous |  Discrete
+Poisson process | Discrete | continuous 
+Markov Jump Chain | Discrete |  Discrete
+Geometric Brownian motion | continuous  | continuous  
+
+<!-- CT4201004 -->
+2. Ten years ago, a food and beverage company launched a new product, Boba Ceylon Milk Tea. The product was successful and consumption increased rapidly from the first sale. 
+
+In order to plan future investment in production capacity, the manufacturer wants to forecast the future demand for Boba Ceylon Milk Tea. It has data on age-specific consumption rates for the last ten years, as well as population projections by age for the next twenty years. It proposes the following modelling strategy:
+
+* Extrapolate past age-specific consumption rates to forecast age-specific consumption rates for the next 20 years.
+
+* Applying the projected age-specific consumption rates to the projected population by age to obtain the estimated total product consumption by age for each of the next 20 years
+
+* Add the results to get the total demand for each year.
+
+
+Describe the advantages and disadvantages of this strategy.
+
+**Solution:**
+
+**Advantages**
+
+* The model is easy to understand and to communicate.
+
+* The model takes into account an important source of variation in consumption rates, namely age.
+
+* The model is simple and inexpensive to implement.
+
+* Previous data on consumption by age should be fairly accurate.
+
+* The model can be easily adapted to different population projections OR takes into account future changes in the population.
+
+**Disadvantages**
+
+* Past trends in consumption by age may not be a good guide to future trends.
+
+* Extrapolating past age-specific consumption rates can be complex or difficult and can be done in a variety of ways.
+
+* Beverage consumption may be affected by the state of the economy, e.g. whether there is a recession.
+
+* Factors other than age may play a role in determining consumption, e.g. advertising expenditure.
+
+* Consumption may depend on pricing, which may change in the future.
+
+* It is unlikely that a rapid increase in consumption can be sustained over time as there is likely to be a cap on the amount of Boba Ceylon Milk Tea a person can eat.
+
+* Projections of future population by age may not be accurate as they depend on future fertility, mortality and migration rates.
+
+* The proposed strategy does not include a test of the sensitivity of aggregate demand to changes in projected population or deviations in future consumption trends from those used in the model.
+
+* Unforeseen events such as the introduction of new products by competitors or increasing health awareness among the population may affect future consumption.
+
+* Boba Ceylon Milk Tea consumption may vary with cohort rather than age, and the model does not capture cohort effects.
+
+<!-- CT4_201504 -->
+3.
+
+    1. State the steps you would go through in creating a model. 
+
+    2.  For three of these steps, discuss the specific problems that might be encountered in building a model for pricing an COVID -19 insurance product.
+    
+    
+**Solution**
+
+    1. 
+
+* Develop a well-defined set of objectives to be achieved through the modelling process.
+
+* Plan the modelling process and how the model will be validated.
+
+* Collect and analyse the necessary data.
+
+* Define the parameters for the model and consider appropriate parameter values.
+
+* Define the model first by capturing the essence of the real system (refining the level of detail of the model can be done at a later stage).
+
+*  Involve experts on the real system you are trying to mimic to get feedback on the validity of the conceptual model.
+
+* Decide whether a simulation package or general-purpose language is appropriate for implementing the model.
+
+* Choose a statistically reliable random number generator that performs adequately in the context of the model's complexity.
+
+* Write the computer program for the model.
+
+* Debug the program to ensure that it performs the operations specified in the model definition.
+
+* Test the adequacy of the model's output.
+
+* Check the adequacy of the model with respect to small changes in input parameters and consider them carefully.
+
+* Analyse the output of the model.
+
+* Ensure that all relevant technical guidance has been followed.
+
+* Communicate and document the results of the model.
+
+    2.
+    
+**Objective.**
+
+* Is a single pricing table needed for a particular coverage/period/type of illness?
+
+* Is a price range needed for different levels of coverage?
+
+* Is a simple price needed or a confidence interval around profitability, etc.?
+
+**Data.**
+
+* Look at national industry data and possibly international data on illness and recovery rates.
+
+* Pay attention to the definition of illness.
+
+* Look at trends.
+
+* Are recovery rates affected by reduction in benefits?
+
+* Could future trends change due to medical developments, changes in government policy on government benefits or economic influences?
+
+* What is the expected level of expenses? This will depend on expected sales (and commission levels).
+
+* Since this is a new product, the company may not have experience monitoring claims. Look at industry and internal data for new product launches.
+
+**Modelling Process.**
+
+* Start with a simple model that accounts for sickness and recovery rates.
+
+* Add costs and reserving later.
+
+**Define the model.**
+
+* The type of model is determined by the objectives: deterministic for a simple set of premium rates, stochastic if confidence intervals are required.
+
+**Reasonableness of the result.**
+
+* Look at the premium rates generated and compare them to those of competitors in the market.
+* Are they roughly where you would expect them to be?
+
+* Sensitivity to changes in input parameters.
+
+* Change each key parameter slightly; sickness rates, recovery rate, and make sure the impact on premium rates is not too great.
+
+* If it is, review the product design.
+Can the risk be reduced by, for example, introducing annually reviewable premium rates?
+
+**Comply with professional guidelines and the regulatory environment.**
+
+* Look at professional guidelines and regulatory requirements.

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Tutorials | SCMA469 Actuarial Statistics</title>
   <meta name="description" content="Chapter 6 Tutorials | SCMA469 Actuarial Statistics" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Tutorials | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2021-12-02" />
+<meta name="date" content="2021-12-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="poisson-processes.html"/>
 <link rel="next" href="applications.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -208,6 +208,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="tutorials.html"><a href="tutorials.html#tutorial-4"><i class="fa fa-check"></i><b>6.4</b> Tutorial 4</a></li>
 <li class="chapter" data-level="6.5" data-path="tutorials.html"><a href="tutorials.html#tutorial-5"><i class="fa fa-check"></i><b>6.5</b> Tutorial 5</a></li>
 <li class="chapter" data-level="6.6" data-path="tutorials.html"><a href="tutorials.html#tutorial-6"><i class="fa fa-check"></i><b>6.6</b> Tutorial 6</a></li>
+<li class="chapter" data-level="6.7" data-path="tutorials.html"><a href="tutorials.html#tutorial-7"><i class="fa fa-check"></i><b>6.7</b> Tutorial 7</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>7</b> Applications</a>
 <ul>
@@ -1008,9 +1009,35 @@ Hence, the absorption probabilities in the closed class <span class="math inline
 In addition, since there are two closed classes,
 <span class="math inline">\(\mathbf{u}^{C_1} = \mathbf{1} - \mathbf{u}^{C_2} = (1,4/5,0,1,19/20,4/5,1)^T.\)</span></p>
 <ol start="4" style="list-style-type: decimal">
-<li><p>If the Markov chain defined in Question 3 is irreducible,
+<li>If the Markov chain defined in Question 3 is irreducible,
 i.e. it has a unique stationary distribution, then find the
-stationary distribution of the chain.</p></li>
+stationary distribution of the chain.</li>
+</ol>
+<p><strong>Solution:</strong></p>
+<p>The only irreducible Markov chain is 3.1.</p>
+<p>Denote the stationary probability distribution by
+<span class="math inline">\(\boldsymbol{\pi} = (\pi_1, \pi_2, \pi_3, \pi_4)\)</span>.</p>
+<p>To find the stationary distribution, we simply solve the linear
+equations <span class="math inline">\(\boldsymbol{\pi} P =\boldsymbol{\pi}\)</span> (note that one of the
+equations can be discarded), together with the condition
+<span class="math inline">\(\sum_{j \in S} \pi_j = 1\)</span>.</p>
+<p>By discarding the third quation, we obtain</p>
+<p><span class="math inline">\(\pi_1 + \pi_2 + \pi_3 + \pi_4 = 1\)</span>,
+<span class="math display">\[(\pi_1,  \pi_2, \pi_3, \pi_4)  \begin{bmatrix}
+                1/6 &amp; 0 &amp; 1/3 &amp; 1/2      \\
+                0 &amp; 1/3 &amp; 2/3 &amp; 0   \\
+            1/2 &amp; 1/2 &amp; 0 &amp; 0     \\    
+            0 &amp; 0 &amp; 1/4 &amp; 3/4     \\
+        \end{bmatrix} =  (\pi_1,  \pi_2, \pi_3, \pi_4),\]</span> which is equivalent to
+<span class="math display">\[\begin{aligned}
+(1/6)\pi_1 + (1/2)\pi_3 &amp;= \pi_1 \\
+(1/3)\pi_2 + (1/2)\pi_3 &amp;= \pi_2 \\
+(1/2)\pi_1 + (3/4)\pi_4 &amp;= \pi_4 \\
+\pi_1 +   \pi_2 +  \pi_3 + \pi_4&amp;= 1 \end{aligned}\]</span></p>
+<p>Solving the above system of linear equations, we obtain
+<span class="math inline">\(\pi_1, \pi_2, \pi_3\)</span>:
+<span class="math display">\[\pi_1 = \frac{12}{71},  \quad \pi_2 = \frac{15}{71},  \quad \pi_3 = \frac{20}{71}, \quad \pi_4 = \frac{24}{71}.\]</span></p>
+<ol start="5" style="list-style-type: decimal">
 <li><p>Assume that a Markov chain has more than one closed classes (say <span class="math inline">\(r\)</span>
 closed classes). The Markov chain can <strong>have many stationary
 distributions</strong>. Assume further that within each of these <span class="math inline">\(r\)</span> closed
@@ -1064,6 +1091,42 @@ probability of absorption in class <span class="math inline">\(C_k\)</span>. Mor
 (Hint: you may need to apply first step anslysis)</p></li>
 </ol></li>
 </ol></li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol style="list-style-type: decimal">
+<li>We will illustrate the results of this question by using the Markov chain given in Question 3.3.</li>
+</ol>
+<p>We know that <span class="math inline">\(C_1 = \{2,3\}\)</span> and <span class="math inline">\(C_2 = \{4\}\)</span> are closed and <span class="math inline">\(\{1\}\)</span> is non-closed. Both <span class="math inline">\(\{2,3\}\)</span> and <span class="math inline">\(\{4\}\)</span> are aperiodic.</p>
+<p>The stationary distribution within the class <span class="math inline">\(C_1\)</span>, denoted by
+<span class="math inline">\(\boldsymbol{\pi}^{(1)} = (\pi_1, \pi_2 )\)</span> can be obtained from solving
+<span class="math inline">\(\pi_1 + \pi_2 = 1\)</span>,
+<span class="math display">\[(\pi_1,  \pi_2)  
+\begin{bmatrix}
+    3/4 &amp; 1/4    \\
+    3/4 &amp; 1/4    \\
+\end{bmatrix} =  (\pi_1,  \pi_2).\]</span></p>
+<p>Therefore, <span class="math inline">\(\boldsymbol{\pi}^{(1)} = (3/4, 1/4 )\)</span>.</p>
+<p>Similarly, the stationary distribution within the class <span class="math inline">\(C_2 = \{4\}\)</span> is <span class="math inline">\(\boldsymbol{\pi}^{(2)} = (1)\)</span>.</p>
+<p>It is now easy to verify that for for any numbers <span class="math inline">\(\gamma_1 + \gamma_2 = 1\)</span>, the following probability distribution is stationary:</p>
+<p><span class="math display">\[\boldsymbol{\pi} = (0, (3/4)\gamma_1, (1/4)\gamma_1, \gamma_2).\]</span></p>
+<pre><code>2. In particular, the general form of a stationary distribution is of this form: </code></pre>
+<p><span class="math display">\[\boldsymbol{\pi} = (0, (3/4)\gamma_1, (1/4)\gamma_1, \gamma_2).\]</span></p>
+<p>It should be emphasised that the above results confirm that the Markov chain have many stationary distributions.</p>
+<pre><code>3. Again using the Markov chain given in Question 3.3, we have that </code></pre>
+<ul>
+<li><p>If either <span class="math inline">\(X_0 = 2\)</span> or <span class="math inline">\(X_0 = 3\)</span> (i.e. the Markov chain initially starts in the closed class <span class="math inline">\(C_1 = \{2,3\}\)</span>), (with the aid of computer software) the limiting distribution is
+<span class="math display">\[\mu = (0,3/4,1/4,0).\]</span></p></li>
+<li><p>If <span class="math inline">\(X_0 = 4\)</span> (i.e. the Markov chain initially starts in the closed class <span class="math inline">\(C_2 = \{4\}\)</span>), (with the aid of computer software) the limiting distribution is
+<span class="math display">\[\mu = (0,0,0,1).\]</span></p></li>
+<li><p>If <span class="math inline">\(X_0 = 1\)</span> (i.e. the Markov chain initially starts in the closed class <span class="math inline">\(C_2 = \{4\}\)</span>), (with the aid of computer software) the limiting distribution is</p></li>
+</ul>
+<p><span class="math display">\[\mu = (0, (3/4)\alpha_1^{(1)}, (1/4)\alpha_1^{(1)}, \alpha_1^{(2)}),\]</span>
+where <span class="math inline">\(\alpha_1^{(1)} = 2/3\)</span> and <span class="math inline">\(\alpha_1^{(2)} = 1/3\)</span> is the probability of absorption in classes <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span>, respectivel.</p>
+<p>Hence, <span class="math display">\[\mu = (0, 1/2, 1/6, 1/3).\]</span></p>
+<ul>
+<li>If <span class="math inline">\(X_0\)</span> is random, one approach is to use the first step analysis to calculate the limiting distribution. This will leave as extra exercise.</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
 <li><p>A no-claims discount system for motor insurance has four levels of
 discount:</p>
 <table>
@@ -1144,7 +1207,7 @@ accidents to level 1.</p></li>
 <p>For a given policyholder, the number of claims each year, <span class="math inline">\(N\)</span>, has a
 negative binomial distribution with parameters <span class="math inline">\(k=2\)</span> and <span class="math inline">\(p = 0.5\)</span>.</p>
 <p>Note that a random variable <span class="math inline">\(N\)</span> has a negative distribution with
-parameters <span class="math inline">\(k\)</span> and <span class="math inline">\(p\)</span>, denoted by <span class="math inline">\(N \sim \dnb\)</span> if its probability
+parameters <span class="math inline">\(k\)</span> and <span class="math inline">\(p\)</span>, denoted by <span class="math inline">\(N \sim \mathcal{NB}(k, p)\)</span> if its probability
 mass function is given by
 <span class="math display">\[f_N(n) = \Pr(N = n) = \frac{\Gamma(k+n)}{\Gamma(n+1)\Gamma(k)} p^k (1- p)^n \quad n = 0,1,2,\ldots.\]</span></p>
 <ol style="list-style-type: decimal">
@@ -1155,6 +1218,37 @@ system.</p></li>
 discount level will have 20% discount after two years.</p></li>
 </ol></li>
 </ol>
+<p><strong>Solution:</strong></p>
+<p>For a given policyholder, the number of claims each year, <span class="math inline">\(N\)</span>, has a
+negative binomial distribution with parameters <span class="math inline">\(k=2\)</span> and <span class="math inline">\(p = 0.5\)</span>. Therefore,</p>
+<p><span class="math display">\[\begin{aligned}
+p_n = \Pr(N = n) &amp;= \frac{\Gamma(k+n)}{\Gamma(n+1)\Gamma(k)} p^k (1- p)^n \\   
+&amp;= \frac{\Gamma(n+2)}{\Gamma(n+1)\Gamma(2)} 0.5^2 (1- 0.5)^n \\
+&amp;= (n+1)0.5^{n+2}    \quad n = 0,1,2,\ldots.
+\end{aligned}\]</span>
+Therefore,</p>
+<ul>
+<li><p><span class="math inline">\(p_0 = 0.25\)</span></p></li>
+<li><p><span class="math inline">\(p_1 = 0.25\)</span></p></li>
+<li><p><span class="math inline">\(p_2 = 0.1875\)</span></p>
+<ol style="list-style-type: decimal">
+<li>The transition diagram is shown in the figure below:</li>
+</ol></li>
+</ul>
+<p><img src="SCMA469Bookdownproj_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<pre><code>2. The transition matrix is </code></pre>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJQIn0=
+</div>
+<p>which can be obtained from</p>
+<p><span class="math display">\[ P = \begin{bmatrix}
+                1 - p_0 &amp; p_0 &amp; 0 &amp; 0      \\
+                1 - p_0 &amp; 0 &amp; p_0 &amp; 0   \\
+            1 - p_0 - p_1 &amp; p_1 &amp; 0 &amp; p_0     \\    
+            1 - p_0 - p_1 -p2 &amp; p_2 &amp; p_1 &amp; p_0     \\
+        \end{bmatrix}.\]</span></p>
+<pre><code>3. The required probability is</code></pre>
+<p><span class="math display">\[ \Pr(X_2 = 2 | X_0 = 4) = (P^2)_{42} = 0.1875.\]</span></p>
 <!-- ## Tutorial 2 -->
 <!-- 1.  A Markov chain $X_0, X_1, \ldots$ on states 1 ,2 ,3 has the -->
 <!--     following transition matrix $$P = \begin{bmatrix} -->
@@ -1991,7 +2085,7 @@ where <span class="math inline">\(\Phi\)</span> is the cumulative density functi
 <li>Consider the 3-state model of terminal illness for healthy, ill and
 dead states as shown below.</li>
 </ol>
-<div class="figure"><span id="fig:tikz-ex0"></span>
+<div class="figure"><span style="display:block;" id="fig:tikz-ex0"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex0-1.png" alt="The 3-state model of terminal illness" width="672" />
 <p class="caption">
 Figure 6.1: The 3-state model of terminal illness
@@ -2019,7 +2113,7 @@ mortality of two lives (husband and wife) consisting of for states :</li>
 <li><p><span class="math inline">\(v =\)</span> wife is alive, but husband is dead, and</p></li>
 <li><p><span class="math inline">\(d =\)</span> both are dead.</p></li>
 </ul>
-<div class="figure"><span id="fig:tikz-ex1"></span>
+<div class="figure"><span style="display:block;" id="fig:tikz-ex1"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex1-1.png" alt="A model of the mortality of two lives" width="672" />
 <p class="caption">
 Figure 6.2: A model of the mortality of two lives
@@ -2035,7 +2129,7 @@ classified into able (<span class="math inline">\(a\)</span>), ill (<span class=
 (<span class="math inline">\(w\)</span>). The lives can move between state according to the following
 diagram:</li>
 </ol>
-<div class="figure"><span id="fig:tikz-ex2"></span>
+<div class="figure"><span style="display:block;" id="fig:tikz-ex2"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex2-1.png" alt="A Markov model for health insurance policies" width="672" />
 <p class="caption">
 Figure 6.3: A Markov model for health insurance policies
@@ -2148,12 +2242,171 @@ Then, the Kolmogorov forward differential equations (FDE) for <span class="math 
   \frac{d}{dt}p_{aw}(t) &amp;= \omega p_{aa}(t).
 \end{aligned}\]</span></p>
 <pre><code>4. The transition diagram for a model of maritial status is illusrated in the figure below:</code></pre>
-<div class="figure"><span id="fig:tikz-ex6"></span>
+<div class="figure"><span style="display:block;" id="fig:tikz-ex6"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex6-1.png" alt="The 5-state model of maritial status" width="672" />
 <p class="caption">
 Figure 6.4: The 5-state model of maritial status
 </p>
 </div>
+</div>
+<div id="tutorial-7" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Tutorial 7</h2>
+<!-- CT4201004 -->
+<p><strong>Questions are modified from the past CT4 exams from IFoA.</strong></p>
+<ol style="list-style-type: decimal">
+<li>For each of the following processes:</li>
+</ol>
+<ul>
+<li>counting process;</li>
+<li>general random walk;</li>
+<li>Poisson process;</li>
+<li>Markov jump chain;</li>
+<li>Geometric Brownian motion.
+<ol style="list-style-type: decimal">
+<li>State whether the state space is discrete, continuous or can be either.</li>
+<li>State whether the time set is discrete, continuous, or can be either.</li>
+</ol></li>
+</ul>
+<p>Here the stochastic process <span class="math inline">\(\{X_n: n = 0, 1, 2, \ldots\}\)</span> is known as a general random walk if it satisfies
+<span class="math display">\[X_n = X_0 + \sum_{i=1}^n Z_i, \]</span>
+where <span class="math inline">\(X_0\)</span> is independent of i.i.d. random variables <span class="math inline">\(Z_1,Z_2, \ldots\)</span>.</p>
+<p><strong>Solution:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Process</th>
+<th align="center">State Space</th>
+<th align="center">Time Set</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">counting process</td>
+<td align="center">Discrete</td>
+<td align="center">Discrete</td>
+</tr>
+<tr class="even">
+<td align="center">general random walk</td>
+<td align="center">Discrete or continuous</td>
+<td align="center">Discrete</td>
+</tr>
+<tr class="odd">
+<td align="center">Poisson process</td>
+<td align="center">Discrete</td>
+<td align="center">continuous</td>
+</tr>
+<tr class="even">
+<td align="center">Markov Jump Chain</td>
+<td align="center">Discrete</td>
+<td align="center">Discrete</td>
+</tr>
+<tr class="odd">
+<td align="center">Geometric Brownian motion</td>
+<td align="center">continuous</td>
+<td align="center">continuous</td>
+</tr>
+</tbody>
+</table>
+<!-- CT4201004 -->
+<ol start="2" style="list-style-type: decimal">
+<li>Ten years ago, a food and beverage company launched a new product, Boba Ceylon Milk Tea. The product was successful and consumption increased rapidly from the first sale.</li>
+</ol>
+<p>In order to plan future investment in production capacity, the manufacturer wants to forecast the future demand for Boba Ceylon Milk Tea. It has data on age-specific consumption rates for the last ten years, as well as population projections by age for the next twenty years. It proposes the following modelling strategy:</p>
+<ul>
+<li><p>Extrapolate past age-specific consumption rates to forecast age-specific consumption rates for the next 20 years.</p></li>
+<li><p>Applying the projected age-specific consumption rates to the projected population by age to obtain the estimated total product consumption by age for each of the next 20 years</p></li>
+<li><p>Add the results to get the total demand for each year.</p></li>
+</ul>
+<p>Describe the advantages and disadvantages of this strategy.</p>
+<p><strong>Solution:</strong></p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li><p>The model is easy to understand and to communicate.</p></li>
+<li><p>The model takes into account an important source of variation in consumption rates, namely age.</p></li>
+<li><p>The model is simple and inexpensive to implement.</p></li>
+<li><p>Previous data on consumption by age should be fairly accurate.</p></li>
+<li><p>The model can be easily adapted to different population projections OR takes into account future changes in the population.</p></li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li><p>Past trends in consumption by age may not be a good guide to future trends.</p></li>
+<li><p>Extrapolating past age-specific consumption rates can be complex or difficult and can be done in a variety of ways.</p></li>
+<li><p>Beverage consumption may be affected by the state of the economy, e.g. whether there is a recession.</p></li>
+<li><p>Factors other than age may play a role in determining consumption, e.g. advertising expenditure.</p></li>
+<li><p>Consumption may depend on pricing, which may change in the future.</p></li>
+<li><p>It is unlikely that a rapid increase in consumption can be sustained over time as there is likely to be a cap on the amount of Boba Ceylon Milk Tea a person can eat.</p></li>
+<li><p>Projections of future population by age may not be accurate as they depend on future fertility, mortality and migration rates.</p></li>
+<li><p>The proposed strategy does not include a test of the sensitivity of aggregate demand to changes in projected population or deviations in future consumption trends from those used in the model.</p></li>
+<li><p>Unforeseen events such as the introduction of new products by competitors or increasing health awareness among the population may affect future consumption.</p></li>
+<li><p>Boba Ceylon Milk Tea consumption may vary with cohort rather than age, and the model does not capture cohort effects.</p></li>
+</ul>
+<!-- CT4_201504 -->
+<ol start="3" style="list-style-type: decimal">
+<li><ol style="list-style-type: decimal">
+<li><p>State the steps you would go through in creating a model.</p></li>
+<li><p>For three of these steps, discuss the specific problems that might be encountered in building a model for pricing an COVID -19 insurance product.</p></li>
+</ol></li>
+</ol>
+<p><strong>Solution</strong></p>
+<pre><code>1. </code></pre>
+<ul>
+<li><p>Develop a well-defined set of objectives to be achieved through the modelling process.</p></li>
+<li><p>Plan the modelling process and how the model will be validated.</p></li>
+<li><p>Collect and analyse the necessary data.</p></li>
+<li><p>Define the parameters for the model and consider appropriate parameter values.</p></li>
+<li><p>Define the model first by capturing the essence of the real system (refining the level of detail of the model can be done at a later stage).</p></li>
+<li><p>Involve experts on the real system you are trying to mimic to get feedback on the validity of the conceptual model.</p></li>
+<li><p>Decide whether a simulation package or general-purpose language is appropriate for implementing the model.</p></li>
+<li><p>Choose a statistically reliable random number generator that performs adequately in the context of the model’s complexity.</p></li>
+<li><p>Write the computer program for the model.</p></li>
+<li><p>Debug the program to ensure that it performs the operations specified in the model definition.</p></li>
+<li><p>Test the adequacy of the model’s output.</p></li>
+<li><p>Check the adequacy of the model with respect to small changes in input parameters and consider them carefully.</p></li>
+<li><p>Analyse the output of the model.</p></li>
+<li><p>Ensure that all relevant technical guidance has been followed.</p></li>
+<li><p>Communicate and document the results of the model.</p>
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol></li>
+</ul>
+<p><strong>Objective.</strong></p>
+<ul>
+<li><p>Is a single pricing table needed for a particular coverage/period/type of illness?</p></li>
+<li><p>Is a price range needed for different levels of coverage?</p></li>
+<li><p>Is a simple price needed or a confidence interval around profitability, etc.?</p></li>
+</ul>
+<p><strong>Data.</strong></p>
+<ul>
+<li><p>Look at national industry data and possibly international data on illness and recovery rates.</p></li>
+<li><p>Pay attention to the definition of illness.</p></li>
+<li><p>Look at trends.</p></li>
+<li><p>Are recovery rates affected by reduction in benefits?</p></li>
+<li><p>Could future trends change due to medical developments, changes in government policy on government benefits or economic influences?</p></li>
+<li><p>What is the expected level of expenses? This will depend on expected sales (and commission levels).</p></li>
+<li><p>Since this is a new product, the company may not have experience monitoring claims. Look at industry and internal data for new product launches.</p></li>
+</ul>
+<p><strong>Modelling Process.</strong></p>
+<ul>
+<li><p>Start with a simple model that accounts for sickness and recovery rates.</p></li>
+<li><p>Add costs and reserving later.</p></li>
+</ul>
+<p><strong>Define the model.</strong></p>
+<ul>
+<li>The type of model is determined by the objectives: deterministic for a simple set of premium rates, stochastic if confidence intervals are required.</li>
+</ul>
+<p><strong>Reasonableness of the result.</strong></p>
+<ul>
+<li><p>Look at the premium rates generated and compare them to those of competitors in the market.</p></li>
+<li><p>Are they roughly where you would expect them to be?</p></li>
+<li><p>Sensitivity to changes in input parameters.</p></li>
+<li><p>Change each key parameter slightly; sickness rates, recovery rate, and make sure the impact on premium rates is not too great.</p></li>
+<li><p>If it is, review the product design.
+Can the risk be reduced by, for example, introducing annually reviewable premium rates?</p></li>
+</ul>
+<p><strong>Comply with professional guidelines and the regulatory environment.</strong></p>
+<ul>
+<li>Look at professional guidelines and regulatory requirements.</li>
+</ul>
 
 </div>
 </div>
@@ -2167,7 +2420,6 @@ Figure 6.4: The 5-state model of maritial status
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -2207,6 +2459,10 @@ gitbook.start({
 "text": null
 },
 "download": ["SCMA469Bookdownproj.pdf", "SCMA469Bookdownproj.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
