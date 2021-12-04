@@ -1237,17 +1237,18 @@ It should be emphasised that the above results confirm that the Markov chain  ha
     3. Again using the Markov chain given in Question 3.3, we have that 
 
 * If either $X_0 = 2$ or $X_0 = 3$ (i.e. the Markov chain initially starts in the closed class $C_1 = \{2,3\}$), (with the aid of computer software) the limiting distribution is 
-$$\mu = (0,3/4,1/4,0).$$
+$$\boldsymbol{\pi} = (0,3/4,1/4,0).$$
 
 * If $X_0 = 4$ (i.e. the Markov chain initially starts in the closed class $C_2 = \{4\}$), (with the aid of computer software) the limiting distribution is 
-$$\mu = (0,0,0,1).$$
+
+$$\boldsymbol{\pi} = (0,0,0,1).$$
 
 * If $X_0 = 1$ (i.e. the Markov chain initially starts in the closed class $C_2 = \{4\}$), (with the aid of computer software) the limiting distribution is 
 
-$$\mu = (0, (3/4)\alpha_1^{(1)}, (1/4)\alpha_1^{(1)}, \alpha_1^{(2)}),$$
+$$\boldsymbol{\pi} = (0, (3/4)\alpha_1^{(1)}, (1/4)\alpha_1^{(1)}, \alpha_1^{(2)}),$$
 where $\alpha_1^{(1)} = 2/3$ and $\alpha_1^{(2)} = 1/3$ is the probability of absorption in classes $C_1$ and $C_2$, respectivel. 
 
-Hence, $$\mu = (0, 1/2, 1/6, 1/3).$$
+Hence, $$\boldsymbol{\pi} = (0, 1/2, 1/6, 1/3).$$
 
 * If $X_0$ is random, one approach is to use the first step analysis to calculate the limiting distribution. This will leave as extra exercise.
 
@@ -1271,7 +1272,7 @@ Hence, $$\mu = (0, 1/2, 1/6, 1/3).$$
         or move to level 1 (from level 2), or remain at level 1.
 
     A portfolio consists of 10,000 policyholders. Suppose also that the
-    number of claims per year is $\mathcal{Poisson}(0.1)$.
+    number of claims per year is $\mathcal{Poisson}(0.1)$.  **Suppose at time 0 all policyholders are at level 1.**
 
     1.  Calculate $\Pr[N = 0]$, $\Pr[N = 1]$, and $\Pr[N \ge 2]$ for
         each group.
@@ -1287,6 +1288,112 @@ Hence, $$\mu = (0, 1/2, 1/6, 1/3).$$
 
     5.  Calculate the expected number of policyholders at each level
         once stability has been achieved, assuming no exits.
+
+
+
+**Solution:**
+    1. For a given policyholder, the number of claims each year, $N$, has a
+    Poisson distribution with parameter $\lambda=0.1$. Therefore,
+
+* $p_0 = \Pr(N = 0) = e^{-0.1} = `r dpois(0,0.1)`$
+* $p_1 = \Pr(N = 1) = e^{-0.1}(0.1) = `r dpois(1,0.1)`$
+* $p_{2+} = \Pr(N \ge 1) = `r ppois(1,0.1,lower.tail = FALSE)`$
+
+```{r Q7-2, echo = FALSE}
+library(markovchain)
+lambda <- 0.1
+p0 = dpois(0,lambda)
+p1 = dpois(1,lambda)
+p2 = ppois(1,lambda,lower.tail = FALSE)
+
+stateNames <- c(1,2,3,4)
+transMat <- matrix(c(
+             1- p0 ,  p0 , 0 , 0      ,
+             1- p0 , 0 ,  p0 , 0   ,
+             1- p0 - p1 ,  p1 , 0 ,  p0   ,
+             0 ,  1- p0 - p1 ,  p1 ,  p0 
+  ),
+             nrow=4, byrow=TRUE)
+row.names(transMat) <- stateNames 
+colnames(transMat) <- stateNames
+
+dtmcA <- new("markovchain",
+             transitionMatrix = transMat,
+             states = as.character(stateNames),
+             name = "P")
+P <- dtmcA
+```
+
+    2. The transition diagram is shown in the figure below:
+
+```{r, echo = FALSE}
+library(MASS)
+plot(dtmcA, package="diagram", self.cex = 0.7,  box.prop = 0.5, arr.length=0.2)
+```
+
+
+
+    The transition matrix is 
+    
+```{r, echo= FALSE}
+P
+```
+which can be obtained from 
+
+$$ P = \begin{bmatrix}
+                1 - p_0 & p_0 & 0 & 0      \\
+                1 - p_0 & 0 & p_0 & 0   \\
+            1 - p_0 - p_1 & p_1 & 0 & p_0     \\    
+            0 & 1 - p_0 - p_1 & p_1 & p_0     \\
+        \end{bmatrix}.$$
+
+
+3. The required probability is
+    
+$$ \Pr(X_2 = 1 | X_0 = 3) = (P^2)_{31} = `r transitionProbability(P^2,3, 1)`.$$
+
+
+```{r, echo = FALSE}
+mu <- c(1,0,0,0)
+```
+
+
+    4. Given that at time 0 all policyholders are at level 1, the initial probability distribution is 
+$$\boldsymbol{\mu} = (1,0,0,0)$$.
+
+Hence the probability distributions of $X_1$ and $X_2$ are $\boldsymbol{\mu} P$ and $\boldsymbol{\mu} P^2$:
+
+* $\boldsymbol{\mu} P = (`r mu * P`)$
+
+* $\boldsymbol{\mu} P^2 = (`r mu * P^2`)$.
+
+At times 1,the expected numbers of policyholders at levels 1 to 4 are 
+
+$$`r round(10000*(mu * P)[1])`, `r round(10000*(mu * P)[2])`, `r round(10000*(mu * P)[3])` \text{ and } `r round(10000*(mu * P)[4])`, \text{respectively}.$$
+
+At times 2,the expected numbers of policyholders at levels 1 to 4 are 
+
+$$`r round(10000*(mu * P^2)[1])`, `r round(10000*(mu * P^2)[2])`, `r round(10000*(mu * P^2)[3])` \text{ and } `r round(10000*(mu * P^2)[4])`, \text{respectively}.$$
+
+    5. It should be note that the Markov chain for this NCD system sastifies the following
+    
+* The state space $S$ is finite.
+
+* $S$ is irreducible.
+
+* The Markov chain is aperiodic. 
+
+Therefore, these imply the existence of the limiting probability distribution, which is the same as the stationary distribution. We need to find the stationary probability distribution  $\boldsymbol{\pi} = (\pi_1, \pi_2, \pi_3, \pi_4)$, which is the solution of the linear
+equations $\boldsymbol{\pi}  P  =\boldsymbol{\pi}$ (note that one of the equations can be discarded), together with the condition
+$\sum_{j \in S} \pi_j = 1$.
+    
+It follows that 
+
+$$\boldsymbol{\pi} = (`r steadyStates(dtmcA)`),$$
+and hence the expected numbers of policyholders at levels 1 to 4 once stability has been achieved, are
+
+$$`r round(10000*(steadyStates(dtmcA))[1])`, `r round(10000*(steadyStates(dtmcA))[2])`, `r round(10000*(steadyStates(dtmcA))[3])` \text{ and } `r round(10000*(steadyStates(dtmcA))[4])`, \text{respectively}.$$
+
 
 7.  A no-claims discount system for motor insurance has four levels of
     discount:
@@ -1374,10 +1481,9 @@ plot(dtmcA, package="diagram", self.cex = 0.7,  box.prop = 0.5, arr.length=0.2)
 ```
 
 
-
     2. The transition matrix is 
     
-```{r}
+```{r, echo=FALSE}
 P
 ```
 which can be obtained from 
@@ -1392,6 +1498,8 @@ $$ P = \begin{bmatrix}
     3. The required probability is
     
 $$ \Pr(X_2 = 2 | X_0 = 4) = (P^2)_{42} = `r transitionProbability(P^2,4, 2)`.$$
+
+
 
 
 <!-- ## Tutorial 2 -->

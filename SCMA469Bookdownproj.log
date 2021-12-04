@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.4.12)  2 DEC 2021 19:52
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.4.12)  4 DEC 2021 12:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1822,26 +1822,42 @@ Underfull \hbox (badness 1043) in paragraph at lines 4704--4708
 f absorption probabilities in the closed class $[][] [] [][][]$. Write
  []
 
-[69] [70] [71] [72] [73]
-Overfull \hbox (9.2673pt too wide) detected at line 5171
+[69] [70] [71]
+File: SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-19-1.pdf Graphic fil
+e (type QTm)
+<use  "SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-19-1.pdf" > [72]
+Overfull \hbox (39.49498pt too wide) in paragraph at lines 5019--5019
+[]\TU/lmtt/m/n/10 4. Given that at time 0 all policyholders are at level 1, the
+ initial probability distribution is[] 
+ []
+
+[73]
+Underfull \vbox (badness 1688) has occurred while \output is active []
+
+[74]
+File: SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-22-1.pdf Graphic fil
+e (type QTm)
+<use  "SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-22-1.pdf" > [75] [7
+6] [77]
+Overfull \hbox (9.2673pt too wide) detected at line 5451
 [][]
  []
 
-[74]
-Overfull \hbox (81.49498pt too wide) in paragraph at lines 5203--5203
+[78]
+Overfull \hbox (81.49498pt too wide) in paragraph at lines 5483--5483
 []    \TU/lmtt/m/n/10 1.  $\Pr(N(5) = 0) = \frac{\exp(-(2)(5))((2)(5))^{0}  }{(
 0!)} = \ensuremath{4.539993\times 10^{-5}}$.[] 
  []
 
 
-Overfull \hbox (391.24498pt too wide) in paragraph at lines 5203--5203
+Overfull \hbox (391.24498pt too wide) in paragraph at lines 5483--5483
 []    \TU/lmtt/m/n/10 2. The 10th customer will arrive after 11:00 am but befor
 e 11:05 am is the same as saying that at least 10 customers arrive in 5 minutes
  between 11:00-11:15 am.[] 
  []
 
 
-Overfull \hbox (779.74498pt too wide) in paragraph at lines 5215--5215
+Overfull \hbox (779.74498pt too wide) in paragraph at lines 5495--5495
 []    \TU/lmtt/m/n/10 3.  Given that a third of customers are men, the probabil
 ity that a customer is male is 1/3, which is indendent of everything else. By s
 plitting theorem, the "male" and the "female" processes are independent Poisson
@@ -1849,29 +1865,29 @@ plitting theorem, the "male" and the "female" processes are independent Poisson
  []
 
 
-Overfull \hbox (43.49498pt too wide) in paragraph at lines 5249--5249
+Overfull \hbox (43.49498pt too wide) in paragraph at lines 5529--5529
  [] \TU/lmtt/m/n/10 2. According to the superposition theorem, the probability 
 that this bird is a tailorbird is[] 
  []
 
-
-Overfull \hbox (333.49498pt too wide) in paragraph at lines 5257--5257
+[79]
+Overfull \hbox (333.49498pt too wide) in paragraph at lines 5537--5537
 []    \TU/lmtt/m/n/10 3. The process is homogeneous in time, i.e. only the leng
 ht of the  interval matters. So the distribution of the number of birds in the 
 time interval[] 
  []
 
-[75] [76]
-Overfull \hbox (291.49498pt too wide) in paragraph at lines 5355--5355
+[80]
+Overfull \hbox (291.49498pt too wide) in paragraph at lines 5635--5635
 []    \TU/lmtt/m/n/10 2. Conditional on there being five births in a given inte
 rval,the number of boys in that interval has a binomial distribution with param
 eters[] 
  []
 
-[77]
-Overfull \vbox (12.19449pt too high) has occurred while \output is active []
+[81]
+Overfull \vbox (48.19449pt too high) has occurred while \output is active []
 
-[78] [79] [80] [81]
+[82] [83] [84] [85]
 File: SCMA469Bookdownproj_files/figure-latex/tikz-ex0-1.png Graphic file (type 
 QTm)
 <use  "SCMA469Bookdownproj_files/figure-latex/tikz-ex0-1.png" >
@@ -1880,44 +1896,45 @@ QTm)
 <use  "SCMA469Bookdownproj_files/figure-latex/tikz-ex1-1.png" >
 File: SCMA469Bookdownproj_files/figure-latex/tikz-ex2-1.png Graphic file (type 
 QTm)
-<use  "SCMA469Bookdownproj_files/figure-latex/tikz-ex2-1.png" > [82]
-Overfull \hbox (34.24498pt too wide) in paragraph at lines 5862--5862
+<use  "SCMA469Bookdownproj_files/figure-latex/tikz-ex2-1.png" > [86]
+Overfull \hbox (34.24498pt too wide) in paragraph at lines 6142--6142
 []\TU/lmtt/m/n/10 The solution to the differential equation together with the i
 nitial condition $p_{hh}(0) = 1$ is[] 
  []
 
-[83] [84]
-Overfull \hbox (7.99498pt too wide) in paragraph at lines 5977--5977
+[87] [88]
+Overfull \hbox (7.99498pt too wide) in paragraph at lines 6257--6257
 []\TU/lmtt/m/n/10 4. The transition diagram for a model of maritial status is i
 llusrated in the figure below:[] 
  []
 
 File: SCMA469Bookdownproj_files/figure-latex/tikz-ex6-1.png Graphic file (type 
 QTm)
-<use  "SCMA469Bookdownproj_files/figure-latex/tikz-ex6-1.png" > [85] [86
-
-]
+<use  "SCMA469Bookdownproj_files/figure-latex/tikz-ex6-1.png" > [89] [90] [91] 
+[92]
 Chapter 7.
-[87] [88
+[93
+
+] [94
 
 ]
 Chapter 8.
 No file SCMA469Bookdownproj.bbl.
-[89]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6011.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 6011.
+[95]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6538.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 6538.
 (./SCMA469Bookdownproj.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 6011.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 6011.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 6011.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 6538.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 6538.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 6538.
  ) 
 Here is how much of TeX's memory you used:
- 38615 strings out of 493005
- 738956 string characters out of 6134596
- 947651 words of memory out of 5000000
- 41971 multiletter control sequences out of 15000+600000
+ 38622 strings out of 493005
+ 739145 string characters out of 6134596
+ 948731 words of memory out of 5000000
+ 41976 multiletter control sequences out of 15000+600000
  43786 words of font info for 128 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  75i,15n,73p,10414b,584s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on SCMA469Bookdownproj.pdf (89 pages).
+Output written on SCMA469Bookdownproj.pdf (95 pages).

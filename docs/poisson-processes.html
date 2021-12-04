@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Poisson processes | SCMA469 Actuarial Statistics</title>
   <meta name="description" content="Chapter 5 Poisson processes | SCMA469 Actuarial Statistics" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Poisson processes | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2021-12-03" />
+<meta name="date" content="2021-12-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,9 +33,8 @@
   
 <link rel="prev" href="discrete-time-markov-chains.html"/>
 <link rel="next" href="tutorials.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -43,6 +42,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -287,31 +287,31 @@ Poisson process is a right-continuous step function. There are jumps
 occurring at time <span class="math inline">\(t_1, t_2, t_3, \ldots\)</span>.</p>
 <!-- ![ **A trajectory of the Poisson process** -->
 <!-- ](PlotPoissonProcess.eps){#graphPoisson width="50%"} -->
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="poisson-processes.html#cb13-1" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="dv">17</span></span>
-<span id="cb13-2"><a href="poisson-processes.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the length of time horizon for the simulation T_length &lt;- 31</span></span>
-<span id="cb13-3"><a href="poisson-processes.html#cb13-3" aria-hidden="true" tabindex="-1"></a>last_arrival <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb13-4"><a href="poisson-processes.html#cb13-4" aria-hidden="true" tabindex="-1"></a>arrival_time <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb13-5"><a href="poisson-processes.html#cb13-5" aria-hidden="true" tabindex="-1"></a>inter_arrival <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1</span>, <span class="at">rate =</span> lambda)</span>
-<span id="cb13-6"><a href="poisson-processes.html#cb13-6" aria-hidden="true" tabindex="-1"></a>T_length <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb13-7"><a href="poisson-processes.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (inter_arrival <span class="sc">+</span> last_arrival <span class="sc">&lt;</span> T_length) { </span>
-<span id="cb13-8"><a href="poisson-processes.html#cb13-8" aria-hidden="true" tabindex="-1"></a>  last_arrival <span class="ot">&lt;-</span> inter_arrival <span class="sc">+</span> last_arrival </span>
-<span id="cb13-9"><a href="poisson-processes.html#cb13-9" aria-hidden="true" tabindex="-1"></a>  arrival_time <span class="ot">&lt;-</span> <span class="fu">c</span>(arrival_time,last_arrival) </span>
-<span id="cb13-10"><a href="poisson-processes.html#cb13-10" aria-hidden="true" tabindex="-1"></a>  inter_arrival <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1</span>, <span class="at">rate =</span> lambda)</span>
-<span id="cb13-11"><a href="poisson-processes.html#cb13-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb13-12"><a href="poisson-processes.html#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="poisson-processes.html#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="poisson-processes.html#cb13-14" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(arrival_time)</span>
-<span id="cb13-15"><a href="poisson-processes.html#cb13-15" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>n</span>
-<span id="cb13-16"><a href="poisson-processes.html#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-17"><a href="poisson-processes.html#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(arrival_time, counts, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, n))</span>
-<span id="cb13-18"><a href="poisson-processes.html#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(arrival_time, <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n]))</span>
-<span id="cb13-19"><a href="poisson-processes.html#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(</span>
-<span id="cb13-20"><a href="poisson-processes.html#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">x0 =</span> <span class="fu">c</span>(<span class="dv">0</span>, arrival_time[<span class="sc">-</span>n]),</span>
-<span id="cb13-21"><a href="poisson-processes.html#cb13-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">y0 =</span> <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n]),</span>
-<span id="cb13-22"><a href="poisson-processes.html#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> arrival_time,</span>
-<span id="cb13-23"><a href="poisson-processes.html#cb13-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">y1 =</span> <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n])</span>
-<span id="cb13-24"><a href="poisson-processes.html#cb13-24" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:graphPoisson"></span>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="poisson-processes.html#cb27-1" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="dv">17</span></span>
+<span id="cb27-2"><a href="poisson-processes.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the length of time horizon for the simulation T_length &lt;- 31</span></span>
+<span id="cb27-3"><a href="poisson-processes.html#cb27-3" aria-hidden="true" tabindex="-1"></a>last_arrival <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-4"><a href="poisson-processes.html#cb27-4" aria-hidden="true" tabindex="-1"></a>arrival_time <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb27-5"><a href="poisson-processes.html#cb27-5" aria-hidden="true" tabindex="-1"></a>inter_arrival <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1</span>, <span class="at">rate =</span> lambda)</span>
+<span id="cb27-6"><a href="poisson-processes.html#cb27-6" aria-hidden="true" tabindex="-1"></a>T_length <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb27-7"><a href="poisson-processes.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (inter_arrival <span class="sc">+</span> last_arrival <span class="sc">&lt;</span> T_length) { </span>
+<span id="cb27-8"><a href="poisson-processes.html#cb27-8" aria-hidden="true" tabindex="-1"></a>  last_arrival <span class="ot">&lt;-</span> inter_arrival <span class="sc">+</span> last_arrival </span>
+<span id="cb27-9"><a href="poisson-processes.html#cb27-9" aria-hidden="true" tabindex="-1"></a>  arrival_time <span class="ot">&lt;-</span> <span class="fu">c</span>(arrival_time,last_arrival) </span>
+<span id="cb27-10"><a href="poisson-processes.html#cb27-10" aria-hidden="true" tabindex="-1"></a>  inter_arrival <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1</span>, <span class="at">rate =</span> lambda)</span>
+<span id="cb27-11"><a href="poisson-processes.html#cb27-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-12"><a href="poisson-processes.html#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="poisson-processes.html#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="poisson-processes.html#cb27-14" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(arrival_time)</span>
+<span id="cb27-15"><a href="poisson-processes.html#cb27-15" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>n</span>
+<span id="cb27-16"><a href="poisson-processes.html#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="poisson-processes.html#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(arrival_time, counts, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, n))</span>
+<span id="cb27-18"><a href="poisson-processes.html#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(arrival_time, <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n]))</span>
+<span id="cb27-19"><a href="poisson-processes.html#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(</span>
+<span id="cb27-20"><a href="poisson-processes.html#cb27-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">x0 =</span> <span class="fu">c</span>(<span class="dv">0</span>, arrival_time[<span class="sc">-</span>n]),</span>
+<span id="cb27-21"><a href="poisson-processes.html#cb27-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">y0 =</span> <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n]),</span>
+<span id="cb27-22"><a href="poisson-processes.html#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> arrival_time,</span>
+<span id="cb27-23"><a href="poisson-processes.html#cb27-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">y1 =</span> <span class="fu">c</span>(<span class="dv">0</span>, counts[<span class="sc">-</span>n])</span>
+<span id="cb27-24"><a href="poisson-processes.html#cb27-24" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span id="fig:graphPoisson"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/graphPoisson-1.png" alt="A trajectory of the Poisson process" width="672" />
 <p class="caption">
 Figure 5.1: A trajectory of the Poisson process
@@ -741,6 +741,7 @@ there.</p></li>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -780,10 +781,6 @@ gitbook.start({
 "text": null
 },
 "download": ["SCMA469Bookdownproj.pdf", "SCMA469Bookdownproj.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "subsection"
 }

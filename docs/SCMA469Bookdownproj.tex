@@ -128,7 +128,7 @@
 
 \title{SCMA469 Actuarial Statistics}
 \author{Pairote Satiracoo}
-\date{2021-12-02}
+\date{2021-12-04}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -4720,10 +4720,47 @@ In addition, since there are two closed classes,
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{3}
+\tightlist
 \item
   If the Markov chain defined in Question 3 is irreducible,
   i.e.~it has a unique stationary distribution, then find the
   stationary distribution of the chain.
+\end{enumerate}
+
+\textbf{Solution:}
+
+The only irreducible Markov chain is 3.1.
+
+Denote the stationary probability distribution by
+\(\boldsymbol{\pi} = (\pi_1, \pi_2, \pi_3, \pi_4)\).
+
+To find the stationary distribution, we simply solve the linear
+equations \(\boldsymbol{\pi} P =\boldsymbol{\pi}\) (note that one of the
+equations can be discarded), together with the condition
+\(\sum_{j \in S} \pi_j = 1\).
+
+By discarding the third quation, we obtain
+
+\(\pi_1 + \pi_2 + \pi_3 + \pi_4 = 1\),
+\[(\pi_1,  \pi_2, \pi_3, \pi_4)  \begin{bmatrix}
+                1/6 & 0 & 1/3 & 1/2      \\
+                0 & 1/3 & 2/3 & 0   \\
+            1/2 & 1/2 & 0 & 0     \\    
+            0 & 0 & 1/4 & 3/4     \\
+        \end{bmatrix} =  (\pi_1,  \pi_2, \pi_3, \pi_4),\] which is equivalent to
+\[\begin{aligned}
+(1/6)\pi_1 + (1/2)\pi_3 &= \pi_1 \\
+(1/3)\pi_2 + (1/2)\pi_3 &= \pi_2 \\
+(1/2)\pi_1 + (3/4)\pi_4 &= \pi_4 \\
+\pi_1 +   \pi_2 +  \pi_3 + \pi_4&= 1 \end{aligned}\]
+
+Solving the above system of linear equations, we obtain
+\(\pi_1, \pi_2, \pi_3\):
+\[\pi_1 = \frac{12}{71},  \quad \pi_2 = \frac{15}{71},  \quad \pi_3 = \frac{20}{71}, \quad \pi_4 = \frac{24}{71}.\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
 \item
   Assume that a Markov chain has more than one closed classes (say \(r\)
   closed classes). The Markov chain can \textbf{have many stationary
@@ -4797,6 +4834,78 @@ In addition, since there are two closed classes,
       (Hint: you may need to apply first step anslysis)
     \end{enumerate}
   \end{enumerate}
+\end{enumerate}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  We will illustrate the results of this question by using the Markov chain given in Question 3.3.
+\end{enumerate}
+
+We know that \(C_1 = \{2,3\}\) and \(C_2 = \{4\}\) are closed and \(\{1\}\) is non-closed. Both \(\{2,3\}\) and \(\{4\}\) are aperiodic.
+
+The stationary distribution within the class \(C_1\), denoted by
+\(\boldsymbol{\pi}^{(1)} = (\pi_1, \pi_2 )\) can be obtained from solving
+\(\pi_1 + \pi_2 = 1\),
+\[(\pi_1,  \pi_2)  
+\begin{bmatrix}
+    3/4 & 1/4    \\
+    3/4 & 1/4    \\
+\end{bmatrix} =  (\pi_1,  \pi_2).\]
+
+Therefore, \(\boldsymbol{\pi}^{(1)} = (3/4, 1/4 )\).
+
+Similarly, the stationary distribution within the class \(C_2 = \{4\}\) is \(\boldsymbol{\pi}^{(2)} = (1)\).
+
+It is now easy to verify that for for any numbers \(\gamma_1 + \gamma_2 = 1\), the following probability distribution is stationary:
+
+\[\boldsymbol{\pi} = (0, (3/4)\gamma_1, (1/4)\gamma_1, \gamma_2).\]
+
+\begin{verbatim}
+2. In particular, the general form of a stationary distribution is of this form: 
+\end{verbatim}
+
+\[\boldsymbol{\pi} = (0, (3/4)\gamma_1, (1/4)\gamma_1, \gamma_2).\]
+
+It should be emphasised that the above results confirm that the Markov chain have many stationary distributions.
+
+\begin{verbatim}
+3. Again using the Markov chain given in Question 3.3, we have that 
+\end{verbatim}
+
+\begin{itemize}
+\item
+  If either \(X_0 = 2\) or \(X_0 = 3\) (i.e.~the Markov chain initially starts in the closed class \(C_1 = \{2,3\}\)), (with the aid of computer software) the limiting distribution is
+  \[\boldsymbol{\pi} = (0,3/4,1/4,0).\]
+\item
+  If \(X_0 = 4\) (i.e.~the Markov chain initially starts in the closed class \(C_2 = \{4\}\)), (with the aid of computer software) the limiting distribution is
+\end{itemize}
+
+\[\boldsymbol{\pi} = (0,0,0,1).\]
+
+\begin{itemize}
+\tightlist
+\item
+  If \(X_0 = 1\) (i.e.~the Markov chain initially starts in the closed class \(C_2 = \{4\}\)), (with the aid of computer software) the limiting distribution is
+\end{itemize}
+
+\[\boldsymbol{\pi} = (0, (3/4)\alpha_1^{(1)}, (1/4)\alpha_1^{(1)}, \alpha_1^{(2)}),\]
+where \(\alpha_1^{(1)} = 2/3\) and \(\alpha_1^{(2)} = 1/3\) is the probability of absorption in classes \(C_1\) and \(C_2\), respectivel.
+
+Hence, \[\boldsymbol{\pi} = (0, 1/2, 1/6, 1/3).\]
+
+\begin{itemize}
+\tightlist
+\item
+  If \(X_0\) is random, one approach is to use the first step analysis to calculate the limiting distribution. This will leave as extra exercise.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
 \item
   A no-claims discount system for motor insurance has four levels of
   discount:
@@ -4825,7 +4934,7 @@ In addition, since there are two closed classes,
   \end{itemize}
 
   A portfolio consists of 10,000 policyholders. Suppose also that the
-  number of claims per year is \(\mathcal{Poisson}(0.1)\).
+  number of claims per year is \(\mathcal{Poisson}(0.1)\). \textbf{Suppose at time 0 all policyholders are at level 1.}
 
   \begin{enumerate}
   \def\labelenumii{\arabic{enumii}.}
@@ -4845,6 +4954,116 @@ In addition, since there are two closed classes,
     Calculate the expected number of policyholders at each level
     once stability has been achieved, assuming no exits.
   \end{enumerate}
+\end{enumerate}
+
+\textbf{Solution:}
+1. For a given policyholder, the number of claims each year, \(N\), has a
+Poisson distribution with parameter \(\lambda=0.1\). Therefore,
+
+\begin{itemize}
+\item
+  \(p_0 = \Pr(N = 0) = e^{-0.1} = 0.9048374\)
+\item
+  \(p_1 = \Pr(N = 1) = e^{-0.1}(0.1) = 0.0904837\)
+\item
+  \(p_{2+} = \Pr(N \ge 1) = 0.0046788\)
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    The transition diagram is shown in the figure below:
+  \end{enumerate}
+\end{itemize}
+
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\begin{verbatim}
+The transition matrix is 
+\end{verbatim}
+
+\begin{verbatim}
+## P 
+##  A  4 - dimensional discrete Markov Chain defined by the following states: 
+##  1, 2, 3, 4 
+##  The transition matrix  (by rows)  is defined as follows: 
+##            1          2          3         4
+## 1 0.09516258 0.90483742 0.00000000 0.0000000
+## 2 0.09516258 0.00000000 0.90483742 0.0000000
+## 3 0.00467884 0.09048374 0.00000000 0.9048374
+## 4 0.00000000 0.00467884 0.09048374 0.9048374
+\end{verbatim}
+
+which can be obtained from
+
+\[ P = \begin{bmatrix}
+                1 - p_0 & p_0 & 0 & 0      \\
+                1 - p_0 & 0 & p_0 & 0   \\
+            1 - p_0 - p_1 & p_1 & 0 & p_0     \\    
+            0 & 1 - p_0 - p_1 & p_1 & p_0     \\
+        \end{bmatrix}.\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  The required probability is
+\end{enumerate}
+
+\[ \Pr(X_2 = 1 | X_0 = 3) = (P^2)_{31} = 0.0090559.\]
+
+\begin{verbatim}
+4. Given that at time 0 all policyholders are at level 1, the initial probability distribution is 
+\end{verbatim}
+
+\[\boldsymbol{\mu} = (1,0,0,0)\].
+
+Hence the probability distributions of \(X_1\) and \(X_2\) are \(\boldsymbol{\mu} P\) and \(\boldsymbol{\mu} P^2\):
+
+\begin{itemize}
+\item
+  \(\boldsymbol{\mu} P = (0.0951626, 0.9048374, 0, 0)\)
+\item
+  \(\boldsymbol{\mu} P^2 = (0.0951626, 0.0861067, 0.8187308, 0)\).
+\end{itemize}
+
+At times 1,the expected numbers of policyholders at levels 1 to 4 are
+
+\[952, 9048, 0 \text{ and } 0, \text{respectively}.\]
+
+At times 2,the expected numbers of policyholders at levels 1 to 4 are
+
+\[952, 861, 8187 \text{ and } 0, \text{respectively}.\]
+
+\begin{verbatim}
+5. It should be note that the Markov chain for this NCD system sastifies the following
+\end{verbatim}
+
+\begin{itemize}
+\item
+  The state space \(S\) is finite.
+\item
+  \(S\) is irreducible.
+\item
+  The Markov chain is aperiodic.
+\end{itemize}
+
+Therefore, these imply the existence of the limiting probability distribution, which is the same as the stationary distribution. We need to find the stationary probability distribution \(\boldsymbol{\pi} = (\pi_1, \pi_2, \pi_3, \pi_4)\), which is the solution of the linear
+equations \(\boldsymbol{\pi} P =\boldsymbol{\pi}\) (note that one of the equations can be discarded), together with the condition
+\(\sum_{j \in S} \pi_j = 1\).
+
+It follows that
+
+\[\boldsymbol{\pi} = (0.0020032, 0.0144456, 0.0935973, 0.8899539),\]
+and hence the expected numbers of policyholders at levels 1 to 4 once stability has been achieved, are
+
+\[20, 144, 936 \text{ and } 8900, \text{respectively}.\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
 \item
   A no-claims discount system for motor insurance has four levels of
   discount:
@@ -4876,7 +5095,7 @@ In addition, since there are two closed classes,
   negative binomial distribution with parameters \(k=2\) and \(p = 0.5\).
 
   Note that a random variable \(N\) has a negative distribution with
-  parameters \(k\) and \(p\), denoted by \(N \sim \dnb\) if its probability
+  parameters \(k\) and \(p\), denoted by \(N \sim \mathcal{NB}(k, p)\) if its probability
   mass function is given by
   \[f_N(n) = \Pr(N = n) = \frac{\Gamma(k+n)}{\Gamma(n+1)\Gamma(k)} p^k (1- p)^n \quad n = 0,1,2,\ldots.\]
 
@@ -4892,6 +5111,67 @@ In addition, since there are two closed classes,
     discount level will have 20\% discount after two years.
   \end{enumerate}
 \end{enumerate}
+
+\textbf{Solution:}
+
+For a given policyholder, the number of claims each year, \(N\), has a
+negative binomial distribution with parameters \(k=2\) and \(p = 0.5\). Therefore,
+
+\[\begin{aligned}
+p_n = \Pr(N = n) &= \frac{\Gamma(k+n)}{\Gamma(n+1)\Gamma(k)} p^k (1- p)^n \\   
+&= \frac{\Gamma(n+2)}{\Gamma(n+1)\Gamma(2)} 0.5^2 (1- 0.5)^n \\
+&= (n+1)0.5^{n+2}    \quad n = 0,1,2,\ldots.
+\end{aligned}\]
+Therefore,
+
+\begin{itemize}
+\item
+  \(p_0 = 0.25\)
+\item
+  \(p_1 = 0.25\)
+\item
+  \(p_2 = 0.1875\)
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    The transition diagram is shown in the figure below:
+  \end{enumerate}
+\end{itemize}
+
+\includegraphics{SCMA469Bookdownproj_files/figure-latex/unnamed-chunk-22-1.pdf}
+
+\begin{verbatim}
+2. The transition matrix is 
+\end{verbatim}
+
+\begin{verbatim}
+## P 
+##  A  4 - dimensional discrete Markov Chain defined by the following states: 
+##  1, 2, 3, 4 
+##  The transition matrix  (by rows)  is defined as follows: 
+##        1      2    3    4
+## 1 0.7500 0.2500 0.00 0.00
+## 2 0.7500 0.0000 0.25 0.00
+## 3 0.5000 0.2500 0.00 0.25
+## 4 0.3125 0.1875 0.25 0.25
+\end{verbatim}
+
+which can be obtained from
+
+\[ P = \begin{bmatrix}
+                1 - p_0 & p_0 & 0 & 0      \\
+                1 - p_0 & 0 & p_0 & 0   \\
+            1 - p_0 - p_1 & p_1 & 0 & p_0     \\    
+            1 - p_0 - p_1 -p2 & p_2 & p_1 & p_0     \\
+        \end{bmatrix}.\]
+
+\begin{verbatim}
+3. The required probability is
+\end{verbatim}
+
+\[ \Pr(X_2 = 2 | X_0 = 4) = (P^2)_{42} = 0.1875.\]
 
 \hypertarget{tutorial-4}{%
 \section{Tutorial 4}\label{tutorial-4}}
@@ -5981,6 +6261,253 @@ Then, the Kolmogorov forward differential equations (FDE) for \(p_{aa}(t), p_{ai
 \includegraphics{SCMA469Bookdownproj_files/figure-latex/tikz-ex6-1.png}
 \caption{\label{fig:tikz-ex6}The 5-state model of maritial status}
 \end{figure}
+
+\hypertarget{tutorial-7}{%
+\section{Tutorial 7}\label{tutorial-7}}
+
+\textbf{Questions are modified from the past CT4 exams from IFoA.}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  For each of the following processes:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  counting process;
+\item
+  general random walk;
+\item
+  Poisson process;
+\item
+  Markov jump chain;
+\item
+  Geometric Brownian motion.
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    State whether the state space is discrete, continuous or can be either.
+  \item
+    State whether the time set is discrete, continuous, or can be either.
+  \end{enumerate}
+\end{itemize}
+
+Here the stochastic process \(\{X_n: n = 0, 1, 2, \ldots\}\) is known as a general random walk if it satisfies
+\[X_n = X_0 + \sum_{i=1}^n Z_i, \]
+where \(X_0\) is independent of i.i.d. random variables \(Z_1,Z_2, \ldots\).
+
+\textbf{Solution:}
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule
+Process & State Space & Time Set \\
+\midrule
+\endhead
+counting process & Discrete & Discrete \\
+general random walk & Discrete or continuous & Discrete \\
+Poisson process & Discrete & continuous \\
+Markov Jump Chain & Discrete & Discrete \\
+Geometric Brownian motion & continuous & continuous \\
+\bottomrule
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Ten years ago, a food and beverage company launched a new product, Boba Ceylon Milk Tea. The product was successful and consumption increased rapidly from the first sale.
+\end{enumerate}
+
+In order to plan future investment in production capacity, the manufacturer wants to forecast the future demand for Boba Ceylon Milk Tea. It has data on age-specific consumption rates for the last ten years, as well as population projections by age for the next twenty years. It proposes the following modelling strategy:
+
+\begin{itemize}
+\item
+  Extrapolate past age-specific consumption rates to forecast age-specific consumption rates for the next 20 years.
+\item
+  Applying the projected age-specific consumption rates to the projected population by age to obtain the estimated total product consumption by age for each of the next 20 years
+\item
+  Add the results to get the total demand for each year.
+\end{itemize}
+
+Describe the advantages and disadvantages of this strategy.
+
+\textbf{Solution:}
+
+\textbf{Advantages}
+
+\begin{itemize}
+\item
+  The model is easy to understand and to communicate.
+\item
+  The model takes into account an important source of variation in consumption rates, namely age.
+\item
+  The model is simple and inexpensive to implement.
+\item
+  Previous data on consumption by age should be fairly accurate.
+\item
+  The model can be easily adapted to different population projections OR takes into account future changes in the population.
+\end{itemize}
+
+\textbf{Disadvantages}
+
+\begin{itemize}
+\item
+  Past trends in consumption by age may not be a good guide to future trends.
+\item
+  Extrapolating past age-specific consumption rates can be complex or difficult and can be done in a variety of ways.
+\item
+  Beverage consumption may be affected by the state of the economy, e.g.~whether there is a recession.
+\item
+  Factors other than age may play a role in determining consumption, e.g.~advertising expenditure.
+\item
+  Consumption may depend on pricing, which may change in the future.
+\item
+  It is unlikely that a rapid increase in consumption can be sustained over time as there is likely to be a cap on the amount of Boba Ceylon Milk Tea a person can eat.
+\item
+  Projections of future population by age may not be accurate as they depend on future fertility, mortality and migration rates.
+\item
+  The proposed strategy does not include a test of the sensitivity of aggregate demand to changes in projected population or deviations in future consumption trends from those used in the model.
+\item
+  Unforeseen events such as the introduction of new products by competitors or increasing health awareness among the population may affect future consumption.
+\item
+  Boba Ceylon Milk Tea consumption may vary with cohort rather than age, and the model does not capture cohort effects.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    State the steps you would go through in creating a model.
+  \item
+    For three of these steps, discuss the specific problems that might be encountered in building a model for pricing an COVID -19 insurance product.
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{Solution}
+
+\begin{verbatim}
+1. 
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Develop a well-defined set of objectives to be achieved through the modelling process.
+\item
+  Plan the modelling process and how the model will be validated.
+\item
+  Collect and analyse the necessary data.
+\item
+  Define the parameters for the model and consider appropriate parameter values.
+\item
+  Define the model first by capturing the essence of the real system (refining the level of detail of the model can be done at a later stage).
+\item
+  Involve experts on the real system you are trying to mimic to get feedback on the validity of the conceptual model.
+\item
+  Decide whether a simulation package or general-purpose language is appropriate for implementing the model.
+\item
+  Choose a statistically reliable random number generator that performs adequately in the context of the model's complexity.
+\item
+  Write the computer program for the model.
+\item
+  Debug the program to ensure that it performs the operations specified in the model definition.
+\item
+  Test the adequacy of the model's output.
+\item
+  Check the adequacy of the model with respect to small changes in input parameters and consider them carefully.
+\item
+  Analyse the output of the model.
+\item
+  Ensure that all relevant technical guidance has been followed.
+\item
+  Communicate and document the results of the model.
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+  \end{enumerate}
+\end{itemize}
+
+\textbf{Objective.}
+
+\begin{itemize}
+\item
+  Is a single pricing table needed for a particular coverage/period/type of illness?
+\item
+  Is a price range needed for different levels of coverage?
+\item
+  Is a simple price needed or a confidence interval around profitability, etc.?
+\end{itemize}
+
+\textbf{Data.}
+
+\begin{itemize}
+\item
+  Look at national industry data and possibly international data on illness and recovery rates.
+\item
+  Pay attention to the definition of illness.
+\item
+  Look at trends.
+\item
+  Are recovery rates affected by reduction in benefits?
+\item
+  Could future trends change due to medical developments, changes in government policy on government benefits or economic influences?
+\item
+  What is the expected level of expenses? This will depend on expected sales (and commission levels).
+\item
+  Since this is a new product, the company may not have experience monitoring claims. Look at industry and internal data for new product launches.
+\end{itemize}
+
+\textbf{Modelling Process.}
+
+\begin{itemize}
+\item
+  Start with a simple model that accounts for sickness and recovery rates.
+\item
+  Add costs and reserving later.
+\end{itemize}
+
+\textbf{Define the model.}
+
+\begin{itemize}
+\tightlist
+\item
+  The type of model is determined by the objectives: deterministic for a simple set of premium rates, stochastic if confidence intervals are required.
+\end{itemize}
+
+\textbf{Reasonableness of the result.}
+
+\begin{itemize}
+\item
+  Look at the premium rates generated and compare them to those of competitors in the market.
+\item
+  Are they roughly where you would expect them to be?
+\item
+  Sensitivity to changes in input parameters.
+\item
+  Change each key parameter slightly; sickness rates, recovery rate, and make sure the impact on premium rates is not too great.
+\item
+  If it is, review the product design.
+  Can the risk be reduced by, for example, introducing annually reviewable premium rates?
+\end{itemize}
+
+\textbf{Comply with professional guidelines and the regulatory environment.}
+
+\begin{itemize}
+\tightlist
+\item
+  Look at professional guidelines and regulatory requirements.
+\end{itemize}
 
 \hypertarget{applications}{%
 \chapter{Applications}\label{applications}}
