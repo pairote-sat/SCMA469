@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 
 # Review of probability theory
 
@@ -207,8 +212,7 @@ $$P(A) = \sum_{i = 1}^n   P(A \cap B_i )  = \sum_{i = 1}^n   P(A | B_i ) P(B_i) 
 
 ::: {.example}
 *Suppose in a particular study area, the vaccination rate
-for the yearly flu virus is 70%. Suppose of those vaccinated, 10% of the
-residents still get the flu that year. Calculate the conditional
+for the yearly flu virus is 70%. In addition, 10% of those vaccinated still get the flu that year. Calculate the conditional
 probability of someone getting the flu in this area given that the
 person was vaccinated.*
 :::

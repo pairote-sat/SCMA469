@@ -127,7 +127,7 @@ stochastic processes. The use of matrix algebra provides a powerful tool
 to understand and analyse the processes.*
 
 *The evolution of the states or levels can be described the random
-variables $X_0, X_1,X_2, \ldots$ and probability distributions, where
+variables by $X_0, X_1,X_2, \ldots$ and probability distributions, where
 $X_n$ is the level of the policyholder at time $n$. In this example, the
 set of all states called the state space is discrete, which consists of
 seven levels, and the time variable is also discrete. This is an example
