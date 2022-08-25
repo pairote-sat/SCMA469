@@ -813,66 +813,43 @@ Discrete = value(i)
 End Function</code></pre>
 </div>
 <script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="discrete-time-markov-chains.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(expm)</span></code></pre></div>
-<pre><code>## Loading required package: Matrix</code></pre>
-<pre><code>## 
-## Attaching package: &#39;Matrix&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:tidyr&#39;:
-## 
-##     expand, pack, unpack</code></pre>
-<pre><code>## 
-## Attaching package: &#39;expm&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:Matrix&#39;:
-## 
-##     expm</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="discrete-time-markov-chains.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(markovchain)</span></code></pre></div>
-<pre><code>## Package:  markovchain
-## Version:  0.8.6
-## Date:     2021-05-17
-## BugReport: https://github.com/spedygiorgio/markovchain/issues</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="discrete-time-markov-chains.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(diagram)</span></code></pre></div>
-<pre><code>## Loading required package: shape</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="discrete-time-markov-chains.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pracma)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;pracma&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:expm&#39;:
-## 
-##     expm, logm, sqrtm</code></pre>
-<pre><code>## The following objects are masked from &#39;package:Matrix&#39;:
-## 
-##     expm, lu, tril, triu</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="discrete-time-markov-chains.html#cb21-1" aria-hidden="true" tabindex="-1"></a>stateNames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Rain&quot;</span>,<span class="st">&quot;Nice&quot;</span>,<span class="st">&quot;Snow&quot;</span>)</span>
-<span id="cb21-2"><a href="discrete-time-markov-chains.html#cb21-2" aria-hidden="true" tabindex="-1"></a>Oz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(.<span class="dv">5</span>,.<span class="dv">25</span>,.<span class="dv">25</span>,.<span class="dv">5</span>,<span class="dv">0</span>,.<span class="dv">5</span>,.<span class="dv">25</span>,.<span class="dv">25</span>,.<span class="dv">5</span>),</span>
-<span id="cb21-3"><a href="discrete-time-markov-chains.html#cb21-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb21-4"><a href="discrete-time-markov-chains.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(Oz) <span class="ot">&lt;-</span> stateNames; </span>
-<span id="cb21-5"><a href="discrete-time-markov-chains.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Oz) <span class="ot">&lt;-</span> stateNames</span>
-<span id="cb21-6"><a href="discrete-time-markov-chains.html#cb21-6" aria-hidden="true" tabindex="-1"></a>Oz</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="discrete-time-markov-chains.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(expm)</span>
+<span id="cb5-2"><a href="discrete-time-markov-chains.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(markovchain)</span>
+<span id="cb5-3"><a href="discrete-time-markov-chains.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(diagram)</span>
+<span id="cb5-4"><a href="discrete-time-markov-chains.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pracma)</span>
+<span id="cb5-5"><a href="discrete-time-markov-chains.html#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="discrete-time-markov-chains.html#cb5-6" aria-hidden="true" tabindex="-1"></a>stateNames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Rain&quot;</span>,<span class="st">&quot;Nice&quot;</span>,<span class="st">&quot;Snow&quot;</span>)</span>
+<span id="cb5-7"><a href="discrete-time-markov-chains.html#cb5-7" aria-hidden="true" tabindex="-1"></a>Oz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(.<span class="dv">5</span>,.<span class="dv">25</span>,.<span class="dv">25</span>,.<span class="dv">5</span>,<span class="dv">0</span>,.<span class="dv">5</span>,.<span class="dv">25</span>,.<span class="dv">25</span>,.<span class="dv">5</span>),</span>
+<span id="cb5-8"><a href="discrete-time-markov-chains.html#cb5-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb5-9"><a href="discrete-time-markov-chains.html#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(Oz) <span class="ot">&lt;-</span> stateNames; </span>
+<span id="cb5-10"><a href="discrete-time-markov-chains.html#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Oz) <span class="ot">&lt;-</span> stateNames</span>
+<span id="cb5-11"><a href="discrete-time-markov-chains.html#cb5-11" aria-hidden="true" tabindex="-1"></a>Oz</span></code></pre></div>
 <pre><code>##      Rain Nice Snow
 ## Rain 0.50 0.25 0.25
 ## Nice 0.50 0.00 0.50
 ## Snow 0.25 0.25 0.50</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="discrete-time-markov-chains.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmat</span>(Oz,<span class="at">pos =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),</span>
-<span id="cb23-2"><a href="discrete-time-markov-chains.html#cb23-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">box.lwd =</span> <span class="dv">2</span>,</span>
-<span id="cb23-3"><a href="discrete-time-markov-chains.html#cb23-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">cex.txt =</span> <span class="fl">0.8</span>,</span>
-<span id="cb23-4"><a href="discrete-time-markov-chains.html#cb23-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.size =</span> <span class="fl">0.1</span>,</span>
-<span id="cb23-5"><a href="discrete-time-markov-chains.html#cb23-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.type =</span> <span class="st">&quot;circle&quot;</span>,</span>
-<span id="cb23-6"><a href="discrete-time-markov-chains.html#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.prop =</span> <span class="fl">0.5</span>,</span>
-<span id="cb23-7"><a href="discrete-time-markov-chains.html#cb23-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.col =</span> <span class="st">&quot;light yellow&quot;</span>,</span>
-<span id="cb23-8"><a href="discrete-time-markov-chains.html#cb23-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">arr.length=</span>.<span class="dv">1</span>,</span>
-<span id="cb23-9"><a href="discrete-time-markov-chains.html#cb23-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">arr.width=</span>.<span class="dv">1</span>,</span>
-<span id="cb23-10"><a href="discrete-time-markov-chains.html#cb23-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">self.cex =</span> .<span class="dv">4</span>,</span>
-<span id="cb23-11"><a href="discrete-time-markov-chains.html#cb23-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">self.shifty =</span> <span class="sc">-</span>.<span class="dv">01</span>,</span>
-<span id="cb23-12"><a href="discrete-time-markov-chains.html#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">self.shiftx =</span> .<span class="dv">13</span>,</span>
-<span id="cb23-13"><a href="discrete-time-markov-chains.html#cb23-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="discrete-time-markov-chains.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmat</span>(Oz,<span class="at">pos =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),</span>
+<span id="cb7-2"><a href="discrete-time-markov-chains.html#cb7-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">box.lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb7-3"><a href="discrete-time-markov-chains.html#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">cex.txt =</span> <span class="fl">0.8</span>,</span>
+<span id="cb7-4"><a href="discrete-time-markov-chains.html#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.size =</span> <span class="fl">0.1</span>,</span>
+<span id="cb7-5"><a href="discrete-time-markov-chains.html#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.type =</span> <span class="st">&quot;circle&quot;</span>,</span>
+<span id="cb7-6"><a href="discrete-time-markov-chains.html#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.prop =</span> <span class="fl">0.5</span>,</span>
+<span id="cb7-7"><a href="discrete-time-markov-chains.html#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.col =</span> <span class="st">&quot;light yellow&quot;</span>,</span>
+<span id="cb7-8"><a href="discrete-time-markov-chains.html#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">arr.length=</span>.<span class="dv">1</span>,</span>
+<span id="cb7-9"><a href="discrete-time-markov-chains.html#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">arr.width=</span>.<span class="dv">1</span>,</span>
+<span id="cb7-10"><a href="discrete-time-markov-chains.html#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">self.cex =</span> .<span class="dv">4</span>,</span>
+<span id="cb7-11"><a href="discrete-time-markov-chains.html#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">self.shifty =</span> <span class="sc">-</span>.<span class="dv">01</span>,</span>
+<span id="cb7-12"><a href="discrete-time-markov-chains.html#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">self.shiftx =</span> .<span class="dv">13</span>,</span>
+<span id="cb7-13"><a href="discrete-time-markov-chains.html#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <p><img src="SCMA469Bookdownproj_files/figure-html/MC-1.png" width="672" /></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="discrete-time-markov-chains.html#cb24-1" aria-hidden="true" tabindex="-1"></a>Oz3 <span class="ot">&lt;-</span> Oz <span class="sc">%^%</span> <span class="dv">3</span></span>
-<span id="cb24-2"><a href="discrete-time-markov-chains.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(Oz3,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="discrete-time-markov-chains.html#cb8-1" aria-hidden="true" tabindex="-1"></a>Oz3 <span class="ot">&lt;-</span> Oz <span class="sc">%^%</span> <span class="dv">3</span></span>
+<span id="cb8-2"><a href="discrete-time-markov-chains.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(Oz3,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##       Rain  Nice  Snow
 ## Rain 0.406 0.203 0.391
 ## Nice 0.406 0.188 0.406
 ## Snow 0.391 0.203 0.406</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="discrete-time-markov-chains.html#cb26-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span>
-<span id="cb26-2"><a href="discrete-time-markov-chains.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(u <span class="sc">%*%</span> Oz3,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="discrete-time-markov-chains.html#cb10-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb10-2"><a href="discrete-time-markov-chains.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(u <span class="sc">%*%</span> Oz3,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##       Rain  Nice  Snow
 ## [1,] 0.401 0.198 0.401</code></pre>
 <p>We can use R to generate sample paths of a Markov chain. We first load the library <code>markovchain</code> package. See <a href="https://cran.r-project.org/web/packages/markovchain/vignettes/an_introduction_to_markovchain_package.pdf">https://cran.r-project.org/web/packages/markovchain/vignettes/an_introduction_to_markovchain_package.pdf</a> for more details.</p>
