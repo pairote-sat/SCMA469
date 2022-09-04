@@ -24,7 +24,7 @@
 <meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2022-08-25" />
+<meta name="date" content="2022-09-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -366,24 +366,18 @@ X_4 = 98, X_8 = 96 |X_1 = 99)  =  12  p^{2}(1-p)^{5} .\]</span></p></li>
             &amp;\vdots \\
             \Pr(X_5 &amp;= 105) = {5 \choose 5} p^5 (1-p)^0 = 1 
             p^5 (1-p)^0 \end{aligned}\]</span></p>
-<pre><code>    Therefore, $\mathrm{E}[X_5] = 
-     95 \cdot \left( 1 
-    p^0 (1-p)^5 \right)
-    + 97 \cdot \left(5 
-    p^1 (1-p)^4 \right)
-    + 99 \cdot \left(10 
-    p^2 (1-p)^3 \right)
-    + \cdots
-    + 105 \cdot \left( 1 
-        p^5 (1-p)^0 \right) = 95 + 10*x.$
-  Alternatively, 
+<pre><code>    Therefore, </code></pre>
+<p><span class="math inline">\(\mathrm{E}[X_5] = 95 \cdot \left( 1 p^0 (1-p)^5 \right) + 97 \cdot \left(5 p^1 (1-p)^4 \right) + 99 \cdot \left(10 p^2 (1-p)^3 \right) + \cdots + 105 \cdot \left( 1 p^5 (1-p)^0 \right) = 95 + 10*x.\)</span></p>
+<pre><code>  Alternatively, 
   </code></pre>
 <p><span class="math display">\[\begin{aligned}
       E\left[X_{5}\right] &amp;=E\left[100+\sum_{i=1}^{5} Z_{i}\right] \\
       &amp;= 100+5 \cdot E\left[Z_{i}\right]  \\
       &amp;=100+ 5 (2 p-1)  \\
-      &amp;=95 + 10p\end{aligned}\]</span>
-where <span class="math inline">\(E\left[Z_{i}\right] = p-q = p - (1 - p) = 2p -1.\)</span></p>
+      &amp;=95 + 10p\end{aligned}\]</span></p>
+<pre><code>  where 
+  </code></pre>
+<p><span class="math inline">\(E\left[Z_{i}\right] = p-q = p - (1 - p) = 2p -1.\)</span></p>
 <ol start="4" style="list-style-type: decimal">
 <li><p>For each event,</p>
 <ul>

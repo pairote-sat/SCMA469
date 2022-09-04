@@ -146,16 +146,10 @@ $$\begin{aligned}
             \Pr(X_5 &= 105) = {5 \choose 5} p^5 (1-p)^0 = 1 
             p^5 (1-p)^0 \end{aligned}$$
 
-        Therefore, $\mathrm{E}[X_5] = 
-         95 \cdot \left( 1 
-        p^0 (1-p)^5 \right)
-        + 97 \cdot \left(5 
-        p^1 (1-p)^4 \right)
-        + 99 \cdot \left(10 
-        p^2 (1-p)^3 \right)
-        + \cdots
-        + 105 \cdot \left( 1 
-            p^5 (1-p)^0 \right) = 95 + 10*x.$
+        Therefore, 
+
+$\mathrm{E}[X_5] = 95 \cdot \left( 1 p^0 (1-p)^5 \right) + 97 \cdot \left(5 p^1 (1-p)^4 \right) + 99 \cdot \left(10 p^2 (1-p)^3 \right) + \cdots + 105 \cdot \left( 1 p^5 (1-p)^0 \right) = 95 + 10*x.$
+
       Alternatively, 
       
 $$\begin{aligned}
@@ -163,7 +157,10 @@ $$\begin{aligned}
       &= 100+5 \cdot E\left[Z_{i}\right]  \\
       &=100+ 5 (2 p-1)  \\
       &=95 + 10p\end{aligned}$$
-      where $E\left[Z_{i}\right] = p-q  = p - (1 - p) = 2p -1.$
+      
+      where 
+      
+$E\left[Z_{i}\right] = p-q  = p - (1 - p) = 2p -1.$
 
 4.  For each event,
 
