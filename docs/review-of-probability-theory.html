@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Review of probability theory | SCMA469 Actuarial Statistics</title>
   <meta name="description" content="Chapter 2 Review of probability theory | SCMA469 Actuarial Statistics" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Review of probability theory | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2022-09-04" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="stochastic-processes.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -239,10 +238,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="review-of-probability-theory" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Review of probability theory</h1>
-<div id="random-variables" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Random variables</h2>
+<div id="review-of-probability-theory" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Review of probability theory<a href="review-of-probability-theory.html#review-of-probability-theory" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="random-variables" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Random variables<a href="review-of-probability-theory.html#random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The dynamics of a stochastic process are describes by random variables
 and probability distributions. This section provides a brief discussion
 of the properties of random variables.</p>
@@ -279,8 +278,8 @@ variable is finite or countably infinite, then the random variable is a
 <strong>discrete random variable</strong>. Otherwise, if its range is an uncountable
 set, then it is a <strong>continuous random variable</strong>.</p>
 </div>
-<div id="probability-distribution" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Probability distribution</h2>
+<div id="probability-distribution" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Probability distribution<a href="review-of-probability-theory.html#probability-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The probability distribution of a random variable <span class="math inline">\(X\)</span> is a function
 describing all possible values of <span class="math inline">\(X\)</span> and their corresponding
 probabilities or the likelihood of obtaining those values of <span class="math inline">\(X\)</span>.
@@ -296,8 +295,8 @@ exists a nonnegative, integrable function <span class="math inline">\(f\)</span>
 <span class="math inline">\(f: \mathbb{R} \rightarrow [0, \infty)\)</span> such that
 <span class="math display">\[F(x) = \int_{-\infty}^x f(y)\, dy\]</span> Then the function <span class="math inline">\(f\)</span> is called
 the <strong>probability density function</strong> (p.d.f) of a random variable <span class="math inline">\(X\)</span>.</p>
-<div id="examples-of-discrete-and-continuous-random-variables" class="section level4 unnumbered">
-<h4>Examples of discrete and continuous random variables</h4>
+<div id="examples-of-discrete-and-continuous-random-variables" class="section level4 unnumbered hasAnchor">
+<h4>Examples of discrete and continuous random variables<a href="review-of-probability-theory.html#examples-of-discrete-and-continuous-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The main quantities of interest in a portfolio of motor insurance are
 the number of claims arriving in a fixed time period and the sizes of
 those claims. Clearly, the number of claims can be describe by a
@@ -377,8 +376,8 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KGdncGxvdDIpXG5kZiA8LSBkYXRhLmZyYW1l
 details about the loss distribution.</p>
 </div>
 </div>
-<div id="conditional-probability" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Conditional probability</h2>
+<div id="conditional-probability" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Conditional probability<a href="review-of-probability-theory.html#conditional-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A stochastic process can be defined as a collection or sequence of
 random variables. The concept of <strong>conditional probability</strong> plays an
 important role to analyse dependency between random variables in the
@@ -395,8 +394,8 @@ of the events does not affect the probability of occurrence of the
 other. More precisely, the events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if
 <span class="math display">\[P(A \cap B) = P(A)P(B),\]</span> or equivalently, <span class="math display">\[P(A|B) =  P(A).\]</span></p>
 </div>
-<div id="law-of-total-probability" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Law of total probability</h2>
+<div id="law-of-total-probability" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Law of total probability<a href="review-of-probability-theory.html#law-of-total-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Suppose there are three events: <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span>. Events <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>
 are distinct from each other while event <span class="math inline">\(A\)</span> intersects with both
 events. We do not know the probability of event <span class="math inline">\(A\)</span>. However, partial
@@ -430,8 +429,8 @@ probability that the company’s stock price will increase.</em></p></li>
 </div>
 <p>Calculate the probability that the company’s stock price will increase.</p>
 </div>
-<div id="conditional-distribution-and-conditional-expectation" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Conditional distribution and conditional expectation</h2>
+<div id="conditional-distribution-and-conditional-expectation" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Conditional distribution and conditional expectation<a href="review-of-probability-theory.html#conditional-distribution-and-conditional-expectation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two discrete random variables with joint probability
 mass function <span class="math display">\[f(x,y) = P(X = x, Y = y).\]</span> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are
 continuous random variables, the joint probability density function
@@ -459,8 +458,8 @@ where <span class="math inline">\(f_Y(y) &gt; 0\)</span>.</p>
 <span class="math inline">\(f_X\)</span> because
 <span class="math display">\[f_{X|Y}(x|y) = \frac{f(x,y)}{f_Y(y)} =\frac{f_X(x)f_Y(y)}{f_Y(y)} = f_X(x).\]</span></p>
 </div>
-<div id="central-limit-theorem" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Central Limit Theorem</h2>
+<div id="central-limit-theorem" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Central Limit Theorem<a href="review-of-probability-theory.html#central-limit-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This section introduces the Central Limit Theorem, which is an important
 theorem in probability theory. It states that the mean of <span class="math inline">\(n\)</span>
 independent and identically distributed random variables has an
@@ -983,7 +982,6 @@ normal distribution.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1023,6 +1021,10 @@ gitbook.start({
 "text": null
 },
 "download": ["SCMA469Bookdownproj.pdf", "SCMA469Bookdownproj.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -1036,7 +1038,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

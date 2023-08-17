@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Discrete-time Markov chains | SCMA469 Actuarial Statistics</title>
   <meta name="description" content="Chapter 4 Discrete-time Markov chains | SCMA469 Actuarial Statistics" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Discrete-time Markov chains | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2022-09-04" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="stochastic-processes.html"/>
 <link rel="next" href="poisson-processes.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -239,8 +238,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="discrete-time-markov-chains" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Discrete-time Markov chains</h1>
+<div id="discrete-time-markov-chains" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Discrete-time Markov chains<a href="discrete-time-markov-chains.html#discrete-time-markov-chains" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Recall the simple random walk model of the price of the stock. Suppose
 the stock price for the first four days are
 <span class="math display">\[(X_0, X_1, X_2, X_3) = (100, 99, 98, 99).\]</span> Based on this past
@@ -277,13 +276,13 @@ the past of the process <span class="math inline">\(\{X_s : 0 \le s \le t \}\)</
 <p>In order to show that a process with independent increments has the
 Markov property, we proceed as follows: for all times <span class="math inline">\(s_1 &lt; s_2 &lt; \ldots &lt; s_n &lt; s &lt; t\)</span>
 <span class="math display">\[\begin{aligned}
-\Pr(X_t \in A | X_{s_1} = x_1, X_{s_2} = x_2, \ldots, X_{s_n} = x_n ,X_{s} = x) 
+\Pr(X_t \in A | X_{s_1} = x_1, X_{s_2} = x_2, \ldots, X_{s_n} = x_n ,X_{s} = x)
 &amp;= \Pr(X_t - X_s + x \in A | X_{s_1} = x_1, X_{s_2} = x_2, \ldots, X_{s_n} = x_n, X_{s} = x) \\
 &amp;= \Pr(X_t - X_s + x \in A |  X_{s} = x)  \text{(by independence of the past)} \\
 &amp;= \Pr(X_t  \in A |  X_{s} = x).\end{aligned}\]</span></p>
 <p><strong>Note</strong> The random walk process has the Markov property.</p>
-<div id="one-step-transition-probabilities" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> One-step transition probabilities</h2>
+<div id="one-step-transition-probabilities" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> One-step transition probabilities<a href="discrete-time-markov-chains.html#one-step-transition-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The conditional probability that <span class="math inline">\(X_{n+1}\)</span> is in state <span class="math inline">\(j\)</span> given that
 <span class="math inline">\(X_n\)</span> is in state <span class="math inline">\(i\)</span> is called <strong>one-step transition probability</strong> and
 is denoted by <span class="math display">\[\Pr(X_{n+1} = j | X_n = i) = p_{ij}^{n,n+1}.\]</span> Note that
@@ -368,7 +367,7 @@ probability mass function of <span class="math inline">\(X_0\)</span>).</em></p>
 </div>
 <p><strong>Solution:</strong>
 <span class="math display">\[\begin{aligned}
- &amp;\Pr(X_0 = i_0, X_1 = i_1, \ldots, X_n = i_n) \\
+&amp;\Pr(X_0 = i_0, X_1 = i_1, \ldots, X_n = i_n) \\
   &amp;= \Pr(X_0 = i_0, X_1 = i_1, \ldots, X_{n-1} = i_{n-1}) \cdot \Pr(X_n = i_n | X_0 = i_0, X_1 = i_1, \ldots, X_{n-1} = i_{n-1})\\
   &amp;= \Pr(X_0 = i_0, X_1 = i_1, \ldots, X_{n-1} = i_{n-1}) \cdot \Pr(X_n = i_n |  X_{n-1} = i_{n-1})\\
   &amp;=  \Pr(X_0 = i_0, X_1 = i_1, \ldots, X_{n-1} = i_{n-1}) \cdot p_{i_{n-1} i_n} \\
@@ -384,11 +383,11 @@ probability mass function of <span class="math inline">\(X_0\)</span>).</em></p>
 <p><strong>Solution:</strong>
 <span class="math display">\[\begin{aligned}
 &amp;\Pr(X_{n+1} = i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n, X_{n-1} = i_{n-1}, \ldots, X_0 = i_{0}) \\
-&amp;= \Pr(X_{n+1} = i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n) \\ 
-&amp;= \Pr( X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_{n+1} = i_{n+1}, X_n = i_n)  \cdot \Pr(X_{n+1} = i_{n+1} |  X_n = i_n ) \\ 
-&amp;= \Pr( X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_{n+1} = i_{n+1})  \cdot p_{i_n i_{n+1}} \\ 
+&amp;= \Pr(X_{n+1} = i_{n+1}, X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_n = i_n) \\
+&amp;= \Pr( X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_{n+1} = i_{n+1}, X_n = i_n)  \cdot \Pr(X_{n+1} = i_{n+1} |  X_n = i_n ) \\
+&amp;= \Pr( X_{n+2} = i_{n+2},  \ldots, X_{n+m} = i_{n+m}| X_{n+1} = i_{n+1})  \cdot p_{i_n i_{n+1}} \\
 &amp;\quad \vdots \\
-&amp;= \Pr( X_{n+m} = i_{n+m}| X_{n+m-1} = i_{n+m-1}) \cdots \Pr( X_{n+2} = i_{n+2}| X_{n + 1} = i_{n + 1}) \cdot p_{i_n i_{n+1}} \\ 
+&amp;= \Pr( X_{n+m} = i_{n+m}| X_{n+m-1} = i_{n+m-1}) \cdots \Pr( X_{n+2} = i_{n+2}| X_{n + 1} = i_{n + 1}) \cdot p_{i_n i_{n+1}} \\
 &amp;= p_{i_{n+m-1} i_{n+m}} \cdot p_{i_{n+m-2} i_{n+m-1}}   \cdots p_{i_n i_{n+1}} .\end{aligned}\]</span></p>
 <p><strong>Note</strong> More general probabilities of the possible realisations of the process
 can be calculated by summing the probabilities of elementary elements of
@@ -429,8 +428,8 @@ that,
 <span class="math display">\[\Pr(X_0 = 2, X_1 = 1, X_2 = 0) = \mu_3 p_{32} p_{21} = 0.2\cdot(1/4)\cdot(1/4) = 1/80.\]</span></p></li>
 <li><p><span class="math display">\[\begin{aligned}
 \Pr( X_1 = 1, X_2 = 0 | X_0 = 2)
-&amp;=   \Pr( X_1 = 1 | X_0 = 2)  \cdot \Pr( X_2 = 0 | X_1 = 1, X_0 = 2) \\ 
-&amp;=   \Pr( X_1 = 1 | X_0 = 2) \cdot \Pr( X_2 = 0 | X_1 = 1) \quad \text{(by Markov property)}\\ 
+&amp;=   \Pr( X_1 = 1 | X_0 = 2)  \cdot \Pr( X_2 = 0 | X_1 = 1, X_0 = 2) \\
+&amp;=   \Pr( X_1 = 1 | X_0 = 2) \cdot \Pr( X_2 = 0 | X_1 = 1) \quad \text{(by Markov property)}\\
 &amp;= p_{32} p_{21} = (1/4)\cdot(1/4) = 1/16.\end{aligned}\]</span></p></li>
 <li><p>Following conditional probability, the Markov property, and
 time-homogeneity (to be discussed later) results in
@@ -447,16 +446,16 @@ Later we will show that
 <li><p>From conditional probability, the Markov property, and
 time-homogeneity, it follows that <span class="math display">\[\begin{aligned}
 \Pr( X_{11} = 1, X_{12} = 0 | X_{10} = 2)
-&amp;=   \Pr( X_{11} = 1 | X_{10} = 2)  \cdot \Pr( X_{12} = 0 | X_{11} = 1, X_{10} = 2) \\ 
-&amp;=   \Pr( X_{11} = 1 | X_{10} = 2) \cdot \Pr( X_{12} = 0 | X_{11} = 1) \quad \text{(by Markov property)}\\ 
-&amp;=   \Pr( X_{1} = 1 | X_{0} = 2) \cdot \Pr( X_{1} = 0 | X_{0} = 1) \quad \text{(by time-homogeneity)}\\ 
+&amp;=   \Pr( X_{11} = 1 | X_{10} = 2)  \cdot \Pr( X_{12} = 0 | X_{11} = 1, X_{10} = 2) \\
+&amp;=   \Pr( X_{11} = 1 | X_{10} = 2) \cdot \Pr( X_{12} = 0 | X_{11} = 1) \quad \text{(by Markov property)}\\
+&amp;=   \Pr( X_{1} = 1 | X_{0} = 2) \cdot \Pr( X_{1} = 0 | X_{0} = 1) \quad \text{(by time-homogeneity)}\\
 &amp;= p_{32} p_{21} = (1/4)\cdot(1/4) = 1/16.\end{aligned}\]</span></p></li>
 </ol>
 <!-- The Chapman-Kolmogorov equations -->
 <!-- --------------------------------- -->
 </div>
-<div id="the-chapman-kolmogorov-equation-and-n-step-transition-probabilities" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> The Chapman-Kolmogorov equation and <span class="math inline">\(n\)</span>-step transition probabilities</h2>
+<div id="the-chapman-kolmogorov-equation-and-n-step-transition-probabilities" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> The Chapman-Kolmogorov equation and <span class="math inline">\(n\)</span>-step transition probabilities<a href="discrete-time-markov-chains.html#the-chapman-kolmogorov-equation-and-n-step-transition-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <span class="math inline">\(n\)</span>-step transition probability denoted by <span class="math inline">\(p^{(n)}_{ij}\)</span> is the
 probability that the process goes from state <span class="math inline">\(i\)</span> to state <span class="math inline">\(j\)</span> in <span class="math inline">\(n\)</span>
 transitions, i.e. <span class="math display">\[p^{(n)}_{ij} = \Pr(X_{m+n} = j | X_m = i ).\]</span> Note
@@ -471,7 +470,7 @@ transition probabilities <span class="math inline">\(p^{(l)}_{ik} \, p^{(n-l)}_{
 p^{(n)}_{ij} = \sum_{k \in S}p^{(l)}_{ik} p^{(n-l)}_{kj}, \quad 0 &lt; l &lt; n  \end{aligned}\]</span>
 To derive the Chapman-Kolmogorov equation, we proceed as follows:</p>
 <p><span class="math display">\[\begin{aligned}
-p^{(n)}_{ij} &amp;= \Pr(X_n = j | X_0 = i) \\ 
+p^{(n)}_{ij} &amp;= \Pr(X_n = j | X_0 = i) \\
 &amp;= \sum_{k \in S} \Pr(X_n = j , X_l = k | X_0 = i)    \\
 &amp;= \sum_{k \in S} \Pr(X_n = j | X_l = k , X_0 = i)  \cdot   \Pr(X_l = k |  X_0 = i) \\
 &amp;= \sum_{k \in S} \Pr(X_n = j | X_l = k )  \cdot   \Pr(X_l = k |  X_0 = i) \\
@@ -517,8 +516,8 @@ indices used) .</p></li>
   &amp;= 51/32 = 1.59375.\end{aligned}\]</span></p></li>
 </ol>
 </div>
-<div id="distribution-of-x_n" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Distribution of <span class="math inline">\(X_n\)</span></h2>
+<div id="distribution-of-x_n" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Distribution of <span class="math inline">\(X_n\)</span><a href="discrete-time-markov-chains.html#distribution-of-x_n" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let <span class="math inline">\(\boldsymbol{\mu}^{(n)}\)</span> be the vector of probability mass function
 of <span class="math inline">\(X_n\)</span>, i.e. <span class="math display">\[\boldsymbol{\mu}^{(n)} = (\mu_1, \mu_2, \ldots ),\]</span>
 where <span class="math inline">\(\mu_i = \Pr(X_n = i)\)</span>. It follows that
@@ -581,8 +580,8 @@ given by <span class="math display">\[P = \begin{bmatrix}
 desired probability of sunny is
 <span class="math display">\[\Pr(X_2 = S) =( \boldsymbol{\mu} \cdot P^2 )_S  = (\boldsymbol{\mu} \cdot P^2 )_3 = 0.13.\]</span></p>
 </div>
-<div id="joint-distribution" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Joint Distribution</h2>
+<div id="joint-distribution" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Joint Distribution<a href="discrete-time-markov-chains.html#joint-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let <span class="math inline">\(X_0, X_1, \ldots\)</span> be a Markov chain with transition matrix <span class="math inline">\(P\)</span> and
 initial distribution <span class="math inline">\(\boldsymbol{\mu}.\)</span> For all
 <span class="math inline">\(0 \le n_1 \le n_2 &lt; \cdots &lt; n_{k-1} &lt; n_k\)</span> and states
@@ -605,12 +604,12 @@ We are given that <span class="math inline">\(\boldsymbol{\mu} = (1/3, 1/3, 1/3)
     %\vdots &amp; \vdots &amp; \vdots  &amp; \vdots \\
     %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
 \end{bmatrix},\]</span> the required probability is <span class="math display">\[\begin{aligned}
- \Pr(X_3 = S, X_5 = S, X_6 = C) &amp;= (\boldsymbol{\mu}  \cdot P^3)_S \cdot  P^{2}_{SS} \cdot P_{SC} \\
+\Pr(X_3 = S, X_5 = S, X_6 = C) &amp;= (\boldsymbol{\mu}  \cdot P^3)_S \cdot  P^{2}_{SS} \cdot P_{SC} \\
 &amp;= (\boldsymbol{\mu}  \cdot P^3)_3 \cdot P^{2}_{33} \cdot P_{32}  \\
 &amp;= 0.148 \cdot  0.22 \cdot 0.4 = 0.013024.\end{aligned}\]</span></p>
 </div>
-<div id="random-walk-with-absorbing-and-reflecting-barriers" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Random walk with absorbing and reflecting barrier(s)</h2>
+<div id="random-walk-with-absorbing-and-reflecting-barriers" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Random walk with absorbing and reflecting barrier(s)<a href="discrete-time-markov-chains.html#random-walk-with-absorbing-and-reflecting-barriers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="example">
 <p><span id="exm:unlabeled-div-20" class="example"><strong>Example 4.11  </strong></span><em>A one-dimensional random walk <span class="math inline">\(\{X_n\}\)</span> is defined on a
 finite or infinite subset of integers in which the process in state <span class="math inline">\(i\)</span>
@@ -672,7 +671,7 @@ walk with absorbing boundaries (states) are given as follows:</p>
     \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp;  \ddots &amp; \vdots    &amp; \vdots &amp; \vdots   \\
     0 &amp; 0 &amp; 0 &amp; 0  &amp; \cdots &amp; q &amp; 0 &amp; p   \\
     0 &amp; 0 &amp; 0 &amp; 0  &amp; \cdots &amp; 0 &amp; 0 &amp; 1   \\
- %0 &amp; 0 &amp; 0 &amp; 1/2 &amp; 1/2     \\
+%0 &amp; 0 &amp; 0 &amp; 1/2 &amp; 1/2     \\
     %p_{d1} &amp; p_{d2} &amp; p_{d3} &amp; \dots  &amp; p_{dn}
 \end{bmatrix}.\]</span></p>
 <ol style="list-style-type: decimal">
@@ -688,8 +687,8 @@ for the chain. The process might be used to model the fortune of an
 individual when negative fortune is reset to zero.</p></li>
 </ol>
 </div>
-<div id="an-example-of-nonhomogeneous-markov-chain" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> An example of nonhomogeneous Markov chain</h2>
+<div id="an-example-of-nonhomogeneous-markov-chain" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> An example of nonhomogeneous Markov chain<a href="discrete-time-markov-chains.html#an-example-of-nonhomogeneous-markov-chain" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this section, we give an example of a discrete-time nonhomogeneous
 Markov chain. Again, without stated otherwise, we shall assume that the
 discrete-time Markov chains are homogeneous.</p>
@@ -727,8 +726,8 @@ chain arrives in state 2 after four steps, the future evolution is
 specified by <span class="math inline">\(P(5)\)</span>, and not any other <span class="math inline">\(P(i), i \le 4\)</span>.</li>
 </ol>
 </div>
-<div id="simulation" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> Simulation</h2>
+<div id="simulation" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Simulation<a href="discrete-time-markov-chains.html#simulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Simulation is a powerful tool for studying Markov chains. For many
 Markov chains in real-world applications, state spaces are large and
 matrix methods may not be practical.</p>
@@ -753,8 +752,8 @@ Algorithm:
         Generate (*$X_i$*) according to (*$\boldsymbol p$*)
     END FOR</code></pre>
 </div>
-<div id="monte-carlo-methods" class="section level2" number="4.8">
-<h2><span class="header-section-number">4.8</span> Monte Carlo Methods</h2>
+<div id="monte-carlo-methods" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> Monte Carlo Methods<a href="discrete-time-markov-chains.html#monte-carlo-methods" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Monte Carlo methods are simulation-based algorithms that rely on
 generating a large set of samples from a statistical model to obtain the
 behaviour of the model and estimate the quantities of interest. For a
@@ -775,7 +774,7 @@ is a random variable, we have
 <span class="math display">\[\Pr(X \in A) = \mathrm{E}(1_A(X)) = \frac{1}{N}\sum_{i=1}^N 1_A(X_i).\]</span></p>
 <p>Recall that the indicator function of the set <span class="math inline">\(A\)</span> is the defined as</p>
 <p><span class="math display">\[\begin{aligned}
-        1_A(x) &amp;= 
+        1_A(x) &amp;=
         \begin{cases}
                    1,  &amp; \text{if } x \in A\\               
                    0,       &amp; \text{otherwise}.
@@ -813,26 +812,10 @@ Discrete = value(i)
 End Function</code></pre>
 </div>
 <script src=https://cdn.datacamp.com/datacamp-light-latest.min.js></script>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="discrete-time-markov-chains.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(expm)</span></code></pre></div>
-<pre><code>## Loading required package: Matrix</code></pre>
-<pre><code>## 
-## Attaching package: &#39;Matrix&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:tidyr&#39;:
-## 
-##     expand, pack, unpack</code></pre>
-<pre><code>## 
-## Attaching package: &#39;expm&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:Matrix&#39;:
-## 
-##     expm</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="discrete-time-markov-chains.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(markovchain)</span></code></pre></div>
-<pre><code>## Package:  markovchain
-## Version:  0.8.6
-## Date:     2021-05-17
-## BugReport: https://github.com/spedygiorgio/markovchain/issues</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="discrete-time-markov-chains.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(diagram)</span></code></pre></div>
-<pre><code>## Loading required package: shape</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="discrete-time-markov-chains.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pracma)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="discrete-time-markov-chains.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(expm)</span>
+<span id="cb5-2"><a href="discrete-time-markov-chains.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(markovchain)</span>
+<span id="cb5-3"><a href="discrete-time-markov-chains.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(diagram)</span>
+<span id="cb5-4"><a href="discrete-time-markov-chains.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pracma)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;pracma&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:expm&#39;:
@@ -841,38 +824,38 @@ End Function</code></pre>
 <pre><code>## The following objects are masked from &#39;package:Matrix&#39;:
 ## 
 ##     expm, lu, tril, triu</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="discrete-time-markov-chains.html#cb21-1" aria-hidden="true" tabindex="-1"></a>stateNames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Rain&quot;</span>,<span class="st">&quot;Nice&quot;</span>,<span class="st">&quot;Snow&quot;</span>)</span>
-<span id="cb21-2"><a href="discrete-time-markov-chains.html#cb21-2" aria-hidden="true" tabindex="-1"></a>Oz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(.<span class="dv">5</span>,.<span class="dv">25</span>,.<span class="dv">25</span>,.<span class="dv">5</span>,<span class="dv">0</span>,.<span class="dv">5</span>,.<span class="dv">25</span>,.<span class="dv">25</span>,.<span class="dv">5</span>),</span>
-<span id="cb21-3"><a href="discrete-time-markov-chains.html#cb21-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb21-4"><a href="discrete-time-markov-chains.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(Oz) <span class="ot">&lt;-</span> stateNames; </span>
-<span id="cb21-5"><a href="discrete-time-markov-chains.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Oz) <span class="ot">&lt;-</span> stateNames</span>
-<span id="cb21-6"><a href="discrete-time-markov-chains.html#cb21-6" aria-hidden="true" tabindex="-1"></a>Oz</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="discrete-time-markov-chains.html#cb9-1" aria-hidden="true" tabindex="-1"></a>stateNames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Rain&quot;</span>,<span class="st">&quot;Nice&quot;</span>,<span class="st">&quot;Snow&quot;</span>)</span>
+<span id="cb9-2"><a href="discrete-time-markov-chains.html#cb9-2" aria-hidden="true" tabindex="-1"></a>Oz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(.<span class="dv">5</span>,.<span class="dv">25</span>,.<span class="dv">25</span>,.<span class="dv">5</span>,<span class="dv">0</span>,.<span class="dv">5</span>,.<span class="dv">25</span>,.<span class="dv">25</span>,.<span class="dv">5</span>),</span>
+<span id="cb9-3"><a href="discrete-time-markov-chains.html#cb9-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb9-4"><a href="discrete-time-markov-chains.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(Oz) <span class="ot">&lt;-</span> stateNames; </span>
+<span id="cb9-5"><a href="discrete-time-markov-chains.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Oz) <span class="ot">&lt;-</span> stateNames</span>
+<span id="cb9-6"><a href="discrete-time-markov-chains.html#cb9-6" aria-hidden="true" tabindex="-1"></a>Oz</span></code></pre></div>
 <pre><code>##      Rain Nice Snow
 ## Rain 0.50 0.25 0.25
 ## Nice 0.50 0.00 0.50
 ## Snow 0.25 0.25 0.50</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="discrete-time-markov-chains.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmat</span>(Oz,<span class="at">pos =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),</span>
-<span id="cb23-2"><a href="discrete-time-markov-chains.html#cb23-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">box.lwd =</span> <span class="dv">2</span>,</span>
-<span id="cb23-3"><a href="discrete-time-markov-chains.html#cb23-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">cex.txt =</span> <span class="fl">0.8</span>,</span>
-<span id="cb23-4"><a href="discrete-time-markov-chains.html#cb23-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.size =</span> <span class="fl">0.1</span>,</span>
-<span id="cb23-5"><a href="discrete-time-markov-chains.html#cb23-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.type =</span> <span class="st">&quot;circle&quot;</span>,</span>
-<span id="cb23-6"><a href="discrete-time-markov-chains.html#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.prop =</span> <span class="fl">0.5</span>,</span>
-<span id="cb23-7"><a href="discrete-time-markov-chains.html#cb23-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.col =</span> <span class="st">&quot;light yellow&quot;</span>,</span>
-<span id="cb23-8"><a href="discrete-time-markov-chains.html#cb23-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">arr.length=</span>.<span class="dv">1</span>,</span>
-<span id="cb23-9"><a href="discrete-time-markov-chains.html#cb23-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">arr.width=</span>.<span class="dv">1</span>,</span>
-<span id="cb23-10"><a href="discrete-time-markov-chains.html#cb23-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">self.cex =</span> .<span class="dv">4</span>,</span>
-<span id="cb23-11"><a href="discrete-time-markov-chains.html#cb23-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">self.shifty =</span> <span class="sc">-</span>.<span class="dv">01</span>,</span>
-<span id="cb23-12"><a href="discrete-time-markov-chains.html#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">self.shiftx =</span> .<span class="dv">13</span>,</span>
-<span id="cb23-13"><a href="discrete-time-markov-chains.html#cb23-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="discrete-time-markov-chains.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmat</span>(Oz,<span class="at">pos =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),</span>
+<span id="cb11-2"><a href="discrete-time-markov-chains.html#cb11-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">box.lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb11-3"><a href="discrete-time-markov-chains.html#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">cex.txt =</span> <span class="fl">0.8</span>,</span>
+<span id="cb11-4"><a href="discrete-time-markov-chains.html#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.size =</span> <span class="fl">0.1</span>,</span>
+<span id="cb11-5"><a href="discrete-time-markov-chains.html#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.type =</span> <span class="st">&quot;circle&quot;</span>,</span>
+<span id="cb11-6"><a href="discrete-time-markov-chains.html#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.prop =</span> <span class="fl">0.5</span>,</span>
+<span id="cb11-7"><a href="discrete-time-markov-chains.html#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">box.col =</span> <span class="st">&quot;light yellow&quot;</span>,</span>
+<span id="cb11-8"><a href="discrete-time-markov-chains.html#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">arr.length=</span>.<span class="dv">1</span>,</span>
+<span id="cb11-9"><a href="discrete-time-markov-chains.html#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">arr.width=</span>.<span class="dv">1</span>,</span>
+<span id="cb11-10"><a href="discrete-time-markov-chains.html#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">self.cex =</span> .<span class="dv">4</span>,</span>
+<span id="cb11-11"><a href="discrete-time-markov-chains.html#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">self.shifty =</span> <span class="sc">-</span>.<span class="dv">01</span>,</span>
+<span id="cb11-12"><a href="discrete-time-markov-chains.html#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">self.shiftx =</span> .<span class="dv">13</span>,</span>
+<span id="cb11-13"><a href="discrete-time-markov-chains.html#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <p><img src="SCMA469Bookdownproj_files/figure-html/MC-1.png" width="672" /></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="discrete-time-markov-chains.html#cb24-1" aria-hidden="true" tabindex="-1"></a>Oz3 <span class="ot">&lt;-</span> Oz <span class="sc">%^%</span> <span class="dv">3</span></span>
-<span id="cb24-2"><a href="discrete-time-markov-chains.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(Oz3,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="discrete-time-markov-chains.html#cb12-1" aria-hidden="true" tabindex="-1"></a>Oz3 <span class="ot">&lt;-</span> Oz <span class="sc">%^%</span> <span class="dv">3</span></span>
+<span id="cb12-2"><a href="discrete-time-markov-chains.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(Oz3,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##       Rain  Nice  Snow
 ## Rain 0.406 0.203 0.391
 ## Nice 0.406 0.188 0.406
 ## Snow 0.391 0.203 0.406</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="discrete-time-markov-chains.html#cb26-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span>
-<span id="cb26-2"><a href="discrete-time-markov-chains.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(u <span class="sc">%*%</span> Oz3,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="discrete-time-markov-chains.html#cb14-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb14-2"><a href="discrete-time-markov-chains.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(u <span class="sc">%*%</span> Oz3,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##       Rain  Nice  Snow
 ## [1,] 0.401 0.198 0.401</code></pre>
 <p>We can use R to generate sample paths of a Markov chain. We first load the library <code>markovchain</code> package. See <a href="https://cran.r-project.org/web/packages/markovchain/vignettes/an_introduction_to_markovchain_package.pdf">https://cran.r-project.org/web/packages/markovchain/vignettes/an_introduction_to_markovchain_package.pdf</a> for more details.</p>
@@ -953,8 +936,8 @@ steps and calculate the proportion of visits to each state)</em></li>
 </ol>
 </div>
 </div>
-<div id="classification-of-states" class="section level2" number="4.9">
-<h2><span class="header-section-number">4.9</span> Classification of states</h2>
+<div id="classification-of-states" class="section level2 hasAnchor" number="4.9">
+<h2><span class="header-section-number">4.9</span> Classification of states<a href="discrete-time-markov-chains.html#classification-of-states" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Throughout this section <span class="math inline">\(\{ X_n\}_{n \ge 0}\)</span> is a time homogeneous
 Markov chain with state space <span class="math inline">\(S\)</span> and transition matrix
 <span class="math inline">\(P = (p_{ij})_{i,j \in S}\)</span>.</p>
@@ -1057,8 +1040,8 @@ for all <span class="math inline">\(i \in C_2\)</span> and <span class="math inl
 <span class="math inline">\(p_{21} &gt; 0\)</span>, but <span class="math inline">\(p_{11} = 1\)</span>.</p></li>
 </ul>
 </div>
-<div id="absorption-probabilities-and-expected-time-to-absorption" class="section level2" number="4.10">
-<h2><span class="header-section-number">4.10</span> Absorption probabilities and expected time to absorption</h2>
+<div id="absorption-probabilities-and-expected-time-to-absorption" class="section level2 hasAnchor" number="4.10">
+<h2><span class="header-section-number">4.10</span> Absorption probabilities and expected time to absorption<a href="discrete-time-markov-chains.html#absorption-probabilities-and-expected-time-to-absorption" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For the random walk with absorbing boundaries (i.e. <span class="math inline">\(0\)</span> and <span class="math inline">\(N\)</span>), two
 questions arises, in which state, <span class="math inline">\(0\)</span> or <span class="math inline">\(N\)</span> is the process eventually
 absorbed (or trapped) and on the average how long does it take to reach
@@ -1071,8 +1054,8 @@ applies to the random walk process with absorbing boundaries.</p>
 The <strong>mean time to absorption</strong> of the process is given by
 <span class="math display">\[\mathrm{E}[T |  X_0 = i ] \, \text{ for } i = 1,2,\ldots,N-1.\]</span></p>
 </div>
-<div id="first-step-analysis" class="section level2" number="4.11">
-<h2><span class="header-section-number">4.11</span> First step analysis</h2>
+<div id="first-step-analysis" class="section level2 hasAnchor" number="4.11">
+<h2><span class="header-section-number">4.11</span> First step analysis<a href="discrete-time-markov-chains.html#first-step-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>First step analysis allows us to evaluate quantities of interest from
 the Markov chain, for e.g. the absorption probabilities and the mean
 duration until absorption. The method is based on considering all
@@ -1104,8 +1087,8 @@ A vector of absorption probabilities is then given by
 <span class="math inline">\(\mathbf{u}^C = (u^C_i)_{i \in S}\)</span> We suppress the superscript <span class="math inline">\(C\)</span> and
 simply write <span class="math inline">\(u^C_{i} = u_i\)</span> and <span class="math inline">\(\mathbf{u}^C = \mathbf{u}\)</span>.</p>
 <p>Consider the closed class <span class="math inline">\(C_1 = \{0\}\)</span>. We have <span class="math display">\[\begin{aligned}
-    u_{0} &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 0) = 1, \\ 
-    u_{2} &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 2) = 0, \\ 
+    u_{0} &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 0) = 1, \\
+    u_{2} &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 2) = 0, \\
     u_{1} &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 1) = u_1. \\   \end{aligned}\]</span>
 By considering the first transition from state <span class="math inline">\(1\)</span> to either state 0, 1
 and 2, and using the Markov property, the law of total probability gives
@@ -1113,14 +1096,14 @@ and 2, and using the Markov property, the law of total probability gives
     u_1 &amp;= \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 1) \\
     &amp;= \sum_{k = 0}^2 \Pr(\text{Markov chain eventually absorbed in } C_1 | X_0 = 1, X_1 = k)   \Pr(X_1 = k | X_0 = 1) \\
     &amp;= \sum_{k = 0}^2 \Pr(\text{Markov chain eventually absorbed in } C_1 | X_1 = k)    \Pr(X_1 = k | X_0 = 1) \\
-    &amp;=  (p_{10}) \cdot  u_0 + (p_{11}) \cdot  u_1 + (p_{12}) \cdot  u_2  \\ 
+    &amp;=  (p_{10}) \cdot  u_0 + (p_{11}) \cdot  u_1 + (p_{12}) \cdot  u_2  \\
     &amp;= (p_{10})\cdot 1 + (p_{11}) \cdot  u_1 +  (p_{12}) \cdot 0. \end{aligned}\]</span>
 Solving for <span class="math inline">\(u_1\)</span> gives
 <span class="math display">\[u_1 =  u^{C_1}_1 = \frac{p_{10}}{1 - p_{11}} = \frac{p_{10}}{p_{10} +  p_{12}}.\]</span></p>
 <p><strong>Note</strong>
 Similarly, we have <span class="math display">\[\begin{aligned}
     u_0 &amp;= p_{00} \cdot u_0 + p_{01} \cdot  u_1 +  p_{02} \cdot  u_2 \\
-    u_1 &amp;= p_{10} \cdot  u_0 + p_{11} \cdot  u_1 + p_{12} \cdot  u_2  \\ 
+    u_1 &amp;= p_{10} \cdot  u_0 + p_{11} \cdot  u_1 + p_{12} \cdot  u_2  \\
     u_2 &amp;= p_{20} \cdot  u_0 + p_{21} \cdot  u_1 + p_{22} \cdot  u_2,  \\\end{aligned}\]</span>
 where the first and the last equations reduce to <span class="math inline">\(u_0 = u_0\)</span> and
 <span class="math inline">\(u_2 = u_2\)</span>, respectively. In general, for a closed class <span class="math inline">\(C\)</span>, the
@@ -1182,8 +1165,8 @@ Hence, the absorption probabilities in the closed class <span class="math inline
 closed classes,
 <span class="math inline">\(\mathbf{u}^{C_2} = \mathbf{1} - \mathbf{u}^{C_1} = (0,7/11,6/11,1,1)^T.\)</span></p>
 </div>
-<div id="the-expected-time-to-absorption" class="section level2" number="4.12">
-<h2><span class="header-section-number">4.12</span> The expected time to absorption</h2>
+<div id="the-expected-time-to-absorption" class="section level2 hasAnchor" number="4.12">
+<h2><span class="header-section-number">4.12</span> The expected time to absorption<a href="discrete-time-markov-chains.html#the-expected-time-to-absorption" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The expected time to absorption can be determined by analysing all
 possibilities occurring in the first step. We again consider the process
 defined in Example @ref(exm:eg_absorption) on the set <span class="math inline">\(\{0, 1, 2\}\)</span> with the transition
@@ -1258,8 +1241,8 @@ absorption <span class="math display">\[\begin{aligned}
     v_1 &amp;=  \frac{-p_{12}  + p_{22} -1}{p_{11}(-p_{22}) + p_{11} + p_{12}p_{21} + p_{22} - 1}, \\
     v_2 &amp;=  \frac{p_{11}  - p_{21} -1}{p_{11}(-p_{22}) + p_{11} + p_{12}p_{21} + p_{22} - 1}. \\\end{aligned}\]</span></p>
 </div>
-<div id="the-long-term-distribution-of-a-markov-chain" class="section level2" number="4.13">
-<h2><span class="header-section-number">4.13</span> The long-term distribution of a Markov chain</h2>
+<div id="the-long-term-distribution-of-a-markov-chain" class="section level2 hasAnchor" number="4.13">
+<h2><span class="header-section-number">4.13</span> The long-term distribution of a Markov chain<a href="discrete-time-markov-chains.html#the-long-term-distribution-of-a-markov-chain" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this section, we present another important property concerning
 limiting behaviour of <span class="math inline">\(P^n\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span> and hence the
 long-term distribution of a Markov chain satisfying some certain
@@ -1268,10 +1251,10 @@ equilibrium (limiting) distribution, which is independent of its initial
 state.</p>
 <p>We also assume that the Markov chain with <strong>a single closed class</strong> <span class="math inline">\(S\)</span>.</p>
 </div>
-<div id="stationary-and-limiting-distributions-for-a-single-closed-class" class="section level2" number="4.14">
-<h2><span class="header-section-number">4.14</span> Stationary and limiting distributions for a single closed class</h2>
-<div id="stationary-distributions" class="section level3 unnumbered">
-<h3>Stationary distributions</h3>
+<div id="stationary-and-limiting-distributions-for-a-single-closed-class" class="section level2 hasAnchor" number="4.14">
+<h2><span class="header-section-number">4.14</span> Stationary and limiting distributions for a single closed class<a href="discrete-time-markov-chains.html#stationary-and-limiting-distributions-for-a-single-closed-class" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="stationary-distributions" class="section level3 unnumbered hasAnchor">
+<h3>Stationary distributions<a href="discrete-time-markov-chains.html#stationary-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Throughout this section, we consider a Markov chain whose transition
 probability matrix is <span class="math inline">\(P\)</span> and state space <span class="math inline">\(S\)</span> is a single close class.
 Then <span class="math inline">\(S\)</span> is necessarily closed and hence irreducible.</p>
@@ -1330,8 +1313,8 @@ has the following transition matrix <span class="math display">\[P = \begin{bmat
 </div>
 <p><strong>Solution:</strong> The solutions can be found from the tutorial.</p>
 </div>
-<div id="proportion-of-time-in-each-state" class="section level3 unnumbered">
-<h3>Proportion of Time in Each State</h3>
+<div id="proportion-of-time-in-each-state" class="section level3 unnumbered hasAnchor">
+<h3>Proportion of Time in Each State<a href="discrete-time-markov-chains.html#proportion-of-time-in-each-state" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The limiting distribution provides the long-term behaviour of the Markov
 chain, i.e. it is the long-term probability that a Markov chain hits
 each state. In this section, it can be shown that it also gives the
@@ -1351,7 +1334,7 @@ the Markov chain visits <span class="math inline">\(j\)</span> in the first <spa
 <span class="math inline">\(\sum_{k =0}^{n-1} I_k\)</span> and the expected long-term proportion of time
 that the chain visits state <span class="math inline">\(j\)</span> given that its initial state is <span class="math inline">\(i\)</span> is
 <span class="math display">\[\begin{aligned}
-    \lim_{n \rightarrow \infty} \mathrm{E}\left(\frac{1}{n}  \sum_{k =0}^{n-1} I_k \, |\, X_0 = i \right) &amp;= 
+    \lim_{n \rightarrow \infty} \mathrm{E}\left(\frac{1}{n}  \sum_{k =0}^{n-1} I_k \, |\, X_0 = i \right) &amp;=
     \lim_{n \rightarrow \infty}  \frac{1}{n}  \sum_{k =0}^{n-1} \mathrm{E}( I_k \, |\, X_0 = i ) \\
     &amp;= \lim_{n \rightarrow \infty}  \frac{1}{n}  \sum_{k =0}^{n-1} \Pr(X_k = j | X_0 = i)\\
     &amp;= \lim_{n \rightarrow \infty}  \frac{1}{n}  \sum_{k =0}^{n-1} p^{(k)}_{ij}\\
@@ -1379,8 +1362,8 @@ proportions of visits to rainy, cloudy and sunny states are 94/147,
 32/147, 1/7, respectively.</em></p>
 </div>
 </div>
-<div id="the-method-of-finding-the-stationary-distribution" class="section level3 unnumbered">
-<h3>The method of finding the stationary distribution</h3>
+<div id="the-method-of-finding-the-stationary-distribution" class="section level3 unnumbered hasAnchor">
+<h3>The method of finding the stationary distribution<a href="discrete-time-markov-chains.html#the-method-of-finding-the-stationary-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To find the stationary distribution, we simply solve the linear
 equations <span class="math inline">\(\boldsymbol{\pi} P =\boldsymbol{\pi}\)</span> (note that one of the
 equations can be discarded), together with the condition
@@ -1425,8 +1408,8 @@ property holds for some Markov chains which satisfy <strong>"certain
 conditions"</strong>.</p>
 </div>
 </div>
-<div id="sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain" class="section level2" number="4.15">
-<h2><span class="header-section-number">4.15</span> Sufficient conditions for the long-run behaviour of a Markov chain</h2>
+<div id="sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain" class="section level2 hasAnchor" number="4.15">
+<h2><span class="header-section-number">4.15</span> Sufficient conditions for the long-run behaviour of a Markov chain<a href="discrete-time-markov-chains.html#sufficient-conditions-for-the-long-run-behaviour-of-a-markov-chain" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In what follows, we will establish a set of sufficient conditions for
 the long-run behaviour of a Markov chain. Two important results are
 stated without proof.</p>
@@ -1458,8 +1441,8 @@ invariance of the simple random walk, <span class="math inline">\(\pi_i\)</span>
 <span class="math inline">\(S\)</span> is infinite. Hence, there is <strong>no</strong> stationary distribution for the
 simple random walk.</p>
 </div>
-<div id="limiting-distributions" class="section level2" number="4.16">
-<h2><span class="header-section-number">4.16</span> Limiting distributions</h2>
+<div id="limiting-distributions" class="section level2 hasAnchor" number="4.16">
+<h2><span class="header-section-number">4.16</span> Limiting distributions<a href="discrete-time-markov-chains.html#limiting-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One of the important properties of stationary distributions is that the
 distribution of the Markov chain satisfying certain conditions converges
 to the stationary distribution. This result provides the long-term
@@ -1608,8 +1591,8 @@ in ExampleÂ <a href="#exampleLongTerm" reference-type="ref" reference="example
 reaches the stationary probability distribution in the long run.</li>
 </ol>
 </div>
-<div id="main-result" class="section level2" number="4.17">
-<h2><span class="header-section-number">4.17</span> Main result</h2>
+<div id="main-result" class="section level2 hasAnchor" number="4.17">
+<h2><span class="header-section-number">4.17</span> Main result<a href="discrete-time-markov-chains.html#main-result" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The main result in this section can be stated as follows:</p>
 <div class="theorem">
 <p><span id="thm:unlabeled-div-33" class="theorem"><strong>Theorem 4.3  </strong></span><strong>Theorem 3</strong>. <em>Let <span class="math inline">\(P\)</span> be the transition probability matrix of a
@@ -1692,13 +1675,13 @@ P^{32} &amp;= \begin{bmatrix}
 </div>
 <p>The limiting probability distribution is
 <span class="math display">\[\lim_{n\rightarrow \infty} P^n=
- \begin{bmatrix}
+\begin{bmatrix}
 0.04761905 &amp; 0.1904762 &amp; 0.7619048\\
 0.04761905 &amp; 0.1904762 &amp; 0.7619048\\
 0.04761905 &amp; 0.1904762 &amp; 0.7619048\\
 \end{bmatrix}.\]</span></p>
-<div id="applications-of-markov-chains-to-ncd-systems" class="section level3 unnumbered">
-<h3>Applications of Markov chains to NCD systems</h3>
+<div id="applications-of-markov-chains-to-ncd-systems" class="section level3 unnumbered hasAnchor">
+<h3>Applications of Markov chains to NCD systems<a href="discrete-time-markov-chains.html#applications-of-markov-chains-to-ncd-systems" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="example">
 <p><span id="exm:unlabeled-div-36" class="example"><strong>Example 4.32  </strong></span><em>A no-claims discount system for motor insurance has
 three levels of discount:</em></p>
@@ -1766,7 +1749,6 @@ good driving?</em></p></li>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1806,6 +1788,10 @@ gitbook.start({
 "text": null
 },
 "download": ["SCMA469Bookdownproj.pdf", "SCMA469Bookdownproj.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -1819,7 +1805,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

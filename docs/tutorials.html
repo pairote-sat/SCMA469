@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Tutorials | SCMA469 Actuarial Statistics</title>
   <meta name="description" content="Chapter 6 Tutorials | SCMA469 Actuarial Statistics" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Tutorials | SCMA469 Actuarial Statistics" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Pairote Satiracoo" />
 
 
-<meta name="date" content="2022-09-04" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="poisson-processes.html"/>
 <link rel="next" href="applications.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -239,10 +238,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tutorials" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Tutorials</h1>
-<div id="tutorial-1" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Tutorial 1</h2>
+<div id="tutorials" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Tutorials<a href="tutorials.html#tutorials" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="tutorial-1" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Tutorial 1<a href="tutorials.html#tutorial-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p>Consider a random walk, <span class="math inline">\(S_n\)</span>, with <span class="math inline">\(S_0 = 0\)</span> and where each step is
 normally distributed with mean 0 and variance 10.</p>
@@ -332,7 +331,7 @@ different possibilities and each of these has probability
 <p>The required probability is <span class="math display">\[\Pr(X_1 = 99,
 X_4 = 98, X_8 = 96 | X_0 = 100)  =  12  p^{2}(1-p)^{6} .\]</span></p></li>
 <li><p>By Markov property, we have <span class="math display">\[\Pr(
-X_4 = 98, X_8 = 96 |X_1 = 99, X_0 = 100), 
+X_4 = 98, X_8 = 96 |X_1 = 99, X_0 = 100),
 = \Pr(
 X_4 = 98, X_8 = 96 |X_1 = 99).\]</span> Again, the problem can be
 divided into two periods:</p>
@@ -357,14 +356,14 @@ X_4 = 98, X_8 = 96 |X_1 = 99)  =  12  p^{2}(1-p)^{5} .\]</span></p></li>
 </ol></li>
 </ol>
 <p><span class="math display">\[\begin{aligned}
-            \Pr(X_5 &amp;= 95) = {5 \choose 0} p^0 (1-p)^5 =  1 
+            \Pr(X_5 &amp;= 95) = {5 \choose 0} p^0 (1-p)^5 =  1
         p^0 (1-p)^5    \\
-            \Pr(X_5 &amp;= 97) = {5 \choose 1} p^1 (1-p)^4 = 5 
+            \Pr(X_5 &amp;= 97) = {5 \choose 1} p^1 (1-p)^4 = 5
             p^1 (1-p)^4\\
-            \Pr(X_5 &amp;= 99) = {5 \choose 2} p^2 (1-p)^3 = 10 
+            \Pr(X_5 &amp;= 99) = {5 \choose 2} p^2 (1-p)^3 = 10
             p^2 (1-p)^3\\
             &amp;\vdots \\
-            \Pr(X_5 &amp;= 105) = {5 \choose 5} p^5 (1-p)^0 = 1 
+            \Pr(X_5 &amp;= 105) = {5 \choose 5} p^5 (1-p)^0 = 1
             p^5 (1-p)^0 \end{aligned}\]</span></p>
 <pre><code>    Therefore, </code></pre>
 <p><span class="math inline">\(\mathrm{E}[X_5] = 95 \cdot \left( 1 p^0 (1-p)^5 \right) + 97 \cdot \left(5 p^1 (1-p)^4 \right) + 99 \cdot \left(10 p^2 (1-p)^3 \right) + \cdots + 105 \cdot \left( 1 p^5 (1-p)^0 \right) = 95 + 10*x.\)</span></p>
@@ -466,7 +465,7 @@ Note that this equality holds for all <span class="math inline">\(n\)</span> bec
 <p><span class="math display">\[P\left(x_{n}=j \mid x_{n-1}=i\right)=P\left(x_{n}=j\right)=p_{j},\]</span></p>
 <p>This proves our claim that the i.i.d. sequence of random variables
 has a Markov property. Note also that the transition matrix is
-<span class="math display">\[P = 
+<span class="math display">\[P =
 \begin{bmatrix}
 p_1 &amp; p_2 &amp; \cdots &amp; p_k \\
 p_1 &amp; p_2 &amp; \cdots &amp; p_k \\
@@ -479,7 +478,7 @@ common probability mass function <span class="math display">\[Z_i = \begin{cases
     2, &amp; \text{ with probability }  0.3 \\  
     3, &amp; \text{ with probability }  0.4 \\  
     4, &amp; \text{ with probability }  0.1 \\  
- \end{cases}\]</span> Let <span class="math inline">\(X_0 = 1\)</span> and
+\end{cases}\]</span> Let <span class="math inline">\(X_0 = 1\)</span> and
 <span class="math inline">\(X_n = \max\{Z_1, Z_2, \ldots, Z_n \}\)</span> be the largest <span class="math inline">\(Z\)</span> observed
 to date. Explain how this may be modelled by a Markov chain.
 <strong>Solution:</strong></p>
@@ -561,8 +560,8 @@ $P$. Moreover, given the most recent value $X_n$, its future value
 $X_{n+1}$ is independent of the past history
 $X_0, X_1, \ldots, X_{n-1}$.</code></pre>
 </div>
-<div id="tutorial-2" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Tutorial 2</h2>
+<div id="tutorial-2" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Tutorial 2<a href="tutorials.html#tutorial-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states <span class="math inline">\(1, 2, 3\)</span> has the
 following transition matrix <span class="math display">\[P = \begin{bmatrix}
@@ -720,7 +719,7 @@ Hence</p>
          &amp;= \begin{bmatrix}
             1 &amp; -\frac{a}{b}(1 - a - b)^n \\
             1 &amp; (1 - a - b)^n \\
-         \end{bmatrix} 
+         \end{bmatrix}
          \left(
          \frac{1}{1 + a/b}
          \begin{bmatrix}
@@ -745,7 +744,7 @@ Hence</p>
          \end{bmatrix}
          \end{aligned}.
          \]</span>
-Note that <span class="math display">\[\lim_{n \rightarrow \infty} P^n = 
+Note that <span class="math display">\[\lim_{n \rightarrow \infty} P^n =
          \frac{1}{a+b}
          \begin{bmatrix}
          b &amp; a \\
@@ -846,8 +845,8 @@ sunny in two days time.</p></li>
 <span class="math display">\[ \Pr(X_2 = S | X_0 = R) = (P^2)_{13} = 0.15.\]</span></p></li>
 </ol>
 </div>
-<div id="tutorial-3" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Tutorial 3</h2>
+<div id="tutorial-3" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Tutorial 3<a href="tutorials.html#tutorial-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p>A Markov chain <span class="math inline">\(X_0, X_1, \ldots\)</span> on states 1, 2, 3 with initial
 distribution <span class="math inline">\(\boldsymbol{\mu} = (1/4,1/4,1/2)\)</span>. It has the
@@ -871,8 +870,8 @@ following transition matrix <span class="math display">\[P = \begin{bmatrix}
 <pre><code>2.  We have  </code></pre>
 <p><span class="math inline">\(\Pr(X_0 = 3, X_1 = 2, X_2 = 1) = \mu_3 p_{32} p_{21} = (0.5)(2/5)(1/3) = 1/15.\)</span></p>
 <pre><code>3.  We have </code></pre>
-<p><span class="math display">\[\begin{aligned} \Pr(X_1 = 3, X_2 = 2, X_3 = 1) &amp;= 
-\sum_{i=1}^{3} \Pr(X_0 = i) \Pr(X_1 = 3, X_2 = 2, X_3 = 1 | X_0 = i) \\ 
+<p><span class="math display">\[\begin{aligned} \Pr(X_1 = 3, X_2 = 2, X_3 = 1) &amp;=
+\sum_{i=1}^{3} \Pr(X_0 = i) \Pr(X_1 = 3, X_2 = 2, X_3 = 1 | X_0 = i) \\
 &amp;= \sum_{i=1}^{3} \mu_i p_{i3} p_{32} p_{21} \\
 &amp;=  \left( \sum_{i=1}^{3} \mu_i p_{i3} \right) p_{32} p_{21}  \\
 &amp;= (\boldsymbol{\mu}P)_3 p_{32} p_{21}\\
@@ -880,8 +879,8 @@ following transition matrix <span class="math display">\[P = \begin{bmatrix}
 &amp;= 83/1800  =  0.0461111.
 \end{aligned}\]</span></p>
 <pre><code>4. We have </code></pre>
-<p><span class="math display">\[\begin{aligned} \Pr(X_1 = 2, X_3 = 2, X_5 = 2) &amp;= 
-\sum_{i=1}^{3} \Pr(X_0 = i) \Pr(X_1 = 2, X_3 = 2, X_5 = 2 | X_0 = i) \\ 
+<p><span class="math display">\[\begin{aligned} \Pr(X_1 = 2, X_3 = 2, X_5 = 2) &amp;=
+\sum_{i=1}^{3} \Pr(X_0 = i) \Pr(X_1 = 2, X_3 = 2, X_5 = 2 | X_0 = i) \\
 &amp;= \sum_{i=1}^{3} \mu_i p_{i2} p^{(2)}_{22} p^{(2)}_{22} \\
 &amp;=  \left( \sum_{i=1}^{3} \mu_i p_{i2} \right) p^{(2)}_{22} p^{(2)}_{22}  \\
 &amp;= (\boldsymbol{\mu}P)_2 p^{(2)}_{22} p^{(2)}_{22}\\
@@ -945,10 +944,10 @@ closed classes. Assume that the states are labelled <span class="math inline">\(
 <li><p><span class="math display">\[\begin{bmatrix}
        0 &amp; 0 &amp; 0 &amp; 1/2  &amp; 0 &amp; 0 &amp; 1/2   \\
        1/6 &amp; 0 &amp; 1/6 &amp; 0  &amp; 0 &amp; 1/6 &amp; 1/2 \\
-   0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0    \\ 
+   0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0    \\
        1/2 &amp; 0 &amp; 0 &amp; 1/2  &amp; 0 &amp; 0 &amp; 0   \\
    1/4 &amp; 1/4 &amp; 0 &amp; 0  &amp; 0 &amp; 0 &amp; 1/2 \\
-   0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0    \\ 
+   0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0    \\
        1/2 &amp; 0 &amp; 0 &amp; 0  &amp; 0 &amp; 0 &amp; 1/2   \\
      \end{bmatrix}.\]</span></p></li>
 </ol></li>
@@ -1050,7 +1049,7 @@ be stationary distributions within other classes.</p></li>
 such that <span class="math inline">\(\sum_{m=1}^r \gamma_m = 1\)</span>, the following
 distribution <span class="math inline">\(\{ \pi_j \}\)</span> is stationary, where</li>
 </ol>
-<p><span class="math display" id="eq:limitdist">\[\begin{equation} 
+<p><span class="math display" id="eq:limitdist">\[\begin{equation}
   \tag{6.1}
     \pi_j =
      \begin{cases}
@@ -1074,7 +1073,7 @@ Eqn.<a href="tutorials.html#eq:limitdist">(6.1)</a> where <span class="math inli
 for <span class="math inline">\(k = 1,2,\ldots r\)</span> where <span class="math inline">\(\alpha^{(k)}_i\)</span> is the
 probability of absorption in class <span class="math inline">\(C_k\)</span>. More precisely,
 <span class="math display">\[\pi_j =
- \begin{cases}
+\begin{cases}
     \pi_j^{(k)} \alpha^{(k)}_i &amp; \text{for } j \in C_k, \, k= 1,\ldots, r \\
     0 &amp; \text{if } j \text{ is in a nonclosed class.}
   \end{cases}
@@ -1555,8 +1554,8 @@ Therefore,</p>
 <!--     3.  Find the probability that a policyholder who has the maximum -->
 <!--         discount level will have 20% discount after two years. -->
 </div>
-<div id="tutorial-4" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Tutorial 4</h2>
+<div id="tutorial-4" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Tutorial 4<a href="tutorials.html#tutorial-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p>Customers arrive in a shop according to a Poisson process of rate
 <span class="math inline">\(\lambda = 2\)</span>. Let <span class="math inline">\(N(t)\)</span> be the number of customers that have
@@ -1659,9 +1658,9 @@ anything that has occurred before time <span class="math inline">\(s\)</span>.</
 </ol></li>
 </ol>
 <p><span class="math display">\[\begin{aligned}
-    \Pr(N(1) = 2 \text{ and } N(3) = 6) &amp;= 
+    \Pr(N(1) = 2 \text{ and } N(3) = 6) &amp;=
     \Pr(N(1) = 2 \text{ and } N(3) - N(1) = 4)\\
-    &amp;= 
+    &amp;=
     \Pr(N(1) = 2) \Pr(N(3) - N(1) = 4)\\
     &amp;= \frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)} \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = (0.2706706)(0.1953668) \\
     &amp;= 0.05288.
@@ -1669,16 +1668,16 @@ anything that has occurred before time <span class="math inline">\(s\)</span>.</
 Here we have used the fact that <span class="math inline">\(N(3) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p>
 <pre><code>3.  </code></pre>
 <p><span class="math display">\[\begin{aligned}
-    \Pr(N(1) = 2 | N(3) = 6) &amp;= 
-    \frac{\Pr(N(1) = 2 \text{ and } N(3) = 6)}{\Pr(N(3) = 6)} \\ 
+    \Pr(N(1) = 2 | N(3) = 6) &amp;=
+    \frac{\Pr(N(1) = 2 \text{ and } N(3) = 6)}{\Pr(N(3) = 6)} \\
     \frac{0.05288}{ \frac{\exp(-(2)(3))((2)(3))^{6}  }{(6!)}  } \\
     &amp;= 0.3292181.
     \end{aligned}\]</span></p>
 <pre><code>4.  </code></pre>
 <p><span class="math display">\[\begin{aligned}
-    \Pr(N(3) = 6 | N(1) = 2) 
+    \Pr(N(3) = 6 | N(1) = 2)
     &amp;= \Pr(N(3)-N(1) = 4 | N(1) = 2) \\
-    &amp;= \Pr(N(3)-N(1) = 4) 
+    &amp;= \Pr(N(3)-N(1) = 4)
     \frac{\exp(-(2)(2))((2)(2))^{4}  }{(4!)} = 0.1953668.
     \end{aligned}\]</span>
 Here we have used the fact that <span class="math inline">\(N(3) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p>
@@ -1688,9 +1687,9 @@ Here we have used the fact that <span class="math inline">\(N(3) - N(1)\)</span>
     \end{aligned}\]</span></p>
 <pre><code>6.  </code></pre>
 <p><span class="math display">\[\begin{aligned}
-    \Pr(N(1) = 1 \text{ and } N(2) = 3) &amp;= 
+    \Pr(N(1) = 1 \text{ and } N(2) = 3) &amp;=
     \Pr(N(1) = 1 \text{ and } N(2) - N(1) = 2)\\
-    &amp;= 
+    &amp;=
     \Pr(N(1) = 1) \Pr(N(2) - N(1) = 2)\\
     &amp;= \frac{\exp(-(2)(1))((2)(1))^{1}  }{(1!)}\frac{\exp(-(2)(1))((2)(1))^{2}  }{(2!)}  = (0.2706706)(0.2706706) \\
     &amp;= 0.0732626.
@@ -1698,7 +1697,7 @@ Here we have used the fact that <span class="math inline">\(N(3) - N(1)\)</span>
 Here we have used the fact that <span class="math inline">\(N(2) - N(1)\)</span> and <span class="math inline">\(N(1)\)</span> are independent.</p>
 <pre><code>7.  </code></pre>
 <p><span class="math display">\[\begin{aligned}
-    \Pr(N(1) \ge 2 | N(1) \ge 1) 
+    \Pr(N(1) \ge 2 | N(1) \ge 1)
     &amp;= \frac{\Pr(N(1) \ge 2 \text{ and } N(1) \ge 1)}{\Pr(N(1) \ge 1)}  \\
      &amp;= \frac{\Pr(N(1) \ge 2)}{\Pr(N(1) \ge 1)}  \\
      &amp;= \frac{1 - \Pr(N(1) \le 1)}{1- \Pr(N(1) = 0)}  \\
@@ -1711,7 +1710,7 @@ Here we have used the fact that <span class="math inline">\(N(2) - N(1)\)</span>
     \end{aligned}\]</span></p>
 <pre><code>9.  </code></pre>
 <p><span class="math display">\[\begin{aligned}
-    \mathrm{E}[N(1)^2] = 
+    \mathrm{E}[N(1)^2] =
      \mathrm{Var}[N(1)] +  (\mathrm{E}[N(1)])^2 = 6.
     \end{aligned}\]</span></p>
 <pre><code>10. </code></pre>
@@ -1729,9 +1728,9 @@ Here we have used the fact that <span class="math inline">\(N(2) - N(1)\)</span>
 <li>Let <span class="math inline">\(N(t)\)</span> be the number of customers that have arrived up to time <span class="math inline">\(t\)</span>.</li>
 </ol>
 <p><span class="math display">\[\begin{aligned}
-    \Pr(N(1/2) = 1 \text{ and } N(5/2) = 5) &amp;= 
+    \Pr(N(1/2) = 1 \text{ and } N(5/2) = 5) &amp;=
     \Pr(N(1/2) = 1 \text{ and } N(5/2) - N(1/2) = 4)\\
-    &amp;= 
+    &amp;=
     \Pr(N(1/2) = 1) \Pr(N(5/2) - N(1/2) = 4)\\
     &amp;= \frac{\exp(-(4)(0.5))((4)(0.5))^{1}  }{(1!)} \frac{\exp(-(4)(2))((4)(2))^{4}  }{(4!)} = (0.2706706)(0.0572523) \\
     &amp;= 0.0154965.
@@ -1745,7 +1744,7 @@ Here we have used the fact that <span class="math inline">\(N(5/2) - N(1/2)\)</s
 2. Using the independent of <span class="math inline">\(X(2)\)</span> and <span class="math inline">\(X(3) - X(2)\)</span>, this implies that the conditional probability is the same as the unconditional probability. Therefore, we have</p>
 <p><span class="math display">\[
 \begin{aligned}
-\Pr(X(3)  - X(2)= 0|X(2)= 0) 
+\Pr(X(3)  - X(2)= 0|X(2)= 0)
 &amp;= \Pr(X(3)  - X(2)= 0)  \\
 &amp;= \frac{\exp(-(0.1)(1))((0.1)(1))^{0}  }{(0!)} \\
 &amp;= 0.9048374.
@@ -1758,7 +1757,7 @@ Here we have used the fact that <span class="math inline">\(N(5/2) - N(1/2)\)</s
     </code></pre>
 <p><span class="math display">\[\begin{aligned}
     \Pr(N(t,t+5) \ge 10) &amp;= 1 - \Pr(N(t,t+5) \le 9) \\
-    &amp;= 
+    &amp;=
     1- 0.4579297 \\
     &amp;= 0.5420703.
     \end{aligned}\]</span></p>
@@ -1768,7 +1767,7 @@ Here we have used the fact that <span class="math inline">\(N(5/2) - N(1/2)\)</s
 <p>It follows that the required probability can be founded as follows:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\Pr(N_m(5) \ge 4 | N_f(5) \ge 5 ) 
+\Pr(N_m(5) \ge 4 | N_f(5) \ge 5 )
 &amp;= \Pr(N_m(5) \ge 4) \\
 &amp;= 1 - \Pr(N_m(5) \le 3) \\
 &amp;= 0.427014.
@@ -1814,9 +1813,9 @@ Hence this conditional distribution is a bionomial distribution with parameters 
 3. There are <span class="math inline">\(n = 60\)</span> accidents occurring in four weeks (<span class="math inline">\(t= 4\)</span> weeks). The number of accidents involve speeding <span class="math inline">\(N_S\)</span> in <span class="math inline">\([0,t]\)</span> has a binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p = 1/4\)</span>.</p>
 <pre><code> The required probability is </code></pre>
 <p><span class="math display">\[
-\begin{aligned} 
+\begin{aligned}
 \Pr(N_S(4) &lt; 30 | N(4) = 60) &amp;= \sum_{k = 0}^{29} \binom{60}{k} \left(\frac{1}{4} \right)^k \left(\frac{3}{4} \right)^{60-k} \\
-&amp;= 0.9999733. 
+&amp;= 0.9999733.
 \end{aligned}
 \]</span>
 The probability above can be calculated using the following command in R <code>pbinom(29,60,1/4)</code>.</p></li>
@@ -1826,7 +1825,7 @@ where <span class="math inline">\(N_t\)</span> is the number of severe floods th
 Using results for random sums of random variables,
 <span class="math display">\[ \text{E}(T) = \text{E}(N_t)\text{E}(X_1) = (4t)(60) = 240t,\]</span>
 and
-<span class="math display">\[\begin{aligned} 
+<span class="math display">\[\begin{aligned}
 \text{Var}(T) &amp;= \text{Var}(X_1)\text{E}(N_t) + [\text{E}(X_1)]^2 \text{Var}(N_t) = (60)(4t)  + (60)^2(4t) \\
 &amp;= 14640t,
 \end{aligned}
@@ -1852,15 +1851,15 @@ and standard deviation
 <p>By independence,</p>
 <p><span class="math display">\[
 \begin{aligned}
- \Pr(M_4 &gt; 0, F_4 = 0) &amp;= 
- \Pr(M_4 &gt; 0)\Pr(F_4 = 0) \\
- &amp;= (1 - e^{-3(0.52)(4)})(e^{-3(1-0.52)(4)}) \\
- &amp;= 0.003145.
+\Pr(M_4 &gt; 0, F_4 = 0) &amp;=
+\Pr(M_4 &gt; 0)\Pr(F_4 = 0) \\
+&amp;= (1 - e^{-3(0.52)(4)})(e^{-3(1-0.52)(4)}) \\
+&amp;= 0.003145.
 \end{aligned}
 \]</span></p>
 </div>
-<div id="tutorial-5" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Tutorial 5</h2>
+<div id="tutorial-5" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Tutorial 5<a href="tutorials.html#tutorial-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p>Suppose that we observe life <span class="math inline">\(i\)</span> at exact age 74 years and 3 months.
 The observation will continue until the earlier of the life’s 75th
@@ -2138,13 +2137,13 @@ where <span class="math inline">\(\Phi\)</span> is the cumulative density functi
 <li>Similar to the lecture handout.</li>
 </ol>
 </div>
-<div id="tutorial-6" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Tutorial 6</h2>
+<div id="tutorial-6" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Tutorial 6<a href="tutorials.html#tutorial-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Consider the 3-state model of terminal illness for healthy, ill and
 dead states as shown below.</li>
 </ol>
-<div class="figure"><span id="fig:tikz-ex0"></span>
+<div class="figure"><span style="display:block;" id="fig:tikz-ex0"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex0-1.png" alt="The 3-state model of terminal illness" width="672" />
 <p class="caption">
 Figure 6.1: The 3-state model of terminal illness
@@ -2172,7 +2171,7 @@ mortality of two lives (husband and wife) consisting of for states :</li>
 <li><p><span class="math inline">\(v =\)</span> wife is alive, but husband is dead, and</p></li>
 <li><p><span class="math inline">\(d =\)</span> both are dead.</p></li>
 </ul>
-<div class="figure"><span id="fig:tikz-ex1"></span>
+<div class="figure"><span style="display:block;" id="fig:tikz-ex1"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex1-1.png" alt="A model of the mortality of two lives" width="672" />
 <p class="caption">
 Figure 6.2: A model of the mortality of two lives
@@ -2188,7 +2187,7 @@ classified into able (<span class="math inline">\(a\)</span>), ill (<span class=
 (<span class="math inline">\(w\)</span>). The lives can move between state according to the following
 diagram:</li>
 </ol>
-<div class="figure"><span id="fig:tikz-ex2"></span>
+<div class="figure"><span style="display:block;" id="fig:tikz-ex2"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex2-1.png" alt="A Markov model for health insurance policies" width="672" />
 <p class="caption">
 Figure 6.3: A Markov model for health insurance policies
@@ -2294,22 +2293,22 @@ Then, the Kolmogorov forward differential equations (FDE) for <span class="math 
   \frac{d}{dt}p_{aa}(t) &amp;= p_{aa}(t) q_{aa} + p_{ai}(t) q_{ia} + p_{aw}(t) q_{wa} + p_{ad}(t) q_{da} \\
   &amp;= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) + (0)p_{aw}(t)  + (0)p_{ad}(t) \\
   &amp;= -(\sigma + \omega + \mu) p_{aa}(t)  + \rho p_{ai}(t) \\
-  \frac{d}{dt}p_{ai}(t) 
+  \frac{d}{dt}p_{ai}(t)
   &amp;= p_{aa}(t) q_{ai} + p_{ai}(t) q_{ii} + p_{aw}(t) q_{wi} + p_{ad}(t) q_{di} \\
   &amp;= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t) + (0)p_{aw}(t)  + (0) p_{ad}(t)  \\
   &amp;= \sigma p_{aa}(t) -(\rho + \mu)  p_{ai}(t)  \\
   \frac{d}{dt}p_{aw}(t) &amp;= \omega p_{aa}(t).
 \end{aligned}\]</span></p>
 <pre><code>4. The transition diagram for a model of maritial status is illusrated in the figure below:</code></pre>
-<div class="figure"><span id="fig:tikz-ex6"></span>
+<div class="figure"><span style="display:block;" id="fig:tikz-ex6"></span>
 <img src="SCMA469Bookdownproj_files/figure-html/tikz-ex6-1.png" alt="The 5-state model of maritial status" width="672" />
 <p class="caption">
 Figure 6.4: The 5-state model of maritial status
 </p>
 </div>
 </div>
-<div id="tutorial-7" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Tutorial 7</h2>
+<div id="tutorial-7" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Tutorial 7<a href="tutorials.html#tutorial-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <!-- CT4201004 -->
 <p><strong>Questions are modified from the past CT4 exams from IFoA.</strong></p>
 <ol style="list-style-type: decimal">
@@ -2479,7 +2478,6 @@ Can the risk be reduced by, for example, introducing annually reviewable premium
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -2519,6 +2517,10 @@ gitbook.start({
 "text": null
 },
 "download": ["SCMA469Bookdownproj.pdf", "SCMA469Bookdownproj.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -2532,7 +2534,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
